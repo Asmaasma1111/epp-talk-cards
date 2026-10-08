@@ -16,193 +16,620 @@
       "id": "pre-a1-01",
       "title": "Hello and goodbye",
       "cards": [
-        { "ar": "ردّي على التحية.", "q": "Good morning!", "a": ["Good morning!", "Hi! Good morning!"],
-          "useful": ["Good afternoon.", "Good evening."], "ask": "حيّي معلمتك في الصباح." },
-        { "ar": "كيف حالك؟", "q": "How are you?", "a": ["I'm fine, thank you.", "I'm good. And you?"],
-          "useful": ["Not bad.", "Very well, thanks."], "ask": "اسألي صديقتك عن حالها." },
-        { "ar": "ودّعي صديقتك.", "q": "Goodbye! See you tomorrow!", "a": ["Bye! See you!", "Goodbye! See you tomorrow!"],
-          "useful": ["See you later.", "Have a nice day!"], "ask": "ودّعي صديقتك بعد المدرسة." },
-        { "talk": true, "ar": "قابلي صديقتك في الصباح.", "q": "Meet your friend in the morning.",
-          "steps": ["Say hello.", "Ask how she is.", "Say goodbye."],
-          "a": [["Good morning!", "How are you?", "See you later!"]],
-          "useful": ["Hi!", "Bye!"] }
+        {
+          "ar": "ردّي على التحية.",
+          "q": "Good morning!",
+          "a": [
+            "Good morning!",
+            "Hi! Good morning!"
+          ],
+          "ask": "حيّي معلمتك في الصباح."
+        },
+        {
+          "ar": "كيف حالك؟",
+          "q": "How are you?",
+          "a": [
+            "I'm fine, thank you.",
+            "I'm good. And you?"
+          ],
+          "ask": "اسألي صديقتك عن حالها."
+        },
+        {
+          "ar": "ودّعي صديقتك.",
+          "q": "Goodbye! See you tomorrow!",
+          "a": [
+            "Bye! See you!",
+            "Goodbye! See you tomorrow!"
+          ],
+          "ask": "ودّعي صديقتك بعد المدرسة."
+        },
+        {
+          "talk": true,
+          "ar": "قابلي صديقتك في الصباح.",
+          "q": "Meet your friend in the morning.",
+          "steps": [
+            "Say hello.",
+            "Ask how she is.",
+            "Say goodbye."
+          ],
+          "a": [
+            [
+              "Good morning!",
+              "How are you?",
+              "See you later!"
+            ]
+          ]
+        }
       ]
     },
     {
       "id": "pre-a1-02",
       "title": "Please, thank you, sorry",
       "cards": [
-        { "ar": "أعطتك صديقتك قلمك.", "q": "Here's your pen.", "a": ["Thank you!", "Thanks a lot!"],
-          "useful": ["You're welcome."], "ask": "أعطي صديقتك قلمها." },
-        { "ar": "تريدين ماءً.", "q": "You want some water.", "a": ["Water, please.", "Can I have some water, please?"],
-          "useful": ["please", "Here you are."] },
-        { "ar": "اصطدمتِ بزميلتك.", "q": "You bump into a classmate.", "a": ["Oh, sorry!", "I'm so sorry!"],
-          "useful": ["That's OK.", "Excuse me."] },
-        { "talk": true, "ar": "أنتِ في المقصف.", "q": "You are at the school cafeteria.",
-          "steps": ["Say excuse me.", "Ask for a juice.", "Say thank you."],
-          "a": [["Excuse me.", "A juice, please.", "Thank you!"]],
-          "useful": ["Here you are.", "You're welcome."] }
+        {
+          "ar": "أعطتك صديقتك قلمك.",
+          "q": "Here's your pen.",
+          "a": [
+            "Thank you!",
+            "Thanks a lot!"
+          ],
+          "ask": "أعطي صديقتك قلمها."
+        },
+        {
+          "ar": "تريدين ماءً.",
+          "q": "You want some water.",
+          "a": [
+            "Water, please.",
+            "Can I have some water, please?"
+          ]
+        },
+        {
+          "ar": "اصطدمتِ بزميلتك.",
+          "q": "You bump into a classmate.",
+          "a": [
+            "Oh, sorry!",
+            "I'm so sorry!"
+          ]
+        },
+        {
+          "talk": true,
+          "ar": "أنتِ في المقصف.",
+          "q": "You are at the school cafeteria.",
+          "steps": [
+            "Say excuse me.",
+            "Ask for a juice.",
+            "Say thank you."
+          ],
+          "a": [
+            [
+              "Excuse me.",
+              "A juice, please.",
+              "Thank you!"
+            ]
+          ]
+        }
       ]
     },
     {
       "id": "pre-a1-03",
       "title": "My name",
       "cards": [
-        { "ar": "ما اسمك؟", "q": "What's your name?", "a": ["My name is ___.", "I'm ___."], "ex": "Noura · Lama · Reem",
-          "useful": ["Nice to meet you."], "ask": "اسألي زميلتك الجديدة عن اسمها." },
-        { "ar": "تهجّي اسمك.", "q": "How do you spell your name?", "a": ["It's ___."], "ex": "N-O-U-R-A · R-E-E-M",
-          "useful": ["Can you spell it, please?"], "ask": "اسألي زميلتك كيف تتهجّى اسمها." },
-        { "ar": "هل أنتِ نورة؟", "q": "Are you Noura?", "a": ["Yes, I am.", "No, I'm not. I'm ___."], "ex": "Lama · Sara",
-          "useful": ["Yes.", "No."], "ask": "اسألي زميلتك: هل أنتِ نورة؟" },
-        { "talk": true, "ar": "تعرّفي على زميلة جديدة.", "q": "Meet a new classmate.",
-          "steps": ["Say hi.", "Say your name.", "Say \"Nice to meet you.\""],
-          "a": [["Hi!", "I'm ___.", "Nice to meet you."]], "ex": ["", "Noura · Lama · Reem", ""],
-          "useful": ["Nice to meet you too."] }
+        {
+          "ar": "ما اسمك؟",
+          "q": "What's your name?",
+          "a": [
+            "My name is ___.",
+            "I'm ___."
+          ],
+          "ex": "Noura · Lama · Reem",
+          "ask": "اسألي زميلتك الجديدة عن اسمها."
+        },
+        {
+          "ar": "تهجّي اسمك.",
+          "q": "How do you spell your name?",
+          "a": [
+            "It's ___."
+          ],
+          "ex": "N-O-U-R-A · R-E-E-M",
+          "ask": "اسألي زميلتك كيف تتهجّى اسمها."
+        },
+        {
+          "ar": "هل أنتِ نورة؟",
+          "q": "Are you Noura?",
+          "a": [
+            "Yes, I am.",
+            "No, I'm not. I'm ___."
+          ],
+          "ex": "Lama · Sara",
+          "ask": "اسألي زميلتك: هل أنتِ نورة؟"
+        },
+        {
+          "talk": true,
+          "ar": "تعرّفي على زميلة جديدة.",
+          "q": "Meet a new classmate.",
+          "steps": [
+            "Say hi.",
+            "Say your name.",
+            "Say \"Nice to meet you.\""
+          ],
+          "a": [
+            [
+              "Hi!",
+              "I'm ___.",
+              "Nice to meet you."
+            ]
+          ],
+          "ex": [
+            "",
+            "Noura · Lama · Reem",
+            ""
+          ]
+        }
       ]
     },
     {
       "id": "pre-a1-04",
       "title": "Numbers and age",
       "cards": [
-        { "ar": "كم عمرك؟", "q": "How old are you?", "a": ["I'm ___.", "I'm ___ years old."], "ex": "fifteen · sixteen · seventeen",
-          "useful": ["years old"], "ask": "اسألي صديقتك عن عمرها." },
-        { "ar": "في أي صف أنتِ؟", "q": "What grade are you in?", "a": ["Grade ___.", "I'm in grade ___."], "ex": "ten · eleven · twelve",
-          "useful": ["grade"], "ask": "اسألي زميلتك: في أي صف هي؟" },
-        { "ar": "كم طالبة في صفك؟", "q": "How many students are in your class?", "a": ["Twenty.", "Twenty-five."],
-          "useful": ["ten, twenty, thirty"], "ask": "اسألي زميلتك: كم طالبة في صفها؟" },
-        { "talk": true, "ar": "أخبري معلمتك عن نفسك.", "q": "Tell your teacher about you.",
-          "steps": ["Say your name.", "Say your age.", "Say your grade."],
-          "a": [["My name is ___.", "I'm ___ years old.", "I'm in grade ___."]],
-          "ex": ["Noura · Lama", "fifteen · sixteen", "ten · eleven"],
-          "useful": ["My name is ...", "I'm ..."] }
+        {
+          "ar": "كم عمرك؟",
+          "q": "How old are you?",
+          "a": [
+            "I'm ___.",
+            "I'm ___ years old."
+          ],
+          "ex": "fifteen · sixteen · seventeen",
+          "ask": "اسألي صديقتك عن عمرها."
+        },
+        {
+          "ar": "في أي صف أنتِ؟",
+          "q": "What grade are you in?",
+          "a": [
+            "Grade ___.",
+            "I'm in grade ___."
+          ],
+          "ex": "ten · eleven · twelve",
+          "ask": "اسألي زميلتك: في أي صف هي؟"
+        },
+        {
+          "ar": "كم طالبة في صفك؟",
+          "q": "How many students are in your class?",
+          "a": [
+            "Twenty.",
+            "Twenty-five."
+          ],
+          "ask": "اسألي زميلتك: كم طالبة في صفها؟"
+        },
+        {
+          "talk": true,
+          "ar": "أخبري معلمتك عن نفسك.",
+          "q": "Tell your teacher about you.",
+          "steps": [
+            "Say your name.",
+            "Say your age.",
+            "Say your grade."
+          ],
+          "a": [
+            [
+              "My name is ___.",
+              "I'm ___ years old.",
+              "I'm in grade ___."
+            ]
+          ],
+          "ex": [
+            "Noura · Lama",
+            "fifteen · sixteen",
+            "ten · eleven"
+          ]
+        }
       ]
     },
     {
       "id": "pre-a1-05",
       "title": "Where I'm from",
       "cards": [
-        { "ar": "من أين أنتِ؟", "q": "Where are you from?", "a": ["I'm from Saudi Arabia.", "I'm from ___."], "ex": "Egypt · Jordan · Yemen",
-          "useful": ["Saudi Arabia"], "ask": "اسألي زميلتك: من أين هي؟" },
-        { "ar": "أين تسكنين؟", "q": "Where do you live?", "a": ["In ___.", "I live in ___."], "ex": "Riyadh · Jeddah · Dammam",
-          "useful": ["a city", "a town"], "ask": "اسألي صديقتك: أين تسكن؟" },
-        { "ar": "ما جنسيتك؟", "q": "What's your nationality?", "a": ["I'm Saudi.", "I'm ___."], "ex": "Egyptian · Jordanian · Sudanese",
-          "useful": ["nationality"], "ask": "اسألي زميلتك عن جنسيتها." },
-        { "talk": true, "ar": "ضيفة تزور صفك.", "q": "A visitor comes to your class.",
-          "steps": ["Say hello.", "Say your name.", "Say where you are from."],
-          "a": [["Hello!", "My name is ___.", "I'm from Saudi Arabia."]], "ex": ["", "Noura · Lama · Reem", ""],
-          "useful": ["Welcome!"] }
+        {
+          "ar": "من أين أنتِ؟",
+          "q": "Where are you from?",
+          "a": [
+            "I'm from Saudi Arabia.",
+            "I'm from ___."
+          ],
+          "ex": "Egypt · Jordan · Yemen",
+          "ask": "اسألي زميلتك: من أين هي؟"
+        },
+        {
+          "ar": "أين تسكنين؟",
+          "q": "Where do you live?",
+          "a": [
+            "In ___.",
+            "I live in ___."
+          ],
+          "ex": "Riyadh · Jeddah · Dammam",
+          "ask": "اسألي صديقتك: أين تسكن؟"
+        },
+        {
+          "ar": "ما جنسيتك؟",
+          "q": "What's your nationality?",
+          "a": [
+            "I'm Saudi.",
+            "I'm ___."
+          ],
+          "ex": "Egyptian · Jordanian · Sudanese",
+          "ask": "اسألي زميلتك عن جنسيتها."
+        },
+        {
+          "talk": true,
+          "ar": "ضيفة تزور صفك.",
+          "q": "A visitor comes to your class.",
+          "steps": [
+            "Say hello.",
+            "Say your name.",
+            "Say where you are from."
+          ],
+          "a": [
+            [
+              "Hello!",
+              "My name is ___.",
+              "I'm from Saudi Arabia."
+            ]
+          ],
+          "ex": [
+            "",
+            "Noura · Lama · Reem",
+            ""
+          ]
+        }
       ]
     },
     {
       "id": "pre-a1-06",
       "title": "My family",
       "cards": [
-        { "ar": "هل لديكِ أخوات؟", "q": "Do you have any sisters?", "a": ["Yes, two sisters.", "No, I don't."],
-          "useful": ["one sister", "brothers"], "ask": "اسألي صديقتك: هل لديها أخوات؟" },
-        { "ar": "صورة أمك: من هذه؟", "q": "Who's this?", "a": ["My mother.", "This is my mom."],
-          "useful": ["my father", "my sister", "my grandmother"], "ask": "اسألي صديقتك عن امرأة في الصورة." },
-        { "ar": "كم عدد أفراد أسرتك؟", "q": "How many people are in your family?", "a": ["Seven.", "Seven people."],
-          "useful": ["a big family", "a small family"], "ask": "اسألي صديقتك عن عدد أفراد أسرتها." },
-        { "talk": true, "ar": "حدّثي صديقتك عن أسرتك.", "q": "Tell a friend about your family.",
-          "steps": ["Say how many people.", "Say how many sisters.", "Say how many brothers."],
-          "a": [["There are seven of us.", "I have two sisters.", "I have one brother."]],
-          "useful": ["There are ... of us.", "I have ..."] }
+        {
+          "ar": "هل لديكِ أخوات؟",
+          "q": "Do you have any sisters?",
+          "a": [
+            "Yes, two sisters.",
+            "No, I don't."
+          ],
+          "ask": "اسألي صديقتك: هل لديها أخوات؟"
+        },
+        {
+          "ar": "صورة أمك: من هذه؟",
+          "q": "Who's this?",
+          "a": [
+            "My mother.",
+            "This is my mom."
+          ],
+          "ask": "اسألي صديقتك عن امرأة في الصورة."
+        },
+        {
+          "ar": "كم عدد أفراد أسرتك؟",
+          "q": "How many people are in your family?",
+          "a": [
+            "Seven.",
+            "Seven people."
+          ],
+          "ask": "اسألي صديقتك عن عدد أفراد أسرتها."
+        },
+        {
+          "talk": true,
+          "ar": "حدّثي صديقتك عن أسرتك.",
+          "q": "Tell a friend about your family.",
+          "steps": [
+            "Say how many people.",
+            "Say how many sisters.",
+            "Say how many brothers."
+          ],
+          "a": [
+            [
+              "There are seven of us.",
+              "I have two sisters.",
+              "I have one brother."
+            ]
+          ]
+        }
       ]
     },
     {
       "id": "pre-a1-07",
       "title": "Things around me",
       "cards": [
-        { "ar": "صديقتك تشير إلى قلمك.", "q": "What's this?", "a": ["It's a pen.", "A pen."],
-          "useful": ["a book", "a bag", "a phone"], "ask": "أمسكي شيئًا واسألي: ما هذا؟" },
-        { "ar": "ما لون حقيبتك؟", "q": "What color is your bag?", "a": ["It's black.", "Black."],
-          "useful": ["white", "pink", "blue"], "ask": "اسألي صديقتك عن لون حقيبتها." },
-        { "ar": "وجدت المعلمة هاتفًا.", "q": "Is this your phone?", "a": ["Yes, it is. Thank you!", "No, it isn't."],
-          "useful": ["It's my phone.", "It's not mine."], "ask": "وجدتِ هاتفًا. اسألي زميلتك: هل هو لها؟" },
-        { "talk": true, "ar": "أريْ صديقتك حقيبتك.", "q": "Show your bag to a friend.",
-          "steps": ["Say \"This is my bag.\"", "Say its color.", "Say two things in it."],
-          "a": [["This is my bag.", "It's black.", "A book and a pen."]],
-          "useful": ["This is my ...", "It's ..."] }
+        {
+          "ar": "صديقتك تشير إلى قلمك.",
+          "q": "What's this?",
+          "a": [
+            "It's a pen.",
+            "A pen."
+          ],
+          "ask": "أمسكي شيئًا واسألي: ما هذا؟"
+        },
+        {
+          "ar": "ما لون حقيبتك؟",
+          "q": "What color is your bag?",
+          "a": [
+            "It's black.",
+            "Black."
+          ],
+          "ask": "اسألي صديقتك عن لون حقيبتها."
+        },
+        {
+          "ar": "وجدت المعلمة هاتفًا.",
+          "q": "Is this your phone?",
+          "a": [
+            "Yes, it is. Thank you!",
+            "No, it isn't."
+          ],
+          "ask": "وجدتِ هاتفًا. اسألي زميلتك: هل هو لها؟"
+        },
+        {
+          "talk": true,
+          "ar": "أريْ صديقتك حقيبتك.",
+          "q": "Show your bag to a friend.",
+          "steps": [
+            "Say \"This is my bag.\"",
+            "Say its color.",
+            "Say two things in it."
+          ],
+          "a": [
+            [
+              "This is my bag.",
+              "It's black.",
+              "A book and a pen."
+            ]
+          ]
+        }
       ]
     },
     {
       "id": "pre-a1-08",
       "title": "Food and drinks",
       "cards": [
-        { "ar": "تعرض عليكِ قهوة.", "q": "Would you like some coffee?", "a": ["Yes, please.", "No, thank you."],
-          "useful": ["Just a little, please."], "ask": "اعرضي على ضيفتك قهوة." },
-        { "ar": "ماذا تحبين أن تشربي؟", "q": "What would you like to drink?", "a": ["Water, please.", "Juice, please."],
-          "useful": ["tea", "milk", "coffee"], "ask": "اسألي ضيفتك: ماذا تحب أن تشرب؟" },
-        { "ar": "هل أنتِ جائعة؟", "q": "Are you hungry?", "a": ["Yes, I am!", "No, I'm OK, thanks."],
-          "useful": ["I'm thirsty."], "ask": "اسألي صديقتك: هل هي جائعة؟" },
-        { "talk": true, "ar": "ضيفة في بيتكم.", "q": "A guest is at your home.",
-          "steps": ["Say welcome.", "Offer coffee.", "Offer dates."],
-          "a": [["Welcome!", "Would you like some coffee?", "Would you like some dates?"]],
-          "useful": ["Please sit down.", "Help yourself."] }
+        {
+          "ar": "تعرض عليكِ قهوة.",
+          "q": "Would you like some coffee?",
+          "a": [
+            "Yes, please.",
+            "No, thank you."
+          ],
+          "ask": "اعرضي على ضيفتك قهوة."
+        },
+        {
+          "ar": "ماذا تحبين أن تشربي؟",
+          "q": "What would you like to drink?",
+          "a": [
+            "Water, please.",
+            "Juice, please."
+          ],
+          "ask": "اسألي ضيفتك: ماذا تحب أن تشرب؟"
+        },
+        {
+          "ar": "هل أنتِ جائعة؟",
+          "q": "Are you hungry?",
+          "a": [
+            "Yes, I am!",
+            "No, I'm OK, thanks."
+          ],
+          "ask": "اسألي صديقتك: هل هي جائعة؟"
+        },
+        {
+          "talk": true,
+          "ar": "ضيفة في بيتكم.",
+          "q": "A guest is at your home.",
+          "steps": [
+            "Say welcome.",
+            "Offer coffee.",
+            "Offer dates."
+          ],
+          "a": [
+            [
+              "Welcome!",
+              "Would you like some coffee?",
+              "Would you like some dates?"
+            ]
+          ]
+        }
       ]
     },
     {
       "id": "pre-a1-09",
       "title": "Days and time",
       "cards": [
-        { "ar": "ما اليوم؟", "q": "What day is it today?", "a": ["It's Sunday.", "Sunday."],
-          "useful": ["Monday", "Thursday", "the weekend"], "ask": "اسألي صديقتك عن اليوم." },
-        { "ar": "كم الساعة؟", "q": "What time is it?", "a": ["It's seven o'clock.", "It's half past seven."],
-          "useful": ["o'clock", "half past"], "ask": "اسألي صديقتك عن الساعة." },
-        { "ar": "متى العطلة الأسبوعية؟", "q": "When is the weekend?", "a": ["Friday and Saturday.", "On Friday and Saturday."],
-          "useful": ["today", "tomorrow"], "ask": "اسألي صديقتك: متى العطلة الأسبوعية؟" },
-        { "talk": true, "ar": "اتفقي مع صديقتك على مكالمة.", "q": "Plan a video call with a friend.",
-          "steps": ["Say the day.", "Say the time.", "Say \"See you!\""],
-          "a": [["On Thursday.", "At eight o'clock.", "See you!"]],
-          "useful": ["on Thursday", "at eight o'clock"] }
+        {
+          "ar": "ما اليوم؟",
+          "q": "What day is it today?",
+          "a": [
+            "It's Sunday.",
+            "Sunday."
+          ],
+          "ask": "اسألي صديقتك عن اليوم."
+        },
+        {
+          "ar": "كم الساعة؟",
+          "q": "What time is it?",
+          "a": [
+            "It's seven o'clock.",
+            "It's half past seven."
+          ],
+          "ask": "اسألي صديقتك عن الساعة."
+        },
+        {
+          "ar": "متى العطلة الأسبوعية؟",
+          "q": "When is the weekend?",
+          "a": [
+            "Friday and Saturday.",
+            "On Friday and Saturday."
+          ],
+          "ask": "اسألي صديقتك: متى العطلة الأسبوعية؟"
+        },
+        {
+          "talk": true,
+          "ar": "اتفقي مع صديقتك على مكالمة.",
+          "q": "Plan a video call with a friend.",
+          "steps": [
+            "Say the day.",
+            "Say the time.",
+            "Say \"See you!\""
+          ],
+          "a": [
+            [
+              "On Thursday.",
+              "At eight o'clock.",
+              "See you!"
+            ]
+          ]
+        }
       ]
     },
     {
       "id": "pre-a1-10",
       "title": "Classroom survival",
       "cards": [
-        { "ar": "لم تفهمي كلام المعلمة.", "q": "Do you understand?", "a": ["Sorry, I don't understand.", "Yes, I do."],
-          "useful": ["Again, please."], "ask": "اسألي زميلتك: هل فهمتِ؟" },
-        { "ar": "المعلمة تتكلم بسرعة.", "q": "Your teacher speaks very fast.", "a": ["Slowly, please.", "Can you say that again, please?"],
-          "useful": ["Sorry?", "Pardon?"] },
-        { "ar": "لا تعرفين كلمة بالإنجليزية.", "q": "You don't know a word in English.", "a": ["How do you say ___ in English?", "What's this in English?"],
-          "ex": "قلم · سبورة · ممحاة", "useful": ["in English", "in Arabic"] },
-        { "talk": true, "ar": "سألتك المعلمة سؤالًا.", "q": "Your teacher asks you a question.",
-          "steps": ["Say sorry.", "Say you don't understand.", "Ask her to say it again."],
-          "a": [["Sorry.", "I don't understand.", "Can you say that again, please?"]],
-          "useful": ["Pardon?"] }
+        {
+          "ar": "لم تفهمي كلام المعلمة.",
+          "q": "Do you understand?",
+          "a": [
+            "Sorry, I don't understand.",
+            "Yes, I do."
+          ],
+          "ask": "اسألي زميلتك: هل فهمتِ؟"
+        },
+        {
+          "ar": "المعلمة تتكلم بسرعة.",
+          "q": "Your teacher speaks very fast.",
+          "a": [
+            "Slowly, please.",
+            "Can you say that again, please?"
+          ]
+        },
+        {
+          "ar": "لا تعرفين كلمة بالإنجليزية.",
+          "q": "You don't know a word in English.",
+          "a": [
+            "How do you say ___ in English?",
+            "What's this in English?"
+          ],
+          "ex": "قلم · سبورة · ممحاة"
+        },
+        {
+          "talk": true,
+          "ar": "سألتك المعلمة سؤالًا.",
+          "q": "Your teacher asks you a question.",
+          "steps": [
+            "Say sorry.",
+            "Say you don't understand.",
+            "Ask her to say it again."
+          ],
+          "a": [
+            [
+              "Sorry.",
+              "I don't understand.",
+              "Can you say that again, please?"
+            ]
+          ]
+        }
       ]
     },
     {
       "id": "pre-a1-11",
       "title": "How I feel",
       "cards": [
-        { "ar": "كيف تشعرين اليوم؟", "q": "How do you feel today?", "a": ["I'm happy.", "I'm tired."],
-          "useful": ["sad", "sleepy", "great"], "ask": "اسألي صديقتك عن شعورها اليوم." },
-        { "ar": "صديقتك تبدو متعبة.", "q": "Are you OK?", "a": ["Yes, I'm OK.", "No, I'm tired."],
-          "useful": ["I'm sick.", "I'm fine."], "ask": "صديقتك تبدو متعبة. اسأليها: هل هي بخير؟" },
-        { "ar": "بعد الاختبار.", "q": "How was the test?", "a": ["Easy!", "It was hard."],
-          "useful": ["good", "difficult"], "ask": "اسألي صديقتك عن الاختبار." },
-        { "talk": true, "ar": "اتصلت بكِ جدتك.", "q": "Your grandmother calls you.",
-          "steps": ["Say hello.", "Say how you feel.", "Ask how she is."],
-          "a": [["Hello, Grandma!", "I'm happy today.", "How are you?"]],
-          "useful": ["I miss you."] }
+        {
+          "ar": "كيف تشعرين اليوم؟",
+          "q": "How do you feel today?",
+          "a": [
+            "I'm happy.",
+            "I'm tired."
+          ],
+          "ask": "اسألي صديقتك عن شعورها اليوم."
+        },
+        {
+          "ar": "صديقتك تبدو متعبة.",
+          "q": "Are you OK?",
+          "a": [
+            "Yes, I'm OK.",
+            "No, I'm tired."
+          ],
+          "ask": "صديقتك تبدو متعبة. اسأليها: هل هي بخير؟"
+        },
+        {
+          "ar": "بعد الاختبار.",
+          "q": "How was the test?",
+          "a": [
+            "Easy!",
+            "It was hard."
+          ],
+          "ask": "اسألي صديقتك عن الاختبار."
+        },
+        {
+          "talk": true,
+          "ar": "اتصلت بكِ جدتك.",
+          "q": "Your grandmother calls you.",
+          "steps": [
+            "Say hello.",
+            "Say how you feel.",
+            "Ask how she is."
+          ],
+          "a": [
+            [
+              "Hello, Grandma!",
+              "I'm happy today.",
+              "How are you?"
+            ]
+          ]
+        }
       ]
     },
     {
       "id": "pre-a1-12",
       "title": "I like, I don't like",
       "cards": [
-        { "ar": "هل تحبين الشوكولاتة؟", "q": "Do you like chocolate?", "a": ["Yes, I do!", "No, I don't."],
-          "useful": ["I love it!", "Not really."], "ask": "اسألي صديقتك: هل تحب الشوكولاتة؟" },
-        { "ar": "ما لونك المفضل؟", "q": "What's your favorite color?", "a": ["Purple.", "My favorite color is ___."], "ex": "pink · blue · green",
-          "useful": ["favorite"], "ask": "اسألي صديقتك عن لونها المفضل." },
-        { "ar": "هل تحبين الرياضيات؟", "q": "Do you like math?", "a": ["Yes, I love math!", "No, I don't like math."],
-          "useful": ["English", "science", "art"], "ask": "اسألي صديقتك: هل تحب الرياضيات؟" },
-        { "talk": true, "ar": "أخبري صديقتك بما تحبين.", "q": "Tell a friend what you like.",
-          "steps": ["Say one food you like.", "Say one color you like.", "Say one thing you don't like."],
-          "a": [["I like pizza.", "I like pink.", "I don't like coffee."]],
-          "useful": ["I love ...", "I don't like ..."] }
+        {
+          "ar": "هل تحبين الشوكولاتة؟",
+          "q": "Do you like chocolate?",
+          "a": [
+            "Yes, I do!",
+            "No, I don't."
+          ],
+          "ask": "اسألي صديقتك: هل تحب الشوكولاتة؟"
+        },
+        {
+          "ar": "ما لونك المفضل؟",
+          "q": "What's your favorite color?",
+          "a": [
+            "Purple.",
+            "My favorite color is ___."
+          ],
+          "ex": "pink · blue · green",
+          "ask": "اسألي صديقتك عن لونها المفضل."
+        },
+        {
+          "ar": "هل تحبين الرياضيات؟",
+          "q": "Do you like math?",
+          "a": [
+            "Yes, I love math!",
+            "No, I don't like math."
+          ],
+          "ask": "اسألي صديقتك: هل تحب الرياضيات؟"
+        },
+        {
+          "talk": true,
+          "ar": "أخبري صديقتك بما تحبين.",
+          "q": "Tell a friend what you like.",
+          "steps": [
+            "Say one food you like.",
+            "Say one color you like.",
+            "Say one thing you don't like."
+          ],
+          "a": [
+            [
+              "I like pizza.",
+              "I like pink.",
+              "I don't like coffee."
+            ]
+          ]
+        }
       ]
     }
   ]

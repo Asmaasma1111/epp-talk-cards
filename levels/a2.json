@@ -23,11 +23,6 @@
             "I'm doing well, thanks. How about you?",
             "Not bad, but I'm a little tired today."
           ],
-          "useful": [
-            "I'm doing well.",
-            "How about you?",
-            "a little tired"
-          ],
           "ask": "greet a friend?"
         },
         {
@@ -37,11 +32,6 @@
             "Really? That's great news!",
             "Wow, congratulations! You worked so hard."
           ],
-          "useful": [
-            "Really?",
-            "That's great news!",
-            "Congratulations!"
-          ],
           "ask": "good news: science fair?"
         },
         {
@@ -50,11 +40,6 @@
           "a": [
             "Oh no, I'm sorry to hear that. Did you find it?",
             "Oh no, that's terrible! Did you ask at the information desk?"
-          ],
-          "useful": [
-            "I'm sorry to hear that.",
-            "That's terrible!",
-            "Did you find it?"
           ],
           "ask": "bad news: lost phone?"
         },
@@ -75,11 +60,6 @@
               "Really? That's amazing!",
               "Guess what? I learned to swim!"
             ]
-          ],
-          "useful": [
-            "It's so good to see you!",
-            "That's amazing!",
-            "Guess what?"
           ]
         }
       ]
@@ -95,11 +75,6 @@
             "I visited my grandparents, and we had dinner together.",
             "I stayed at home and watched a documentary."
           ],
-          "useful": [
-            "I visited ...",
-            "We had dinner together.",
-            "I stayed at home."
-          ],
           "ask": "last weekend?"
         },
         {
@@ -109,11 +84,6 @@
             "Yes, we went to a new café downtown.",
             "No, I didn't. I was too tired."
           ],
-          "useful": [
-            "We went to ...",
-            "No, I didn't.",
-            "too tired"
-          ],
           "ask": "go out on Friday?"
         },
         {
@@ -122,11 +92,6 @@
           "a": [
             "Yes, I finished it on Saturday morning.",
             "Not all of it. I still have to do the math."
-          ],
-          "useful": [
-            "I finished it ...",
-            "Not all of it.",
-            "I still have to ..."
           ],
           "ask": "homework over the weekend?"
         },
@@ -147,11 +112,6 @@
               "We had a barbecue and played games.",
               "It was really relaxing."
             ]
-          ],
-          "useful": [
-            "On Friday, ...",
-            "with my cousins",
-            "really relaxing"
           ]
         }
       ]
@@ -167,11 +127,6 @@
             "We went to Jeddah to visit my aunt.",
             "We went to Makkah for Umrah. It was a beautiful trip."
           ],
-          "useful": [
-            "We went to ...",
-            "to visit my aunt",
-            "for Umrah"
-          ],
           "ask": "your last trip?"
         },
         {
@@ -181,11 +136,6 @@
             "We drove. It took about ten hours!",
             "We flew. The flight was only an hour and a half."
           ],
-          "useful": [
-            "We drove.",
-            "It took about ...",
-            "We flew."
-          ],
           "ask": "to Jeddah: car or plane?"
         },
         {
@@ -194,11 +144,6 @@
           "a": [
             "Yes, I have. We went there last summer.",
             "No, I haven't, but I'd love to go."
-          ],
-          "useful": [
-            "Yes, I have.",
-            "No, I haven't.",
-            "I'd love to go."
           ],
           "ask": "been to Abha?"
         },
@@ -219,11 +164,6 @@
               "After that, we had dinner under the stars.",
               "I felt so happy. It was amazing!"
             ]
-          ],
-          "useful": [
-            "Two years ago, ...",
-            "First, ...",
-            "After that, ..."
           ]
         }
       ]
@@ -239,11 +179,6 @@
             "She's tall, and she has long black hair.",
             "She's not very tall. She has brown eyes and wears glasses."
           ],
-          "useful": [
-            "She has long black hair.",
-            "not very tall",
-            "wears glasses"
-          ],
           "ask": "best friend: look like?"
         },
         {
@@ -253,11 +188,6 @@
             "She's really kind and patient.",
             "She's strict, but she's very funny."
           ],
-          "useful": [
-            "really kind",
-            "patient",
-            "strict, but ..."
-          ],
           "ask": "your mom: personality?"
         },
         {
@@ -266,11 +196,6 @@
           "a": [
             "I look like my mother. We have the same eyes.",
             "People say I look like my aunt."
-          ],
-          "useful": [
-            "I look like ...",
-            "the same eyes",
-            "People say ..."
           ],
           "ask": "who you look like?"
         },
@@ -291,11 +216,6 @@
               "She's very patient and funny.",
               "I admire her because she helps a lot of people."
             ]
-          ],
-          "useful": [
-            "My aunt is ...",
-            "She wears glasses.",
-            "I admire her because ..."
           ]
         }
       ]
@@ -311,11 +231,6 @@
             "It's quiet, and there are lots of trees.",
             "It's busy and noisy, but it has everything."
           ],
-          "useful": [
-            "It's quiet.",
-            "lots of trees",
-            "It has everything."
-          ],
           "ask": "your neighborhood?"
         },
         {
@@ -325,11 +240,6 @@
             "I think the big park is the best. It's great for walking.",
             "The mall! There are lots of shops and cafés."
           ],
-          "useful": [
-            "I think ... is the best.",
-            "It's great for walking.",
-            "lots of shops"
-          ],
           "ask": "best place in your city?"
         },
         {
@@ -338,11 +248,6 @@
           "a": [
             "It's about ten minutes by car.",
             "It's far. It takes about half an hour."
-          ],
-          "useful": [
-            "about ten minutes by car",
-            "It's far.",
-            "It takes about ..."
           ],
           "ask": "school: how far?"
         },
@@ -369,11 +274,6 @@
             "",
             "",
             ""
-          ],
-          "useful": [
-            "a big, busy city",
-            "You should visit ...",
-            "It's great for ..."
           ]
         }
       ]
@@ -389,11 +289,6 @@
             "The library is better. It's quieter.",
             "I think home is better because it's more comfortable."
           ],
-          "useful": [
-            "... is better.",
-            "quieter",
-            "more comfortable"
-          ],
           "ask": "home or library?"
         },
         {
@@ -403,11 +298,6 @@
             "Yes, it's usually cheaper and easier.",
             "Not always. Sometimes the stores are cheaper."
           ],
-          "useful": [
-            "cheaper",
-            "easier",
-            "Not always."
-          ],
           "ask": "shopping online: cheaper?"
         },
         {
@@ -416,10 +306,6 @@
           "a": [
             "Physics is the most difficult for me.",
             "Math, but it's also the most interesting!"
-          ],
-          "useful": [
-            "the most difficult",
-            "the most interesting"
           ],
           "ask": "most difficult subject?"
         },
@@ -440,11 +326,6 @@
               "But Abha is more beautiful.",
               "I like Abha more because it's cooler and greener."
             ]
-          ],
-          "useful": [
-            "bigger than",
-            "much hotter",
-            "more beautiful"
           ]
         }
       ]
@@ -460,11 +341,6 @@
             "I'm going to visit my cousins.",
             "I'm not sure yet. Maybe I'll just stay home."
           ],
-          "useful": [
-            "I'm going to ...",
-            "I'm not sure yet.",
-            "Maybe I'll ..."
-          ],
           "ask": "this weekend?"
         },
         {
@@ -474,11 +350,6 @@
             "Good idea! What time?",
             "I'd love to, but I can't on Saturday. How about Sunday evening?"
           ],
-          "useful": [
-            "Good idea!",
-            "I'd love to, but ...",
-            "How about ...?"
-          ],
           "ask": "suggest: the new bookstore?"
         },
         {
@@ -487,11 +358,6 @@
           "a": [
             "Let's meet at the café near the mall.",
             "How about the main entrance at four o'clock?"
-          ],
-          "useful": [
-            "Let's meet at ...",
-            "How about ...?",
-            "at four o'clock"
           ],
           "ask": "where to meet?"
         },
@@ -512,11 +378,6 @@
               "Let's meet at the library.",
               "Don't forget to bring your notes!"
             ]
-          ],
-          "useful": [
-            "Why don't we ...?",
-            "How about ...?",
-            "Let's meet at ..."
           ]
         }
       ]
@@ -532,10 +393,6 @@
             "Yes, I'd love to! What time?",
             "Thanks for asking, but I can't. We're visiting my aunt."
           ],
-          "useful": [
-            "I'd love to!",
-            "Thanks for asking, but ..."
-          ],
           "ask": "invite to lunch?"
         },
         {
@@ -545,11 +402,6 @@
             "Yes, please. That's very kind of you.",
             "No, it's OK, thanks. I can carry them."
           ],
-          "useful": [
-            "Yes, please.",
-            "That's very kind of you.",
-            "No, it's OK, thanks."
-          ],
           "ask": "offer help: heavy bags?"
         },
         {
@@ -557,10 +409,6 @@
           "q": "I'm going to the cafeteria. Do you want anything?",
           "a": [
             "Yes, please! Could you get me an orange juice?",
-            "No, thanks. I'm fine."
-          ],
-          "useful": [
-            "Could you get me ...?",
             "No, thanks. I'm fine."
           ],
           "ask": "offer: the cafeteria?"
@@ -582,11 +430,6 @@
               "It's at our house.",
               "We can pick you up, if you like."
             ]
-          ],
-          "useful": [
-            "Would you like to come ...?",
-            "We can pick you up.",
-            "if you like"
           ]
         }
       ]
@@ -602,10 +445,6 @@
             "Could I have a large iced latte, please?",
             "I'll have a small hot chocolate and a cookie, please."
           ],
-          "useful": [
-            "Could I have ...?",
-            "I'll have ..., please."
-          ],
           "ask": "take an order?"
         },
         {
@@ -615,11 +454,6 @@
             "To go, please.",
             "For here, please. Can I also have some water?"
           ],
-          "useful": [
-            "To go, please.",
-            "For here, please.",
-            "Can I also have ...?"
-          ],
           "ask": "here or to go?"
         },
         {
@@ -628,10 +462,6 @@
           "a": [
             "Yes, please. Where are the fitting rooms?",
             "No, thanks. I'll just take it."
-          ],
-          "useful": [
-            "Where are the fitting rooms?",
-            "I'll just take it."
           ],
           "ask": "try it on?"
         },
@@ -652,11 +482,6 @@
               "How much are they?",
               "Can I pay by card?"
             ]
-          ],
-          "useful": [
-            "I'm looking for ...",
-            "Do you have these in ...?",
-            "Can I pay by card?"
           ]
         }
       ]
@@ -672,11 +497,6 @@
             "Go up the escalator and turn left.",
             "Go straight, and it's on your right, next to the bookstore."
           ],
-          "useful": [
-            "Go up the escalator",
-            "turn left",
-            "on your right"
-          ],
           "ask": "the way to the food court?"
         },
         {
@@ -686,11 +506,6 @@
             "My mom usually drives me.",
             "We often take the metro. It's fast and cheap."
           ],
-          "useful": [
-            "usually drives me",
-            "take the metro",
-            "fast and cheap"
-          ],
           "ask": "get around the city?"
         },
         {
@@ -699,10 +514,6 @@
           "a": [
             "Two tickets to Makkah, please.",
             "One ticket to Madinah, please. What time is the next train?"
-          ],
-          "useful": [
-            "Two tickets to ..., please.",
-            "What time is the next train?"
           ],
           "ask": "ticket office: where to?"
         },
@@ -723,11 +534,6 @@
               "After that, turn right and go straight.",
               "It takes about fifteen minutes."
             ]
-          ],
-          "useful": [
-            "First, ...",
-            "get off at ...",
-            "After that, ..."
           ]
         }
       ]
@@ -743,11 +549,6 @@
             "Eid Mubarak! Happy Eid to you and your family.",
             "Thank you! Eid Mubarak to you too!"
           ],
-          "useful": [
-            "Happy Eid",
-            "to you and your family",
-            "to you too"
-          ],
           "ask": "Eid greeting?"
         },
         {
@@ -757,11 +558,6 @@
             "I help my mom with iftar, and I read the Quran.",
             "We usually have iftar at my grandmother's house."
           ],
-          "useful": [
-            "help my mom with iftar",
-            "We usually ...",
-            "at my grandmother's house"
-          ],
           "ask": "in Ramadan?"
         },
         {
@@ -770,11 +566,6 @@
           "a": [
             "Yes, we're going to Madinah to visit my grandparents.",
             "No, we're going to stay home this year."
-          ],
-          "useful": [
-            "We're going to ...",
-            "stay home",
-            "this year"
           ],
           "ask": "travel for Eid?"
         },
@@ -795,11 +586,6 @@
               "We visited all our aunts and uncles.",
               "The best part was the big family lunch."
             ]
-          ],
-          "useful": [
-            "Last Eid, ...",
-            "We visited ...",
-            "The best part was ..."
           ]
         }
       ]
@@ -815,11 +601,6 @@
             "I love mystery stories because they're exciting.",
             "I prefer true stories about famous people."
           ],
-          "useful": [
-            "I love ...",
-            "because they're exciting",
-            "I prefer ..."
-          ],
           "ask": "kind of books?"
         },
         {
@@ -829,11 +610,6 @@
             "Not really. I prefer being in class with my friends.",
             "Yes, I do, because I can study at my own pace."
           ],
-          "useful": [
-            "Not really.",
-            "I prefer being ...",
-            "at my own pace"
-          ],
           "ask": "online classes?"
         },
         {
@@ -842,11 +618,6 @@
           "a": [
             "I don't like waking up early, especially on weekends.",
             "I'm not a big fan of shopping. It's so tiring!"
-          ],
-          "useful": [
-            "I don't like ...ing",
-            "especially",
-            "I'm not a big fan of ..."
           ],
           "ask": "don't like doing?"
         },
@@ -867,11 +638,6 @@
               "I like it because it helps me remember special days.",
               "But I don't like editing them. It takes so long!"
             ]
-          ],
-          "useful": [
-            "I started when I was ...",
-            "it helps me ...",
-            "It takes so long!"
           ]
         }
       ]
