@@ -1,0 +1,64 @@
+{
+  "level": "c2",
+  "cando": [
+    "I can argue a position convincingly in front of a formal panel.",
+    "I can express fine shades of meaning, using natural idioms.",
+    "I can rephrase smoothly when what I say comes out wrong or unclear."
+  ],
+  "cando_ar": [
+    "أستطيع أن أدافع عن موقفي بإقناع أمام لجنة رسمية.",
+    "أستطيع أن أعبّر عن الفروق الدقيقة في المعنى بتعابير اصطلاحية طبيعية.",
+    "أستطيع أن أعيد صياغة كلامي بسلاسة إذا لم يكن واضحًا أو لم يعبّر عمّا أقصد."
+  ],
+  "more_coming": true,
+  "sets": [
+    {
+      "id": "c2-01",
+      "title": "Scholarship panel",
+      "cards": [
+        { "q": "Some say studying abroad weakens students' ties to their own culture. How would you respond?", "a": ["I'd say it's not so much a question of losing one's culture as of seeing it from a new angle. If anything, many students come home with a deeper appreciation of where they're from.", "I'd take issue with the assumption behind that. Living abroad tends to throw your own culture into sharper relief, so far from weakening those ties, it often strengthens them."],
+          "useful": ["It's not so much ... as ...", "If anything, ...", "I'd take issue with the assumption behind that."], "ask": "You're on the panel. Ask the applicant how she would respond to the claim that studying abroad weakens students' ties to their own culture." },
+        { "q": "The panel asks about something you know little about. Answer honestly.", "a": ["I'll be honest: that's not an area I know well. What I can tell you, though, is how I'd go about finding out.", "I'd be lying if I claimed to know much about that, I'm afraid. For what it's worth, though, my instinct would be to talk to people working in the field before forming a view."],
+          "useful": ["I'll be honest: ...", "What I can tell you, though, is ...", "For what it's worth, ..."] },
+        { "q": "Is technology making us more connected or more isolated?", "a": ["It's a double-edged sword. Granted, we can reach anyone in seconds, but rarely do we give those conversations our full attention.", "Both, paradoxically. We're more connected than ever in the narrow sense of being reachable, yet arguably lonelier, because constant contact is no substitute for real company."],
+          "useful": ["It's a double-edged sword.", "Granted, ..., but ...", "Rarely do we ..."], "ask": "You're on the panel. Ask the applicant whether technology is making us more connected or more isolated." },
+        { "talk": true, "q": "Talk for one minute: give a closing statement to the panel.",
+          "steps": ["Summarize why you applied.", "Admit one weakness.", "Turn it into a strength.", "End with a memorable line."],
+          "a": [["In short, I applied because I want to bring new ideas in renewable energy back to my community.", "I'm the first to admit that I still have a lot to learn.", "But that's precisely why this program matters to me: it's where I'll learn it.", "Give me the chance, and I'll make it count."]],
+          "useful": ["In short, ...", "I'm the first to admit that ...", "that's precisely why ..."] }
+      ]
+    },
+    {
+      "id": "c2-02",
+      "title": "Fine shades of meaning",
+      "cards": [
+        { "q": "So, did you enjoy the book in the end?", "a": ["I admired it more than I enjoyed it, if that makes sense. It's brilliantly written, but parts of it were a real slog.", "I wouldn't go so far as to say I loved it, but it's stayed with me, which is perhaps the truer test of a book."],
+          "useful": ["I admired it more than I enjoyed it.", "if that makes sense", "I wouldn't go so far as to say ..., but ..."], "ask": "Your friend has just finished a long book. Ask her whether she enjoyed it in the end." },
+        { "q": "Our new chemistry teacher is really strict, isn't she?", "a": ["Strict isn't quite how I'd put it. Demanding, perhaps, but she's always fair, and that makes all the difference.", "There's a difference between being strict and having high standards, and I'd say she's very much the latter."],
+          "useful": ["... isn't quite how I'd put it.", "There's a difference between ... and ...", "very much the latter"], "ask": "Tell your classmate that the new chemistry teacher seems really strict, and check that she agrees." },
+        { "q": "So you're against the new schedule?", "a": ["That's putting it a bit strongly. It's not that I'm against it; it's more that I have reservations about finishing so late.", "Not against it, exactly. I'm in favor of the idea, if not entirely convinced by the way it's being introduced."],
+          "useful": ["That's putting it a bit strongly.", "It's not that ...; it's more that ...", "..., if not entirely ..."], "ask": "Your friend has doubts about the new schedule. Ask her if that means she's against it." },
+        { "talk": true, "q": "Talk for one minute: a younger student asks you, \"Is being gifted the same as being clever?\"",
+          "steps": ["Say whether you'd treat them as the same.", "Draw a clear distinction between the two.", "Give an example from your own experience.", "Qualify your view.", "Sum it up in a memorable way."],
+          "a": [["I'd be wary of treating the two as the same thing.", "Cleverness is often about how quickly you pick things up, whereas giftedness, to my mind, has as much to do with curiosity and persistence.", "Some of the most gifted people I know aren't the quickest in class; they're the ones who can't leave a problem alone.", "That's not to say speed doesn't count for something, of course.", "But in a nutshell, cleverness gets you started, while curiosity keeps you going."]],
+          "useful": ["I'd be wary of ...", "to my mind", "That's not to say ..."] }
+      ]
+    },
+    {
+      "id": "c2-03",
+      "title": "Rephrasing smoothly",
+      "cards": [
+        { "q": "Sorry, I'm not sure I follow.", "a": ["Let me put that another way. What I'm trying to say is that the results matter less than what we learned along the way.", "Sorry, I'm overcomplicating it. Put simply, the plan is good, but the timing isn't."],
+          "useful": ["Let me put that another way.", "What I'm trying to say is ...", "Put simply, ..."], "ask": "Your friend has just explained something in a confusing way. Tell her politely that you're not sure you follow." },
+        { "q": "That sounds a bit harsh, doesn't it?", "a": ["You're right, that came out wrong. What I meant was that the plan needs more work, not that it's a bad idea.", "Hmm, let me rephrase that. I wasn't criticizing her effort, only the approach she chose, and I should have made that clearer."],
+          "useful": ["That came out wrong.", "What I meant was ..., not that ...", "Let me rephrase that."], "ask": "Your friend has just said something that sounded unkind. Point out gently that it sounds a bit harsh." },
+        { "q": "So what exactly do you mean by \"success\"?", "a": ["Fair question. I don't mean grades, or not only grades; I mean the feeling that you've made the most of your opportunities.", "I was perhaps being a little vague there. A better way of putting it might be that success means doing work you're proud of, whatever form that takes."],
+          "useful": ["..., or not only ...", "I was perhaps being a little vague.", "A better way of putting it might be ..."], "ask": "Your friend keeps talking about success. Ask her what exactly she means by it." },
+        { "talk": true, "q": "Talk for one minute: explain your science project to a visitor who looks confused.",
+          "steps": ["Explain your project in one sentence.", "Notice she looks lost, and backtrack.", "Rephrase it with an everyday comparison.", "Check that it makes sense now.", "Restate the main point in plain words."],
+          "a": [["My project measures how much solar radiation different roof coatings reflect, and how that affects indoor temperatures.", "Actually, I'm getting ahead of myself, so let me start again.", "Think of it like a car parked in the sun: the color of the surface makes a huge difference in how hot it gets inside.", "Does that make more sense?", "So, in plain terms, I'm looking for a cheap way to keep our homes cooler in summer."]],
+          "useful": ["I'm getting ahead of myself.", "Think of it like ...", "in plain terms"] }
+      ]
+    }
+  ]
+}

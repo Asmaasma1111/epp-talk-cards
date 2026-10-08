@@ -1,0 +1,210 @@
+{
+  "level": "a1",
+  "cando": [
+    "I can introduce myself and other people.",
+    "I can ask and answer simple questions about my home, my family, my school and my day.",
+    "I can buy things, order food and ask where places are."
+  ],
+  "cando_ar": [
+    "أستطيع أن أعرّف بنفسي وبالآخرين.",
+    "أستطيع أن أسأل وأجيب عن أسئلة بسيطة عن بيتي وأسرتي ومدرستي ويومي.",
+    "أستطيع أن أشتري وأطلب الطعام وأسأل عن الأماكن."
+  ],
+  "more_coming": false,
+  "sets": [
+    {
+      "id": "a1-01",
+      "title": "Introducing myself",
+      "cards": [
+        { "ar": "هل أنتِ طالبة؟", "q": "Are you a student?", "a": ["Yes, I'm a high school student.", "Yes, I'm in grade eleven."],
+          "useful": ["high school", "a student", "grade"], "ask": "اسألي فتاة جديدة: هل هي طالبة؟" },
+        { "ar": "ما اللغات التي تتكلمينها؟", "q": "What languages do you speak?", "a": ["I speak Arabic and a little English.", "I speak Arabic and English."],
+          "useful": ["a little", "very well"], "ask": "اسألي صديقتك عن اللغات التي تتكلمها." },
+        { "ar": "أين مدرستك؟", "q": "Where is your school?", "a": ["It's near my home.", "It's in the city center."],
+          "useful": ["near", "far from"], "ask": "اسألي صديقتك: أين مدرستها؟" },
+        { "talk": true, "ar": "عرّفي بنفسك لمعلمة جديدة.", "q": "Introduce yourself to a new teacher.",
+          "steps": ["Say your name and age.", "Say your grade.", "Say what languages you speak.", "Say one thing you like."],
+          "a": [["I'm ___, and I'm sixteen.", "I'm in grade eleven.", "I speak Arabic and English.", "I like reading."]],
+          "ex": ["Noura · Lama · Reem", "", "", ""],
+          "useful": ["I'm ...", "I speak ...", "I like ..."] }
+      ]
+    },
+    {
+      "id": "a1-02",
+      "title": "Family and friends",
+      "cards": [
+        { "ar": "عرّفي صديقتك على أختك.", "q": "Introduce your sister to your friend.", "a": ["Lama, this is my sister, Reem.", "This is my sister. Her name is Reem."],
+          "useful": ["This is my ...", "Nice to meet you."] },
+        { "ar": "ما اسم صديقتك المقرّبة؟", "q": "What's your best friend's name?", "a": ["Her name is ___.", "My best friend is ___."], "ex": "Sara · Joud · Lama",
+          "useful": ["best friend"], "ask": "اسألي صديقتك عن اسم صديقتها المقرّبة." },
+        { "ar": "ماذا يعمل والدك؟", "q": "What does your father do?", "a": ["He's an engineer.", "He's a teacher."],
+          "useful": ["a doctor", "a businessman", "retired"], "ask": "اسألي صديقتك عن عمل والدها." },
+        { "talk": true, "ar": "حدّثي عن صديقتك المقرّبة.", "q": "Talk about your best friend.",
+          "steps": ["Say her name.", "Say her age.", "Say where she lives.", "Say what she likes."],
+          "a": [["Her name is ___.", "She's sixteen.", "She lives near my house.", "She likes drawing."]],
+          "ex": ["Sara · Joud · Lama", "", "", ""],
+          "useful": ["She's ...", "She lives ...", "She likes ..."] }
+      ]
+    },
+    {
+      "id": "a1-03",
+      "title": "My home",
+      "cards": [
+        { "ar": "هل تسكنين في بيت أم شقة؟", "q": "Do you live in a house or an apartment?", "a": ["I live in a house.", "We live in an apartment."],
+          "useful": ["a villa", "a big house"], "ask": "اسألي صديقتك: هل تسكن في بيت أم شقة؟" },
+        { "ar": "كم غرفة نوم في بيتكم؟", "q": "How many bedrooms are there in your home?", "a": ["There are four bedrooms.", "There are three."],
+          "useful": ["There is ...", "There are ..."], "ask": "اسألي صديقتك عن عدد غرف النوم في بيتها." },
+        { "ar": "ما غرفتك المفضلة؟", "q": "What's your favorite room?", "a": ["My bedroom, because it's quiet.", "The living room, because it's big."],
+          "useful": ["the kitchen", "the garden", "because"], "ask": "اسألي صديقتك عن غرفتها المفضلة." },
+        { "talk": true, "ar": "صِفي بيتك لصديقتك.", "q": "Describe your home to a friend.",
+          "steps": ["Say house or apartment.", "Say how many bedrooms.", "Say what is in your bedroom.", "Say your favorite room."],
+          "a": [["I live in a house.", "There are four bedrooms.", "In my room, there's a bed and a desk.", "My favorite room is the living room."]],
+          "useful": ["There is ...", "There are ...", "My favorite ..."] }
+      ]
+    },
+    {
+      "id": "a1-04",
+      "title": "My school day",
+      "cards": [
+        { "ar": "متى تستيقظين؟", "q": "What time do you get up on school days?", "a": ["I get up at six o'clock.", "I usually get up at half past five."],
+          "useful": ["at six o'clock", "at half past six", "early"], "ask": "اسألي صديقتك: متى تستيقظ؟" },
+        { "ar": "كيف تذهبين إلى المدرسة؟", "q": "How do you get to school?", "a": ["I go by car. My father drives me.", "I take the school bus."],
+          "useful": ["by car", "by bus", "My brother drives me."], "ask": "اسألي صديقتك كيف تذهب إلى المدرسة." },
+        { "ar": "ماذا تفعلين بعد المدرسة؟", "q": "What do you do after school?", "a": ["I have lunch and do my homework.", "I rest, and then I study."],
+          "useful": ["have lunch", "do my homework", "and then"], "ask": "اسألي صديقتك ماذا تفعل بعد المدرسة." },
+        { "talk": true, "ar": "صِفي يومك الدراسي.", "q": "Tell a friend about your school day.",
+          "steps": ["Say when you get up.", "Say how you get to school.", "Say when school finishes.", "Say one thing you do after school."],
+          "a": [["I get up at six o'clock.", "I go to school by car.", "School finishes at one o'clock.", "After school, I do my homework."]],
+          "useful": ["First, ...", "Then, ...", "After school, ..."] }
+      ]
+    },
+    {
+      "id": "a1-05",
+      "title": "Free time",
+      "cards": [
+        { "ar": "ماذا تحبين أن تفعلي في وقت فراغك؟", "q": "What do you like doing in your free time?", "a": ["I like reading.", "I love drawing and baking."],
+          "useful": ["watching videos", "playing games", "swimming"], "ask": "اسألي صديقتك عن هواياتها." },
+        { "ar": "كم مرة تمارسين الرياضة؟", "q": "How often do you exercise?", "a": ["I walk every day.", "Twice a week."],
+          "useful": ["every day", "once a week", "never"], "ask": "اسألي صديقتك: كم مرة تمارس الرياضة؟" },
+        { "ar": "هل تحبين الطبخ؟", "q": "Do you like cooking?", "a": ["Yes, I love it! I make cakes.", "Not really. I prefer eating!"],
+          "useful": ["I love it.", "Not really."], "ask": "اسألي صديقتك: هل تحب الطبخ؟" },
+        { "talk": true, "ar": "حدّثي عن وقت فراغك.", "q": "Talk about your free time.",
+          "steps": ["Say one thing you like doing.", "Say how often you do it.", "Say who you do it with.", "Say one thing you don't like doing."],
+          "a": [["I like baking.", "I bake every weekend.", "I bake with my sister.", "I don't like watching TV."]],
+          "useful": ["I like ...ing", "every weekend", "I don't like ..."] }
+      ]
+    },
+    {
+      "id": "a1-06",
+      "title": "Food I like",
+      "cards": [
+        { "ar": "ما طعامك المفضل؟", "q": "What's your favorite food?", "a": ["I love kabsa.", "My favorite food is pasta."],
+          "useful": ["rice", "chicken", "salad"], "ask": "اسألي صديقتك عن طعامها المفضل." },
+        { "ar": "ماذا تأكلين في الفطور؟", "q": "What do you have for breakfast?", "a": ["I have eggs and bread.", "I just have tea and dates."],
+          "useful": ["for breakfast", "for lunch", "for dinner"], "ask": "اسألي صديقتك ماذا تأكل في الفطور." },
+        { "ar": "في المطعم.", "q": "Are you ready to order?", "a": ["Yes. I'd like a chicken burger, please.", "I'd like a salad and a juice, please."],
+          "useful": ["I'd like ...", "Can I have ...?"], "ask": "أنتِ تعملين في مقهى. اسألي الزبونة: هل هي جاهزة للطلب؟" },
+        { "talk": true, "ar": "اطلبي الغداء في مطعم.", "q": "Order lunch at a restaurant.",
+          "steps": ["Say hello.", "Order a main dish.", "Order a drink.", "Say thank you."],
+          "a": [["Hello!", "I'd like the chicken with rice, please.", "And an orange juice, please.", "Thank you!"]],
+          "useful": ["I'd like ...", "And ..., please."] }
+      ]
+    },
+    {
+      "id": "a1-07",
+      "title": "At school",
+      "cards": [
+        { "ar": "ما مادتك المفضلة؟", "q": "What's your favorite subject?", "a": ["My favorite subject is biology.", "I like English best."],
+          "useful": ["math", "chemistry", "art"], "ask": "اسألي صديقتك عن مادتها المفضلة." },
+        { "ar": "ما حصصك اليوم؟", "q": "What classes do you have today?", "a": ["I have math, English and physics.", "We have chemistry first."],
+          "useful": ["first", "after the break"], "ask": "اسألي زميلتك عن حصص اليوم." },
+        { "ar": "من معلمة الإنجليزية؟", "q": "Who's your English teacher?", "a": ["Ms. ___.", "Our English teacher is Ms. ___."], "ex": "Sara · Huda · Amal",
+          "useful": ["our teacher"], "ask": "اسألي زميلتك عن معلمة الإنجليزية." },
+        { "talk": true, "ar": "حدّثي عن مدرستك.", "q": "Talk about your school.",
+          "steps": ["Say your grade.", "Say your favorite subject.", "Say how many classes you have a day.", "Say one thing you like about school."],
+          "a": [["I'm in grade eleven.", "My favorite subject is biology.", "We have seven classes a day.", "I like my friends at school."]],
+          "useful": ["a day", "I like ..."] }
+      ]
+    },
+    {
+      "id": "a1-08",
+      "title": "Shopping and prices",
+      "cards": [
+        { "ar": "البائعة تسألك.", "q": "Can I help you?", "a": ["Yes, I'm looking for a notebook.", "Yes, please. How much is this bag?"],
+          "useful": ["I'm looking for ...", "Just looking, thanks."], "ask": "أنتِ البائعة. اسألي الزبونة: هل تحتاج مساعدة؟" },
+        { "ar": "السعر عشرون ريالًا.", "q": "It's twenty riyals.", "a": ["OK, I'll take it.", "Hmm, that's a bit expensive."],
+          "useful": ["cheap", "expensive", "I'll take it."] },
+        { "ar": "أنتِ البائعة.", "q": "How much is this pen?", "a": ["It's five riyals.", "Five riyals, please."],
+          "useful": ["riyals", "fifty", "a hundred"], "ask": "اسألي البائعة عن سعر القلم." },
+        { "talk": true, "ar": "اشتري هدية من متجر.", "q": "Buy a gift in a shop.",
+          "steps": ["Say what you are looking for.", "Ask the price.", "Say you'll take it.", "Say thank you."],
+          "a": [["I'm looking for a gift for my mother.", "How much is this perfume?", "OK, I'll take it.", "Thank you!"]],
+          "useful": ["I'm looking for ...", "How much is ...?", "I'll take it."] }
+      ]
+    },
+    {
+      "id": "a1-09",
+      "title": "Where is it?",
+      "cards": [
+        { "ar": "أين المكتبة؟", "q": "Excuse me, where's the library?", "a": ["It's on the second floor.", "It's next to the lab."],
+          "useful": ["next to", "across from", "upstairs"], "ask": "اسألي عن مكان المكتبة في المدرسة." },
+        { "ar": "هل يوجد مقهى قريب؟", "q": "Is there a café near here?", "a": ["Yes, there's one on this street.", "Sorry, I don't know."],
+          "useful": ["Yes, there is.", "No, there isn't."], "ask": "اسألي: هل يوجد مقهى قريب؟" },
+        { "ar": "أين هاتفك؟", "q": "Where's your phone?", "a": ["It's in my bag.", "It's on the table."],
+          "useful": ["in", "on", "under"], "ask": "اسألي أختك: أين هاتفها؟" },
+        { "talk": true, "ar": "دُلّي زائرة على مكتب المديرة.", "q": "Help a visitor find the principal's office.",
+          "steps": ["Say \"Follow me, please.\"", "Say it's on the first floor.", "Say it's next to the library.", "Say \"Here it is!\""],
+          "a": [["Follow me, please.", "It's on the first floor.", "It's next to the library.", "Here it is!"]],
+          "useful": ["next to", "on the first floor", "Here it is!"] }
+      ]
+    },
+    {
+      "id": "a1-10",
+      "title": "Weather and seasons",
+      "cards": [
+        { "ar": "كيف الطقس اليوم؟", "q": "What's the weather like today?", "a": ["It's hot and sunny.", "It's cold and windy."],
+          "useful": ["hot", "cool", "rainy"], "ask": "اسألي صديقتك عن الطقس اليوم." },
+        { "ar": "ما فصلك المفضل؟", "q": "What's your favorite season?", "a": ["I like winter because it's cool.", "Spring, because it's nice outside."],
+          "useful": ["winter", "spring", "summer"], "ask": "اسألي صديقتك عن فصلها المفضل." },
+        { "ar": "ماذا تلبسين في الشتاء؟", "q": "What do you wear in winter?", "a": ["I wear a warm jacket.", "I wear a sweater and socks."],
+          "useful": ["a jacket", "a scarf"], "ask": "اسألي صديقتك ماذا تلبس في الشتاء." },
+        { "talk": true, "ar": "صِفي الطقس لصديقة في بلد آخر.", "q": "Tell a friend in another country about your weather.",
+          "steps": ["Say the weather today.", "Say how summer is.", "Say how winter is.", "Say your favorite season."],
+          "a": [["Today it's sunny.", "In summer, it's very hot.", "In winter, it's cool and sometimes rainy.", "My favorite season is winter."]],
+          "useful": ["In summer, ...", "sometimes"] }
+      ]
+    },
+    {
+      "id": "a1-11",
+      "title": "Things I can do",
+      "cards": [
+        { "ar": "هل تستطيعين السباحة؟", "q": "Can you swim?", "a": ["Yes, I can.", "No, I can't, but I want to learn."],
+          "useful": ["a little", "very well"], "ask": "اسألي صديقتك: هل تستطيع السباحة؟" },
+        { "ar": "هل تستطيعين الطبخ؟", "q": "Can you cook?", "a": ["Yes, I can make pasta.", "Not really. I can make tea!"],
+          "useful": ["I can make ..."], "ask": "اسألي صديقتك: هل تستطيع الطبخ؟" },
+        { "ar": "ماذا تجيدين؟", "q": "What can you do well?", "a": ["I can draw well.", "I can speak two languages."],
+          "useful": ["well", "very well"], "ask": "اسألي صديقتك ماذا تجيد." },
+        { "talk": true, "ar": "حدّثي عن مهاراتك.", "q": "Talk about your skills.",
+          "steps": ["Say one thing you can do well.", "Say one thing you can't do.", "Say what you want to learn.", "Say why."],
+          "a": [["I can draw very well.", "I can't swim.", "I want to learn to swim.", "It's good exercise."]],
+          "useful": ["I can ...", "I can't ...", "I want to learn ..."] }
+      ]
+    },
+    {
+      "id": "a1-12",
+      "title": "Right now",
+      "cards": [
+        { "ar": "اتصلت بكِ صديقتك.", "q": "What are you doing?", "a": ["I'm doing my homework.", "I'm watching a video."],
+          "useful": ["I'm studying.", "I'm eating."], "ask": "اتصلي بصديقتك واسأليها ماذا تفعل." },
+        { "ar": "أين أنتِ الآن؟", "q": "Where are you now?", "a": ["I'm at home.", "I'm at my grandmother's house."],
+          "useful": ["at home", "at the mall"], "ask": "اسألي صديقتك: أين هي الآن؟" },
+        { "ar": "ماذا تفعل أسرتك الآن؟", "q": "What is your family doing now?", "a": ["My mom is cooking dinner.", "My brothers are playing games."],
+          "useful": ["is cooking", "are playing"], "ask": "اسألي صديقتك ماذا تفعل أسرتها الآن." },
+        { "talk": true, "ar": "صديقتك تتصل بكِ مساءً.", "q": "Your friend calls you in the evening.",
+          "steps": ["Say hello.", "Say where you are.", "Say what you are doing.", "Ask what she is doing."],
+          "a": [["Hi! How are you?", "I'm at home.", "I'm studying for the test.", "What are you doing?"]],
+          "useful": ["I'm ...ing", "What are you doing?"] }
+      ]
+    }
+  ]
+}

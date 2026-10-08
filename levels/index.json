@@ -1,0 +1,8 @@
+{ "version": 1, "levels": [
+  { "id": "pre-a1", "code": "Pre-A1", "name": "Starter", "file": "pre-a1.json", "optional": true, "help": "ar-first" },
+  { "id": "a1", "code": "A1", "name": "Beginner", "file": "a1.json", "help": "ar-first" },
+  { "id": "a2", "code": "A2", "name": "Elementary", "file": "a2.json", "help": "ar-help" },
+  { "id": "b1", "code": "B1", "name": "Intermediate", "file": "b1.json", "help": "en-help" },
+  { "id": "b2", "code": "B2", "name": "Upper intermediate", "file": "b2.json", "help": "none" },
+  { "id": "c1", "code": "C1", "name": "Advanced", "file": "c1.json", "help": "none" },
+  { "id": "c2", "code": "C2", "name": "Proficient", "file": "c2.json", "help": "none" } ] }

@@ -1,0 +1,64 @@
+{
+  "level": "c1",
+  "cando": [
+    "I can speak fluently and precisely in interviews and discussions.",
+    "I can concede a point and then defend my own view.",
+    "I can join a discussion politely and soften my opinions when I'm not certain."
+  ],
+  "cando_ar": [
+    "أستطيع أن أتحدث بطلاقة ودقة في المقابلات والنقاشات.",
+    "أستطيع أن أسلّم بنقطة ثم أدافع عن رأيي.",
+    "أستطيع أن أنضم إلى نقاش بلباقة وأخفّف من حدة رأيي حين لا أكون متأكدة."
+  ],
+  "more_coming": true,
+  "sets": [
+    {
+      "id": "c1-01",
+      "title": "University interview",
+      "cards": [
+        { "q": "Tell us about a challenge you've faced and how you dealt with it.", "a": ["What I found most challenging was leading a research project with a very tight deadline. I dealt with it by breaking the work into weekly goals and sharing the tasks fairly.", "One challenge that comes to mind is moving to a new city in grade ten, when I didn't know anyone. I dealt with it by joining the volunteering team, which turned out to be one of the best decisions I've made."],
+          "useful": ["What I found most challenging was ...", "I dealt with it by ...ing", "One challenge that comes to mind is ..."], "ask": "You're the interviewer. Ask the applicant to tell you about a challenge she has faced and how she dealt with it." },
+        { "q": "Why do you think you're a strong candidate for this program?", "a": ["I'd argue that my main strength is persistence. A case in point is a science competition last year, where our first prototype failed but we kept refining it.", "I'd like to think it's my curiosity. I tend to go beyond what's required, for instance by teaching myself to code, and this program would allow me to take that much further."],
+          "useful": ["I'd argue that ...", "A case in point is ...", "I'd like to think ..."], "ask": "You're the interviewer. Ask the applicant why she thinks she's a strong candidate for the program." },
+        { "q": "What's a weakness you're working on?", "a": ["Admittedly, I tend to take on too much at once. That said, I've started prioritizing more carefully, and it's made a real difference.", "If I'm being honest, I find it hard to ask for help, because I like to solve things on my own. I've come to realize that this can slow a team down, so I now make a point of asking for advice early on."],
+          "useful": ["Admittedly, ...", "That said, ...", "it's made a real difference"], "ask": "You're the interviewer. Ask the applicant about a weakness she's working on." },
+        { "talk": true, "q": "Talk for one minute: answer the interviewer's question about teamwork.",
+          "steps": ["Describe a time you worked in a team.", "Explain your role.", "Describe one difficulty and how the team handled it.", "Reflect on what you learned."],
+          "a": [["Last year, I worked with four classmates on a class magazine.", "My role was to coordinate the interviews and make sure we met our deadlines.", "At one point, we disagreed quite strongly about the cover story, but we resolved it by hearing everyone out and then voting.", "Looking back, I learned that listening carefully is just as important as having good ideas."]],
+          "useful": ["My role was to ...", "we resolved it by ...ing", "Looking back, I learned that ..."] }
+      ]
+    },
+    {
+      "id": "c1-02",
+      "title": "Conceding and countering",
+      "cards": [
+        { "q": "Exams are the only fair way to measure what students know.", "a": ["That's a fair point, in that exams treat everyone the same. Even so, they only capture how a student performs on one particular day, which isn't necessarily a true picture of her ability.", "While it's true that exams are objective, I'm not convinced they're the only fair measure. Projects and presentations arguably reveal skills that a timed test simply can't."],
+          "useful": ["That's a fair point, ...", "Even so, ...", "While it's true that ..., I'm not convinced ..."], "ask": "In a debate, tell your opponent that exams are the only fair way to measure what students know." },
+        { "q": "But surely social media does more harm than good for teenagers?", "a": ["I accept that it can affect sleep and self-esteem, but that doesn't necessarily mean it's harmful overall. Used sensibly, it can connect young people with ideas and opportunities they'd never come across otherwise.", "I take your point, and the research on screen time is certainly a cause for concern. Nevertheless, I'd still maintain that the problem lies in how we use it rather than in social media itself."],
+          "useful": ["I accept that ..., but that doesn't necessarily mean ...", "I take your point.", "I'd still maintain that ..."], "ask": "In a debate, challenge your opponent by suggesting that social media does more harm than good for teenagers." },
+        { "q": "So you agree with me, then?", "a": ["Not quite. I agree that the costs are high, but my main point still stands: in the long run, the benefits far outweigh them.", "Only up to a point. I've accepted that there are risks, but conceding one point isn't the same as conceding the whole argument."],
+          "useful": ["Not quite.", "my main point still stands", "Only up to a point."], "ask": "Your opponent has just conceded one of your points. Ask her if that means she agrees with you." },
+        { "talk": true, "q": "Talk for one minute: respond to the motion \"Students should choose all of their own school subjects.\"",
+          "steps": ["State your position on the motion.", "Concede the strongest point on the other side.", "Counter it with your main argument.", "Answer a likely objection.", "Restate your position."],
+          "a": [["I'd argue against the motion, although I can see why it's appealing.", "It's true that students who choose their own subjects tend to be more motivated.", "Even so, at fifteen, most of us simply don't know which subjects we'll need later, and dropping math or science too early could close doors.", "Some might say we could always catch up later, but in practice that's far harder than it sounds.", "So, while choice clearly matters, I'd still maintain that a strong core of shared subjects serves students better."]],
+          "useful": ["I can see why it's appealing.", "Even so, ...", "Some might say ..., but in practice ..."] }
+      ]
+    },
+    {
+      "id": "c1-03",
+      "title": "Joining a discussion and hedging",
+      "cards": [
+        { "q": "Does anyone else have something to add?", "a": ["Yes, if I could just come in here, I'd like to build on what Reem said. It seems to me that the real issue is time management rather than the workload itself.", "Just a quick point, if I may. It could be argued that we're focusing on the cost and overlooking the long-term benefits."],
+          "useful": ["If I could just come in here, ...", "I'd like to build on what ... said.", "It could be argued that ..."], "ask": "You're leading a group discussion. Ask the group if anyone else has something to add." },
+        { "q": "Do you think reading on screens will replace printed books?", "a": ["It's hard to say for certain, but I'd tend to think printed books will survive. There's some evidence to suggest that we understand more when we read on paper.", "To some extent, it already has, especially for news and magazines. Even so, I doubt paper will disappear entirely, as many people still prefer the feel of a real book."],
+          "useful": ["It's hard to say for certain, but ...", "I'd tend to think ...", "To some extent, ..."], "ask": "Ask your classmate whether she thinks reading on screens will replace printed books." },
+        { "q": "Are you sure about that?", "a": ["Not entirely, to be honest. I'm fairly confident about the general trend, but I'd need to check the exact figures.", "Reasonably sure, yes. It's probably fair to say that most studies point the same way, although I wouldn't claim it's the final word on the subject."],
+          "useful": ["Not entirely, to be honest.", "I'm fairly confident about ..., but ...", "It's probably fair to say that ..."], "ask": "Your classmate has just made a surprising claim. Ask her if she's sure about that." },
+        { "talk": true, "q": "Talk for one minute: join a class discussion on whether volunteering should count toward students' grades.",
+          "steps": ["Ask politely to come in.", "Refer to what someone else said.", "Give your view, with a hedge.", "Support it with an example.", "Invite others to respond."],
+          "a": [["Sorry, if I could just come in here for a moment.", "Lama mentioned that volunteering builds character, and I'd tend to agree.", "However, it could be argued that grading it would turn it into just another requirement.", "In my experience, students who volunteer by choice, for example packing food baskets in Ramadan, seem far more committed.", "But I'd be interested to hear what others think."]],
+          "useful": ["I'd tend to agree.", "In my experience, ...", "I'd be interested to hear what others think."] }
+      ]
+    }
+  ]
+}

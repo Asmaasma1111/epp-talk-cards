@@ -1,0 +1,915 @@
+{
+  "level": "b1",
+  "cando": [
+    "I can start a conversation, keep it going and end it politely.",
+    "I can give my opinion with reasons, agree and disagree politely, and ask what someone means.",
+    "I can talk about my experiences, tell a story, explain a problem and describe my hopes for the future."
+  ],
+  "cando_ar": [
+    "أستطيع أن أبدأ محادثة وأواصلها وأنهيها بلطف.",
+    "أستطيع أن أعبّر عن رأيي مع ذكر الأسباب، وأوافق وأخالف بأدب، وأسأل عمّا يقصده الآخرون.",
+    "أستطيع أن أتحدث عن تجاربي، وأروي قصة، وأشرح مشكلة، وأصف آمالي للمستقبل."
+  ],
+  "more_coming": false,
+  "sets": [
+    {
+      "id": "b1-01",
+      "title": "Starting and ending a conversation",
+      "cards": [
+        {
+          "q": "Hi! I haven't seen you in a long time. How have you been?",
+          "simple": "Hi! It's been a long time. How are you?",
+          "a": [
+            "I've been really busy because we had exams all month. It's so good to see you!",
+            "I've been great, thanks! We moved to a new house, so I've been unpacking boxes all week."
+          ],
+          "useful": [
+            "I've been really busy.",
+            "It's so good to see you!"
+          ],
+          "ask": "Greet a friend you haven't seen in a long time, and ask how she has been."
+        },
+        {
+          "q": "Hi! Is this your first day at the summer program?",
+          "simple": "Hi! Are you new here at the summer program?",
+          "a": [
+            "Yes, it's my first day, so I don't know anyone yet. What about you?",
+            "No, it's my second year. I came back because I loved the robotics workshop last year."
+          ],
+          "useful": [
+            "I don't know anyone yet.",
+            "What about you?",
+            "I came back because ..."
+          ],
+          "ask": "Start a conversation with a girl at a summer program. Ask her if it's her first day."
+        },
+        {
+          "q": "Do you want to stay and have another coffee?",
+          "simple": "Can you stay a little longer?",
+          "a": [
+            "I'd love to, but I'd better go because my mom is waiting outside. It was so nice talking to you!",
+            "Sorry, I can't, because I have a test tomorrow. Let's catch up on the weekend!"
+          ],
+          "useful": [
+            "I'd better go.",
+            "It was so nice talking to you!",
+            "Let's catch up ..."
+          ],
+          "ask": "Ask your friend if she wants to stay and have another coffee."
+        },
+        {
+          "talk": true,
+          "q": "Talk for 30 seconds: you meet an old friend at the mall.",
+          "simple": "You see an old friend at the mall. Say hello, talk a little, and then say goodbye.",
+          "steps": [
+            "Greet her and say how long it has been.",
+            "Ask how she has been.",
+            "Tell her one piece of news.",
+            "Say you have to go, and give a reason.",
+            "Say goodbye and suggest meeting again."
+          ],
+          "a": [
+            [
+              "Hi! Wow, I haven't seen you in two years!",
+              "How have you been?",
+              "I've moved to a new school this year, and I really like it.",
+              "I'm sorry, but I'd better go because my sister is waiting for me.",
+              "It was so nice to see you. Let's catch up soon!"
+            ]
+          ],
+          "useful": [
+            "I haven't seen you in ...",
+            "I'd better go because ...",
+            "Let's catch up soon!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1-02",
+      "title": "Experiences",
+      "cards": [
+        {
+          "q": "Have you ever been to AlUla?",
+          "simple": "Did you ever visit AlUla?",
+          "a": [
+            "Yes, I have! I went there last winter with my family, and I loved it because the rocks look amazing at sunset.",
+            "No, I haven't, but I'd really like to go. My cousin says it's beautiful, so maybe we'll go next winter."
+          ],
+          "useful": [
+            "Yes, I have.",
+            "No, I haven't, but ...",
+            "I went there last ..."
+          ],
+          "ask": "Ask your friend if she has ever been to AlUla."
+        },
+        {
+          "q": "Have you ever tried a food that you didn't like?",
+          "simple": "Did you ever eat something new and not like it?",
+          "a": [
+            "Yes, I have. I tried sushi once, but I didn't like it because the fish was raw.",
+            "Not really, because I love trying new food. Last month, I had Korean food for the first time, and it was delicious!"
+          ],
+          "useful": [
+            "I tried ... once",
+            "I didn't like it because ...",
+            "for the first time"
+          ],
+          "ask": "Ask your friend if she has ever tried a food that she didn't like."
+        },
+        {
+          "q": "What's the most exciting thing you've ever done?",
+          "simple": "What is the most exciting thing you did in your life?",
+          "a": [
+            "I once gave a speech in front of the whole school. I was nervous, but I felt so proud because everyone clapped.",
+            "I've been snorkeling in the Red Sea with my family. It was amazing because I saw so many colorful fish."
+          ],
+          "useful": [
+            "I once ...",
+            "I was nervous, but ...",
+            "It was amazing because ..."
+          ],
+          "ask": "Ask your friend about the most exciting thing she has ever done."
+        },
+        {
+          "talk": true,
+          "q": "Talk for 30 seconds: describe a place you have visited.",
+          "simple": "Talk about a trip: where you went, what you did and how it was.",
+          "steps": [
+            "Say where you have been.",
+            "Say when you went and who you went with.",
+            "Say what you did there.",
+            "Say how you felt and why.",
+            "Say if you would like to go again."
+          ],
+          "a": [
+            [
+              "I've been to Abha.",
+              "I went there two summers ago with my family.",
+              "We walked in the mountains and visited the old markets.",
+              "I loved it because it was cool and green.",
+              "I'd love to go again next summer."
+            ]
+          ],
+          "useful": [
+            "I've been to ...",
+            "two summers ago",
+            "I'd love to go again."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1-03",
+      "title": "Hopes and ambitions",
+      "cards": [
+        {
+          "q": "What would you like to study at university, and why?",
+          "simple": "What do you want to study after school?",
+          "a": [
+            "I'd like to study medicine because I want to help people. My aunt is a doctor, and she's my role model.",
+            "I'm hoping to study computer science. I've always loved solving problems, so I think it's perfect for me."
+          ],
+          "useful": [
+            "I'd like to ...",
+            "I'm hoping to ...",
+            "I've always loved ..."
+          ],
+          "ask": "Ask your friend what she would like to study at university, and why."
+        },
+        {
+          "q": "Where do you see yourself in ten years?",
+          "simple": "What will your life be like in ten years?",
+          "a": [
+            "I hope I'll be working as an engineer on a big national project. I'd love that because I want to help build my country.",
+            "In ten years, I'd like to have my own business. I love design, so I might open a small studio."
+          ],
+          "useful": [
+            "I hope I'll be ...ing",
+            "In ten years, I'd like to ...",
+            "I might ..."
+          ],
+          "ask": "Ask your friend where she sees herself in ten years."
+        },
+        {
+          "q": "What might stop you from reaching your goal?",
+          "simple": "What problems could you have?",
+          "a": [
+            "Medicine is a long degree, so I'll need to be patient. But I'm ready to work hard.",
+            "My English isn't strong enough yet, so I'm practicing every day. I read English books because they help me a lot."
+          ],
+          "useful": [
+            "..., so I'll need to ...",
+            "... isn't strong enough yet",
+            "I'm practicing every day."
+          ],
+          "ask": "Ask your friend what might stop her from reaching her goal."
+        },
+        {
+          "talk": true,
+          "q": "Talk for 30 seconds: tell a friend about your dream.",
+          "simple": "Talk about your dream: what it is, why, and what you are doing now.",
+          "steps": [
+            "Say what your dream is.",
+            "Explain why it matters to you.",
+            "Say one step you are taking now.",
+            "Say one problem you might have and what you will do."
+          ],
+          "a": [
+            [
+              "My dream is to become a pharmacist.",
+              "It matters to me because my grandmother takes a lot of medicine, and I want to help people like her.",
+              "Right now, I'm working hard in chemistry and biology.",
+              "It might be hard to get into a good university, so I'm going to start preparing early."
+            ]
+          ],
+          "useful": [
+            "My dream is to ...",
+            "It matters to me because ...",
+            "Right now, I'm ..."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1-04",
+      "title": "Opinions with friends",
+      "cards": [
+        {
+          "q": "I think online classes are better than classes at school. What do you think?",
+          "simple": "Do you like online classes more than school classes?",
+          "a": [
+            "I see what you mean, but I'm not sure about that. I learn better at school because I can ask the teacher questions face to face.",
+            "I agree with you, because you save a lot of time at home. But I'd really miss my friends!"
+          ],
+          "useful": [
+            "I see what you mean, but ...",
+            "I'm not sure about that.",
+            "I agree with you"
+          ],
+          "ask": "Tell your friend you think online classes are better than classes at school, and ask what she thinks."
+        },
+        {
+          "q": "Social media is a waste of time, don't you think?",
+          "simple": "Do you think social media wastes our time?",
+          "a": [
+            "That's true for some people, but it depends on how you use it. I follow science accounts, so I learn a lot.",
+            "You're right. I spend too much time on it, so I'm trying to use it less."
+          ],
+          "useful": [
+            "That's true for some people, but ...",
+            "It depends on ...",
+            "You're right."
+          ],
+          "ask": "Tell your friend you think social media is a waste of time, and ask if she agrees."
+        },
+        {
+          "q": "I think everyone should learn coding at school.",
+          "simple": "Should all students learn coding?",
+          "a": [
+            "I totally agree, because coding is useful in so many jobs. It also teaches you to solve problems step by step.",
+            "I'm not so sure. Coding is great, but some students prefer art or languages, so it should be a choice."
+          ],
+          "useful": [
+            "I totally agree, because ...",
+            "I'm not so sure.",
+            "it should be a choice"
+          ],
+          "ask": "Tell your friend you think everyone should learn coding at school."
+        },
+        {
+          "talk": true,
+          "q": "Talk for 30 seconds: your friend wants a class trip to the mall. You prefer the science museum.",
+          "simple": "Your friend wants to go to the mall. You want to go to the museum. Say why, in a kind way.",
+          "steps": [
+            "Say something nice about her idea.",
+            "Disagree politely.",
+            "Say your idea.",
+            "Give a reason.",
+            "Suggest a way to make everyone happy."
+          ],
+          "a": [
+            [
+              "That's a fun idea.",
+              "But I'm not sure the mall is the best place for a class trip.",
+              "I think we should go to the science museum.",
+              "There's a new space exhibition, so we can learn something new.",
+              "How about the museum in the morning and lunch at the mall after?"
+            ]
+          ],
+          "useful": [
+            "I'm not sure ...",
+            "I think we should ...",
+            "How about ...?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1-05",
+      "title": "Asking for clarification",
+      "cards": [
+        {
+          "q": "For your project, please cite at least three sources.",
+          "simple": "In your project, write the names of three books or websites you used.",
+          "a": [
+            "Sorry, what do you mean by \"cite\"? I've never heard that word, so I'm not sure what to do.",
+            "Could you give us an example, please? I'm asking because I want to do it the right way."
+          ],
+          "useful": [
+            "Sorry, what do you mean by ...?",
+            "Could you give us an example?",
+            "I'm asking because ..."
+          ],
+          "ask": "You are the teacher. Tell the class to cite at least three sources for their project."
+        },
+        {
+          "q": "The club meeting has moved to Tuesday, in Room 12, right after the break.",
+          "simple": "The club meeting is now on Tuesday after the break, in Room 12.",
+          "a": [
+            "Sorry, I didn't catch that. Could you say it again more slowly, so I can write it down?",
+            "So the meeting is on Tuesday, right after the break? I'm just checking because I don't want to miss it."
+          ],
+          "useful": [
+            "Sorry, I didn't catch that.",
+            "Could you say it again more slowly?",
+            "I'm just checking because ..."
+          ],
+          "ask": "Tell your friend the club meeting has moved to Tuesday, in Room 12, right after the break."
+        },
+        {
+          "q": "Don't worry, the test is going to be a piece of cake!",
+          "simple": "Don't worry, the test will be very easy!",
+          "a": [
+            "Sorry, what does \"a piece of cake\" mean? I don't get it, because we aren't talking about food!",
+            "Do you mean it's going to be easy? I hope you're right, because I'm really worried!"
+          ],
+          "useful": [
+            "What does ... mean?",
+            "Do you mean ...?",
+            "I hope you're right."
+          ],
+          "ask": "Tell your worried friend that the test is going to be a piece of cake."
+        },
+        {
+          "talk": true,
+          "q": "Your teacher explains the homework too fast. Ask her to help you understand.",
+          "simple": "The teacher speaks too fast. Ask her to say it again and explain.",
+          "steps": [
+            "Say you didn't understand.",
+            "Ask her to say it again more slowly.",
+            "Ask what one word means.",
+            "Check that you understand.",
+            "Thank her."
+          ],
+          "a": [
+            [
+              "Sorry, Ms. ___, I didn't quite understand.",
+              "Could you say that again more slowly, please?",
+              "What do you mean by \"summarize\"?",
+              "So we have to write the main ideas in five lines?",
+              "That's clear now. Thank you so much!"
+            ]
+          ],
+          "ex": [
+            "Sara · Huda · Amal",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "useful": [
+            "I didn't quite understand.",
+            "What do you mean by ...?",
+            "So we have to ...?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1-06",
+      "title": "Telling a story",
+      "cards": [
+        {
+          "q": "What happened? You look so excited!",
+          "simple": "Why are you so happy? Tell me what happened.",
+          "a": [
+            "I was checking my email when I saw the news. I got into the coding camp I applied for, so I can't stop smiling!",
+            "My little sister said her first English word this morning! We were having breakfast when she suddenly said \"apple,\" so we all laughed."
+          ],
+          "useful": [
+            "I was ...ing when ...",
+            "suddenly",
+            "so we all laughed"
+          ],
+          "ask": "Your friend looks very excited. Ask her what happened."
+        },
+        {
+          "q": "Has anything funny happened to you this week?",
+          "simple": "Did something funny happen to you this week?",
+          "a": [
+            "Yes! I was making tea for my mom's guests when I put salt in it instead of sugar. Nobody said anything because they were too polite!",
+            "Yes! My mom was looking for her glasses all morning, so we all helped her. Then my sister noticed they were on her head the whole time!"
+          ],
+          "useful": [
+            "I was ...ing when ...",
+            "instead of",
+            "the whole time"
+          ],
+          "ask": "Ask your friend if anything funny has happened to her this week."
+        },
+        {
+          "q": "How was your trip? I heard your flight was late.",
+          "simple": "Was your trip good? Was your plane late?",
+          "a": [
+            "It was a long day! We waited at the airport for six hours, so we were exhausted when we finally arrived.",
+            "It was fine in the end. The flight was late, but we met our cousins at the airport, so we didn't get bored."
+          ],
+          "useful": [
+            "It was a long day!",
+            "when we finally arrived",
+            "in the end"
+          ],
+          "ask": "Your friend's flight was late. Ask her how her trip was."
+        },
+        {
+          "talk": true,
+          "q": "Talk for 30 seconds: tell a story about a day when something went wrong.",
+          "simple": "Tell a story about a bad day: what happened and how it ended.",
+          "steps": [
+            "Say when it happened.",
+            "Say what you were doing.",
+            "Say what went wrong.",
+            "Say what you did next.",
+            "Say how it ended."
+          ],
+          "a": [
+            [
+              "It happened last Ramadan.",
+              "I was helping my mom make iftar for the whole family.",
+              "Suddenly, the power went out just before sunset.",
+              "So we lit some candles and ate in the garden.",
+              "In the end, it was the best iftar ever because it felt like a picnic."
+            ]
+          ],
+          "useful": [
+            "Suddenly, ...",
+            "So we ...",
+            "In the end, ..."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1-07",
+      "title": "A problem and a complaint",
+      "cards": [
+        {
+          "q": "So you'd like to return this? What's wrong with it?",
+          "simple": "Why do you want to give it back?",
+          "a": [
+            "It stopped working after two days. I've only used it twice, so I'd like to exchange it, please.",
+            "The screen is cracked, but I didn't drop it. I think it was broken in the box, so could I get a refund?"
+          ],
+          "useful": [
+            "It stopped working.",
+            "I'd like to exchange it.",
+            "Could I get a refund?"
+          ],
+          "ask": "You work in a store. A customer wants to return something. Ask her what's wrong with it."
+        },
+        {
+          "q": "Is everything OK with your meal?",
+          "simple": "Do you like your food?",
+          "a": [
+            "Not really, I'm afraid. My pasta is cold, so could you heat it up, please?",
+            "The food is great, thank you. But we've been waiting for our drinks for twenty minutes, so could you check on them?"
+          ],
+          "useful": [
+            "Not really, I'm afraid.",
+            "Could you heat it up, please?",
+            "We've been waiting for ..."
+          ],
+          "ask": "You are the waiter. Ask the customer if everything is OK with her meal."
+        },
+        {
+          "q": "Thank you for calling customer service. How can I help you?",
+          "simple": "Hello, this is the store. What is the problem?",
+          "a": [
+            "I ordered a blue dress online, but you sent a green one. I need it for my cousin's wedding on Thursday, so could you send the right one quickly?",
+            "My order was supposed to arrive three days ago, but it still hasn't come. It's a gift for my mom's birthday, so I really need it by Saturday."
+          ],
+          "useful": [
+            "I ordered ..., but ...",
+            "It still hasn't come.",
+            "I really need it by ..."
+          ],
+          "ask": "You work in customer service. Answer the phone and ask how you can help."
+        },
+        {
+          "talk": true,
+          "q": "Your new laptop stopped working. Call the store and make a complaint.",
+          "simple": "Your laptop is broken. Call the store. Say what is wrong and what you want.",
+          "steps": [
+            "Say what you bought and when.",
+            "Explain the problem.",
+            "Say what you have already tried.",
+            "Explain why it is a big problem for you.",
+            "Say what you want them to do."
+          ],
+          "a": [
+            [
+              "Hello, I bought a laptop from your store two weeks ago.",
+              "It turns off by itself every few minutes.",
+              "I've already restarted it many times, but it still doesn't work.",
+              "I'm a student, so I need it for my homework every day.",
+              "Could you fix it quickly or give me a new one, please?"
+            ]
+          ],
+          "useful": [
+            "It turns off by itself.",
+            "..., so I need it for ...",
+            "Could you fix it ...?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1-08",
+      "title": "At the doctor's",
+      "cards": [
+        {
+          "q": "What seems to be the problem?",
+          "simple": "What is wrong? How do you feel?",
+          "a": [
+            "I've had a bad headache for three days. I can't sleep well, so I feel tired all the time.",
+            "I have a sore throat and a fever. It started yesterday, so I stayed home from school today."
+          ],
+          "useful": [
+            "I've had ... for three days.",
+            "a sore throat",
+            "It started yesterday."
+          ],
+          "ask": "You are the doctor. Ask your patient what the problem is."
+        },
+        {
+          "q": "Your ankle looks swollen. How did it happen?",
+          "simple": "Your ankle is bigger than normal. What happened?",
+          "a": [
+            "I was playing basketball at school, and I fell. It hurts when I walk, so my mom brought me here.",
+            "I'm not really sure, because I didn't fall. It started hurting after a long walk yesterday."
+          ],
+          "useful": [
+            "I was ...ing, and I fell.",
+            "It hurts when I ...",
+            "It started hurting ..."
+          ],
+          "ask": "You are the doctor. Tell your patient her ankle looks swollen, and ask how it happened."
+        },
+        {
+          "q": "You should rest for a few days and drink lots of water.",
+          "simple": "Stay home, rest and drink a lot of water.",
+          "a": [
+            "OK, thank you. I have an important test on Wednesday, so can I still go to school?",
+            "Thank you, Doctor. Should I take something for the pain? It's hard to sleep because it hurts at night."
+          ],
+          "useful": [
+            "Can I still ...?",
+            "Should I take something for ...?",
+            "It's hard to sleep because ..."
+          ],
+          "ask": "You are the doctor. Tell your patient she should rest for a few days and drink lots of water."
+        },
+        {
+          "talk": true,
+          "q": "You have a stomachache. Tell the doctor about it.",
+          "simple": "Tell the doctor what is wrong and since when. Then ask what to do.",
+          "steps": [
+            "Say what the problem is.",
+            "Say how long you have had it.",
+            "Say when it gets worse.",
+            "Say what you have already tried.",
+            "Ask what you should do."
+          ],
+          "a": [
+            [
+              "I have a terrible stomachache.",
+              "I've had it since Monday.",
+              "It gets worse after I eat, so I'm not eating much.",
+              "I tried some mint tea, but it didn't help.",
+              "What should I do, Doctor?"
+            ]
+          ],
+          "useful": [
+            "I've had it since ...",
+            "It gets worse after ...",
+            "What should I do?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1-09",
+      "title": "How to do something",
+      "cards": [
+        {
+          "q": "Can you teach me how to make Saudi coffee?",
+          "simple": "How do you make Saudi coffee?",
+          "a": [
+            "Sure! First, you boil the coffee in water for about ten minutes. Then you add the cardamom and let it rest, so the coffee goes to the bottom.",
+            "Of course! The secret is the cardamom, so don't be shy with it. My grandmother also adds a little saffron because it gives a beautiful color."
+          ],
+          "useful": [
+            "First, you ...",
+            "Then you ...",
+            "The secret is ..."
+          ],
+          "ask": "Ask your friend to teach you how to make Saudi coffee."
+        },
+        {
+          "q": "How do I send a voice message on my phone?",
+          "simple": "Can you show me how to send a voice message?",
+          "a": [
+            "It's easy, so don't worry! Just hold the microphone button while you talk, and let go when you finish.",
+            "First, open the chat. Then hold the microphone button and don't let go until you finish, because it sends as soon as you let go."
+          ],
+          "useful": [
+            "It's easy, so don't worry!",
+            "Just hold ...",
+            "don't let go until ..."
+          ],
+          "ask": "Ask your friend how to send a voice message on your phone."
+        },
+        {
+          "q": "What's the best way to study for a big test?",
+          "simple": "How do you study for an important test?",
+          "a": [
+            "I always make a study plan first, so I don't leave everything until the last minute. Then I study for an hour and take a short break.",
+            "Try teaching the lesson to someone else, because it shows you what you don't understand. It really works for me!"
+          ],
+          "useful": [
+            "I always ... first, so ...",
+            "Try ...ing",
+            "It really works for me!"
+          ],
+          "ask": "Ask your friend for the best way to study for a big test."
+        },
+        {
+          "talk": true,
+          "q": "Talk for 30 seconds: explain how to make a drink you love.",
+          "simple": "Say how to make a drink you like, step by step.",
+          "steps": [
+            "Say what you need.",
+            "Say the first step.",
+            "Say the next step.",
+            "Give one tip.",
+            "Say how to serve it."
+          ],
+          "a": [
+            [
+              "To make karak tea, you need black tea, milk, sugar and cardamom.",
+              "First, boil the tea and cardamom in water for a few minutes.",
+              "Then add the milk and sugar, and let it boil again.",
+              "Make sure you watch it, because milk can boil over very fast.",
+              "Finally, pour it into small cups and serve it hot."
+            ]
+          ],
+          "useful": [
+            "you need ...",
+            "Make sure you ..., because ...",
+            "Finally, ..."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1-10",
+      "title": "A book, series or documentary",
+      "cards": [
+        {
+          "q": "What are you reading right now?",
+          "simple": "Are you reading a book now? Which one?",
+          "a": [
+            "I'm reading a mystery novel in English. It's a bit hard, but I can't stop reading because I want to know the ending!",
+            "Nothing right now, because I've been so busy with exams. But I've just bought a book about space, so I'll start it this weekend."
+          ],
+          "useful": [
+            "I'm reading ...",
+            "I can't stop reading",
+            "I've just bought ..."
+          ],
+          "ask": "Ask your friend what she is reading right now."
+        },
+        {
+          "q": "Have you watched any good documentaries lately?",
+          "simple": "Did you watch a good documentary recently?",
+          "a": [
+            "Yes! I watched one about the ocean last week. I'd really recommend it because the animals are amazing.",
+            "Yes, I saw one about the history of Diriyah. I learned a lot, because I didn't know much about it before."
+          ],
+          "useful": [
+            "I watched one about ...",
+            "I'd really recommend it because ...",
+            "I learned a lot"
+          ],
+          "ask": "Ask your friend if she has watched any good documentaries lately."
+        },
+        {
+          "q": "What did you think of the ending?",
+          "simple": "Did you like the end of the story?",
+          "a": [
+            "I loved it, because I didn't expect it at all! The writer really surprised me.",
+            "Honestly, I was a bit disappointed. The story was great, but the ending was too fast, so I still have so many questions."
+          ],
+          "useful": [
+            "I didn't expect it at all!",
+            "I was a bit disappointed.",
+            "The story was great, but ..."
+          ],
+          "ask": "You and your friend watched the same series. Ask her what she thought of the ending."
+        },
+        {
+          "talk": true,
+          "q": "Talk for 30 seconds: recommend a book or a series to a friend.",
+          "simple": "Tell your friend about a good book or series and why she should try it.",
+          "steps": [
+            "Say the name of the book or series.",
+            "Say what it is about.",
+            "Say what you liked most.",
+            "Say one thing you didn't like.",
+            "Say why your friend would enjoy it."
+          ],
+          "a": [
+            [
+              "I'd recommend a novel called Wonder.",
+              "It's about a boy who looks different and goes to school for the first time.",
+              "What I liked most was how his family supported him.",
+              "The middle part was a bit slow, but it gets better.",
+              "I think you'd enjoy it because you love stories about friendship."
+            ]
+          ],
+          "useful": [
+            "I'd recommend ...",
+            "It's about ...",
+            "What I liked most was ..."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1-11",
+      "title": "What would you do?",
+      "cards": [
+        {
+          "q": "What would you do if you had a million riyals?",
+          "simple": "Imagine you have a million riyals. How do you spend it?",
+          "a": [
+            "I'd buy my parents a new house, because they've done so much for me. Then I'd save the rest for university.",
+            "If I had that much money, I'd give some to charity first. I'd also travel with my family, because I've always wanted to see Japan."
+          ],
+          "useful": [
+            "I'd buy ...",
+            "If I had ..., I'd ...",
+            "I've always wanted to ..."
+          ],
+          "ask": "Ask your friend what she would do if she had a million riyals."
+        },
+        {
+          "q": "If you could have any job for one day, what would it be?",
+          "simple": "Imagine you can do any job for one day. Which job do you choose?",
+          "a": [
+            "I'd be an astronaut, because I'd love to see the Earth from space. Just one day would be enough for me!",
+            "I think I'd be a chef in a famous restaurant. I love cooking, so it would be like a dream."
+          ],
+          "useful": [
+            "I'd be ...",
+            "I'd love to ...",
+            "it would be like a dream"
+          ],
+          "ask": "Ask your friend what job she would choose if she could have any job for one day."
+        },
+        {
+          "q": "My best friend is upset with me, and I don't know why. What would you do?",
+          "simple": "My friend is angry with me. What should I do?",
+          "a": [
+            "If I were you, I'd just ask her what's wrong. It might be a small problem, so it's better to talk about it.",
+            "I'd send her a kind message first, because she might not want to talk yet. Then I'd give her a little time."
+          ],
+          "useful": [
+            "If I were you, I'd ...",
+            "she might not ...",
+            "it's better to ..."
+          ],
+          "ask": "Tell your friend that your best friend is upset with you and you don't know why. Ask her what she would do."
+        },
+        {
+          "talk": true,
+          "q": "Talk for 30 seconds: what would you do if you were the principal of your school for a week?",
+          "simple": "Imagine you are the principal for one week. What do you change and why?",
+          "steps": [
+            "Say the first thing you would change.",
+            "Say why.",
+            "Say one new activity you would start.",
+            "Say one thing you wouldn't change.",
+            "Say how the students would feel."
+          ],
+          "a": [
+            [
+              "First, I'd make the break longer.",
+              "Students need time to eat and rest, so they would focus better in class.",
+              "I'd also start a science club after school.",
+              "I wouldn't change the teachers, because they're great!",
+              "I think the students would be much happier."
+            ]
+          ],
+          "useful": [
+            "I'd also ...",
+            "I wouldn't change ...",
+            "would be much happier"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1-12",
+      "title": "Interviews: joining a team",
+      "cards": [
+        {
+          "q": "Why do you want to join our volunteering team?",
+          "simple": "Why do you want to be a volunteer with us?",
+          "a": [
+            "I want to join because I love helping people. Last Ramadan, I helped pack food baskets, and it felt amazing.",
+            "I'm interested in this team because I want to give back to my community. It would also give me good experience for university."
+          ],
+          "useful": [
+            "I'm interested in ... because ...",
+            "I want to give back to my community.",
+            "Last Ramadan, I helped ..."
+          ],
+          "ask": "You are the team leader. Ask a new student why she wants to join your volunteering team."
+        },
+        {
+          "q": "What skills can you bring to the club?",
+          "simple": "What are you good at? How can you help the club?",
+          "a": [
+            "I'm good at organizing things, so I could help plan events. I'm also very good with computers.",
+            "I've designed posters for school events before, so I could help with the club's social media. I'm a good team player, too."
+          ],
+          "useful": [
+            "I'm good at ...ing, so ...",
+            "I could help with ...",
+            "a good team player"
+          ],
+          "ask": "You are the club leader. Ask a new member what skills she can bring to the club."
+        },
+        {
+          "q": "Members have to come every Tuesday after school. Is that OK for you?",
+          "simple": "You must come every Tuesday after school. Can you come?",
+          "a": [
+            "Yes, that's fine, because I'm free on Tuesdays. Could I ask what time the meetings finish?",
+            "I might miss some Tuesdays, because I have extra classes before exams. Is that a problem?"
+          ],
+          "useful": [
+            "that's fine, because ...",
+            "Could I ask ...?",
+            "I might miss ..."
+          ],
+          "ask": "You are the club leader. Tell a new member she has to come every Tuesday after school, and ask if that's OK."
+        },
+        {
+          "talk": true,
+          "q": "Talk for 30 seconds: introduce yourself at an interview to volunteer at a children's science day.",
+          "simple": "Tell the interviewer about you: why you want to help, what you did before and when you are free.",
+          "steps": [
+            "Say your name and grade.",
+            "Say why you want to volunteer.",
+            "Say one experience you have.",
+            "Say one skill you have.",
+            "Say when you are free."
+          ],
+          "a": [
+            [
+              "My name is ___, and I'm in grade eleven.",
+              "I want to volunteer because I'd like to help children enjoy science.",
+              "Last year, I helped at a reading event for kids at the library.",
+              "I'm patient, and I can explain things clearly.",
+              "I'm free on weekends and most afternoons."
+            ]
+          ],
+          "ex": [
+            "Noura · Lama · Reem",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "useful": [
+            "I want to volunteer because ...",
+            "Last year, I helped ...",
+            "I'm free on ..."
+          ]
+        }
+      ]
+    }
+  ]
+}

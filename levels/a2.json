@@ -1,0 +1,880 @@
+{
+  "level": "a2",
+  "cando": [
+    "I can greet people, react to news and make small talk.",
+    "I can talk about my weekend, trips, people and places, and compare things.",
+    "I can make plans, invite people, order in a café and ask the way."
+  ],
+  "cando_ar": [
+    "أستطيع أن أحيّي الآخرين وأتفاعل مع الأخبار وأتبادل أحاديث قصيرة.",
+    "أستطيع أن أتحدث عن عطلتي ورحلاتي وعن الأشخاص والأماكن، وأن أقارن بين الأشياء.",
+    "أستطيع أن أرتّب المواعيد وأوجّه الدعوات وأطلب في المقهى وأسأل عن الطريق."
+  ],
+  "more_coming": false,
+  "sets": [
+    {
+      "id": "a2-01",
+      "title": "Small talk and news",
+      "cards": [
+        {
+          "ar": "كيف حالك؟",
+          "q": "Hey! How are you doing?",
+          "a": [
+            "I'm doing well, thanks. How about you?",
+            "Not bad, but I'm a little tired today."
+          ],
+          "useful": [
+            "I'm doing well.",
+            "How about you?",
+            "a little tired"
+          ],
+          "ask": "greet a friend?"
+        },
+        {
+          "ar": "خمني! فزت بالمركز الأول في معرض العلوم!",
+          "q": "Guess what? I won first place at the science fair!",
+          "a": [
+            "Really? That's great news!",
+            "Wow, congratulations! You worked so hard."
+          ],
+          "useful": [
+            "Really?",
+            "That's great news!",
+            "Congratulations!"
+          ],
+          "ask": "good news: science fair?"
+        },
+        {
+          "ar": "أضعتُ هاتفي في السوق أمس!",
+          "q": "Oh no, I lost my phone at the mall yesterday!",
+          "a": [
+            "Oh no, I'm sorry to hear that. Did you find it?",
+            "Oh no, that's terrible! Did you ask at the information desk?"
+          ],
+          "useful": [
+            "I'm sorry to hear that.",
+            "That's terrible!",
+            "Did you find it?"
+          ],
+          "ask": "bad news: lost phone?"
+        },
+        {
+          "talk": true,
+          "ar": "تقابلين صديقتك بعد الإجازة الصيفية.",
+          "q": "You meet a friend after the summer break.",
+          "steps": [
+            "Greet her.",
+            "Ask about her summer.",
+            "She says she went to AlUla. React.",
+            "Tell her your news."
+          ],
+          "a": [
+            [
+              "Hi! It's so good to see you!",
+              "How was your summer?",
+              "Really? That's amazing!",
+              "Guess what? I learned to swim!"
+            ]
+          ],
+          "useful": [
+            "It's so good to see you!",
+            "That's amazing!",
+            "Guess what?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2-02",
+      "title": "Last weekend",
+      "cards": [
+        {
+          "ar": "ماذا فعلتِ نهاية الأسبوع الماضي؟",
+          "q": "What did you do last weekend?",
+          "a": [
+            "I visited my grandparents, and we had dinner together.",
+            "I stayed at home and watched a documentary."
+          ],
+          "useful": [
+            "I visited ...",
+            "We had dinner together.",
+            "I stayed at home."
+          ],
+          "ask": "last weekend?"
+        },
+        {
+          "ar": "هل خرجتِ يوم الجمعة؟",
+          "q": "Did you go out on Friday?",
+          "a": [
+            "Yes, we went to a new café downtown.",
+            "No, I didn't. I was too tired."
+          ],
+          "useful": [
+            "We went to ...",
+            "No, I didn't.",
+            "too tired"
+          ],
+          "ask": "go out on Friday?"
+        },
+        {
+          "ar": "هل أنهيتِ واجباتك في العطلة؟",
+          "q": "Did you finish your homework over the weekend?",
+          "a": [
+            "Yes, I finished it on Saturday morning.",
+            "Not all of it. I still have to do the math."
+          ],
+          "useful": [
+            "I finished it ...",
+            "Not all of it.",
+            "I still have to ..."
+          ],
+          "ask": "homework over the weekend?"
+        },
+        {
+          "talk": true,
+          "ar": "أخبري معلمتك عن عطلتك.",
+          "q": "Tell your teacher about your weekend.",
+          "steps": [
+            "Say where you went.",
+            "Say who you went with.",
+            "Say what you did there.",
+            "Say how it was."
+          ],
+          "a": [
+            [
+              "On Friday, I went to our farm.",
+              "I went with my cousins.",
+              "We had a barbecue and played games.",
+              "It was really relaxing."
+            ]
+          ],
+          "useful": [
+            "On Friday, ...",
+            "with my cousins",
+            "really relaxing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2-03",
+      "title": "A trip I remember",
+      "cards": [
+        {
+          "ar": "إلى أين ذهبتِ في آخر رحلة؟",
+          "q": "Where did you go on your last trip?",
+          "a": [
+            "We went to Jeddah to visit my aunt.",
+            "We went to Makkah for Umrah. It was a beautiful trip."
+          ],
+          "useful": [
+            "We went to ...",
+            "to visit my aunt",
+            "for Umrah"
+          ],
+          "ask": "your last trip?"
+        },
+        {
+          "ar": "كيف سافرتم إلى جدة؟",
+          "q": "How did you get to Jeddah?",
+          "a": [
+            "We drove. It took about ten hours!",
+            "We flew. The flight was only an hour and a half."
+          ],
+          "useful": [
+            "We drove.",
+            "It took about ...",
+            "We flew."
+          ],
+          "ask": "to Jeddah: car or plane?"
+        },
+        {
+          "ar": "هل زرتِ أبها من قبل؟",
+          "q": "Have you been to Abha?",
+          "a": [
+            "Yes, I have. We went there last summer.",
+            "No, I haven't, but I'd love to go."
+          ],
+          "useful": [
+            "Yes, I have.",
+            "No, I haven't.",
+            "I'd love to go."
+          ],
+          "ask": "been to Abha?"
+        },
+        {
+          "talk": true,
+          "ar": "حدّثي صديقتك عن رحلة لا تنسينها.",
+          "q": "Tell a friend about a trip you remember.",
+          "steps": [
+            "Say where and when you went.",
+            "Say what you did first.",
+            "Say what you did after that.",
+            "Say how you felt."
+          ],
+          "a": [
+            [
+              "Two years ago, we went to AlUla.",
+              "First, we visited Hegra.",
+              "After that, we had dinner under the stars.",
+              "I felt so happy. It was amazing!"
+            ]
+          ],
+          "useful": [
+            "Two years ago, ...",
+            "First, ...",
+            "After that, ..."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2-04",
+      "title": "Describing people",
+      "cards": [
+        {
+          "ar": "كيف تبدو صديقتك المقربة؟",
+          "q": "What does your best friend look like?",
+          "a": [
+            "She's tall, and she has long black hair.",
+            "She's not very tall. She has brown eyes and wears glasses."
+          ],
+          "useful": [
+            "She has long black hair.",
+            "not very tall",
+            "wears glasses"
+          ],
+          "ask": "best friend: look like?"
+        },
+        {
+          "ar": "كيف شخصية أمك؟",
+          "q": "What's your mom like?",
+          "a": [
+            "She's really kind and patient.",
+            "She's strict, but she's very funny."
+          ],
+          "useful": [
+            "really kind",
+            "patient",
+            "strict, but ..."
+          ],
+          "ask": "your mom: personality?"
+        },
+        {
+          "ar": "من تشبهين في أسرتك؟",
+          "q": "Who do you look like in your family?",
+          "a": [
+            "I look like my mother. We have the same eyes.",
+            "People say I look like my aunt."
+          ],
+          "useful": [
+            "I look like ...",
+            "the same eyes",
+            "People say ..."
+          ],
+          "ask": "who you look like?"
+        },
+        {
+          "talk": true,
+          "ar": "صِفي شخصية تعجبك.",
+          "q": "Describe someone you admire.",
+          "steps": [
+            "Say who she is.",
+            "Say what she looks like.",
+            "Say what she's like.",
+            "Say why you admire her."
+          ],
+          "a": [
+            [
+              "My aunt is a doctor.",
+              "She's tall, and she wears glasses.",
+              "She's very patient and funny.",
+              "I admire her because she helps a lot of people."
+            ]
+          ],
+          "useful": [
+            "My aunt is ...",
+            "She wears glasses.",
+            "I admire her because ..."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2-05",
+      "title": "Places in my town",
+      "cards": [
+        {
+          "ar": "كيف هو حيّك؟",
+          "q": "What's your neighborhood like?",
+          "a": [
+            "It's quiet, and there are lots of trees.",
+            "It's busy and noisy, but it has everything."
+          ],
+          "useful": [
+            "It's quiet.",
+            "lots of trees",
+            "It has everything."
+          ],
+          "ask": "your neighborhood?"
+        },
+        {
+          "ar": "ما أفضل مكان تذهبين إليه في مدينتك؟",
+          "q": "What's the best place to go in your city?",
+          "a": [
+            "I think the big park is the best. It's great for walking.",
+            "The mall! There are lots of shops and cafés."
+          ],
+          "useful": [
+            "I think ... is the best.",
+            "It's great for walking.",
+            "lots of shops"
+          ],
+          "ask": "best place in your city?"
+        },
+        {
+          "ar": "كم تبعد مدرستك عن بيتك؟",
+          "q": "How far is your school from your house?",
+          "a": [
+            "It's about ten minutes by car.",
+            "It's far. It takes about half an hour."
+          ],
+          "useful": [
+            "about ten minutes by car",
+            "It's far.",
+            "It takes about ..."
+          ],
+          "ask": "school: how far?"
+        },
+        {
+          "talk": true,
+          "ar": "أخبري زائرة عن مدينتك.",
+          "q": "Tell a visitor about your city.",
+          "steps": [
+            "Say where you live.",
+            "Say what your city is like.",
+            "Say one place she should visit.",
+            "Say why."
+          ],
+          "a": [
+            [
+              "I live in ___.",
+              "It's a big, busy city.",
+              "You should visit the old market.",
+              "It's great for buying gifts."
+            ]
+          ],
+          "ex": [
+            "Riyadh · Jeddah · Dammam",
+            "",
+            "",
+            ""
+          ],
+          "useful": [
+            "a big, busy city",
+            "You should visit ...",
+            "It's great for ..."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2-06",
+      "title": "Comparing things",
+      "cards": [
+        {
+          "ar": "أيهما أفضل: المذاكرة في البيت أم في المكتبة؟",
+          "q": "Which is better, studying at home or at the library?",
+          "a": [
+            "The library is better. It's quieter.",
+            "I think home is better because it's more comfortable."
+          ],
+          "useful": [
+            "... is better.",
+            "quieter",
+            "more comfortable"
+          ],
+          "ask": "home or library?"
+        },
+        {
+          "ar": "هل التسوق عبر الإنترنت أرخص؟",
+          "q": "Is it cheaper to shop online?",
+          "a": [
+            "Yes, it's usually cheaper and easier.",
+            "Not always. Sometimes the stores are cheaper."
+          ],
+          "useful": [
+            "cheaper",
+            "easier",
+            "Not always."
+          ],
+          "ask": "shopping online: cheaper?"
+        },
+        {
+          "ar": "ما أصعب مادة بالنسبة لكِ؟",
+          "q": "What's the most difficult subject for you?",
+          "a": [
+            "Physics is the most difficult for me.",
+            "Math, but it's also the most interesting!"
+          ],
+          "useful": [
+            "the most difficult",
+            "the most interesting"
+          ],
+          "ask": "most difficult subject?"
+        },
+        {
+          "talk": true,
+          "ar": "قارني بين مدينتين تعرفينهما.",
+          "q": "Compare two cities you know.",
+          "steps": [
+            "Say which city is bigger.",
+            "Say which city is hotter.",
+            "Say which one is more beautiful.",
+            "Say which one you like more and why."
+          ],
+          "a": [
+            [
+              "Riyadh is bigger than Abha.",
+              "Riyadh is much hotter in summer.",
+              "But Abha is more beautiful.",
+              "I like Abha more because it's cooler and greener."
+            ]
+          ],
+          "useful": [
+            "bigger than",
+            "much hotter",
+            "more beautiful"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2-07",
+      "title": "Making plans",
+      "cards": [
+        {
+          "ar": "ما خططك لنهاية هذا الأسبوع؟",
+          "q": "What are you going to do this weekend?",
+          "a": [
+            "I'm going to visit my cousins.",
+            "I'm not sure yet. Maybe I'll just stay home."
+          ],
+          "useful": [
+            "I'm going to ...",
+            "I'm not sure yet.",
+            "Maybe I'll ..."
+          ],
+          "ask": "this weekend?"
+        },
+        {
+          "ar": "لماذا لا نذهب إلى محل الكتب الجديد يوم السبت؟",
+          "q": "Why don't we go to the new bookstore on Saturday?",
+          "a": [
+            "Good idea! What time?",
+            "I'd love to, but I can't on Saturday. How about Sunday evening?"
+          ],
+          "useful": [
+            "Good idea!",
+            "I'd love to, but ...",
+            "How about ...?"
+          ],
+          "ask": "suggest: the new bookstore?"
+        },
+        {
+          "ar": "أين نلتقي؟",
+          "q": "Where should we meet?",
+          "a": [
+            "Let's meet at the café near the mall.",
+            "How about the main entrance at four o'clock?"
+          ],
+          "useful": [
+            "Let's meet at ...",
+            "How about ...?",
+            "at four o'clock"
+          ],
+          "ask": "where to meet?"
+        },
+        {
+          "talk": true,
+          "ar": "خطّطي للمذاكرة مع صديقتك.",
+          "q": "Plan a study afternoon with a friend.",
+          "steps": [
+            "Suggest studying together.",
+            "Suggest a day and time.",
+            "Say where to meet.",
+            "Say what to bring."
+          ],
+          "a": [
+            [
+              "Why don't we study together for the math test?",
+              "How about Thursday at four?",
+              "Let's meet at the library.",
+              "Don't forget to bring your notes!"
+            ]
+          ],
+          "useful": [
+            "Why don't we ...?",
+            "How about ...?",
+            "Let's meet at ..."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2-08",
+      "title": "Invitations and offers",
+      "cards": [
+        {
+          "ar": "هل تودين المجيء إلى بيتنا للغداء يوم الجمعة؟",
+          "q": "Would you like to come over for lunch on Friday?",
+          "a": [
+            "Yes, I'd love to! What time?",
+            "Thanks for asking, but I can't. We're visiting my aunt."
+          ],
+          "useful": [
+            "I'd love to!",
+            "Thanks for asking, but ..."
+          ],
+          "ask": "invite to lunch?"
+        },
+        {
+          "ar": "حقائبك تبدو ثقيلة. هل أساعدك؟",
+          "q": "Those bags look heavy. Can I help you?",
+          "a": [
+            "Yes, please. That's very kind of you.",
+            "No, it's OK, thanks. I can carry them."
+          ],
+          "useful": [
+            "Yes, please.",
+            "That's very kind of you.",
+            "No, it's OK, thanks."
+          ],
+          "ask": "offer help: heavy bags?"
+        },
+        {
+          "ar": "سأذهب إلى المقصف. هل تريدين أي شيء؟",
+          "q": "I'm going to the cafeteria. Do you want anything?",
+          "a": [
+            "Yes, please! Could you get me an orange juice?",
+            "No, thanks. I'm fine."
+          ],
+          "useful": [
+            "Could you get me ...?",
+            "No, thanks. I'm fine."
+          ],
+          "ask": "offer: the cafeteria?"
+        },
+        {
+          "talk": true,
+          "ar": "ادعي صديقتك إلى حفل تخرج أختك.",
+          "q": "Invite a friend to your sister's graduation party.",
+          "steps": [
+            "Invite her.",
+            "Say the day and time.",
+            "Say where it is.",
+            "Offer to pick her up."
+          ],
+          "a": [
+            [
+              "Would you like to come to my sister's graduation party?",
+              "It's on Thursday at eight.",
+              "It's at our house.",
+              "We can pick you up, if you like."
+            ]
+          ],
+          "useful": [
+            "Would you like to come ...?",
+            "We can pick you up.",
+            "if you like"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2-09",
+      "title": "At a café or shop",
+      "cards": [
+        {
+          "ar": "ماذا تطلبين؟",
+          "q": "Hi! What can I get you?",
+          "a": [
+            "Could I have a large iced latte, please?",
+            "I'll have a small hot chocolate and a cookie, please."
+          ],
+          "useful": [
+            "Could I have ...?",
+            "I'll have ..., please."
+          ],
+          "ask": "take an order?"
+        },
+        {
+          "ar": "تشربينه هنا أم تأخذينه معك؟",
+          "q": "For here or to go?",
+          "a": [
+            "To go, please.",
+            "For here, please. Can I also have some water?"
+          ],
+          "useful": [
+            "To go, please.",
+            "For here, please.",
+            "Can I also have ...?"
+          ],
+          "ask": "here or to go?"
+        },
+        {
+          "ar": "هل تودين تجربته؟",
+          "q": "Would you like to try it on?",
+          "a": [
+            "Yes, please. Where are the fitting rooms?",
+            "No, thanks. I'll just take it."
+          ],
+          "useful": [
+            "Where are the fitting rooms?",
+            "I'll just take it."
+          ],
+          "ask": "try it on?"
+        },
+        {
+          "talk": true,
+          "ar": "اشتري حذاء رياضة من المول.",
+          "q": "Buy sneakers at the mall.",
+          "steps": [
+            "Say what you're looking for.",
+            "Ask for your size.",
+            "Ask the price.",
+            "Ask to pay by card."
+          ],
+          "a": [
+            [
+              "Hi, I'm looking for white sneakers.",
+              "Do you have these in a size thirty-eight?",
+              "How much are they?",
+              "Can I pay by card?"
+            ]
+          ],
+          "useful": [
+            "I'm looking for ...",
+            "Do you have these in ...?",
+            "Can I pay by card?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2-10",
+      "title": "Getting around",
+      "cards": [
+        {
+          "ar": "كيف أصل إلى ساحة المطاعم؟",
+          "q": "Excuse me, how do I get to the food court?",
+          "a": [
+            "Go up the escalator and turn left.",
+            "Go straight, and it's on your right, next to the bookstore."
+          ],
+          "useful": [
+            "Go up the escalator",
+            "turn left",
+            "on your right"
+          ],
+          "ask": "the way to the food court?"
+        },
+        {
+          "ar": "كيف تتنقلين عادة في المدينة؟",
+          "q": "How do you usually get around the city?",
+          "a": [
+            "My mom usually drives me.",
+            "We often take the metro. It's fast and cheap."
+          ],
+          "useful": [
+            "usually drives me",
+            "take the metro",
+            "fast and cheap"
+          ],
+          "ask": "get around the city?"
+        },
+        {
+          "ar": "إلى أين تسافرين؟",
+          "q": "Good morning. Where are you traveling to?",
+          "a": [
+            "Two tickets to Makkah, please.",
+            "One ticket to Madinah, please. What time is the next train?"
+          ],
+          "useful": [
+            "Two tickets to ..., please.",
+            "What time is the next train?"
+          ],
+          "ask": "ticket office: where to?"
+        },
+        {
+          "talk": true,
+          "ar": "دلّي زائرة على طريق المتحف.",
+          "q": "A visitor asks you the way to the museum.",
+          "steps": [
+            "Tell her to take the metro.",
+            "Say where to get off.",
+            "Say which way to walk.",
+            "Say how long it takes."
+          ],
+          "a": [
+            [
+              "First, take the metro from here.",
+              "Then get off at the third stop.",
+              "After that, turn right and go straight.",
+              "It takes about fifteen minutes."
+            ]
+          ],
+          "useful": [
+            "First, ...",
+            "get off at ...",
+            "After that, ..."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2-11",
+      "title": "Ramadan and Eid",
+      "cards": [
+        {
+          "ar": "عيد مبارك!",
+          "q": "Eid Mubarak!",
+          "a": [
+            "Eid Mubarak! Happy Eid to you and your family.",
+            "Thank you! Eid Mubarak to you too!"
+          ],
+          "useful": [
+            "Happy Eid",
+            "to you and your family",
+            "to you too"
+          ],
+          "ask": "Eid greeting?"
+        },
+        {
+          "ar": "ماذا تفعلين عادة في رمضان؟",
+          "q": "What do you usually do in Ramadan?",
+          "a": [
+            "I help my mom with iftar, and I read the Quran.",
+            "We usually have iftar at my grandmother's house."
+          ],
+          "useful": [
+            "help my mom with iftar",
+            "We usually ...",
+            "at my grandmother's house"
+          ],
+          "ask": "in Ramadan?"
+        },
+        {
+          "ar": "هل ستسافرون في العيد هذا العام؟",
+          "q": "Are you going to travel for Eid this year?",
+          "a": [
+            "Yes, we're going to Madinah to visit my grandparents.",
+            "No, we're going to stay home this year."
+          ],
+          "useful": [
+            "We're going to ...",
+            "stay home",
+            "this year"
+          ],
+          "ask": "travel for Eid?"
+        },
+        {
+          "talk": true,
+          "ar": "أخبري معلمتك عن العيد الماضي.",
+          "q": "Tell your teacher about last Eid.",
+          "steps": [
+            "Say where you were.",
+            "Say what you wore.",
+            "Say who you visited.",
+            "Say what the best part was."
+          ],
+          "a": [
+            [
+              "Last Eid, we were at my grandparents' house.",
+              "I wore a new green dress.",
+              "We visited all our aunts and uncles.",
+              "The best part was the big family lunch."
+            ]
+          ],
+          "useful": [
+            "Last Eid, ...",
+            "We visited ...",
+            "The best part was ..."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2-12",
+      "title": "What I like and why",
+      "cards": [
+        {
+          "ar": "ما نوع الكتب التي تحبينها؟",
+          "q": "What kind of books do you like?",
+          "a": [
+            "I love mystery stories because they're exciting.",
+            "I prefer true stories about famous people."
+          ],
+          "useful": [
+            "I love ...",
+            "because they're exciting",
+            "I prefer ..."
+          ],
+          "ask": "kind of books?"
+        },
+        {
+          "ar": "هل تحبين الدراسة عن بعد؟",
+          "q": "Do you like online classes?",
+          "a": [
+            "Not really. I prefer being in class with my friends.",
+            "Yes, I do, because I can study at my own pace."
+          ],
+          "useful": [
+            "Not really.",
+            "I prefer being ...",
+            "at my own pace"
+          ],
+          "ask": "online classes?"
+        },
+        {
+          "ar": "ما الشيء الذي لا تحبين فعله؟",
+          "q": "What's something you don't like doing?",
+          "a": [
+            "I don't like waking up early, especially on weekends.",
+            "I'm not a big fan of shopping. It's so tiring!"
+          ],
+          "useful": [
+            "I don't like ...ing",
+            "especially",
+            "I'm not a big fan of ..."
+          ],
+          "ask": "don't like doing?"
+        },
+        {
+          "talk": true,
+          "ar": "حدّثي صديقتك عن هواية تحبينها.",
+          "q": "Tell a friend about a hobby you love.",
+          "steps": [
+            "Say what you love doing.",
+            "Say when you started.",
+            "Say why you like it.",
+            "Say one thing you don't like about it."
+          ],
+          "a": [
+            [
+              "I love taking photos of nature.",
+              "I started when I was twelve.",
+              "I like it because it helps me remember special days.",
+              "But I don't like editing them. It takes so long!"
+            ]
+          ],
+          "useful": [
+            "I started when I was ...",
+            "it helps me ...",
+            "It takes so long!"
+          ]
+        }
+      ]
+    }
+  ]
+}

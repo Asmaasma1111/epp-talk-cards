@@ -1,0 +1,64 @@
+{
+  "level": "b2",
+  "cando": [
+    "I can explain my point of view, with advantages and disadvantages.",
+    "I can gain time to think and keep my turn in a discussion.",
+    "I can speculate about causes, results and imagined situations."
+  ],
+  "cando_ar": [
+    "أستطيع أن أشرح وجهة نظري مع ذكر المزايا والعيوب.",
+    "أستطيع أن أكسب وقتًا للتفكير وأحافظ على دوري في النقاش.",
+    "أستطيع أن أخمّن الأسباب والنتائج وأتحدث عن مواقف متخيَّلة."
+  ],
+  "more_coming": true,
+  "sets": [
+    {
+      "id": "b2-01",
+      "title": "Seeing both sides",
+      "cards": [
+        { "q": "Should students be allowed to use their phones at school?", "a": ["On the one hand, phones are useful for research. On the other hand, they can be a huge distraction in class.", "I'd say yes, but only with clear rules, for example during group projects."],
+          "useful": ["On the one hand ..., on the other hand ...", "I'd say ..., but only ..."], "ask": "Ask your friend whether students should be allowed to use their phones at school." },
+        { "q": "What's the main disadvantage of studying online?", "a": ["The main drawback is that you miss face-to-face contact with teachers and classmates.", "One disadvantage is that it's harder to stay motivated when you're alone at home."],
+          "useful": ["The main drawback is that ...", "One disadvantage is that ..."], "ask": "Ask your classmate what the main disadvantage of studying online is." },
+        { "q": "Your friend says homework should be banned. Respond.", "a": ["I see your point, but homework helps us practice what we've learned. Maybe there should just be less of it.", "I agree up to a point. Too much homework can be stressful, but if it were banned completely, a lot of us would forget what we'd learned."],
+          "useful": ["I see your point, but ...", "Maybe there should just be ...", "I agree up to a point."] },
+        { "talk": true, "q": "Talk for 45 seconds: give your opinion on school uniforms.",
+          "steps": ["Say what you think about school uniforms.", "Give one advantage.", "Give one disadvantage.", "Conclude."],
+          "a": [["Personally, I'm in favor of school uniforms.", "One advantage is that nobody feels pressure to wear expensive clothes.", "However, they don't let students show their personality.", "All things considered, I think the benefits outweigh the drawbacks."]],
+          "useful": ["Personally, I'm in favor of ...", "All things considered, ...", "the benefits outweigh the drawbacks"] }
+      ]
+    },
+    {
+      "id": "b2-02",
+      "title": "Gaining time and keeping the turn",
+      "cards": [
+        { "q": "What do you think is the most important skill for the future?", "a": ["That's a difficult question to answer. Let me see. I'd probably say problem solving, because jobs are changing so fast.", "Good question. I've never really thought about it, but I suppose communication matters most, whatever job you end up doing."],
+          "useful": ["That's a difficult question to answer.", "Let me see.", "I've never really thought about it, but ..."], "ask": "Ask your friend what she thinks the most important skill for the future is." },
+        { "q": "Can I just say something?", "a": ["Sure, but can I just finish my point first? I'm nearly done.", "Hold that thought for a second. Let me just finish this point, and then I'd love to hear what you think."],
+          "useful": ["Can I just finish my point first?", "Hold that thought.", "and then I'd love to hear what you think"], "ask": "Your friend is in the middle of a point. Ask politely if you can say something." },
+        { "q": "Sorry, what were you saying?", "a": ["No problem. As I was saying, the trip to AlUla was amazing, especially the old town at night.", "Where was I? Oh yes, I was telling you about the new library. It's much quieter than the old one, so I've started studying there after school."],
+          "useful": ["As I was saying, ...", "Where was I?", "Oh yes, I was telling you about ..."], "ask": "You interrupted your friend's story. Say sorry and ask her what she was saying." },
+        { "talk": true, "q": "Talk for 45 seconds: your teacher suddenly asks you, \"What makes a good friend?\"",
+          "steps": ["Gain time to think.", "Give your main answer.", "Keep your turn when a classmate tries to interrupt.", "Give an example.", "Sum up your point."],
+          "a": [["Hmm, that's a good question. Let me think for a second.", "I'd say a good friend is someone who's honest with you, even when it's hard to hear.", "Sorry, I haven't quite finished.", "For example, my best friend once told me my presentation needed more work, and then she stayed after school to help me practice.", "So, to sum up, honesty matters more than anything else."]],
+          "useful": ["Let me think for a second.", "Sorry, I haven't quite finished.", "So, to sum up, ..."] }
+      ]
+    },
+    {
+      "id": "b2-03",
+      "title": "What if?",
+      "cards": [
+        { "q": "Our teacher is never late. Why do you think she isn't here yet?", "a": ["She might be stuck in traffic. The roads are always really busy at this time of the morning.", "She must have been called to a meeting. She can't have forgotten about us, because she's never late!"],
+          "useful": ["She might be ...", "She must have been ...", "She can't have ..."], "ask": "Your teacher is never late, but today she isn't here. Ask your classmate why she thinks that is." },
+        { "q": "What would life be like if there were no internet?", "a": ["If there were no internet, we'd probably spend more time with our families, but studying would be much harder. We'd have to go back to libraries for everything.", "I think a lot of businesses might close, and people could feel quite cut off. It would be hard at first, but we'd probably get used to it sooner than we think."],
+          "useful": ["If there were no ..., we'd probably ...", "We'd have to ...", "It would be hard at first, but ..."], "ask": "Ask your friend what life would be like if there were no internet." },
+        { "q": "Is there anything you wish you'd done differently this year?", "a": ["I wish I'd started studying for my exams earlier. If I had, I wouldn't be so stressed now.", "Yes, I wish I'd joined the debate club. If I'd joined at the start of the year, I'd be much more confident by now."],
+          "useful": ["I wish I'd ...", "If I had, I wouldn't be ... now.", "I'd be ... by now"], "ask": "Ask your friend if there's anything she wishes she'd done differently this year." },
+        { "talk": true, "q": "Talk for 45 seconds: imagine you could spend next summer at a science program abroad.",
+          "steps": ["Say where you'd go and why.", "Imagine what you'd enjoy most.", "Imagine one difficulty.", "Say how the experience might change you."],
+          "a": [["If I could go anywhere, I'd choose Japan, because it's a world leader in robotics.", "I'd probably enjoy the lab work most, since we'd be using equipment we don't have at school.", "The language might be a problem at first, and I'd almost certainly miss my family.", "But I think I'd come back more independent, and I might even know what I want to study."]],
+          "useful": ["If I could ..., I'd ...", "I'd probably ...", "might be a problem at first"] }
+      ]
+    }
+  ]
+}
