@@ -1,8 +1,10 @@
-/* Talk Cards by Dr. Asma Khattala: calm warm paper and ink, mobile first.
+/* Talk Cards by Dr. Asma Khattala: Maria's lively look (sun, mint, lilac, gum and ink), mobile first.
    The card flip, word highlighting and blanks come from Maria's Talk Cards. */
 
 @font-face { font-family: 'Atkinson Hyperlegible'; src: url(fonts/atkinson-400.woff2) format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: 'Atkinson Hyperlegible'; src: url(fonts/atkinson-700.woff2) format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Andika'; src: url(fonts/andika-400.woff2) format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Andika'; src: url(fonts/andika-700.woff2) format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
 @font-face { font-family: 'Noto Naskh Arabic'; src: url(fonts/noto-naskh-arabic.woff2) format('woff2'); font-weight: 400 700; font-style: normal; font-display: swap; }
 
 :root {
@@ -31,28 +33,7 @@
   --safe-r: env(safe-area-inset-right, 0px);
   --safe-b: env(safe-area-inset-bottom, 0px);
   --safe-l: env(safe-area-inset-left, 0px);
-  color-scheme: light dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #1C1916;
-    --card: #27221E;
-    --back: #2B2621;
-    --ink: #F2EAE0;
-    --muted: #B8AC9F;
-    --accent: #E48C6B;
-    --on-accent: #1C1916;
-    --good: #2E8B53;
-    --on-good: #FFFFFF;
-    --again: #E87064;
-    --line: #3D352E;
-    --soft: #2E2823;
-    --accent-soft: #3D2B22;
-    --good-soft: #1F3527;
-    --gold: #E7B04A;
-    --mark: #6E4B2A;
-    --shadow: rgba(0, 0, 0, .45);
-  }
+  color-scheme: light;
 }
 :root[data-size="S"] { --k: .9; }
 :root[data-size="L"] { --k: 1.15; }
@@ -303,7 +284,6 @@ button.set-row:active { transform: translateY(1px); }
 .label.ask { background: #F1E4C4; color: #6B4E12; }
 .label.warm { background: var(--soft); color: var(--muted); }
 .label.back-label { background: var(--good-soft); color: var(--good); }
-@media (prefers-color-scheme: dark) { .label.ask { background: #4A3B1C; color: #F1D48E; } }
 .text-area {
   flex: 1; min-height: 0;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -496,3 +476,139 @@ body.dev .screen, body.dev .overlay { padding-top: calc(var(--safe-t) + 46px); }
   .card-wrap.enter, .cel-badge, .rate, .star-count.bump, .goal-banner.show, .pill.rec.on { animation: none; }
   .ring-fg, .bar .fill, .progress .fill { transition: none; }
 }
+
+/* ================================================================
+   Maria's lively look (Dr. Asma, 8 Oct 2026: "lively and funny, like Maria's").
+   Same colours and hand-drawn shapes as Maria's Talk Cards, sized for phones.
+   ================================================================ */
+:root {
+  --sun: #FFD84D; --mint: #8FE3BF; --gum: #FF6FA8; --lilac: #DCD6F7; --cloud: #F6F8FF; --pinky: #FFC9DE;
+  --paper: var(--cloud); --card: #FFFFFF; --back: var(--mint);
+  --ink: #2B2340; --muted: #635A7E;
+  --accent: #E8457F; --on-accent: #FFFFFF;
+  --good: #2EAD5B; --on-good: #FFFFFF; --again: #E53935;
+  --line: #2B2340; --soft: #EEEAFB; --accent-soft: #FFE0EC; --good-soft: #D5F5E6;
+  --gold: var(--sun); --mark: #FFB21E; --shadow: rgba(43, 35, 64, .25);
+  --en: 'Andika', 'Atkinson Hyperlegible', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  --hand: 30px 36px 32px 38px / 36px 30px 38px 32px;
+  --hand-btn: 22px 26px 23px 28px / 26px 22px 28px 23px;
+}
+body { background: var(--cloud); }
+.star { fill: var(--gum); stroke: var(--ink); stroke-width: 1.7; }
+.site-foot { background: var(--cloud); border-top: 2px solid var(--lilac); }
+.site-foot a { color: var(--ink); opacity: .75; }
+.share-btn { color: var(--accent); }
+
+/* chunky hand-drawn buttons with a solid shadow */
+.btn { border: 3px solid var(--ink); border-radius: var(--hand-btn); box-shadow: 0 5px 0 var(--ink); background: #FFFFFF; }
+.btn:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--ink); }
+.btn-primary { background: var(--sun); color: var(--ink); border-color: var(--ink); }
+.btn-good { background: var(--good); color: #FFFFFF; border-color: var(--ink); }
+.btn-again { background: #FFFFFF; }
+.btn-start { min-height: 92px; font-size: 2.3rem; border-radius: var(--hand); box-shadow: 0 7px 0 var(--ink); }
+.btn-start:active { transform: translateY(5px); box-shadow: 0 2px 0 var(--ink); }
+.chip, .input, .set-row, .goal, .stars-box, .prize, .lv-card, .choice, .p-group, .rung, .pill, .round, .help-btn, .p-btn, .seg, .switch {
+  border: 2.5px solid var(--ink);
+}
+.chip { background: #FFFFFF; box-shadow: 0 3px 0 var(--ink); }
+.chip b { color: var(--accent); }
+.choice { box-shadow: 0 4px 0 var(--ink); border-radius: var(--hand-btn); }
+.choice b { color: var(--accent); }
+.input:focus { border-color: var(--gum); box-shadow: 0 0 0 4px var(--accent-soft); }
+.privacy { background: var(--lilac); border: 2.5px solid var(--ink); }
+.welcome-icon { border: 3px solid var(--ink); box-shadow: 0 5px 0 var(--ink); }
+
+/* home */
+.hi { font-size: 2.1rem; }
+.goal, .stars-box, .prize { background: #FFFFFF; border-radius: var(--hand-btn); box-shadow: 0 4px 0 var(--ink); }
+.goal { background: #FFF6D1; }
+.stars-box { background: var(--accent-soft); }
+.ring-bg { stroke: var(--lilac); }
+.ring-fg { stroke: var(--gum); }
+.reached .ring-fg { stroke: var(--good); }
+.bar { background: var(--lilac); border: 2.5px solid var(--ink); height: 18px; }
+.bar .fill { background: var(--gum); }
+.rung { background: #FFFFFF; color: var(--ink); }
+.rung.done { background: var(--mint); border-color: var(--ink); }
+.rung.current { background: var(--sun); color: var(--ink); border-color: var(--ink); box-shadow: 0 0 0 4px rgba(255, 111, 168, .45); }
+.rung.locked { background: var(--lilac); opacity: .75; }
+.set-row { background: #FFFFFF; border-radius: var(--hand-btn); box-shadow: 0 3px 0 var(--ink); }
+.set-n { background: var(--lilac); border: 2.5px solid var(--ink); }
+.set-row.done .set-n { background: var(--mint); color: var(--ink); }
+.set-row.current { border-color: var(--ink); background: #FFFBEA; }
+.set-row.current .set-n { background: var(--sun); color: var(--ink); animation: glow 2.4s ease-in-out infinite; box-shadow: 0 0 0 4px rgba(255, 111, 168, .5); }
+.set-row.current .set-s { color: var(--accent); }
+@keyframes glow { 50% { box-shadow: 0 0 0 7px rgba(255, 111, 168, .25); } }
+.recs-btn { width: 100%; min-height: 60px; background: var(--lilac); }
+.recs-btn svg { color: var(--again); }
+.lv-card { background: #FFFFFF; border-radius: var(--hand-btn); box-shadow: 0 4px 0 var(--ink); }
+.lv-card.current { box-shadow: 0 4px 0 var(--ink), 0 0 0 4px rgba(255, 111, 168, .45); }
+.lv-card.locked { background: var(--lilac); }
+.lv-tag.cur { background: var(--sun); color: var(--ink); }
+.lv-tag.ok { background: var(--mint); color: var(--ink); }
+
+/* session and the card: yellow front, mint back, lilac for asking, pink for Talk time */
+.progress { background: var(--lilac); height: 10px; }
+.progress .fill { background: var(--gum); }
+.card-shadow { border-radius: var(--hand); background: rgba(43, 35, 64, .32); filter: blur(14px); }
+.face { border: 3px solid var(--ink); border-radius: var(--hand); }
+.front { background: var(--sun); --mark: #FFB21E; }
+.back { background: var(--mint); --mark: #FFE36E; }
+.card[data-kind="ask"] .front { background: var(--lilac); --mark: #FFD84D; }
+.card[data-kind="talk"] .front { background: var(--pinky); --mark: #FFD84D; }
+.label { background: rgba(255, 255, 255, .7); color: var(--ink); border: 2.5px solid var(--ink); font-size: .95rem; letter-spacing: 0; }
+.label.talk { background: var(--gum); color: #FFFFFF; }
+.label.ask { background: #FFFFFF; color: var(--ink); font-family: var(--ar); font-size: 1.1rem; padding: 2px 16px; }
+.label.warm { background: #FFFFFF; color: var(--ink); }
+.label.back-label { background: rgba(255, 255, 255, .7); color: var(--ink); }
+.txt { color: var(--ink); }
+.speaking .w { opacity: .72; }
+.steps li::before { background: #FFFFFF; color: var(--ink); border: 2px solid var(--ink); }
+.or { color: var(--ink); opacity: .6; }
+.ex { color: var(--ink); opacity: .7; }
+.round { background: rgba(255, 255, 255, .8); color: var(--ink); }
+.help-btn { background: rgba(255, 255, 255, .8); color: var(--ink); }
+.help-line { background: rgba(255, 255, 255, .65); border: 2px dashed var(--ink); }
+.turn-icon { color: var(--ink); }
+.pill { background: #FFFFFF; box-shadow: 0 3px 0 var(--ink); }
+.pill.rec svg { color: var(--again); }
+.pill.rec.on { background: var(--again); border-color: var(--ink); }
+.pill.on { background: var(--mint); color: var(--ink); border-color: var(--ink); }
+.goal-banner { background: var(--sun); color: var(--ink); border: 3px solid var(--ink); box-shadow: 0 5px 0 var(--ink); }
+
+/* Talk time answers: one paragraph, sentence after sentence */
+.talk-ans { text-align: left; font-size: .74em; }
+.para { line-height: 1.45; }
+.para .sent, .para .sent .line { display: inline; }
+.para .sent .line + .line { margin: 0; }
+.talk-ans .ex { padding-left: 0; margin-top: .5em; }
+
+/* celebration */
+.overlay { background: var(--cloud); }
+.cel-badge { background: var(--sun); color: var(--ink); border: 4px solid var(--ink); box-shadow: 0 0 0 10px rgba(255, 111, 168, .45), 0 10px 0 var(--ink); }
+.cel-badge.gift { background: var(--gum); }
+.cel-kicker { background: var(--lilac); border: 2.5px solid var(--ink); }
+.done-stars .star { width: 54px; height: 54px; }
+
+/* settings */
+.p-group { background: #FFFFFF; border-radius: 18px; }
+.p-row + .p-row { border-top: 2px solid var(--lilac); }
+.p-btn { background: #FFFFFF; box-shadow: 0 3px 0 var(--ink); }
+.p-btn.primary { background: var(--sun); color: var(--ink); border-color: var(--ink); }
+.p-btn.danger { color: var(--again); border-color: var(--again); box-shadow: 0 3px 0 var(--again); }
+.seg button + button { border-left: 2.5px solid var(--ink); }
+.seg button[aria-pressed="true"] { background: var(--sun); color: var(--ink); }
+.switch[aria-checked="true"] { background: var(--good); }
+
+/* My recordings */
+.rec-list { display: flex; flex-direction: column; gap: 10px; }
+.rec-day { margin-top: 8px; font-weight: 700; font-size: 1.05rem; }
+.rec-row { display: flex; align-items: center; gap: 12px; padding: 10px 8px 10px 12px; border: 2.5px solid var(--ink); border-radius: var(--hand-btn); background: #FFFFFF; box-shadow: 0 3px 0 var(--ink); }
+.rec-play { flex: none; background: var(--sun); }
+.rec-play.on { background: var(--gum); color: #FFFFFF; }
+.rec-info { flex: 1; min-width: 0; }
+.rec-q { font-weight: 700; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.rec-meta { font-size: .85rem; color: var(--muted); }
+.rec-del { flex: none; color: var(--muted); }
+#recClear { align-self: center; margin-top: 8px; }
+.toast { background: var(--ink); color: #FFFFFF; border-radius: 16px; }

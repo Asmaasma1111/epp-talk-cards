@@ -412,7 +412,7 @@
         },
         {
           "ar": "أنتِ البائعة.",
-          "q": "How much is this pen?",
+          "q": "How much is this pen, please?",
           "a": [
             "It's five riyals.",
             "Five riyals, please."
@@ -446,7 +446,7 @@
       "cards": [
         {
           "ar": "أين المكتبة؟",
-          "q": "Excuse me, where's the library?",
+          "q": "Excuse me, where's the library, please?",
           "a": [
             "It's on the second floor.",
             "It's next to the lab."
@@ -455,7 +455,7 @@
         },
         {
           "ar": "هل يوجد مقهى قريب؟",
-          "q": "Is there a café near here?",
+          "q": "Excuse me, is there a café near here, please?",
           "a": [
             "Yes, there's one on this street.",
             "Sorry, I don't know."

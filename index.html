@@ -18,8 +18,7 @@
 <meta name="twitter:title" content="Talk Cards by Dr. Asma Khattala">
 <meta name="twitter:description" content="Daily English speaking practice with spaced repetition, from Pre-A1 to C2.">
 <meta name="twitter:image" content="https://asmaasma1111.github.io/epp-talk-cards/og-image.png">
-<meta name="theme-color" content="#FAF7F2" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1C1916" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F8FF">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -28,7 +27,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" href="icon-192.png">
-<link rel="preload" href="fonts/atkinson-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/andika-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -76,8 +75,8 @@
       <p class="hint-line" id="classNote"></p>
     </div>
     <div class="privacy">
-      <p>Your name, class and practice numbers go to your teacher. Your voice is never saved or sent.</p>
-      <p class="ar" lang="ar" dir="rtl">يصل اسمك وصفّك وأرقام تدريبك إلى معلمتك. صوتك لا يُحفظ ولا يُرسل أبدًا.</p>
+      <p>Your name, class and practice numbers go to your teacher. Your recordings stay on your phone and are never sent.</p>
+      <p class="ar" lang="ar" dir="rtl">يصل اسمك وصفّك وأرقام تدريبك إلى معلمتك. تسجيلات صوتك تبقى على هاتفك ولا تُرسل أبدًا.</p>
     </div>
     <p class="form-error" id="aboutError" role="alert"></p>
     <button id="aboutBtn" class="btn btn-primary wide" type="submit">Continue</button>
@@ -129,6 +128,7 @@
       <p class="prize-text" id="prizeText"></p>
     </div>
     <button class="ladder" id="ladder" aria-label="All levels"></button>
+    <button id="recsBtn" class="btn btn-soft recs-btn"><svg aria-hidden="true"><use href="#i-mic"/></svg>My recordings</button>
     <div class="sets-head"><h2 id="setsTitle"></h2><span id="setsCount"></span></div>
     <p class="more-note" id="moreNote" hidden>More sets coming</p>
     <div class="sets" id="setList"></div>
@@ -191,6 +191,16 @@
       <button id="extraBtn" class="btn btn-soft wide">Learn 4 more</button>
       <button id="homeBtn" class="btn btn-primary wide">Home</button>
     </div>
+  </div>
+</section>
+
+<!-- My recordings (kept on this phone only) -->
+<section id="recs" class="screen scroll" hidden>
+  <div class="wrap">
+    <div class="head-row"><button class="icon-btn back-btn" data-go="home" aria-label="Home"><svg aria-hidden="true"><use href="#i-close"/></svg></button><h1 class="title">My recordings</h1></div>
+    <p class="p-sum">Listen to your own answers. They stay on this phone and are never sent.</p>
+    <div id="recList" class="rec-list"></div>
+    <button id="recClear" class="p-btn danger" hidden>Delete all recordings</button>
   </div>
 </section>
 

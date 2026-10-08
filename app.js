@@ -574,7 +574,53 @@ const SFX = {
 };
 function speechDelay(min = 0) { return Math.max(min, Math.max(0, SFX.busyUntil - performance.now()) + 250); }
 
-/* ---------- her own voice: record, stop, play back (never saved, never sent) ---------- */
+/* ---------- her recordings, kept on this phone only (IndexedDB), never sent ---------- */
+// Dr. Asma, 8 Oct 2026: students can go back and hear their answers. Only the length goes to the teacher.
+const REC_KEEP = 300;            // the newest 300 recordings stay; older ones are removed automatically
+const RecStore = {
+  db: null, failed: false,
+  open() {
+    if (this.db) return Promise.resolve(this.db);
+    if (this.failed || !window.indexedDB) return Promise.reject(new Error('no storage'));
+    return new Promise((res, rej) => {
+      let r;
+      try { r = indexedDB.open('epp-recordings', 1); } catch (e) { this.failed = true; return rej(e); }
+      const t = setTimeout(() => { this.failed = true; rej(new Error('timeout')); }, 5000);
+      r.onupgradeneeded = () => { const os = r.result.createObjectStore('recs', { keyPath: 'id' }); os.createIndex('ts', 'ts'); };
+      r.onsuccess = () => { clearTimeout(t); this.db = r.result; res(this.db); };
+      r.onerror = () => { clearTimeout(t); this.failed = true; rej(r.error); };
+    });
+  },
+  run(mode, fn) {
+    return this.open().then(db => new Promise((res, rej) => {
+      const tx = db.transaction('recs', mode), os = tx.objectStore('recs');
+      let out; const r = fn(os); if (r) r.onsuccess = () => { out = r.result; };
+      tx.oncomplete = () => res(out); tx.onerror = () => rej(tx.error); tx.onabort = () => rej(tx.error);
+    }));
+  },
+  async add(rec) { await this.run('readwrite', os => os.put(rec)); await this.trim(); },
+  async all() { const a = await this.run('readonly', os => os.getAll()); return (a || []).sort((x, y) => y.ts - x.ts); },
+  del(id) { return this.run('readwrite', os => os.delete(id)); },
+  clear() { return this.run('readwrite', os => os.clear()); },
+  async trim() {
+    const a = await this.all();
+    if (a.length > REC_KEEP) await this.run('readwrite', os => { a.slice(REC_KEEP).forEach(r => os.delete(r.id)); });
+  }
+};
+function recText(c) { return c ? (c.kind === 'ask' ? c.q : c.q) : ''; }
+async function keepRecording(cardId, blob, secs) {
+  const c = CARD[cardId]; if (!c || !blob || !blob.size) return;
+  try {
+    const data = await blob.arrayBuffer();     // stored as bytes: works in every browser's storage
+    await RecStore.add({ id: uuid(), ts: nowTs(), day: today(), card: cardId, level: c.level, set: c.set,
+                         kind: c.kind, q: recText(c), secs: Math.round(secs * 10) / 10, mime: blob.type || 'audio/mp4', data });
+    if (!st.recNoted) { st.recNoted = true; save(); toast('Saved in My recordings, on this phone only.'); }
+  } catch (e) {
+    if (!keepRecording.warned) { keepRecording.warned = true; toast('This browser cannot keep recordings, but you can still listen right away.'); }
+  }
+}
+
+/* ---------- her own voice: record, stop, play back ---------- */
 const Rec = {
   ok: !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder),
   off: false,                     // permission denied: hidden for the rest of this visit
@@ -612,6 +658,7 @@ const Rec = {
       if (this.mr !== mr) return;                         // an older recording finishing late
       this.mr = null;
       const blob = new Blob(chunks, { type: mr.mimeType || type || 'audio/mp4' });
+      keepRecording(card, blob, this.lastSecs || 0);
       if (S && S.cur === card && blob.size) { this.url = URL.createObjectURL(blob); this.state = 'ready'; }
       else this.state = 'idle';
       this.render();
@@ -625,7 +672,8 @@ const Rec = {
   },
   stop() {
     if (this.state !== 'rec') return;
-    if (S) S.recSecs += (performance.now() - this.startAt) / 1000;    // only the length is counted
+    this.lastSecs = (performance.now() - this.startAt) / 1000;
+    if (S) S.recSecs += this.lastSecs;                                // only the length goes to the teacher
     clearInterval(this.timer); clearTimeout(this.auto);
     this.state = 'saving';
     try { this.mr.stop(); } catch (e) { this.state = 'idle'; }
@@ -670,7 +718,7 @@ const Rec = {
 };
 
 /* ---------- screens ---------- */
-const SCREENS = ['welcome', 'about', 'startlvl', 'home', 'levels', 'session', 'done', 'settings'];
+const SCREENS = ['welcome', 'about', 'startlvl', 'home', 'levels', 'session', 'done', 'settings', 'recs'];
 let screen = '';
 function show(name) {
   SCREENS.forEach(s => { $('#' + s).hidden = s !== name; });
@@ -939,19 +987,19 @@ function renderCard(c) {
   void card.offsetWidth; card.classList.remove('no-anim');
   front.textContent = ''; back.textContent = '';
   const lv = LEVEL[c.level];
+  card.dataset.kind = c.kind === 'ask' ? 'ask' : c.talk ? 'talk' : 'ans';
   const warm = S.warm.has(c.id);
 
   // front
   const label = div('label' + (c.kind === 'ask' ? ' ask' : c.talk ? ' talk' : warm ? ' warm' : ''));
-  label.textContent = c.kind === 'ask' ? 'Your turn to ask!' : c.talk ? 'Talk time!' : warm ? 'Remember?' : 'Answer!';
+  label.textContent = c.kind === 'ask' ? 'اسألي السؤال' : c.talk ? 'Talk time!' : warm ? 'Remember?' : 'Answer!';
+  if (c.kind === 'ask') { label.lang = 'ar'; label.dir = 'rtl'; label.classList.add('ar'); }
   const fArea = div('text-area'), fTxt = div('txt'); fArea.append(fTxt);
   const plan = [];
   if (c.kind === 'ask') {
     if (ARABIC.test(c.cue)) fTxt.append(arLine(c.cue, 'cue ar-cue'));
     else { const cue = div('cue'); fTxt.append(cue); const p = renderText(cue, c.cue, true); if (speakCue(c, lv) && p) plan.push(...p); }
-    fTxt.append(div('ask-note', 'Ask the question.'));
   } else {
-    if (lv.help === 'ar-first' && c.ar) fTxt.append(arLine(c.ar));
     const q = div('q'); fTxt.append(q);
     plan.push(...(renderText(q, c.q, true) || []));
     if (c.steps.length) {         // talk card: one numbered line per step, never joined
@@ -971,10 +1019,11 @@ function renderCard(c) {
     sp.addEventListener('click', e => { e.stopPropagation(); prime(); Speech.play(S.frontPlan, 0, fTxt); });
     fFoot.append(sp);
   } else fFoot.append(div('spacer'));
-  // Help: the Arabic line at A2 (مساعدة), a simpler English version at B1 ("Help"); none from B2.
+  // Help: the Arabic line, only when she taps مساعدة (Pre-A1 to A2; Dr. Asma, 8 Oct 2026: "clean" cards);
+  // a simpler English version at B1 ("Help"); none from B2. At Pre-A1 and A1 the Arabic does not count as help.
   let help = null;
   if (c.kind === 'ans') {
-    if (lv.help === 'ar-help' && c.ar) help = { text: c.ar, ar: true };
+    if ((lv.help === 'ar-first' || lv.help === 'ar-help') && c.ar) help = { text: c.ar, ar: true, free: lv.help === 'ar-first' };
     else if (lv.help === 'en-help' && c.simple) help = { text: c.simple, ar: false };
   }
   if (help) {
@@ -993,7 +1042,7 @@ function renderCard(c) {
       fArea.append(h);
       hb.classList.add('used'); hb.disabled = true;
       S.helpNow = true;
-      if (scheduled(S.mode)) { S.hint.add(c.id); const r = cardRec(c.id); r.hints = (r.hints || 0) + 1; save(); }
+      if (scheduled(S.mode) && !help.free) { S.hint.add(c.id); const r = cardRec(c.id); r.hints = (r.hints || 0) + 1; save(); }
       fit(front);
       h.scrollIntoView({ block: 'nearest' });
     });
@@ -1014,6 +1063,20 @@ function renderCard(c) {
       if (i > 0) { bTxt.append(div('or', 'or')); bplan.push({ pause: 650 }); }
       const multi = Array.isArray(ans), lines = multi ? ans : [ans];
       const box = div('ans' + (multi ? ' talk-ans' : ''));
+      if (multi) {                // a spoken paragraph: one sentence after another, not numbered
+        const para = div('para'), exs = [];
+        lines.forEach((ln, j) => {
+          const t = document.createElement('span'); t.className = 'sent';
+          para.append(t); if (j < lines.length - 1) para.append(' ');
+          if (j > 0) bplan.push({ pause: 350 });
+          bplan.push(...(renderText(t, ln, true) || []));
+          const ex = Array.isArray(c.ex) ? c.ex[j] : (String(ln).includes('___') ? c.ex : '');
+          if (ex) exs.push(ex);
+        });
+        box.append(para); exs.forEach(x => box.append(exLine(x)));
+        bTxt.append(box);
+        return;
+      }
       lines.forEach((ln, j) => {
         const row = div('ans-line'), t = div('ans-text');
         if (multi) row.append(div('n', String(j + 1)));
@@ -1480,7 +1543,7 @@ function renderSettings() {
       <div class="p-row col"><label for="sFamily">Family name</label><input id="sFamily" class="input" maxlength="30" value="${esc(st.me.family)}" autocomplete="family-name"></div>
       <div class="p-row col"><label for="sClass">Class</label>
         ${online ? '<select id="sClass" class="input"><option>Loading</option></select>' : '<p class="sub">Practicing on my own (no class list yet)</p>'}</div>
-      <div class="p-row"><span class="sub">Your name, class and practice numbers go to your teacher. Your voice is never saved or sent.</span>
+      <div class="p-row"><span class="sub">Your name, class and practice numbers go to your teacher. Your recordings stay on this phone and are never sent.</span>
         <button class="p-btn primary" data-act="details">Save details</button></div>
     </div>
     <div class="p-group">
@@ -1495,7 +1558,11 @@ function renderSettings() {
         <div class="step"><button class="p-btn" data-step="-1" aria-label="Fewer">−</button><output id="sNew">${s.newPerDay}</output><button class="p-btn" data-step="1" aria-label="More">+</button></div></div>
     </div>
     <div class="p-group">
-      <div class="p-row"><span>Your progress<span class="sub">Keep it in a file, or move it to a new phone</span></span></div>
+      <div class="p-row"><span>My recordings<span class="sub">Your answers, kept on this phone only (the newest ${REC_KEEP})</span></span>
+        <button class="p-btn" data-act="recs">Open</button></div>
+    </div>
+    <div class="p-group">
+      <div class="p-row"><span>Your progress<span class="sub">Your progress saves itself after every card. Keep a copy in a file, or move it to a new phone.</span></span></div>
       <div class="p-row"><div class="btns">
         <button class="p-btn" data-act="backup">Save progress to a file</button>
         <button class="p-btn" data-act="restore">Restore from a file</button>
@@ -1526,6 +1593,7 @@ function onSettingsClick(e) {
     case 'sfx': s.sfx = !s.sfx; save(); b.setAttribute('aria-checked', String(s.sfx)); if (s.sfx) { SFX.init(); SFX.good(); } break;
     case 'details': saveDetails(); break;
     case 'backup': backup(); break;
+    case 'recs': renderRecs(); break;
     case 'restore': $('#sFile').click(); break;
     case 'reset':
       if (confirm('Reset all your progress? Your cards, stars and levels on this phone will be deleted.') && confirm('Are you sure? This cannot be undone.')) {
@@ -1570,6 +1638,59 @@ async function restore(file) {
     }
     toast('Progress restored.'); renderSettings(); Sync.flush();
   } catch (e) { toast('That file is not a Talk Cards progress file.'); }
+}
+
+/* ---------- My recordings: her own answers, newest first, kept on this phone ---------- */
+let recPlayer = null, recUrl = null;
+function stopRecPlay() {
+  if (recPlayer) { try { recPlayer.pause(); } catch (e) {} recPlayer = null; }
+  if (recUrl) { URL.revokeObjectURL(recUrl); recUrl = null; }
+  document.querySelectorAll('#recs .rec-play.on').forEach(b => b.classList.remove('on'));
+}
+async function renderRecs() {
+  Speech.stop(); stopRecPlay();
+  const box = $('#recList');
+  box.innerHTML = '<p class="empty">Loading</p>';
+  show('recs');
+  let all = [];
+  try { all = await RecStore.all(); }
+  catch (e) { box.innerHTML = '<p class="empty">This browser cannot keep recordings.</p>'; $('#recClear').hidden = true; return; }
+  $('#recClear').hidden = !all.length;
+  if (!all.length) { box.innerHTML = '<p class="empty">No recordings yet. Tap Record on a card, answer, then come back here to listen.</p>'; return; }
+  box.textContent = '';
+  let day = '';
+  const nice = d => { const [y, m, dd] = d.split('-').map(Number); return new Date(y, m - 1, dd).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }); };
+  all.forEach(r => {
+    if (r.day !== day) { day = r.day; box.append(div('rec-day', r.day === today() ? 'Today' : nice(r.day))); }
+    const row = div('rec-row'); row.dataset.id = r.id;
+    const play = iconBtn('round rec-play', 'i-play', 'Play my recording'); play.dataset.play = r.id;
+    const info = div('rec-info');
+    const lv = LEVEL[r.level];
+    info.append(div('rec-q', r.q || ''), div('rec-meta', `${lv ? lv.code : ''} · ${Math.max(1, Math.round(r.secs || 0))} s · ${new Date(r.ts).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}`));
+    const del = iconBtn('icon-btn rec-del', 'i-close', 'Delete this recording'); del.dataset.del = r.id;
+    row.append(play, info, del); box.append(row);
+  });
+}
+async function onRecsClick(e) {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.go) { stopRecPlay(); return renderHome(); }
+  if (b.id === 'recClear') {
+    if (confirm('Delete all your recordings on this phone?')) { stopRecPlay(); try { await RecStore.clear(); } catch (err) {} renderRecs(); }
+    return;
+  }
+  if (b.dataset.del) { stopRecPlay(); try { await RecStore.del(b.dataset.del); } catch (err) {} return renderRecs(); }
+  if (b.dataset.play) {
+    const was = b.classList.contains('on');
+    stopRecPlay();
+    if (was) return;
+    try {
+      const all = await RecStore.all(), r = all.find(x => x.id === b.dataset.play); if (!r) return;
+      recUrl = URL.createObjectURL(new Blob([r.data], { type: r.mime || 'audio/mp4' }));
+      const a = new Audio(recUrl); recPlayer = a; b.classList.add('on');
+      a.onended = a.onerror = () => { if (recPlayer === a) stopRecPlay(); };
+      await a.play();
+    } catch (err) { stopRecPlay(); toast('This recording cannot be played here.'); }
+  }
 }
 
 /* ---------- developer mode (?dev=1) ---------- */
@@ -1627,6 +1748,8 @@ function wire() {
     else if (b.dataset.cert) showCertificate(b.dataset.cert, null);
   });
   $('#settings').addEventListener('click', onSettingsClick);
+  $('#recs').addEventListener('click', onRecsClick);
+  $('#recsBtn').addEventListener('click', renderRecs);
   $('#settings').addEventListener('change', e => { if (e.target.id === 'sFile' && e.target.files[0]) { restore(e.target.files[0]); e.target.value = ''; } });
   $('#certSave').addEventListener('click', certSave);
   $('#certShare').addEventListener('click', certShare);
@@ -1670,7 +1793,7 @@ async function boot() {
   if (cachedClasses().length) classList = cachedClasses();
   if (DEV) {
     renderDev();
-    window.EPP = { get st() { return st; }, get S() { return S; }, CARD, SET, SETS, LEVEL, LEVELS, today, buildQueue, newOrder, dueIds,
+    window.EPP = { RecStore, keepRecording, get st() { return st; }, get S() { return S; }, CARD, SET, SETS, LEVEL, LEVELS, today, buildQueue, newOrder, dueIds,
       eligible, trickyIds, extraIds, flip, rate, save, Speech, Rec, Sync, Clock, readOutbox, renderText, renderHome, sweepPasses,
       learnSet: devLearnSet, levelOpen, lockText, streak, get VOICE() { return VOICE; },
       showCard(id) {

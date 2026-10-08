@@ -23,10 +23,6 @@
             "I've been really busy because we had exams all month. It's so good to see you!",
             "I've been great, thanks! We moved to a new house, so I've been unpacking boxes all week."
           ],
-          "useful": [
-            "I've been really busy.",
-            "It's so good to see you!"
-          ],
           "ask": "Greet a friend you haven't seen in a long time, and ask how she has been."
         },
         {
@@ -36,11 +32,6 @@
             "Yes, it's my first day, so I don't know anyone yet. What about you?",
             "No, it's my second year. I came back because I loved the robotics workshop last year."
           ],
-          "useful": [
-            "I don't know anyone yet.",
-            "What about you?",
-            "I came back because ..."
-          ],
           "ask": "Start a conversation with a girl at a summer program. Ask her if it's her first day."
         },
         {
@@ -49,11 +40,6 @@
           "a": [
             "I'd love to, but I'd better go because my mom is waiting outside. It was so nice talking to you!",
             "Sorry, I can't, because I have a test tomorrow. Let's catch up on the weekend!"
-          ],
-          "useful": [
-            "I'd better go.",
-            "It was so nice talking to you!",
-            "Let's catch up ..."
           ],
           "ask": "Ask your friend if she wants to stay and have another coffee."
         },
@@ -76,11 +62,6 @@
               "I'm sorry, but I'd better go because my sister is waiting for me.",
               "It was so nice to see you. Let's catch up soon!"
             ]
-          ],
-          "useful": [
-            "I haven't seen you in ...",
-            "I'd better go because ...",
-            "Let's catch up soon!"
           ]
         }
       ]
@@ -96,11 +77,6 @@
             "Yes, I have! I went there last winter with my family, and I loved it because the rocks look amazing at sunset.",
             "No, I haven't, but I'd really like to go. My cousin says it's beautiful, so maybe we'll go next winter."
           ],
-          "useful": [
-            "Yes, I have.",
-            "No, I haven't, but ...",
-            "I went there last ..."
-          ],
           "ask": "Ask your friend if she has ever been to AlUla."
         },
         {
@@ -110,11 +86,6 @@
             "Yes, I have. I tried sushi once, but I didn't like it because the fish was raw.",
             "Not really, because I love trying new food. Last month, I had Korean food for the first time, and it was delicious!"
           ],
-          "useful": [
-            "I tried ... once",
-            "I didn't like it because ...",
-            "for the first time"
-          ],
           "ask": "Ask your friend if she has ever tried a food that she didn't like."
         },
         {
@@ -123,11 +94,6 @@
           "a": [
             "I once gave a speech in front of the whole school. I was nervous, but I felt so proud because everyone clapped.",
             "I've been snorkeling in the Red Sea with my family. It was amazing because I saw so many colorful fish."
-          ],
-          "useful": [
-            "I once ...",
-            "I was nervous, but ...",
-            "It was amazing because ..."
           ],
           "ask": "Ask your friend about the most exciting thing she has ever done."
         },
@@ -150,11 +116,6 @@
               "I loved it because it was cool and green.",
               "I'd love to go again next summer."
             ]
-          ],
-          "useful": [
-            "I've been to ...",
-            "two summers ago",
-            "I'd love to go again."
           ]
         }
       ]
@@ -170,11 +131,6 @@
             "I'd like to study medicine because I want to help people. My aunt is a doctor, and she's my role model.",
             "I'm hoping to study computer science. I've always loved solving problems, so I think it's perfect for me."
           ],
-          "useful": [
-            "I'd like to ...",
-            "I'm hoping to ...",
-            "I've always loved ..."
-          ],
           "ask": "Ask your friend what she would like to study at university, and why."
         },
         {
@@ -184,11 +140,6 @@
             "I hope I'll be working as an engineer on a big national project. I'd love that because I want to help build my country.",
             "In ten years, I'd like to have my own business. I love design, so I might open a small studio."
           ],
-          "useful": [
-            "I hope I'll be ...ing",
-            "In ten years, I'd like to ...",
-            "I might ..."
-          ],
           "ask": "Ask your friend where she sees herself in ten years."
         },
         {
@@ -197,11 +148,6 @@
           "a": [
             "Medicine is a long degree, so I'll need to be patient. But I'm ready to work hard.",
             "My English isn't strong enough yet, so I'm practicing every day. I read English books because they help me a lot."
-          ],
-          "useful": [
-            "..., so I'll need to ...",
-            "... isn't strong enough yet",
-            "I'm practicing every day."
           ],
           "ask": "Ask your friend what might stop her from reaching her goal."
         },
@@ -222,11 +168,6 @@
               "Right now, I'm working hard in chemistry and biology.",
               "It might be hard to get into a good university, so I'm going to start preparing early."
             ]
-          ],
-          "useful": [
-            "My dream is to ...",
-            "It matters to me because ...",
-            "Right now, I'm ..."
           ]
         }
       ]
@@ -242,11 +183,6 @@
             "I see what you mean, but I'm not sure about that. I learn better at school because I can ask the teacher questions face to face.",
             "I agree with you, because you save a lot of time at home. But I'd really miss my friends!"
           ],
-          "useful": [
-            "I see what you mean, but ...",
-            "I'm not sure about that.",
-            "I agree with you"
-          ],
           "ask": "Tell your friend you think online classes are better than classes at school, and ask what she thinks."
         },
         {
@@ -256,11 +192,6 @@
             "That's true for some people, but it depends on how you use it. I follow science accounts, so I learn a lot.",
             "You're right. I spend too much time on it, so I'm trying to use it less."
           ],
-          "useful": [
-            "That's true for some people, but ...",
-            "It depends on ...",
-            "You're right."
-          ],
           "ask": "Tell your friend you think social media is a waste of time, and ask if she agrees."
         },
         {
@@ -269,11 +200,6 @@
           "a": [
             "I totally agree, because coding is useful in so many jobs. It also teaches you to solve problems step by step.",
             "I'm not so sure. Coding is great, but some students prefer art or languages, so it should be a choice."
-          ],
-          "useful": [
-            "I totally agree, because ...",
-            "I'm not so sure.",
-            "it should be a choice"
           ],
           "ask": "Tell your friend you think everyone should learn coding at school."
         },
@@ -296,11 +222,6 @@
               "There's a new space exhibition, so we can learn something new.",
               "How about the museum in the morning and lunch at the mall after?"
             ]
-          ],
-          "useful": [
-            "I'm not sure ...",
-            "I think we should ...",
-            "How about ...?"
           ]
         }
       ]
@@ -316,11 +237,6 @@
             "Sorry, what do you mean by \"cite\"? I've never heard that word, so I'm not sure what to do.",
             "Could you give us an example, please? I'm asking because I want to do it the right way."
           ],
-          "useful": [
-            "Sorry, what do you mean by ...?",
-            "Could you give us an example?",
-            "I'm asking because ..."
-          ],
           "ask": "You are the teacher. Tell the class to cite at least three sources for their project."
         },
         {
@@ -330,11 +246,6 @@
             "Sorry, I didn't catch that. Could you say it again more slowly, so I can write it down?",
             "So the meeting is on Tuesday, right after the break? I'm just checking because I don't want to miss it."
           ],
-          "useful": [
-            "Sorry, I didn't catch that.",
-            "Could you say it again more slowly?",
-            "I'm just checking because ..."
-          ],
           "ask": "Tell your friend the club meeting has moved to Tuesday, in Room 12, right after the break."
         },
         {
@@ -343,11 +254,6 @@
           "a": [
             "Sorry, what does \"a piece of cake\" mean? I don't get it, because we aren't talking about food!",
             "Do you mean it's going to be easy? I hope you're right, because I'm really worried!"
-          ],
-          "useful": [
-            "What does ... mean?",
-            "Do you mean ...?",
-            "I hope you're right."
           ],
           "ask": "Tell your worried friend that the test is going to be a piece of cake."
         },
@@ -377,11 +283,6 @@
             "",
             "",
             ""
-          ],
-          "useful": [
-            "I didn't quite understand.",
-            "What do you mean by ...?",
-            "So we have to ...?"
           ]
         }
       ]
@@ -397,11 +298,6 @@
             "I was checking my email when I saw the news. I got into the coding camp I applied for, so I can't stop smiling!",
             "My little sister said her first English word this morning! We were having breakfast when she suddenly said \"apple,\" so we all laughed."
           ],
-          "useful": [
-            "I was ...ing when ...",
-            "suddenly",
-            "so we all laughed"
-          ],
           "ask": "Your friend looks very excited. Ask her what happened."
         },
         {
@@ -411,11 +307,6 @@
             "Yes! I was making tea for my mom's guests when I put salt in it instead of sugar. Nobody said anything because they were too polite!",
             "Yes! My mom was looking for her glasses all morning, so we all helped her. Then my sister noticed they were on her head the whole time!"
           ],
-          "useful": [
-            "I was ...ing when ...",
-            "instead of",
-            "the whole time"
-          ],
           "ask": "Ask your friend if anything funny has happened to her this week."
         },
         {
@@ -424,11 +315,6 @@
           "a": [
             "It was a long day! We waited at the airport for six hours, so we were exhausted when we finally arrived.",
             "It was fine in the end. The flight was late, but we met our cousins at the airport, so we didn't get bored."
-          ],
-          "useful": [
-            "It was a long day!",
-            "when we finally arrived",
-            "in the end"
           ],
           "ask": "Your friend's flight was late. Ask her how her trip was."
         },
@@ -451,11 +337,6 @@
               "So we lit some candles and ate in the garden.",
               "In the end, it was the best iftar ever because it felt like a picnic."
             ]
-          ],
-          "useful": [
-            "Suddenly, ...",
-            "So we ...",
-            "In the end, ..."
           ]
         }
       ]
@@ -471,11 +352,6 @@
             "It stopped working after two days. I've only used it twice, so I'd like to exchange it, please.",
             "The screen is cracked, but I didn't drop it. I think it was broken in the box, so could I get a refund?"
           ],
-          "useful": [
-            "It stopped working.",
-            "I'd like to exchange it.",
-            "Could I get a refund?"
-          ],
           "ask": "You work in a store. A customer wants to return something. Ask her what's wrong with it."
         },
         {
@@ -485,11 +361,6 @@
             "Not really, I'm afraid. My pasta is cold, so could you heat it up, please?",
             "The food is great, thank you. But we've been waiting for our drinks for twenty minutes, so could you check on them?"
           ],
-          "useful": [
-            "Not really, I'm afraid.",
-            "Could you heat it up, please?",
-            "We've been waiting for ..."
-          ],
           "ask": "You are the waiter. Ask the customer if everything is OK with her meal."
         },
         {
@@ -498,11 +369,6 @@
           "a": [
             "I ordered a blue dress online, but you sent a green one. I need it for my cousin's wedding on Thursday, so could you send the right one quickly?",
             "My order was supposed to arrive three days ago, but it still hasn't come. It's a gift for my mom's birthday, so I really need it by Saturday."
-          ],
-          "useful": [
-            "I ordered ..., but ...",
-            "It still hasn't come.",
-            "I really need it by ..."
           ],
           "ask": "You work in customer service. Answer the phone and ask how you can help."
         },
@@ -525,11 +391,6 @@
               "I'm a student, so I need it for my homework every day.",
               "Could you fix it quickly or give me a new one, please?"
             ]
-          ],
-          "useful": [
-            "It turns off by itself.",
-            "..., so I need it for ...",
-            "Could you fix it ...?"
           ]
         }
       ]
@@ -545,11 +406,6 @@
             "I've had a bad headache for three days. I can't sleep well, so I feel tired all the time.",
             "I have a sore throat and a fever. It started yesterday, so I stayed home from school today."
           ],
-          "useful": [
-            "I've had ... for three days.",
-            "a sore throat",
-            "It started yesterday."
-          ],
           "ask": "You are the doctor. Ask your patient what the problem is."
         },
         {
@@ -559,11 +415,6 @@
             "I was playing basketball at school, and I fell. It hurts when I walk, so my mom brought me here.",
             "I'm not really sure, because I didn't fall. It started hurting after a long walk yesterday."
           ],
-          "useful": [
-            "I was ...ing, and I fell.",
-            "It hurts when I ...",
-            "It started hurting ..."
-          ],
           "ask": "You are the doctor. Tell your patient her ankle looks swollen, and ask how it happened."
         },
         {
@@ -572,11 +423,6 @@
           "a": [
             "OK, thank you. I have an important test on Wednesday, so can I still go to school?",
             "Thank you, Doctor. Should I take something for the pain? It's hard to sleep because it hurts at night."
-          ],
-          "useful": [
-            "Can I still ...?",
-            "Should I take something for ...?",
-            "It's hard to sleep because ..."
           ],
           "ask": "You are the doctor. Tell your patient she should rest for a few days and drink lots of water."
         },
@@ -599,11 +445,6 @@
               "I tried some mint tea, but it didn't help.",
               "What should I do, Doctor?"
             ]
-          ],
-          "useful": [
-            "I've had it since ...",
-            "It gets worse after ...",
-            "What should I do?"
           ]
         }
       ]
@@ -613,16 +454,11 @@
       "title": "How to do something",
       "cards": [
         {
-          "q": "Can you teach me how to make Saudi coffee?",
+          "q": "Can you teach me how to make Saudi coffee, please?",
           "simple": "How do you make Saudi coffee?",
           "a": [
             "Sure! First, you boil the coffee in water for about ten minutes. Then you add the cardamom and let it rest, so the coffee goes to the bottom.",
             "Of course! The secret is the cardamom, so don't be shy with it. My grandmother also adds a little saffron because it gives a beautiful color."
-          ],
-          "useful": [
-            "First, you ...",
-            "Then you ...",
-            "The secret is ..."
           ],
           "ask": "Ask your friend to teach you how to make Saudi coffee."
         },
@@ -633,11 +469,6 @@
             "It's easy, so don't worry! Just hold the microphone button while you talk, and let go when you finish.",
             "First, open the chat. Then hold the microphone button and don't let go until you finish, because it sends as soon as you let go."
           ],
-          "useful": [
-            "It's easy, so don't worry!",
-            "Just hold ...",
-            "don't let go until ..."
-          ],
           "ask": "Ask your friend how to send a voice message on your phone."
         },
         {
@@ -646,11 +477,6 @@
           "a": [
             "I always make a study plan first, so I don't leave everything until the last minute. Then I study for an hour and take a short break.",
             "Try teaching the lesson to someone else, because it shows you what you don't understand. It really works for me!"
-          ],
-          "useful": [
-            "I always ... first, so ...",
-            "Try ...ing",
-            "It really works for me!"
           ],
           "ask": "Ask your friend for the best way to study for a big test."
         },
@@ -673,11 +499,6 @@
               "Make sure you watch it, because milk can boil over very fast.",
               "Finally, pour it into small cups and serve it hot."
             ]
-          ],
-          "useful": [
-            "you need ...",
-            "Make sure you ..., because ...",
-            "Finally, ..."
           ]
         }
       ]
@@ -693,11 +514,6 @@
             "I'm reading a mystery novel in English. It's a bit hard, but I can't stop reading because I want to know the ending!",
             "Nothing right now, because I've been so busy with exams. But I've just bought a book about space, so I'll start it this weekend."
           ],
-          "useful": [
-            "I'm reading ...",
-            "I can't stop reading",
-            "I've just bought ..."
-          ],
           "ask": "Ask your friend what she is reading right now."
         },
         {
@@ -707,11 +523,6 @@
             "Yes! I watched one about the ocean last week. I'd really recommend it because the animals are amazing.",
             "Yes, I saw one about the history of Diriyah. I learned a lot, because I didn't know much about it before."
           ],
-          "useful": [
-            "I watched one about ...",
-            "I'd really recommend it because ...",
-            "I learned a lot"
-          ],
           "ask": "Ask your friend if she has watched any good documentaries lately."
         },
         {
@@ -720,11 +531,6 @@
           "a": [
             "I loved it, because I didn't expect it at all! The writer really surprised me.",
             "Honestly, I was a bit disappointed. The story was great, but the ending was too fast, so I still have so many questions."
-          ],
-          "useful": [
-            "I didn't expect it at all!",
-            "I was a bit disappointed.",
-            "The story was great, but ..."
           ],
           "ask": "You and your friend watched the same series. Ask her what she thought of the ending."
         },
@@ -747,11 +553,6 @@
               "The middle part was a bit slow, but it gets better.",
               "I think you'd enjoy it because you love stories about friendship."
             ]
-          ],
-          "useful": [
-            "I'd recommend ...",
-            "It's about ...",
-            "What I liked most was ..."
           ]
         }
       ]
@@ -767,11 +568,6 @@
             "I'd buy my parents a new house, because they've done so much for me. Then I'd save the rest for university.",
             "If I had that much money, I'd give some to charity first. I'd also travel with my family, because I've always wanted to see Japan."
           ],
-          "useful": [
-            "I'd buy ...",
-            "If I had ..., I'd ...",
-            "I've always wanted to ..."
-          ],
           "ask": "Ask your friend what she would do if she had a million riyals."
         },
         {
@@ -781,11 +577,6 @@
             "I'd be an astronaut, because I'd love to see the Earth from space. Just one day would be enough for me!",
             "I think I'd be a chef in a famous restaurant. I love cooking, so it would be like a dream."
           ],
-          "useful": [
-            "I'd be ...",
-            "I'd love to ...",
-            "it would be like a dream"
-          ],
           "ask": "Ask your friend what job she would choose if she could have any job for one day."
         },
         {
@@ -794,11 +585,6 @@
           "a": [
             "If I were you, I'd just ask her what's wrong. It might be a small problem, so it's better to talk about it.",
             "I'd send her a kind message first, because she might not want to talk yet. Then I'd give her a little time."
-          ],
-          "useful": [
-            "If I were you, I'd ...",
-            "she might not ...",
-            "it's better to ..."
           ],
           "ask": "Tell your friend that your best friend is upset with you and you don't know why. Ask her what she would do."
         },
@@ -821,11 +607,6 @@
               "I wouldn't change the teachers, because they're great!",
               "I think the students would be much happier."
             ]
-          ],
-          "useful": [
-            "I'd also ...",
-            "I wouldn't change ...",
-            "would be much happier"
           ]
         }
       ]
@@ -841,11 +622,6 @@
             "I want to join because I love helping people. Last Ramadan, I helped pack food baskets, and it felt amazing.",
             "I'm interested in this team because I want to give back to my community. It would also give me good experience for university."
           ],
-          "useful": [
-            "I'm interested in ... because ...",
-            "I want to give back to my community.",
-            "Last Ramadan, I helped ..."
-          ],
           "ask": "You are the team leader. Ask a new student why she wants to join your volunteering team."
         },
         {
@@ -855,11 +631,6 @@
             "I'm good at organizing things, so I could help plan events. I'm also very good with computers.",
             "I've designed posters for school events before, so I could help with the club's social media. I'm a good team player, too."
           ],
-          "useful": [
-            "I'm good at ...ing, so ...",
-            "I could help with ...",
-            "a good team player"
-          ],
           "ask": "You are the club leader. Ask a new member what skills she can bring to the club."
         },
         {
@@ -868,11 +639,6 @@
           "a": [
             "Yes, that's fine, because I'm free on Tuesdays. Could I ask what time the meetings finish?",
             "I might miss some Tuesdays, because I have extra classes before exams. Is that a problem?"
-          ],
-          "useful": [
-            "that's fine, because ...",
-            "Could I ask ...?",
-            "I might miss ..."
           ],
           "ask": "You are the club leader. Tell a new member she has to come every Tuesday after school, and ask if that's OK."
         },
@@ -902,11 +668,6 @@
             "",
             "",
             ""
-          ],
-          "useful": [
-            "I want to volunteer because ...",
-            "Last year, I helped ...",
-            "I'm free on ..."
           ]
         }
       ]
