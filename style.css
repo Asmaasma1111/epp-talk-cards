@@ -612,3 +612,8 @@ body { background: var(--cloud); }
 .rec-del { flex: none; color: var(--muted); }
 #recClear { align-self: center; margin-top: 8px; }
 .toast { background: var(--ink); color: #FFFFFF; border-radius: 16px; }
+
+/* Home tip (iPhone Safari): add to the Home Screen */
+.tip { display: flex; align-items: flex-start; gap: 6px; padding: 10px 6px 10px 14px; border: 2.5px solid var(--ink); border-radius: var(--hand-btn); background: var(--lilac); font-size: .95rem; }
+.tip p { margin: 0; flex: 1; padding-top: 6px; }
+.tip-close { flex: none; width: 44px; height: 44px; color: var(--ink); }

@@ -784,6 +784,16 @@ function aboutSubmit(solo) {
   }
   st.me = { first, family, cls, solo, joined: false };
   st.setup = 'start'; save();
+  if (!solo && !hasProgress()) {
+    const btn = $('#aboutBtn'), was = btn.textContent;
+    btn.disabled = true; btn.textContent = 'One moment';
+    Sync.join(true).then(back => {
+      btn.disabled = false; btn.textContent = was;
+      if (back && st.setup === 'done') { toast(`Welcome back, ${st.me.first}! Your progress is back.`); renderHome(); }
+      else if (screen === 'about') showSetup();
+    });
+    return;
+  }
   if (!solo) Sync.join();
   showSetup();
 }
@@ -851,6 +861,8 @@ function renderHome() {
     list.append(b);
   });
   renderSync();
+  const standalone = (navigator.standalone === true) || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
+  $('#homeTip').hidden = !(isIOS() && !standalone && !st.tipDone);
   show('home');
 }
 
@@ -1457,6 +1469,21 @@ async function loadClasses() {
   } catch (e) {}
   return null;
 }
+// Her whole progress for the teacher's Sheet (not this phone's id or her name: the Sheet has those already).
+function stateForSheet() {
+  const { sid, me, setup, recNoted, tipDone, ...rest } = st;
+  return JSON.stringify(rest);
+}
+const hasProgress = () => Object.keys(st.cards).length > 0 || st.stars.total > 0 || st.passed.length > 0;
+// Progress stored in the Sheet comes back onto this phone (keeping this phone's id and the name she just typed).
+function restoreState(text) {
+  let obj;
+  try { obj = JSON.parse(text); } catch (e) { return false; }
+  if (!obj || typeof obj !== 'object' || !obj.cards) return false;
+  st = merge({ ...obj, sid: st.sid, me: st.me, setup: 'done', recNoted: st.recNoted, tipDone: st.tipDone });
+  save(); applySize();
+  return true;
+}
 function snapshot() {
   const lv = LEVEL[st.level], cs = currentSet(st.level);
   return { first: st.me.first, family: st.me.family, cls: st.me.cls, level: lv.code, set: cs ? cs.title : '',
@@ -1467,14 +1494,19 @@ const Sync = {
   busy: false, status: '',                // '' | ok | wait | class
   canSend() { return !!CONFIG.apiUrl && !st.me.solo && !!st.me.cls; },
   queue(ev) { if (!this.canSend()) return; const box = readOutbox(); box.push(ev); writeOutbox(box); },
-  async join() {
-    if (!this.canSend()) return;
+  // restore: this phone has no progress yet, so ask for the progress the Sheet keeps for her. True = it came back.
+  async join(restore = false) {
+    if (!this.canSend()) return false;
+    let back = false;
     try {
-      const r = await api({ action: 'join', sid: st.sid, first: st.me.first, family: st.me.family, cls: st.me.cls });
-      if (r && r.ok) { st.me.joined = true; save(); if (this.status === 'class') this.status = ''; }
-      else if (r && r.error === 'bad_class') this.status = 'class';
+      const r = await api({ action: 'join', sid: st.sid, first: st.me.first, family: st.me.family, cls: st.me.cls, restore: !!restore });
+      if (r && r.ok) {
+        st.me.joined = true; save(); if (this.status === 'class') this.status = '';
+        if (restore && r.state) back = restoreState(r.state);
+      } else if (r && r.error === 'bad_class') this.status = 'class';
     } catch (e) {}
     renderSync();
+    return back;
   },
   async flush() {
     if (!this.canSend() || this.busy) return renderSync();
@@ -1485,7 +1517,7 @@ const Sync = {
         const box = readOutbox();
         if (!box.length) break;
         const batch = box.slice(0, BATCH);
-        const r = await api({ action: 'log', sid: st.sid, ...snapshot(), events: batch });
+        const r = await api({ action: 'log', sid: st.sid, ...snapshot(), state: stateForSheet(), events: batch });
         if (!r || !r.ok) { this.status = r && r.error === 'bad_class' ? 'class' : 'wait'; break; }
         const gone = new Set([...(r.saved || []), ...(r.rejected || [])]);
         writeOutbox(readOutbox().filter(e => !gone.has(e.id)));   // removed only after the server confirms them
@@ -1613,7 +1645,11 @@ function saveDetails() {
   const changed = first !== st.me.first || family !== st.me.family || (solo ? '' : v) !== st.me.cls || solo !== st.me.solo;
   st.me = { first, family, cls: solo ? '' : v, solo, joined: changed ? false : st.me.joined };
   save();
-  if (!solo) { Sync.status = ''; Sync.join().then(() => Sync.flush()); }
+  if (!solo) {
+    Sync.status = '';
+    const fresh = !hasProgress();
+    Sync.join(fresh).then(back => { if (back) { toast(`Welcome back, ${st.me.first}! Your progress is back.`); renderHome(); } else Sync.flush(); });
+  }
   toast(solo ? 'Saved. Practicing on your own: nothing is sent.' : `Saved. Class: ${v}`);
 }
 function backup() {
@@ -1750,6 +1786,7 @@ function wire() {
   $('#settings').addEventListener('click', onSettingsClick);
   $('#recs').addEventListener('click', onRecsClick);
   $('#recsBtn').addEventListener('click', renderRecs);
+  $('#tipClose').addEventListener('click', () => { st.tipDone = true; save(); $('#homeTip').hidden = true; });
   $('#settings').addEventListener('change', e => { if (e.target.id === 'sFile' && e.target.files[0]) { restore(e.target.files[0]); e.target.value = ''; } });
   $('#certSave').addEventListener('click', certSave);
   $('#certShare').addEventListener('click', certShare);
