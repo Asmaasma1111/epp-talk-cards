@@ -95,7 +95,7 @@ function defaults() {
     app: 'epp-talk-cards', v: 1,
     sid: uuid(),                                  // this phone; the teacher's Sheet matches it, or the name + class
     setup: 'welcome',                             // welcome -> about -> start -> done
-    me: { first: '', family: '', cls: '', solo: true, joined: false },
+    me: { name: '', email: '', cls: '', solo: true, joined: false },
     level: LEVELS[0] ? LEVELS[0].id : 'pre-a1',   // current level: new cards come from here
     open: [],                                     // levels opened by finishing the one before (they stay open)
     passed: [],                                   // set ids that are done
@@ -118,6 +118,9 @@ function merge(s) {
   const o = { ...d, ...s, app: d.app, me: { ...d.me, ...obj(s.me, {}) }, settings: { ...d.settings, ...obj(s.settings, {}) },
               stars: { ...d.stars, ...obj(s.stars, {}) }, cards: obj(s.cards, {}), active: obj(s.active, {}), certs: obj(s.certs, {}) };
   ['open', 'passed', 'days'].forEach(k => { if (!Array.isArray(o[k])) o[k] = []; });
+  if (!o.me.name && (o.me.first || o.me.family)) o.me.name = `${o.me.first || ''} ${o.me.family || ''}`.replace(/\s+/g, ' ').trim();
+  delete o.me.first; delete o.me.family;
+  if (typeof o.me.email !== 'string') o.me.email = '';
   if (!/^[A-Za-z0-9-]{8,40}$/.test(String(o.sid))) o.sid = uuid();
   if (!LEVEL[o.level]) o.level = d.level;
   if (!['welcome', 'about', 'start', 'done'].includes(o.setup)) o.setup = 'welcome';
@@ -737,7 +740,7 @@ function applySize() { document.documentElement.dataset.size = st.settings.size;
 function showSetup() {
   if (st.setup === 'about') return showAbout();
   if (st.setup === 'start') {
-    $('#startHi').textContent = st.me.first ? `${st.me.first}, where would you like to start?` : 'Where would you like to start?';
+    $('#startHi').textContent = firstName() ? `${firstName()}, where would you like to start?` : 'Where would you like to start?';
     return show('startlvl');
   }
   show('welcome');
@@ -752,8 +755,12 @@ function fillClassSelect(sel, current, withSolo) {
   if (current && (classList || []).some(c => c.name === current)) sel.value = current;
   else if (withSolo && (!current || st.me.solo)) sel.value = '__solo';
 }
+const firstName = () => (st.me.name || '').split(' ')[0];
+const nameParts = () => { const w = (st.me.name || '').split(' '); return { first: w[0] || '', family: w.slice(1).join(' ') || w[0] || '' }; };
+const cleanEmail = v => String(v || '').trim().toLowerCase().slice(0, 80);
+const emailOk = e => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
 async function showAbout() {
-  $('#fFirst').value = st.me.first; $('#fFamily').value = st.me.family;
+  $('#fName').value = st.me.name; $('#fEmail').value = st.me.email;
   $('#aboutError').textContent = '';
   show('about');
   const field = $('#classField'), sel = $('#fClass'), note = $('#classNote');
@@ -772,24 +779,25 @@ async function showAbout() {
   sel.disabled = false; note.textContent = 'Ask your teacher if you cannot find your class.';
   fillClassSelect(sel, st.me.cls, false);
 }
-const cleanName = v => String(v || '').replace(/\s+/g, ' ').trim().slice(0, 30);
+const cleanName = v => String(v || '').replace(/\s+/g, ' ').trim().slice(0, 60);
 function aboutSubmit(solo) {
-  const first = cleanName($('#fFirst').value), family = cleanName($('#fFamily').value);
+  const name = cleanName($('#fName').value), email = cleanEmail($('#fEmail').value);
   const cls = solo ? '' : $('#fClass').value;
   const err = $('#aboutError');
-  if (first.length < 2) { err.textContent = 'Please write your first name.'; $('#fFirst').focus(); return; }
+  if (name.length < 2) { err.textContent = 'Please write your full name.'; $('#fName').focus(); return; }
+  if (email && !emailOk(email)) { err.textContent = 'That email does not look right. Please check it.'; $('#fEmail').focus(); return; }
   if (!solo) {
-    if (family.length < 2) { err.textContent = 'Please write your family name, so your teacher knows who you are.'; $('#fFamily').focus(); return; }
+    if (!email) { err.textContent = 'Please write your email, so your teacher knows who you are.'; $('#fEmail').focus(); return; }
     if (!cls) { err.textContent = 'Please choose your class.'; $('#fClass').focus(); return; }
   }
-  st.me = { first, family, cls, solo, joined: false };
+  st.me = { name, email, cls, solo, joined: false };
   st.setup = 'start'; save();
   if (!solo && !hasProgress()) {
     const btn = $('#aboutBtn'), was = btn.textContent;
     btn.disabled = true; btn.textContent = 'One moment';
     Sync.join(true).then(back => {
       btn.disabled = false; btn.textContent = was;
-      if (back && st.setup === 'done') { toast(`Welcome back, ${st.me.first}! Your progress is back.`); renderHome(); }
+      if (back && st.setup === 'done') { toast(`Welcome back, ${firstName()}! Your progress is back.`); renderHome(); }
       else if (screen === 'about') showSetup();
     });
     return;
@@ -823,7 +831,7 @@ function renderHome() {
   if (st.setup !== 'done') return showSetup();
   const lv = LEVEL[st.level];
   $('#levelChip').innerHTML = `<b>${esc(lv.code)}</b> ${esc(lv.name)} <svg aria-hidden="true"><use href="#i-chev"/></svg>`;
-  $('#hiName').textContent = `Hi, ${st.me.first || 'there'}`;
+  $('#hiName').textContent = `Hi, ${firstName() || 'there'}`;
   const due = dueIds().length, fresh = Math.min(newCap(), newOrder().length);
   $('#startSub').textContent = due || fresh ? `${due} due · ${fresh} new` : (due >= DUE_LIMIT ? `${due} due` : 'Nothing due today. You can still practice.');
   updateRings();
@@ -1348,7 +1356,7 @@ async function drawCertificate(levelId) {
   try { x.letterSpacing = '0px'; } catch (e) {}
   x.fillStyle = '#2B2724'; x.font = `700 96px ${EN}`; x.fillText('Star Certificate', W / 2, 300);
   x.fillStyle = '#6E655D'; x.font = `400 40px ${EN}`; x.fillText('This certificate is awarded to', W / 2, 390);
-  const name = `${st.me.first} ${st.me.family}`.trim() || 'A Talk Cards student';
+  const name = st.me.name || 'A Talk Cards student';
   let fs = 92;
   x.font = `700 ${fs}px ${EN}`;
   while (x.measureText(name).width > W - 360 && fs > 40) { fs -= 4; x.font = `700 ${fs}px ${EN}`; }
@@ -1486,7 +1494,7 @@ function restoreState(text) {
 }
 function snapshot() {
   const lv = LEVEL[st.level], cs = currentSet(st.level);
-  return { first: st.me.first, family: st.me.family, cls: st.me.cls, level: lv.code, set: cs ? cs.title : '',
+  return { name: st.me.name, email: st.me.email, ...nameParts(), cls: st.me.cls, level: lv.code, set: cs ? cs.title : '',
            setsDone: setsDone(lv.id), learned: learnedCount(), stars: st.stars.total, streak: streak(),
            levelsOpen: LEVELS.filter(l => levelOpen(l.id)).map(l => l.code).join(' '), snapTs: st.lastTs };
 }
@@ -1499,7 +1507,7 @@ const Sync = {
     if (!this.canSend()) return false;
     let back = false;
     try {
-      const r = await api({ action: 'join', sid: st.sid, first: st.me.first, family: st.me.family, cls: st.me.cls, restore: !!restore });
+      const r = await api({ action: 'join', sid: st.sid, name: st.me.name, email: st.me.email, ...nameParts(), cls: st.me.cls, restore: !!restore });
       if (r && r.ok) {
         st.me.joined = true; save(); if (this.status === 'class') this.status = '';
         if (restore && r.state) back = restoreState(r.state);
@@ -1571,11 +1579,11 @@ function renderSettings() {
     <div class="head-row"><button class="icon-btn back-btn" data-act="close" aria-label="Home"><svg aria-hidden="true"><use href="#i-close"/></svg></button><h1 class="title">Settings</h1></div>
     <p class="p-sum">${learnedCount()} cards learned · ${dueIds().length} due today · ${plural(streak(), 'day')} in a row${DEV ? ` · dev date ${today()}` : ''}</p>
     <div class="p-group">
-      <div class="p-row col"><label for="sFirst">First name</label><input id="sFirst" class="input" maxlength="30" value="${esc(st.me.first)}" autocomplete="given-name"></div>
-      <div class="p-row col"><label for="sFamily">Family name</label><input id="sFamily" class="input" maxlength="30" value="${esc(st.me.family)}" autocomplete="family-name"></div>
+      <div class="p-row col"><label for="sName">Full name</label><input id="sName" class="input" maxlength="60" value="${esc(st.me.name)}" autocomplete="name"></div>
+      <div class="p-row col"><label for="sEmail">Email</label><input id="sEmail" class="input" type="email" maxlength="80" value="${esc(st.me.email)}" autocomplete="email" autocapitalize="none" inputmode="email" spellcheck="false"></div>
       <div class="p-row col"><label for="sClass">Class</label>
         ${online ? '<select id="sClass" class="input"><option>Loading</option></select>' : '<p class="sub">Practicing on my own (no class list yet)</p>'}</div>
-      <div class="p-row"><span class="sub">Your name, class and practice numbers go to your teacher. Your recordings stay on this phone and are never sent.</span>
+      <div class="p-row"><span class="sub">Your name, email, class and practice numbers go to your teacher. Your recordings stay on this phone and are never sent.</span>
         <button class="p-btn primary" data-act="details">Save details</button></div>
     </div>
     <div class="p-group">
@@ -1636,19 +1644,20 @@ function onSettingsClick(e) {
   }
 }
 function saveDetails() {
-  const first = cleanName($('#sFirst').value), family = cleanName($('#sFamily').value);
+  const name = cleanName($('#sName').value), email = cleanEmail($('#sEmail').value);
   const sel = $('#sClass');
   const v = sel ? sel.value : '__solo';
   const solo = !sel || v === '__solo' || !v || v === 'Loading';
-  if (first.length < 2) return toast('Please write your first name.');
-  if (!solo && family.length < 2) return toast('Please write your family name.');
-  const changed = first !== st.me.first || family !== st.me.family || (solo ? '' : v) !== st.me.cls || solo !== st.me.solo;
-  st.me = { first, family, cls: solo ? '' : v, solo, joined: changed ? false : st.me.joined };
+  if (name.length < 2) return toast('Please write your full name.');
+  if (email && !emailOk(email)) return toast('That email does not look right. Please check it.');
+  if (!solo && !email) return toast('Please write your email.');
+  const changed = name !== st.me.name || email !== st.me.email || (solo ? '' : v) !== st.me.cls || solo !== st.me.solo;
+  st.me = { name, email, cls: solo ? '' : v, solo, joined: changed ? false : st.me.joined };
   save();
   if (!solo) {
     Sync.status = '';
     const fresh = !hasProgress();
-    Sync.join(fresh).then(back => { if (back) { toast(`Welcome back, ${st.me.first}! Your progress is back.`); renderHome(); } else Sync.flush(); });
+    Sync.join(fresh).then(back => { if (back) { toast(`Welcome back, ${firstName()}! Your progress is back.`); renderHome(); } else Sync.flush(); });
   }
   toast(solo ? 'Saved. Practicing on your own: nothing is sent.' : `Saved. Class: ${v}`);
 }

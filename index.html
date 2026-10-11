@@ -65,18 +65,18 @@
 <section id="about" class="screen scroll" hidden>
   <form class="wrap" id="aboutForm" novalidate>
     <h1 class="title">About you</h1>
-    <label class="field"><span>First name <span class="ar" lang="ar" dir="rtl">الاسم الأول</span></span>
-      <input id="fFirst" aria-label="First name" class="input" type="text" maxlength="30" autocomplete="given-name" autocapitalize="words" required></label>
-    <label class="field"><span>Family name <span class="ar" lang="ar" dir="rtl">اسم العائلة</span></span>
-      <input id="fFamily" aria-label="Family name" class="input" type="text" maxlength="30" autocomplete="family-name" autocapitalize="words"></label>
+    <label class="field"><span>Full name <span class="ar" lang="ar" dir="rtl">الاسم الكامل</span></span>
+      <input id="fName" aria-label="Full name" class="input" type="text" maxlength="60" autocomplete="name" autocapitalize="words" required></label>
+    <label class="field"><span>Email <span class="ar" lang="ar" dir="rtl">البريد الإلكتروني</span></span>
+      <input id="fEmail" aria-label="Email" class="input" type="email" maxlength="80" autocomplete="email" autocapitalize="none" inputmode="email" spellcheck="false"></label>
     <div class="field" id="classField">
       <label for="fClass"><span>Class <span class="ar" lang="ar" dir="rtl">الصف</span></span></label>
       <select id="fClass" aria-label="Class" class="input"></select>
       <p class="hint-line" id="classNote"></p>
     </div>
     <div class="privacy">
-      <p>Your name, class and practice numbers go to your teacher. Your recordings stay on your phone and are never sent.</p>
-      <p class="ar" lang="ar" dir="rtl">يصل اسمك وصفّك وأرقام تدريبك إلى معلمتك. تسجيلات صوتك تبقى على هاتفك ولا تُرسل أبدًا.</p>
+      <p>Your name, email, class and practice numbers go to your teacher. Your recordings stay on your phone and are never sent.</p>
+      <p class="ar" lang="ar" dir="rtl">يصل اسمك وبريدك وصفّك وأرقام تدريبك إلى معلمتك. تسجيلات صوتك تبقى على هاتفك ولا تُرسل أبدًا.</p>
     </div>
     <p class="form-error" id="aboutError" role="alert"></p>
     <button id="aboutBtn" class="btn btn-primary wide" type="submit">Continue</button>
