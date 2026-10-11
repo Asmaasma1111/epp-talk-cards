@@ -416,7 +416,7 @@
         {
           "talk": true,
           "ar": "ادعي صديقتك إلى حفل تخرج أختك.",
-          "q": "Invite a friend to your sister's graduation party.",
+          "q": "Invite a friend to your sister's graduation.",
           "steps": [
             "Invite her.",
             "Say the day and time.",
@@ -425,7 +425,7 @@
           ],
           "a": [
             [
-              "Would you like to come to my sister's graduation party?",
+              "Would you like to come to my sister's graduation?",
               "It's on Thursday at eight.",
               "It's at our house.",
               "We can pick you up, if you like."

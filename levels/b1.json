@@ -368,7 +368,7 @@
           "simple": "Hello, this is the store. What is the problem?",
           "a": [
             "I ordered a blue dress online, but you sent a green one. I need it for my cousin's wedding on Thursday, so could you send the right one quickly?",
-            "My order was supposed to arrive three days ago, but it still hasn't come. It's a gift for my mom's birthday, so I really need it by Saturday."
+            "My order was supposed to arrive three days ago, but it still hasn't come. It's a gift for my mom, so I really need it by Saturday."
           ],
           "ask": "You work in customer service. Answer the phone and ask how you can help."
         },
