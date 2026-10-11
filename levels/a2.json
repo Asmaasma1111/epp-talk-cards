@@ -415,7 +415,7 @@
         },
         {
           "talk": true,
-          "ar": "ادعي صديقتك إلى حفل تخرج أختك.",
+          "ar": "ادعي صديقتك إلى تخرّج أختك.",
           "q": "Invite a friend to your sister's graduation.",
           "steps": [
             "Invite her.",
