@@ -45,6 +45,7 @@
   <symbol id="i-mic" viewBox="0 0 24 24"><rect x="8.6" y="3" width="6.8" height="11.4" rx="3.4" fill="currentColor"/><path d="M5.6 11.2a6.4 6.4 0 0 0 12.8 0M12 17.6V21M8.8 21h6.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
   <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.5" fill="currentColor"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.6v12.8a.9.9 0 0 0 1.37.77l10.2-6.4a.9.9 0 0 0 0-1.54L9.37 4.83A.9.9 0 0 0 8 5.6z" fill="currentColor"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 6.2A2.2 2.2 0 0 1 6.2 4h11.6A2.2 2.2 0 0 1 20 6.2v8.1a2.2 2.2 0 0 1-2.2 2.2H9.6L5.4 20v-3.5A2.2 2.2 0 0 1 4 14.3z" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"/><path d="M8.2 9.3h7.6M8.2 12.3h4.8" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></symbol>
   <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 3.5v11M7.8 7.4L12 3.2l4.2 4.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 10.5H6.8a1.8 1.8 0 0 0-1.8 1.8v6.4a1.8 1.8 0 0 0 1.8 1.8h10.4a1.8 1.8 0 0 0 1.8-1.8v-6.4a1.8 1.8 0 0 0-1.8-1.8h-1.7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
   <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M8.6 13.6L7.2 21l4.8-2.6 4.8 2.6-1.4-7.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></symbol>
   <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 5.5l6.5 6.5L9 18.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -77,6 +78,7 @@
     <div class="privacy">
       <p>Your name, email, class and practice numbers go to your teacher. Your recordings stay on your phone and are never sent.</p>
       <p class="ar" lang="ar" dir="rtl">يصل اسمك وبريدك وصفّك وأرقام تدريبك إلى معلمتك. تسجيلات صوتك تبقى على هاتفك ولا تُرسل أبدًا.</p>
+      <p class="privacy-link"><a href="privacy.html" target="_blank" rel="noopener">Privacy policy · <span lang="ar" dir="rtl">سياسة الخصوصية</span></a></p>
     </div>
     <p class="form-error" id="aboutError" role="alert"></p>
     <button id="aboutBtn" class="btn btn-primary wide" type="submit">Continue</button>
@@ -235,11 +237,35 @@
   </div>
 </section>
 
+<!-- Feedback: a short message to the teacher (queued when offline) -->
+<section id="feedback" class="overlay scroll" hidden>
+  <form class="fb-box" id="fbForm" novalidate>
+    <div class="head-row"><button type="button" class="icon-btn back-btn" id="fbClose" aria-label="Close"><svg aria-hidden="true"><use href="#i-close"/></svg></button><h1 class="title">Feedback</h1></div>
+    <p class="p-sum">Tell us what works and what does not. <span class="ar" lang="ar" dir="rtl">رأيكِ يهمّنا: ما الذي أعجبكِ، وما الذي يحتاج إلى تحسين؟</span></p>
+    <div class="fb-kinds" role="group" aria-label="What is it about?">
+      <button type="button" class="kind" data-kind="idea" aria-pressed="false">An idea</button>
+      <button type="button" class="kind" data-kind="problem" aria-pressed="false">A problem</button>
+      <button type="button" class="kind" data-kind="content" aria-pressed="false">A card</button>
+      <button type="button" class="kind" data-kind="voice" aria-pressed="false">The voice</button>
+      <button type="button" class="kind" data-kind="other" aria-pressed="true">Other</button>
+    </div>
+    <label class="field"><span>Your message <span class="ar" lang="ar" dir="rtl">رسالتكِ، بالعربية أو بالإنجليزية</span></span>
+      <textarea id="fbText" class="input fb-text" maxlength="600" rows="5" required></textarea></label>
+    <p class="hint-line" id="fbWho"></p>
+    <p class="form-error" id="fbError" role="alert"></p>
+    <button id="fbSend" class="btn btn-primary wide" type="submit">Send</button>
+    <p class="privacy-link small"><a href="privacy.html" target="_blank" rel="noopener">Privacy policy · <span lang="ar" dir="rtl">سياسة الخصوصية</span></a></p>
+  </form>
+</section>
+
 <div id="goalBanner" class="goal-banner" hidden role="status"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span>10 minutes today! Bonus star</span></div>
 
 <footer class="site-foot" id="foot">
   <a href="https://www.linkedin.com/in/dr-asma-khattala/" target="_blank" rel="noopener">Designed by Dr. Asma Khattala</a>
-  <button class="share-btn" id="shareBtn" aria-label="Share Talk Cards"><svg aria-hidden="true"><use href="#i-share"/></svg>Share</button>
+  <div class="foot-btns">
+    <button class="share-btn" id="feedbackBtn" aria-label="Send feedback"><svg aria-hidden="true"><use href="#i-chat"/></svg>Feedback</button>
+    <button class="share-btn" id="shareBtn" aria-label="Share Talk Cards"><svg aria-hidden="true"><use href="#i-share"/></svg>Share</button>
+  </div>
 </footer>
 
 <div id="toast" class="toast" hidden role="status"></div>

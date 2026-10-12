@@ -10,7 +10,8 @@ const $ = (s, r = document) => r.querySelector(s);
 const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
 const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://asmaasma1111.github.io/epp-talk-cards/' }, window.EPP_CONFIG || {});
-const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset' };
+const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
+const APP_VERSION = 'v6';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
@@ -1548,6 +1549,54 @@ function renderSync() {
   el.textContent = `${st.me.cls} · Sent to your teacher ✓`; el.classList.add('ok');
 }
 
+/* ---------- feedback: a short message to the teacher, queued on this phone until it is sent ---------- */
+let fbKind = 'other';
+function readFb() { try { const a = JSON.parse(lsGet(KEY.feedback) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } }
+function writeFb(a) { lsSet(KEY.feedback, JSON.stringify(a.slice(-50))); }
+function openFeedback() {
+  Speech.stop();
+  fbKind = 'other';
+  document.querySelectorAll('#feedback .kind').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.kind === fbKind)));
+  $('#fbText').value = ''; $('#fbError').textContent = '';
+  $('#fbWho').textContent = !CONFIG.apiUrl ? 'Feedback cannot be sent from this copy of the app.'
+    : (st.me.solo || !st.me.cls) ? 'Sent without your name.' : `Sent with your name and class (${st.me.cls}).`;
+  $('#feedback').hidden = false;
+  setTimeout(() => { try { $('#fbText').focus(); } catch (e) {} }, 60);
+}
+function closeFeedback() { $('#feedback').hidden = true; }
+function submitFeedback(e) {
+  e.preventDefault();
+  const text = $('#fbText').value.replace(/\s+/g, ' ').trim();
+  if (text.length < 2) { $('#fbError').textContent = 'Please write a message first.'; return; }
+  if (!CONFIG.apiUrl) { $('#fbError').textContent = 'Feedback cannot be sent from this copy of the app.'; return; }
+  const lv = LEVEL[st.level];
+  const box = readFb();
+  box.push({ id: uuid(), ts: nowTs(), kind: fbKind, text: text.slice(0, 600), level: lv ? lv.code : '', screen });
+  writeFb(box);
+  closeFeedback();
+  toast(navigator.onLine === false ? 'Saved. It will be sent when you are online.' : 'Thank you! Sending your feedback');
+  sendFeedback();
+}
+async function sendFeedback() {
+  if (!CONFIG.apiUrl || sendFeedback.busy || !readFb().length) return;
+  sendFeedback.busy = true;
+  try {
+    for (let i = 0; i < 10; i++) {
+      const box = readFb(); if (!box.length) break;
+      const f = box[0];
+      const who = (st.me.solo || !st.me.cls) ? {} : { name: st.me.name, email: st.me.email, cls: st.me.cls };
+      let r = null;
+      try {
+        r = await api({ action: 'feedback', sid: st.sid, id: f.id, kind: f.kind, text: f.text, level: f.level, screen: f.screen,
+                        app: APP_VERSION, ua: String(navigator.userAgent || '').slice(0, 120), ...who }, 15000);
+      } catch (e) {}
+      if (!r || (!r.ok && r.error !== 'bad_text')) break;   // kept for later (also while the teacher's backend is older)
+      writeFb(readFb().filter(x => x.id !== f.id));
+      if (r.ok && !r.duplicate) toast('Feedback sent. Thank you!');
+    }
+  } finally { sendFeedback.busy = false; }
+}
+
 /* ---------- share ---------- */
 async function shareApp() {
   if (navigator.share) {
@@ -1609,6 +1658,12 @@ function renderSettings() {
       </div></div>
     </div>
     <div class="p-group">
+      <div class="p-row"><span>Feedback<span class="sub">Tell your teacher what works and what does not</span></span>
+        <button class="p-btn" data-act="feedback">Write</button></div>
+      <div class="p-row"><span>Privacy policy<span class="sub">What the app keeps, and what it never sends</span></span>
+        <a class="p-btn p-link" href="privacy.html" target="_blank" rel="noopener">Read</a></div>
+    </div>
+    <div class="p-group">
       <div class="p-row"><button class="p-btn danger" data-act="reset">Reset all my progress</button></div>
     </div>
     <input id="sFile" type="file" accept=".json,application/json" hidden>
@@ -1634,6 +1689,7 @@ function onSettingsClick(e) {
     case 'details': saveDetails(); break;
     case 'backup': backup(); break;
     case 'recs': renderRecs(); break;
+    case 'feedback': openFeedback(); break;
     case 'restore': $('#sFile').click(); break;
     case 'reset':
       if (confirm('Reset all your progress? Your cards, stars and levels on this phone will be deleted.') && confirm('Are you sure? This cannot be undone.')) {
@@ -1800,13 +1856,21 @@ function wire() {
   $('#certSave').addEventListener('click', certSave);
   $('#certShare').addEventListener('click', certShare);
   $('#shareBtn').addEventListener('click', shareApp);
+  $('#feedbackBtn').addEventListener('click', openFeedback);
+  $('#fbClose').addEventListener('click', closeFeedback);
+  $('#fbForm').addEventListener('submit', submitFeedback);
+  document.querySelectorAll('#feedback .kind').forEach(b => b.addEventListener('click', () => {
+    fbKind = b.dataset.kind;
+    document.querySelectorAll('#feedback .kind').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  }));
+  setTimeout(sendFeedback, 4000);          // anything written while offline
   $('#devbar').addEventListener('click', onDevClick);
   document.addEventListener('pointerdown', () => { if (SFX.ctx && SFX.ctx.state !== 'running') { try { SFX.ctx.resume(); } catch (e) {} } }, true);
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) { Speech.stop(); Clock.pause(); if (Rec.state === 'rec') Rec.stop(); }
     else { Clock.resume(); Sync.flush(); }
   });
-  window.addEventListener('online', () => Sync.flush());
+  window.addEventListener('online', () => { Sync.flush(); sendFeedback(); });
   window.addEventListener('pagehide', () => { Speech.stop(); save(); });
   let rt = null;
   window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { if (S) { fit($('#front')); fit($('#back')); } }, 120); });

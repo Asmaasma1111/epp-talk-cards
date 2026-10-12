@@ -4,11 +4,12 @@
    Level files, config.js and the voice list are refreshed in the background, so a new set reaches phones
    on the next open without a version bump. */
 const PREFIX = 'epp-talk-cards-';
-const VERSION = PREFIX + 'v5';
+const VERSION = PREFIX + 'v6';
 const LEVEL_FILES = ['pre-a1', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'].map(l => `levels/${l}.json`);
 const FILES = [
   './',
   'index.html',
+  'privacy.html',
   'style.css',
   'app.js',
   'config.js',

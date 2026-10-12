@@ -617,3 +617,17 @@ body { background: var(--cloud); }
 .tip { display: flex; align-items: flex-start; gap: 6px; padding: 10px 6px 10px 14px; border: 2.5px solid var(--ink); border-radius: var(--hand-btn); background: var(--lilac); font-size: .95rem; }
 .tip p { margin: 0; flex: 1; padding-top: 6px; }
 .tip-close { flex: none; width: 44px; height: 44px; color: var(--ink); }
+
+/* ---------- feedback and privacy (12 Oct 2026) ---------- */
+.foot-btns { display: flex; align-items: center; gap: 0; }
+.site-foot .share-btn { padding: 0 10px; }
+.privacy .privacy-link { margin-top: 8px; }
+.privacy-link a { color: var(--accent); font-weight: 700; }
+.privacy-link.small { font-size: .92rem; text-align: center; margin: 0; }
+.p-link { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; color: var(--ink); }
+.fb-box { position: relative; width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: 14px; }
+.fb-kinds { display: flex; flex-wrap: wrap; gap: 8px; }
+.kind { min-height: 44px; padding: 0 14px; border-radius: 99px; border: 1.5px solid var(--line); background: var(--card); font-weight: 700; font-size: .95rem; color: var(--ink); }
+.kind[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+textarea.input { font: inherit; line-height: 1.5; }
+.fb-text { min-height: 150px; resize: vertical; }
