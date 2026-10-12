@@ -1,4 +1,4 @@
-/* Talk Cards by Dr. Asma Khattala
+/* Speak Cards (named Talk Cards until 12 Oct 2026) by Dr. Asma Khattala
    Daily English speaking practice with spaced repetition, Pre-A1 to C2. Plain JavaScript, no libraries.
    Built from the engine of Maria's Talk Cards (~/Downloads/anki): flip card, Again / Good, the 1-2-4-8-16-32-64
    day ladder, warm-up, tricky ones, recorded voice with word highlighting, device voice as fallback.
@@ -11,7 +11,7 @@ const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
 const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://asmaasma1111.github.io/epp-talk-cards/' }, window.EPP_CONFIG || {});
 const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
-const APP_VERSION = 'v6';   // shown in feedback rows; keep in step with sw.js
+const APP_VERSION = 'v7';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
@@ -24,7 +24,7 @@ const QUICK_FLIP = 3000;    // flipped in under 3 s: a sign of tapping through
 const BATCH = 200;          // events per request
 const REC_MAX = 120;        // a recording stops by itself after 2 minutes
 const STAR_FLIGHT = 560;
-const SHARE_TITLE = 'Talk Cards by Dr. Asma Khattala';
+const SHARE_TITLE = 'Speak Cards by Dr. Asma Khattala';
 const SHARE_TEXT = 'Daily English speaking practice with spaced repetition, from Pre-A1 to C2.';
 const SIZES = { S: 0.88, M: 1, L: 1.16 };
 const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1353,11 +1353,11 @@ async function drawCertificate(levelId) {
   x.textAlign = 'center'; x.textBaseline = 'alphabetic';
   x.fillStyle = '#B25B3C'; x.font = `700 34px ${EN}`;
   try { x.letterSpacing = '6px'; } catch (e) {}
-  x.fillText('TALK CARDS', W / 2, 180);
+  x.fillText('SPEAK CARDS', W / 2, 180);
   try { x.letterSpacing = '0px'; } catch (e) {}
   x.fillStyle = '#2B2724'; x.font = `700 96px ${EN}`; x.fillText('Star Certificate', W / 2, 300);
   x.fillStyle = '#6E655D'; x.font = `400 40px ${EN}`; x.fillText('This certificate is awarded to', W / 2, 390);
-  const name = st.me.name || 'A Talk Cards student';
+  const name = st.me.name || 'A Speak Cards student';
   let fs = 92;
   x.font = `700 ${fs}px ${EN}`;
   while (x.measureText(name).width > W - 360 && fs > 40) { fs -= 4; x.font = `700 ${fs}px ${EN}`; }
@@ -1414,7 +1414,7 @@ async function certSave() {
 async function certShare() {
   if (!certCanvas) return;
   const f = await certFile();
-  const text = `I finished Level ${LEVEL[certLevel].code} on Talk Cards!`;
+  const text = `I finished Level ${LEVEL[certLevel].code} on Speak Cards!`;
   if (navigator.canShare && navigator.canShare({ files: [f] })) {
     try { await navigator.share({ files: [f], title: SHARE_TITLE, text }); } catch (e) {}
     return;
@@ -1720,7 +1720,7 @@ function saveDetails() {
 function backup() {
   save();
   const data = JSON.stringify({ app: 'epp-talk-cards', v: 1, saved: new Date().toISOString(), state: st, outbox: readOutbox() });
-  const name = `talk-cards-backup-${today()}.json`;
+  const name = `speak-cards-backup-${today()}.json`;
   let file = null;
   try { file = new File([data], name, { type: 'application/json' }); } catch (e) {}
   if (file && isIOS() && navigator.canShare && navigator.canShare({ files: [file] })) { navigator.share({ files: [file] }).catch(() => {}); return; }
@@ -1738,7 +1738,7 @@ async function restore(file) {
       writeOutbox([...readOutbox(), ...obj.outbox.filter(e => e && e.id && !have.has(e.id))]);
     }
     toast('Progress restored.'); renderSettings(); Sync.flush();
-  } catch (e) { toast('That file is not a Talk Cards progress file.'); }
+  } catch (e) { toast('That file is not a Speak Cards progress file.'); }
 }
 
 /* ---------- My recordings: her own answers, newest first, kept on this phone ---------- */
