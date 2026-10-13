@@ -11,7 +11,7 @@ const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
 const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://asmaasma1111.github.io/epp-talk-cards/' }, window.EPP_CONFIG || {});
 const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
-const APP_VERSION = 'v7';   // shown in feedback rows; keep in step with sw.js
+const APP_VERSION = 'v8';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
@@ -75,8 +75,12 @@ function buildCatalog(index, files) {
                     steps: Array.isArray(c.steps) ? c.steps : [], a: (Array.isArray(c.a) ? c.a : [c.a]).filter(Boolean),
                     ex: c.ex || '', useful: Array.isArray(c.useful) ? c.useful : [], simple: c.simple || '', order: order++ };
         CARD[a.id] = a; set.ans.push(a.id);
-        if (c.ask && !c.talk) {      // "Your turn to ask!": the cue on the front, the question on the back
-          const k = { ...base, id: `${s.id}:k${i + 1}`, kind: 'ask', talk: false, cue: c.ask, q: c.q, order: order++ };
+        if ((c.do || c.ask) && !c.talk) {   // "Your turn to ask!": the instruction (+ a short cue) on the front, the question on the back
+          // 13 Oct 2026: `do` = a clear English instruction, `ask` = an optional short cue under it, `do_ar` = the Arabic
+          // instruction behind مساعدة. Older files: an English `ask` is the instruction; an Arabic `ask` is the help line.
+          const legacyAr = !c.do && c.ask && ARABIC.test(c.ask);
+          const k = { ...base, id: `${s.id}:k${i + 1}`, kind: 'ask', talk: false, q: c.q, order: order++,
+                      do: c.do || (!legacyAr && c.ask) || '', cue: c.do && c.ask ? c.ask : '', doAr: c.do_ar || (legacyAr ? c.ask : '') };
           CARD[k.id] = k; set.ask.push(k.id);
         }
       });
@@ -1000,7 +1004,9 @@ function exLine(text) {          // examples for a blank, in brackets; Arabic ex
   if (ARABIC.test(text)) { d.lang = 'ar'; d.classList.add('ar'); }
   return d;
 }
-const speakCue = (c, lv) => !ARABIC.test(c.cue) && (lv.help === 'en-help' || lv.help === 'none');   // B1 and above
+// The instruction is spoken from B1 (clips exist, device voice if not) and, lower down, only once its Kore clip is
+// published: a beginner never hears the robotic device voice. The short cue is never spoken: she builds the question.
+const speakDo = (c, lv) => !!c.do && (lv.help === 'en-help' || lv.help === 'none' || !!clipFor(c.do));
 
 function renderCard(c) {
   const card = $('#card'), front = $('#front'), back = $('#back');
@@ -1018,8 +1024,8 @@ function renderCard(c) {
   const fArea = div('text-area'), fTxt = div('txt'); fArea.append(fTxt);
   const plan = [];
   if (c.kind === 'ask') {
-    if (ARABIC.test(c.cue)) fTxt.append(arLine(c.cue, 'cue ar-cue'));
-    else { const cue = div('cue'); fTxt.append(cue); const p = renderText(cue, c.cue, true); if (speakCue(c, lv) && p) plan.push(...p); }
+    if (c.do) { const d = div('do'); fTxt.append(d); const p = renderText(d, c.do, true); if (speakDo(c, lv) && p) plan.push(...p); }
+    if (c.cue) { const cue = div('cue'); fTxt.append(cue); renderText(cue, c.cue, false); }
   } else {
     const q = div('q'); fTxt.append(q);
     plan.push(...(renderText(q, c.q, true) || []));
@@ -1046,6 +1052,8 @@ function renderCard(c) {
   if (c.kind === 'ans') {
     if ((lv.help === 'ar-first' || lv.help === 'ar-help') && c.ar) help = { text: c.ar, ar: true, free: lv.help === 'ar-first' };
     else if (lv.help === 'en-help' && c.simple) help = { text: c.simple, ar: false };
+  } else if (c.kind === 'ask') {   // the Arabic instruction, behind مساعدة (13 Oct 2026)
+    if ((lv.help === 'ar-first' || lv.help === 'ar-help') && c.doAr) help = { text: c.doAr, ar: true, free: lv.help === 'ar-first' };
   }
   if (help) {
     const hb = document.createElement('button');
