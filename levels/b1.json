@@ -183,7 +183,7 @@
       "I see what you mean, but I'm not sure about that. I learn better at school because I can ask the teacher questions face to face.",
       "I agree with you, because you save a lot of time at home. But I'd really miss my friends!"
      ],
-     "do": "Tell your friend you think online classes are better than classes at school, and ask what she thinks."
+     "do": "You prefer online classes and you think they are better. Tell your friend and ask what she thinks."
     },
     {
      "q": "Social media is a waste of time, don't you think?",
@@ -192,7 +192,7 @@
       "That's true for some people, but it depends on how you use it. I follow science accounts, so I learn a lot.",
       "You're right. I spend too much time on it, so I'm trying to use it less."
      ],
-     "do": "Tell your friend you think social media is a waste of time, and ask if she agrees."
+     "do": "You feel social media takes too much of people's time. Say what you think, and check if your friend agrees."
     },
     {
      "q": "I think everyone should learn coding at school.",
@@ -201,7 +201,7 @@
       "I totally agree, because coding is useful in so many jobs. It also teaches you to solve problems step by step.",
       "I'm not so sure. Coding is great, but some students prefer art or languages, so it should be a choice."
      ],
-     "do": "Tell your friend you think everyone should learn coding at school."
+     "do": "You believe coding is a skill every student needs. Give your friend your opinion."
     },
     {
      "talk": true,
@@ -237,7 +237,7 @@
       "Sorry, what do you mean by \"cite\"? I've never heard that word, so I'm not sure what to do.",
       "Could you give us an example, please? I'm asking because I want to do it the right way."
      ],
-     "do": "You are the teacher. Tell the class to cite at least three sources for their project."
+     "do": "You are the teacher. The project needs three sources or more. Tell the class this rule politely."
     },
     {
      "q": "The club meeting has moved to Tuesday, in Room 12, right after the break.",
@@ -246,7 +246,7 @@
       "Sorry, I didn't catch that. Could you say it again more slowly, so I can write it down?",
       "So the meeting is on Tuesday, right after the break? I'm just checking because I don't want to miss it."
      ],
-     "do": "Tell your friend the club meeting has moved to Tuesday, in Room 12, right after the break."
+     "do": "The club meeting has a new day, room and time: Tuesday, Room 12, after the break. Pass the news on to your friend."
     },
     {
      "q": "Don't worry, the test is going to be a piece of cake!",
@@ -255,7 +255,7 @@
       "Sorry, what does \"a piece of cake\" mean? I don't get it, because we aren't talking about food!",
       "Do you mean it's going to be easy? I hope you're right, because I'm really worried!"
      ],
-     "do": "Tell your worried friend that the test is going to be a piece of cake."
+     "do": "Your friend is worried about the test. You are sure it will be easy. Reassure her."
     },
     {
      "talk": true,
@@ -415,7 +415,7 @@
       "I was playing basketball at school, and I fell. It hurts when I walk, so my mom brought me here.",
       "I'm not really sure, because I didn't fall. It started hurting after a long walk yesterday."
      ],
-     "do": "You are the doctor. Tell your patient her ankle looks swollen, and ask how it happened."
+     "do": "You are the doctor. The patient's ankle is swollen. Say what you see, and ask about the cause."
     },
     {
      "q": "You should rest for a few days and drink lots of water.",
@@ -424,7 +424,7 @@
       "OK, thank you. I have an important test on Wednesday, so can I still go to school?",
       "Thank you, Doctor. Should I take something for the pain? It's hard to sleep because it hurts at night."
      ],
-     "do": "You are the doctor. Tell your patient she should rest for a few days and drink lots of water."
+     "do": "You are the doctor. The patient needs a few days of rest and plenty of water. Give her your advice."
     },
     {
      "talk": true,
@@ -586,7 +586,7 @@
       "If I were you, I'd just ask her what's wrong. It might be a small problem, so it's better to talk about it.",
       "I'd send her a kind message first, because she might not want to talk yet. Then I'd give her a little time."
      ],
-     "do": "Tell your friend that your best friend is upset with you and you don't know why. Ask her what she would do."
+     "do": "Your best friend is upset with you, and you have no idea why. Explain the problem to another friend and ask for her advice."
     },
     {
      "talk": true,
@@ -640,7 +640,7 @@
       "Yes, that's fine, because I'm free on Tuesdays. Could I ask what time the meetings finish?",
       "I might miss some Tuesdays, because I have extra classes before exams. Is that a problem?"
      ],
-     "do": "You are the club leader. Tell a new member she has to come every Tuesday after school, and ask if that's OK."
+     "do": "You are the club leader. Meetings are every Tuesday after school, and attendance is a must. Explain this to a new member and check that it suits her."
     },
     {
      "talk": true,
