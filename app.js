@@ -11,7 +11,7 @@ const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
 const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://asmaasma1111.github.io/epp-talk-cards/' }, window.EPP_CONFIG || {});
 const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
-const APP_VERSION = 'v10';   // shown in feedback rows; keep in step with sw.js
+const APP_VERSION = 'v11';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
@@ -100,7 +100,7 @@ function defaults() {
     app: 'epp-talk-cards', v: 1,
     sid: uuid(),                                  // this phone; the teacher's Sheet matches it, or the name + class
     setup: 'welcome',                             // welcome -> about -> start -> done
-    me: { name: '', email: '', cls: '', solo: true, joined: false },
+    me: { name: '', email: '', cls: '', solo: true, joined: false, who: '' },   // who: 'girl' | 'boy' (palette + Arabic wording)
     level: LEVELS[0] ? LEVELS[0].id : 'pre-a1',   // current level: new cards come from here
     open: [],                                     // levels opened by finishing the one before (they stay open)
     passed: [],                                   // set ids that are done
@@ -126,6 +126,7 @@ function merge(s) {
   if (!o.me.name && (o.me.first || o.me.family)) o.me.name = `${o.me.first || ''} ${o.me.family || ''}`.replace(/\s+/g, ' ').trim();
   delete o.me.first; delete o.me.family;
   if (typeof o.me.email !== 'string') o.me.email = '';
+  if (o.me.who !== 'girl' && o.me.who !== 'boy') o.me.who = o.me.name ? 'girl' : '';   // students before 2 Nov 2026 were all girls
   if (!/^[A-Za-z0-9-]{8,40}$/.test(String(o.sid))) o.sid = uuid();
   if (!LEVEL[o.level]) o.level = d.level;
   if (!['welcome', 'about', 'start', 'done'].includes(o.setup)) o.setup = 'welcome';
@@ -740,6 +741,12 @@ function toast(msg) {
   clearTimeout(toast.t); toast.t = setTimeout(() => { t.hidden = true; }, 3200);
 }
 function applySize() { document.documentElement.dataset.size = st.settings.size; }
+const isBoy = () => st.me.who === 'boy';
+function applyWho() {                       // the palette (style.css html[data-who]) and the Arabic wording (.f / .m)
+  document.documentElement.dataset.who = isBoy() ? 'boy' : 'girl';
+  const m = document.querySelector('meta[name="theme-color"]');
+  if (m) m.content = getComputedStyle(document.documentElement).getPropertyValue('--cloud').trim() || '#F6F8FF';
+}
 
 /* ---------- first launch ---------- */
 function showSetup() {
@@ -751,20 +758,50 @@ function showSetup() {
   show('welcome');
 }
 let classList = null;      // classes from the teacher's Sheet, this visit
+// Students of other schools (2 Nov 2026): the Classes tab holds rows named "Another school · 10th grade" etc. The app
+// shows them as one choice, "I'm from another school", followed by the grade only. Nobody is asked which school.
+const OTHER_PREFIX = 'Another school · ';
+const isOtherClass = n => String(n || '').startsWith(OTHER_PREFIX);
+const GRADE_AR = { '10th grade': 'الأول الثانوي', '11th grade': 'الثاني الثانوي', '12th grade': 'الثالث الثانوي' };
+const gradeLabel = n => { const g = String(n).slice(OTHER_PREFIX.length); return GRADE_AR[g] ? `${g} · ${GRADE_AR[g]}` : g; };
+const otherClasses = () => (classList || []).filter(c => isOtherClass(c.name));
+function syncGrade(sel, current) {       // show the grade list under a class select when "another school" is chosen
+  const g = sel.dataset.grade && document.getElementById(sel.dataset.grade); if (!g) return;
+  const wrap = g.closest('.field, .p-row'), other = otherClasses();
+  const on = sel.value === '__other' && other.length > 0;
+  if (wrap) wrap.hidden = !on;
+  if (!on) return;
+  g.textContent = '';
+  const add = (v, t) => { const o = document.createElement('option'); o.value = v; o.textContent = t; g.append(o); };
+  add('', 'Choose your grade');
+  other.forEach(c => add(c.name, gradeLabel(c.name)));
+  if (current && isOtherClass(current)) g.value = current;
+}
+function chosenClass(sel) {               // the class name to send: a class of hers, or the other-school grade row
+  if (sel.value === '__other') { const g = document.getElementById(sel.dataset.grade); return g ? g.value : ''; }
+  return sel.value;
+}
 function fillClassSelect(sel, current, withSolo) {
   sel.textContent = '';
   const add = (v, t) => { const o = document.createElement('option'); o.value = v; o.textContent = t; sel.append(o); };
   if (!withSolo) add('', 'Choose your class');
-  (classList || []).forEach(c => add(c.name, c.name));
+  const mine = (classList || []).filter(c => !isOtherClass(c.name)), other = otherClasses();
+  mine.forEach(c => add(c.name, c.name));
+  if (other.length) add('__other', "I'm from another school");
   if (withSolo) add('__solo', 'On my own (nothing is sent)');
-  if (current && (classList || []).some(c => c.name === current)) sel.value = current;
+  if (current && mine.some(c => c.name === current)) sel.value = current;
+  else if (current && isOtherClass(current) && other.length) sel.value = '__other';
   else if (withSolo && (!current || st.me.solo)) sel.value = '__solo';
+  syncGrade(sel, current);
 }
 const firstName = () => (st.me.name || '').split(' ')[0];
 const nameParts = () => { const w = (st.me.name || '').split(' '); return { first: w[0] || '', family: w.slice(1).join(' ') || w[0] || '' }; };
 const cleanEmail = v => String(v || '').trim().toLowerCase().slice(0, 80);
 const emailOk = e => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
+let aboutWho = '';
+function markWho() { document.querySelectorAll('#whoField .who').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.who === aboutWho))); }
 async function showAbout() {
+  aboutWho = st.me.who; markWho();
   $('#fName').value = st.me.name; $('#fEmail').value = st.me.email;
   $('#aboutError').textContent = '';
   show('about');
@@ -787,16 +824,18 @@ async function showAbout() {
 const cleanName = v => String(v || '').replace(/\s+/g, ' ').trim().slice(0, 60);
 function aboutSubmit(solo) {
   const name = cleanName($('#fName').value), email = cleanEmail($('#fEmail').value);
-  const cls = solo ? '' : $('#fClass').value;
+  const cls = solo ? '' : chosenClass($('#fClass'));
   const err = $('#aboutError');
+  if (aboutWho !== 'girl' && aboutWho !== 'boy') { err.textContent = 'Please tap Girl or Boy first.'; return; }
   if (name.length < 2) { err.textContent = 'Please write your full name.'; $('#fName').focus(); return; }
   if (email && !emailOk(email)) { err.textContent = 'That email does not look right. Please check it.'; $('#fEmail').focus(); return; }
   if (!solo) {
     if (!email) { err.textContent = 'Please write your email, so your teacher knows who you are.'; $('#fEmail').focus(); return; }
+    if (!cls && $('#fClass').value === '__other') { err.textContent = 'Please choose your grade.'; $('#fGrade').focus(); return; }
     if (!cls) { err.textContent = 'Please choose your class.'; $('#fClass').focus(); return; }
   }
-  st.me = { name, email, cls, solo, joined: false };
-  st.setup = 'start'; save();
+  st.me = { name, email, cls, solo, joined: false, who: aboutWho };
+  st.setup = 'start'; save(); applyWho();
   if (!solo && !hasProgress()) {
     const btn = $('#aboutBtn'), was = btn.textContent;
     btn.disabled = true; btn.textContent = 'One moment';
@@ -1019,7 +1058,7 @@ function renderCard(c) {
 
   // front
   const label = div('label' + (c.kind === 'ask' ? ' ask' : c.talk ? ' talk' : warm ? ' warm' : ''));
-  label.textContent = c.kind === 'ask' ? 'اسألي السؤال' : c.talk ? 'Talk time!' : warm ? 'Remember?' : 'Answer!';
+  label.textContent = c.kind === 'ask' ? (isBoy() ? 'اسأل السؤال' : 'اسألي السؤال') : c.talk ? 'Talk time!' : warm ? 'Remember?' : 'Answer!';
   if (c.kind === 'ask') { label.lang = 'ar'; label.dir = 'rtl'; label.classList.add('ar'); }
   const fArea = div('text-area'), fTxt = div('txt'); fArea.append(fTxt);
   const plan = [];
@@ -1318,7 +1357,8 @@ function confetti() {
   const cv = $('#confetti'), ctx = cv.getContext('2d'), dpr = Math.min(2, window.devicePixelRatio || 1);
   const W = innerWidth, H = innerHeight;
   cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  const cols = ['#B25B3C', '#2F9E5E', '#E7B04A', '#E9C8B5', '#2B2724'];
+  const cs = getComputedStyle(document.documentElement), v = (k, d) => cs.getPropertyValue(k).trim() || d;   // the app's palette (2 Nov 2026)
+  const cols = [v('--gum', '#FF6FA8'), v('--good', '#2EAD5B'), v('--sun', '#FFD84D'), v('--mint', '#8FE3BF'), v('--lilac', '#DCD6F7')];
   const P = Array.from({ length: 130 }, (_, i) => {
     const left = i % 2 === 0;
     return { x: left ? W * 0.1 : W * 0.9, y: H * 0.85, vx: (left ? 1 : -1) * (3 + Math.random() * 8), vy: -(11 + Math.random() * 11),
@@ -1355,38 +1395,45 @@ async function drawCertificate(levelId) {
   const W = 1600, H = 1130, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   const x = cv.getContext('2d');
   const EN = '"Atkinson Hyperlegible", "Noto Naskh Arabic", sans-serif';
-  x.fillStyle = '#FAF7F2'; x.fillRect(0, 0, W, H);
-  x.strokeStyle = '#B25B3C'; x.lineWidth = 12; roundRect(x, 44, 44, W - 88, H - 88, 40); x.stroke();
-  x.strokeStyle = '#E7DFD5'; x.lineWidth = 3; roundRect(x, 78, 78, W - 156, H - 156, 26); x.stroke();
+  // the app's own palette (pink for a girl, blue for a boy) and the school + INTERLINK logos (2 Nov 2026)
+  const cs = getComputedStyle(document.documentElement), pal = (k, d) => cs.getPropertyValue(k).trim() || d;
+  const P = { paper: pal('--paper', '#FAF7F2'), accent: pal('--accent', '#B25B3C'), ink: pal('--ink', '#2B2724'), muted: pal('--muted', '#6E655D'), line: pal('--lilac', '#E7DFD5'), gold: pal('--sun', '#E7B04A') };
+  const loadImg = src => new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = src; });
+  const [schoolImg, ilImg] = await Promise.all([loadImg('img/school-logo.png'), loadImg('img/interlink-logo.png')]);
+  x.fillStyle = P.paper; x.fillRect(0, 0, W, H);
+  x.strokeStyle = P.accent; x.lineWidth = 12; roundRect(x, 44, 44, W - 88, H - 88, 40); x.stroke();
+  x.strokeStyle = P.line; x.lineWidth = 3; roundRect(x, 78, 78, W - 156, H - 156, 26); x.stroke();
+  if (schoolImg) x.drawImage(schoolImg, 130, 120, 150, 150 * schoolImg.height / schoolImg.width);
+  if (ilImg) { const h = 100, w = h * ilImg.width / ilImg.height; x.drawImage(ilImg, W - 130 - w, 145, w, h); }
   x.textAlign = 'center'; x.textBaseline = 'alphabetic';
-  x.fillStyle = '#B25B3C'; x.font = `700 34px ${EN}`;
+  x.fillStyle = P.accent; x.font = `700 34px ${EN}`;
   try { x.letterSpacing = '6px'; } catch (e) {}
   x.fillText('SPEAK CARDS', W / 2, 180);
   try { x.letterSpacing = '0px'; } catch (e) {}
-  x.fillStyle = '#2B2724'; x.font = `700 96px ${EN}`; x.fillText('Star Certificate', W / 2, 300);
-  x.fillStyle = '#6E655D'; x.font = `400 40px ${EN}`; x.fillText('This certificate is awarded to', W / 2, 390);
+  x.fillStyle = P.ink; x.font = `700 96px ${EN}`; x.fillText('Star Certificate', W / 2, 300);
+  x.fillStyle = P.muted; x.font = `400 40px ${EN}`; x.fillText('This certificate is awarded to', W / 2, 390);
   const name = st.me.name || 'A Speak Cards student';
   let fs = 92;
   x.font = `700 ${fs}px ${EN}`;
   while (x.measureText(name).width > W - 360 && fs > 40) { fs -= 4; x.font = `700 ${fs}px ${EN}`; }
   x.direction = ARABIC.test(name) ? 'rtl' : 'ltr';
-  x.fillStyle = '#2B2724'; x.fillText(name, W / 2, 510);
+  x.fillStyle = P.ink; x.fillText(name, W / 2, 510);
   x.direction = 'ltr';
-  x.strokeStyle = '#E7DFD5'; x.lineWidth = 3; x.beginPath(); x.moveTo(W / 2 - 420, 548); x.lineTo(W / 2 + 420, 548); x.stroke();
-  x.fillStyle = '#6E655D'; x.font = `400 40px ${EN}`; x.fillText('for completing', W / 2, 625);
-  x.fillStyle = '#B25B3C'; x.font = `700 72px ${EN}`; x.fillText(`Level ${lv.code} · ${lv.name}`, W / 2, 720);
+  x.strokeStyle = P.line; x.lineWidth = 3; x.beginPath(); x.moveTo(W / 2 - 420, 548); x.lineTo(W / 2 + 420, 548); x.stroke();
+  x.fillStyle = P.muted; x.font = `400 40px ${EN}`; x.fillText('for completing', W / 2, 625);
+  x.fillStyle = P.accent; x.font = `700 72px ${EN}`; x.fillText(`Level ${lv.code} · ${lv.name}`, W / 2, 720);
   // stars
   const label = `${cert.stars} ${cert.stars === 1 ? 'star' : 'stars'}`;
   x.font = `700 52px ${EN}`;
   const tw = x.measureText(label).width, sx = W / 2 - (tw + 76) / 2;
   x.save(); x.translate(sx, 772); x.scale(2.8, 2.8);
   const p = new Path2D(STAR_PATH);
-  x.fillStyle = '#E7B04A'; x.fill(p); x.lineWidth = 1.2; x.strokeStyle = '#2B2724'; x.lineJoin = 'round'; x.stroke(p);
+  x.fillStyle = P.gold; x.fill(p); x.lineWidth = 1.2; x.strokeStyle = P.ink; x.lineJoin = 'round'; x.stroke(p);
   x.restore();
-  x.fillStyle = '#2B2724'; x.textAlign = 'left'; x.fillText(label, sx + 80, 827); x.textAlign = 'center';
-  x.fillStyle = '#6E655D'; x.font = `400 36px ${EN}`;
+  x.fillStyle = P.ink; x.textAlign = 'left'; x.fillText(label, sx + 80, 827); x.textAlign = 'center';
+  x.fillStyle = P.muted; x.font = `400 36px ${EN}`;
   x.fillText(asDate(cert.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }), W / 2, 905);
-  x.fillStyle = '#2B2724'; x.font = `700 32px ${EN}`; x.fillText('Designed by Dr. Asma Khattala', W / 2, 1000);
+  x.fillStyle = P.ink; x.font = `700 32px ${EN}`; x.fillText('Designed by Dr. Asma Khattala', W / 2, 1000);
   return cv;
 }
 let certCanvas = null, certLevel = null;
@@ -1554,7 +1601,7 @@ function renderSync() {
   if (Sync.busy) { el.textContent = 'Sending to your teacher'; return; }
   if (Sync.status === 'class') { el.textContent = 'Your class is not on your teacher\'s list. Check it in Settings.'; el.classList.add('warn'); return; }
   if (n) { el.textContent = answers ? `Waiting for internet (${plural(answers, 'answer')} to send)` : 'Waiting for internet'; el.classList.add('wait'); return; }
-  el.textContent = `${st.me.cls} · Sent to your teacher ✓`; el.classList.add('ok');
+  el.textContent = isOtherClass(st.me.cls) ? `${gradeLabel(st.me.cls)} · Sent ✓` : `${st.me.cls} · Sent to your teacher ✓`; el.classList.add('ok');
 }
 
 /* ---------- feedback: a short message to the teacher, queued on this phone until it is sent ---------- */
@@ -1639,7 +1686,9 @@ function renderSettings() {
       <div class="p-row col"><label for="sName">Full name</label><input id="sName" class="input" maxlength="60" value="${esc(st.me.name)}" autocomplete="name"></div>
       <div class="p-row col"><label for="sEmail">Email</label><input id="sEmail" class="input" type="email" maxlength="80" value="${esc(st.me.email)}" autocomplete="email" autocapitalize="none" inputmode="email" spellcheck="false"></div>
       <div class="p-row col"><label for="sClass">Class</label>
-        ${online ? '<select id="sClass" class="input"><option>Loading</option></select>' : '<p class="sub">Practicing on my own (no class list yet)</p>'}</div>
+        ${online ? '<select id="sClass" class="input" data-grade="sGrade"><option>Loading</option></select>' : '<p class="sub">Practicing on my own (no class list yet)</p>'}</div>
+      <div class="p-row col" hidden><label for="sGrade">Your grade<span class="sub">Only your grade: the app never asks which school</span></label><select id="sGrade" class="input"></select></div>
+      <div class="p-row"><span>I am a<span class="sub">The colours and the Arabic wording</span></span>${seg('who', [['girl', 'Girl'], ['boy', 'Boy']], st.me.who)}</div>
       <div class="p-row"><span class="sub">Your name, email, class and practice numbers go to your teacher. Your recordings stay on this phone and are never sent.</span>
         <button class="p-btn primary" data-act="details">Save details</button></div>
     </div>
@@ -1687,6 +1736,7 @@ function renderSettings() {
 function onSettingsClick(e) {
   const b = e.target.closest('button'); if (!b) return;
   const s = st.settings;
+  if (b.dataset.who) { st.me.who = b.dataset.who; save(); applyWho(); b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); return; }
   if (b.dataset.speed) { s.speed = b.dataset.speed; save(); b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); return; }
   if (b.dataset.size) { s.size = b.dataset.size; save(); applySize(); b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); return; }
   if (b.dataset.step) { s.newPerDay = Math.min(NEW_MAX, Math.max(1, s.newPerDay + Number(b.dataset.step))); save(); $('#sNew').textContent = s.newPerDay; return; }
@@ -1702,7 +1752,7 @@ function onSettingsClick(e) {
     case 'reset':
       if (confirm('Reset all your progress? Your cards, stars and levels on this phone will be deleted.') && confirm('Are you sure? This cannot be undone.')) {
         [KEY.state, KEY.outbox, KEY.classes].forEach(lsDel);
-        load(); applySize(); toast('Progress has been reset.'); renderHome();
+        load(); applySize(); applyWho(); toast('Progress has been reset.'); renderHome();
       }
       break;
   }
@@ -1710,13 +1760,15 @@ function onSettingsClick(e) {
 function saveDetails() {
   const name = cleanName($('#sName').value), email = cleanEmail($('#sEmail').value);
   const sel = $('#sClass');
-  const v = sel ? sel.value : '__solo';
-  const solo = !sel || v === '__solo' || !v || v === 'Loading';
+  const raw = sel ? sel.value : '__solo';
+  const solo = !sel || raw === '__solo' || !raw || raw === 'Loading';
+  const v = solo ? '' : chosenClass(sel);
+  if (!solo && !v) return toast(raw === '__other' ? 'Please choose your grade.' : 'Please choose your class.');
   if (name.length < 2) return toast('Please write your full name.');
   if (email && !emailOk(email)) return toast('That email does not look right. Please check it.');
   if (!solo && !email) return toast('Please write your email.');
   const changed = name !== st.me.name || email !== st.me.email || (solo ? '' : v) !== st.me.cls || solo !== st.me.solo;
-  st.me = { name, email, cls: solo ? '' : v, solo, joined: changed ? false : st.me.joined };
+  st.me = { name, email, cls: solo ? '' : v, solo, joined: changed ? false : st.me.joined, who: st.me.who };
   save();
   if (!solo) {
     Sync.status = '';
@@ -1740,7 +1792,7 @@ async function restore(file) {
     const obj = JSON.parse(await file.text());
     if (!obj || obj.app !== 'epp-talk-cards' || !obj.state || typeof obj.state.cards !== 'object') throw new Error('bad');
     if (!confirm('Replace the progress on this phone with this file?')) return;
-    st = merge(obj.state); st.setup = 'done'; save(); applySize();
+    st = merge(obj.state); st.setup = 'done'; save(); applySize(); applyWho();
     if (Array.isArray(obj.outbox)) {
       const have = new Set(readOutbox().map(e => e.id));
       writeOutbox([...readOutbox(), ...obj.outbox.filter(e => e && e.id && !have.has(e.id))]);
@@ -1831,6 +1883,10 @@ function devLearnSet(setId) {
 function wire() {
   $('#welcomeBtn').addEventListener('click', () => { st.setup = 'about'; save(); showSetup(); });
   $('#aboutForm').addEventListener('submit', e => { e.preventDefault(); aboutSubmit(false); });
+  $('#whoField').addEventListener('click', e => {     // a tap previews the palette at once
+    const b = e.target.closest('[data-who]'); if (!b) return;
+    aboutWho = b.dataset.who; markWho(); document.documentElement.dataset.who = aboutWho; $('#aboutError').textContent = '';
+  });
   $('#soloBtn').addEventListener('click', () => aboutSubmit(true));
   $('#startlvl').addEventListener('click', e => { const b = e.target.closest('[data-start]'); if (b) chooseStart(b.dataset.start); });
   $('#startBtn').addEventListener('click', startNormal);
@@ -1860,7 +1916,11 @@ function wire() {
   $('#recs').addEventListener('click', onRecsClick);
   $('#recsBtn').addEventListener('click', renderRecs);
   $('#tipClose').addEventListener('click', () => { st.tipDone = true; save(); $('#homeTip').hidden = true; });
-  $('#settings').addEventListener('change', e => { if (e.target.id === 'sFile' && e.target.files[0]) { restore(e.target.files[0]); e.target.value = ''; } });
+  $('#settings').addEventListener('change', e => {
+    if (e.target.id === 'sClass') syncGrade(e.target, st.me.cls);
+    if (e.target.id === 'sFile' && e.target.files[0]) { restore(e.target.files[0]); e.target.value = ''; }
+  });
+  $('#fClass').addEventListener('change', e => { syncGrade(e.target, st.me.cls); $('#aboutError').textContent = ''; });
   $('#certSave').addEventListener('click', certSave);
   $('#certShare').addEventListener('click', certShare);
   $('#shareBtn').addEventListener('click', shareApp);
@@ -1907,13 +1967,13 @@ async function boot() {
   }
   try { const r = await fetch('audio/voice.json'); if (r.ok) VOICE = await r.json(); } catch (e) { VOICE = null; }
   if (deckVoice()) fetch('audio/_unlock.m4a').then(r => r.blob()).then(b => { unlockUrl = URL.createObjectURL(b); }).catch(() => {});
-  load(); applySize();
+  load(); applySize(); applyWho();
   if (cachedClasses().length) classList = cachedClasses();
   if (DEV) {
     renderDev();
     window.EPP = { RecStore, keepRecording, get st() { return st; }, get S() { return S; }, CARD, SET, SETS, LEVEL, LEVELS, today, buildQueue, newOrder, dueIds,
       eligible, trickyIds, extraIds, flip, rate, save, Speech, Rec, Sync, Clock, readOutbox, renderText, renderHome, sweepPasses,
-      learnSet: devLearnSet, levelOpen, lockText, streak, get VOICE() { return VOICE; },
+      learnSet: devLearnSet, levelOpen, lockText, streak, showCertificate, get VOICE() { return VOICE; },
       showCard(id) {
         if (!CARD[id]) return false;
         if (!S) newSession('practice', [id]);

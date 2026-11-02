@@ -29,6 +29,7 @@
   --ar: 'Noto Naskh Arabic', 'Geeza Pro', 'Times New Roman', serif;
   --k: 1;
   --foot: 56px;
+  --brand: 50px;
   --safe-t: env(safe-area-inset-top, 0px);
   --safe-r: env(safe-area-inset-right, 0px);
   --safe-b: env(safe-area-inset-bottom, 0px);
@@ -63,11 +64,11 @@ svg { display: block; }
 /* ---------- screens and the footer on every screen ---------- */
 .screen {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: calc(var(--brand) + var(--safe-t)); left: 0; right: 0;
   bottom: calc(var(--foot) + var(--safe-b));
   display: flex;
   flex-direction: column;
-  padding: calc(var(--safe-t) + 12px) calc(var(--safe-r) + 16px) 16px calc(var(--safe-l) + 16px);
+  padding: 12px calc(var(--safe-r) + 16px) 16px calc(var(--safe-l) + 16px);
 }
 .screen.scroll { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
 .wrap { width: 100%; max-width: 620px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; padding-bottom: 12px; }
@@ -393,7 +394,7 @@ button.set-row:active { transform: translateY(1px); }
 
 /* ---------- celebration and certificate ---------- */
 .overlay {
-  position: fixed; top: 0; left: 0; right: 0; bottom: calc(var(--foot) + var(--safe-b)); z-index: 50;
+  position: fixed; top: calc(var(--brand) + var(--safe-t)); left: 0; right: 0; bottom: calc(var(--foot) + var(--safe-b)); z-index: 50;
   background: var(--paper); display: flex; align-items: center; justify-content: center;
   padding: calc(var(--safe-t) + 20px) 20px 20px;
 }
@@ -485,7 +486,7 @@ body.dev .screen, body.dev .overlay { padding-top: calc(var(--safe-t) + 46px); }
    Same colours and hand-drawn shapes as Maria's Talk Cards, sized for phones.
    ================================================================ */
 :root {
-  --sun: #FFD84D; --mint: #8FE3BF; --gum: #FF6FA8; --lilac: #DCD6F7; --cloud: #F6F8FF; --pinky: #FFC9DE;
+  --sun: #FFD84D; --mint: #8FE3BF; --gum: #FF6FA8; --lilac: #DCD6F7; --cloud: #F6F8FF; --pinky: #FFC9DE; --gum-rgb: 255, 111, 168;
   --paper: var(--cloud); --card: #FFFFFF; --back: var(--mint);
   --ink: #2B2340; --muted: #635A7E;
   --accent: #E8457F; --on-accent: #FFFFFF;
@@ -495,6 +496,14 @@ body.dev .screen, body.dev .overlay { padding-top: calc(var(--safe-t) + 46px); }
   --en: 'Andika', 'Atkinson Hyperlegible', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
   --hand: 30px 36px 32px 38px / 36px 30px 38px 32px;
   --hand-btn: 22px 26px 23px 28px / 26px 22px 28px 23px;
+}
+/* Boys (2 Nov 2026, her request): the same lively look in blue, sky and apricot where the girls have gum, lilac and pink.
+   Sun and mint are shared. Picked once in About you, changeable in Settings; html[data-who] is set by applyWho(). */
+html[data-who="boy"] {
+  --gum: #3C8CF0; --gum-rgb: 60, 140, 240; --lilac: #CFE1FF; --cloud: #F2F7FD; --pinky: #FFCFA8;
+  --ink: #1F2A44; --muted: #526079; --line: #1F2A44;
+  --accent: #2B6FD6; --accent-soft: #DCEBFF; --soft: #E8F1FC;
+  --shadow: rgba(31, 42, 68, .25);
 }
 body { background: var(--cloud); }
 .star { fill: var(--gum); stroke: var(--ink); stroke-width: 1.7; }
@@ -533,19 +542,19 @@ body { background: var(--cloud); }
 .bar .fill { background: var(--gum); }
 .rung { background: #FFFFFF; color: var(--ink); }
 .rung.done { background: var(--mint); border-color: var(--ink); }
-.rung.current { background: var(--sun); color: var(--ink); border-color: var(--ink); box-shadow: 0 0 0 4px rgba(255, 111, 168, .45); }
+.rung.current { background: var(--sun); color: var(--ink); border-color: var(--ink); box-shadow: 0 0 0 4px rgba(var(--gum-rgb), .45); }
 .rung.locked { background: var(--lilac); opacity: .75; }
 .set-row { background: #FFFFFF; border-radius: var(--hand-btn); box-shadow: 0 3px 0 var(--ink); }
 .set-n { background: var(--lilac); border: 2.5px solid var(--ink); }
 .set-row.done .set-n { background: var(--mint); color: var(--ink); }
 .set-row.current { border-color: var(--ink); background: #FFFBEA; }
-.set-row.current .set-n { background: var(--sun); color: var(--ink); animation: glow 2.4s ease-in-out infinite; box-shadow: 0 0 0 4px rgba(255, 111, 168, .5); }
+.set-row.current .set-n { background: var(--sun); color: var(--ink); animation: glow 2.4s ease-in-out infinite; box-shadow: 0 0 0 4px rgba(var(--gum-rgb), .5); }
 .set-row.current .set-s { color: var(--accent); }
-@keyframes glow { 50% { box-shadow: 0 0 0 7px rgba(255, 111, 168, .25); } }
+@keyframes glow { 50% { box-shadow: 0 0 0 7px rgba(var(--gum-rgb), .25); } }
 .recs-btn { width: 100%; min-height: 60px; background: var(--lilac); }
 .recs-btn svg { color: var(--again); }
 .lv-card { background: #FFFFFF; border-radius: var(--hand-btn); box-shadow: 0 4px 0 var(--ink); }
-.lv-card.current { box-shadow: 0 4px 0 var(--ink), 0 0 0 4px rgba(255, 111, 168, .45); }
+.lv-card.current { box-shadow: 0 4px 0 var(--ink), 0 0 0 4px rgba(var(--gum-rgb), .45); }
 .lv-card.locked { background: var(--lilac); }
 .lv-tag.cur { background: var(--sun); color: var(--ink); }
 .lv-tag.ok { background: var(--mint); color: var(--ink); }
@@ -588,7 +597,7 @@ body { background: var(--cloud); }
 
 /* celebration */
 .overlay { background: var(--cloud); }
-.cel-badge { background: var(--sun); color: var(--ink); border: 4px solid var(--ink); box-shadow: 0 0 0 10px rgba(255, 111, 168, .45), 0 10px 0 var(--ink); }
+.cel-badge { background: var(--sun); color: var(--ink); border: 4px solid var(--ink); box-shadow: 0 0 0 10px rgba(var(--gum-rgb), .45), 0 10px 0 var(--ink); }
 .cel-badge.gift { background: var(--gum); }
 .cel-kicker { background: var(--lilac); border: 2.5px solid var(--ink); }
 .done-stars .star { width: 54px; height: 54px; }
@@ -634,3 +643,44 @@ body { background: var(--cloud); }
 .kind[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 textarea.input { font: inherit; line-height: 1.5; }
 .fb-text { min-height: 150px; resize: vertical; }
+
+/* ---------- the school bar on top of every screen (2 Nov 2026: Speak Cards is part of the school) ---------- */
+.brand-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 80;
+  height: calc(var(--brand) + var(--safe-t));
+  padding: var(--safe-t) calc(var(--safe-r) + 14px) 0 calc(var(--safe-l) + 14px);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  background: var(--cloud); border-bottom: 2px solid var(--lilac);
+}
+.brand-bar img { display: block; width: auto; }
+.brand-bar .school { height: 40px; }
+.brand-bar .interlink { height: 32px; }
+
+/* ---------- girl or boy: two palettes and the Arabic wording (2 Nov 2026) ---------- */
+.who-pick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.who {
+  min-height: 62px; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  border: 2.5px solid var(--ink); border-radius: var(--hand-btn); background: #FFFFFF; box-shadow: 0 3px 0 var(--ink);
+  font-weight: 700; font-size: 1.1rem; color: var(--ink);
+}
+.who::before { content: ''; width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--ink); flex: none; }
+.who.girl::before { background: #FF6FA8; }
+.who.boy::before { background: #3C8CF0; }
+.who .ar { font-weight: 400; font-size: 1.05rem; color: var(--muted); }
+.who[aria-pressed="true"] { background: var(--accent-soft); box-shadow: 0 3px 0 var(--ink), 0 0 0 4px rgba(var(--gum-rgb), .45); }
+.who:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--ink); }
+html[data-who="boy"] .star { fill: var(--sun); }
+/* Arabic lines written for a girl (.f, the default) or a boy (.m) */
+.m { display: none; }
+html[data-who="boy"] .m { display: revert; }
+html[data-who="boy"] .f { display: none; }
+
+/* the footer on narrow phones (2 Nov 2026): the Share button keeps only its icon, so "Designed by" and Feedback fit */
+.site-foot a { display: block; line-height: 56px; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 439px) {
+  #shareBtn .lbl { display: none; }
+  .site-foot { padding-left: calc(var(--safe-l) + 4px); padding-right: calc(var(--safe-r) + 4px); gap: 4px; }
+  .site-foot a { padding: 0 4px; font-size: 13px; white-space: nowrap; line-height: 1.2; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; overflow: visible; }
+  .site-foot .by { display: block; }
+  .site-foot .share-btn { padding: 0 8px; gap: 6px; }
+}

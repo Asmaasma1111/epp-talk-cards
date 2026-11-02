@@ -33,6 +33,11 @@
 </head>
 <body>
 
+<header class="brand-bar">
+  <img class="school" src="img/school-logo.png" alt="School logo" width="131" height="132">
+  <img class="interlink" src="img/interlink-logo.png" alt="INTERLINK International Institutes" width="272" height="102">
+</header>
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.75 5.6 6.15.9-4.45 4.35 1.05 6.1L12 16.85 6.5 19.75l1.05-6.1L3.1 9.3l6.15-.9z"/></symbol>
   <symbol id="i-speaker" viewBox="0 0 24 24"><path d="M3.5 9.2h3.8L12.4 5v14l-5.1-4.2H3.5z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15.6 9a4.2 4.2 0 0 1 0 6M18.4 6.4a8 8 0 0 1 0 11.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
@@ -57,7 +62,8 @@
     <img class="welcome-icon" src="icon-192.png" alt="" width="112" height="112">
     <h1 class="title">Speak Cards</h1>
     <p class="lead">Speak English a little every day: short cards, model answers and your own voice.</p>
-    <p class="lead ar" lang="ar" dir="rtl">تدرّبي على التحدث بالإنجليزية قليلًا كل يوم.</p>
+    <p class="lead ar f" lang="ar" dir="rtl">تدرّبي على التحدث بالإنجليزية قليلًا كل يوم.</p>
+    <p class="lead ar m" lang="ar" dir="rtl">تدرّب على التحدث بالإنجليزية قليلًا كل يوم.</p>
     <button id="welcomeBtn" class="btn btn-primary wide">Get started</button>
   </div>
 </section>
@@ -66,18 +72,29 @@
 <section id="about" class="screen scroll" hidden>
   <form class="wrap" id="aboutForm" novalidate>
     <h1 class="title">About you</h1>
+    <div class="field" id="whoField"><span>I am a <span class="ar" lang="ar" dir="rtl">أنا</span></span>
+      <div class="who-pick" role="group" aria-label="Girl or boy">
+        <button type="button" class="who girl" data-who="girl" aria-pressed="false">Girl <span class="ar" lang="ar">بنت</span></button>
+        <button type="button" class="who boy" data-who="boy" aria-pressed="false">Boy <span class="ar" lang="ar">ولد</span></button>
+      </div></div>
     <label class="field"><span>Full name <span class="ar" lang="ar" dir="rtl">الاسم الكامل</span></span>
       <input id="fName" aria-label="Full name" class="input" type="text" maxlength="60" autocomplete="name" autocapitalize="words" required></label>
     <label class="field"><span>Email <span class="ar" lang="ar" dir="rtl">البريد الإلكتروني</span></span>
       <input id="fEmail" aria-label="Email" class="input" type="email" maxlength="80" autocomplete="email" autocapitalize="none" inputmode="email" spellcheck="false"></label>
     <div class="field" id="classField">
       <label for="fClass"><span>Class <span class="ar" lang="ar" dir="rtl">الصف</span></span></label>
-      <select id="fClass" aria-label="Class" class="input"></select>
+      <select id="fClass" aria-label="Class" class="input" data-grade="fGrade"></select>
       <p class="hint-line" id="classNote"></p>
+    </div>
+    <div class="field" id="gradeField" hidden>
+      <label for="fGrade"><span>Your grade <span class="ar" lang="ar" dir="rtl">صفّك الدراسي</span></span></label>
+      <select id="fGrade" aria-label="Grade" class="input"></select>
+      <p class="hint-line">Only your grade: the app never asks which school you are from. Your practice numbers go to Dr. Asma Khattala, who runs Speak Cards.</p>
     </div>
     <div class="privacy">
       <p>Your name, email, class and practice numbers go to your teacher. Your recordings stay on your phone and are never sent.</p>
-      <p class="ar" lang="ar" dir="rtl">يصل اسمك وبريدك وصفّك وأرقام تدريبك إلى معلمتك. تسجيلات صوتك تبقى على هاتفك ولا تُرسل أبدًا.</p>
+      <p class="ar f" lang="ar" dir="rtl">يصل اسمك وبريدك وصفّك وأرقام تدريبك إلى معلمتك. تسجيلات صوتك تبقى على هاتفك ولا تُرسل أبدًا.</p>
+      <p class="ar m" lang="ar" dir="rtl">يصل اسمك وبريدك وصفّك وأرقام تدريبك إلى معلمك. تسجيلات صوتك تبقى على هاتفك ولا تُرسل أبدًا.</p>
       <p class="privacy-link"><a href="privacy.html" target="_blank" rel="noopener">Privacy policy · <span lang="ar" dir="rtl">سياسة الخصوصية</span></a></p>
     </div>
     <p class="form-error" id="aboutError" role="alert"></p>
@@ -90,14 +107,15 @@
 <section id="startlvl" class="screen scroll" hidden>
   <div class="wrap">
     <h1 class="title" id="startHi">Where would you like to start?</h1>
-    <p class="lead ar" lang="ar" dir="rtl">من أين تحبين أن تبدئي؟</p>
+    <p class="lead ar f" lang="ar" dir="rtl">من أين تحبين أن تبدئي؟</p>
+    <p class="lead ar m" lang="ar" dir="rtl">من أين تحب أن تبدأ؟</p>
     <button class="choice" data-start="pre-a1">
       <b>Start at Pre-A1</b><span id="startPre">Starter: hello, my name, numbers, my family</span>
-      <span class="ar" lang="ar" dir="rtl">ابدئي من البداية</span>
+      <span class="ar f" lang="ar" dir="rtl">ابدئي من البداية</span><span class="ar m" lang="ar" dir="rtl">ابدأ من البداية</span>
     </button>
     <button class="choice" data-start="a1">
       <b>Skip to A1</b><span id="startA1">Beginner: about me, my home, my school day</span>
-      <span class="ar" lang="ar" dir="rtl">انتقلي إلى المستوى A1</span>
+      <span class="ar f" lang="ar" dir="rtl">انتقلي إلى المستوى A1</span><span class="ar m" lang="ar" dir="rtl">انتقل إلى المستوى A1</span>
     </button>
     <p class="hint-line">You can change your level any time.</p>
   </div>
@@ -241,7 +259,7 @@
 <section id="feedback" class="overlay scroll" hidden>
   <form class="fb-box" id="fbForm" novalidate>
     <div class="head-row"><button type="button" class="icon-btn back-btn" id="fbClose" aria-label="Close"><svg aria-hidden="true"><use href="#i-close"/></svg></button><h1 class="title">Feedback</h1></div>
-    <p class="p-sum">Tell us what works and what does not. <span class="ar" lang="ar" dir="rtl">رأيكِ يهمّنا: ما الذي أعجبكِ، وما الذي يحتاج إلى تحسين؟</span></p>
+    <p class="p-sum">Tell us what works and what does not. <span class="ar f" lang="ar" dir="rtl">رأيكِ يهمّنا: ما الذي أعجبكِ، وما الذي يحتاج إلى تحسين؟</span><span class="ar m" lang="ar" dir="rtl">رأيك يهمّنا: ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</span></p>
     <div class="fb-kinds" role="group" aria-label="What is it about?">
       <button type="button" class="kind" data-kind="idea" aria-pressed="false">An idea</button>
       <button type="button" class="kind" data-kind="problem" aria-pressed="false">A problem</button>
@@ -249,7 +267,7 @@
       <button type="button" class="kind" data-kind="voice" aria-pressed="false">The voice</button>
       <button type="button" class="kind" data-kind="other" aria-pressed="true">Other</button>
     </div>
-    <label class="field"><span>Your message <span class="ar" lang="ar" dir="rtl">رسالتكِ، بالعربية أو بالإنجليزية</span></span>
+    <label class="field"><span>Your message <span class="ar f" lang="ar" dir="rtl">رسالتكِ، بالعربية أو بالإنجليزية</span><span class="ar m" lang="ar" dir="rtl">رسالتك، بالعربية أو بالإنجليزية</span></span>
       <textarea id="fbText" class="input fb-text" maxlength="600" rows="5" required></textarea></label>
     <p class="hint-line" id="fbWho"></p>
     <p class="form-error" id="fbError" role="alert"></p>
@@ -261,10 +279,10 @@
 <div id="goalBanner" class="goal-banner" hidden role="status"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span>10 minutes today! Bonus star</span></div>
 
 <footer class="site-foot" id="foot">
-  <a href="https://www.linkedin.com/in/dr-asma-khattala/" target="_blank" rel="noopener">Designed by Dr. Asma Khattala</a>
+  <a href="https://www.linkedin.com/in/dr-asma-khattala/" target="_blank" rel="noopener"><span class="by">Designed by</span> Dr. Asma Khattala</a>
   <div class="foot-btns">
-    <button class="share-btn" id="feedbackBtn" aria-label="Send feedback"><svg aria-hidden="true"><use href="#i-chat"/></svg>Feedback</button>
-    <button class="share-btn" id="shareBtn" aria-label="Share Speak Cards"><svg aria-hidden="true"><use href="#i-share"/></svg>Share</button>
+    <button class="share-btn" id="feedbackBtn" aria-label="Send feedback"><svg aria-hidden="true"><use href="#i-chat"/></svg><span class="lbl">Feedback</span></button>
+    <button class="share-btn" id="shareBtn" aria-label="Share Speak Cards"><svg aria-hidden="true"><use href="#i-share"/></svg><span class="lbl">Share</span></button>
   </div>
 </footer>
 
