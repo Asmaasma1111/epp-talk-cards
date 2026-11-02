@@ -27,7 +27,8 @@
       "If anything, ...",
       "I'd take issue with the assumption behind that."
      ],
-     "do": "You're on the panel. Ask the applicant how she would respond to the claim that studying abroad weakens students' ties to their own culture."
+     "do": "You're on the panel. Ask the applicant how she would respond to the claim that studying abroad weakens students' ties to their own culture.",
+     "do_m": "You're on the panel. Ask the applicant how he would respond to the claim that studying abroad weakens students' ties to their own culture."
     },
     {
      "q": "The panel asks about something you know little about. Answer honestly.",
@@ -94,20 +95,27 @@
       "if that makes sense",
       "I wouldn't go so far as to say ..., but ..."
      ],
-     "do": "Your friend has just finished a long book. Ask her whether she enjoyed it in the end."
+     "do": "Your friend has just finished a long book. Ask her whether she enjoyed it in the end.",
+     "do_m": "Your friend has just finished a long book. Ask him whether he enjoyed it in the end."
     },
     {
      "q": "Our new chemistry teacher is really strict, isn't she?",
+     "q_m": "Our new chemistry teacher is really strict, isn't he?",
      "a": [
       "Strict isn't quite how I'd put it. Demanding, perhaps, but she's always fair, and that makes all the difference.",
       "There's a difference between being strict and having high standards, and I'd say she's very much the latter."
+     ],
+     "a_m": [
+      "Strict isn't quite how I'd put it. Demanding, perhaps, but he's always fair, and that makes all the difference.",
+      "There's a difference between being strict and having high standards, and I'd say he's very much the latter."
      ],
      "useful": [
       "... isn't quite how I'd put it.",
       "There's a difference between ... and ...",
       "very much the latter"
      ],
-     "do": "You find the new chemistry teacher very strict, and you expect your classmate to feel the same. Share your impression and check that she agrees."
+     "do": "You find the new chemistry teacher very strict, and you expect your classmate to feel the same. Share your impression and check that she agrees.",
+     "do_m": "You find the new chemistry teacher very strict, and you expect your classmate to feel the same. Share your impression and check that he agrees."
     },
     {
      "q": "So you're against the new schedule?",
@@ -120,7 +128,8 @@
       "It's not that ...; it's more that ...",
       "..., if not entirely ..."
      ],
-     "do": "Your friend has doubts about the new schedule. Ask her if that means she's against it."
+     "do": "Your friend has doubts about the new schedule. Ask her if that means she's against it.",
+     "do_m": "Your friend has doubts about the new schedule. Ask him if that means he's against it."
     },
     {
      "talk": true,
@@ -164,7 +173,8 @@
       "What I'm trying to say is ...",
       "Put simply, ..."
      ],
-     "do": "Your friend has just explained something in a confusing way. Let her know, politely, that you lost the thread."
+     "do": "Your friend has just explained something in a confusing way. Let her know, politely, that you lost the thread.",
+     "do_m": "Your friend has just explained something in a confusing way. Let him know, politely, that you lost the thread."
     },
     {
      "q": "That sounds a bit harsh, doesn't it?",
@@ -172,12 +182,17 @@
       "You're right, that came out wrong. What I meant was that the plan needs more work, not that it's a bad idea.",
       "Hmm, let me rephrase that. I wasn't criticizing her effort, only the approach she chose, and I should have made that clearer."
      ],
+     "a_m": [
+      "You're right, that came out wrong. What I meant was that the plan needs more work, not that it's a bad idea.",
+      "Hmm, let me rephrase that. I wasn't criticizing his effort, only the approach he chose, and I should have made that clearer."
+     ],
      "useful": [
       "That came out wrong.",
       "What I meant was ..., not that ...",
       "Let me rephrase that."
      ],
-     "do": "Your friend has just said something that sounded unkind. Let her know, gently, and invite her to agree."
+     "do": "Your friend has just said something that sounded unkind. Let her know, gently, and invite her to agree.",
+     "do_m": "Your friend has just said something that sounded unkind. Let him know, gently, and invite him to agree."
     },
     {
      "q": "So what exactly do you mean by \"success\"?",
@@ -190,7 +205,8 @@
       "I was perhaps being a little vague.",
       "A better way of putting it might be ..."
      ],
-     "do": "Your friend keeps talking about success. Ask her what exactly she means by it."
+     "do": "Your friend keeps talking about success. Ask her what exactly she means by it.",
+     "do_m": "Your friend keeps talking about success. Ask him what exactly he means by it."
     },
     {
      "talk": true,
@@ -198,6 +214,13 @@
      "steps": [
       "Explain your project in one sentence.",
       "Notice she looks lost, and backtrack.",
+      "Rephrase it with an everyday comparison.",
+      "Check that it makes sense now.",
+      "Restate the main point in plain words."
+     ],
+     "steps_m": [
+      "Explain your project in one sentence.",
+      "Notice he looks lost, and backtrack.",
       "Rephrase it with an everyday comparison.",
       "Check that it makes sense now.",
       "Restate the main point in plain words."

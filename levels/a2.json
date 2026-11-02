@@ -25,10 +25,12 @@
      ],
      "do": "Greet your friend.",
      "ask": "greet a friend?",
-     "do_ar": "حيّي صديقتك."
+     "do_ar": "حيّي صديقتك.",
+     "do_ar_m": "حيِّ صديقك."
     },
     {
      "ar": "خمني! فزت بالمركز الأول في معرض العلوم!",
+     "ar_m": "خمّن! فزت بالمركز الأول في معرض العلوم!",
      "q": "Guess what? I won first place at the science fair!",
      "a": [
       "Really? That's great news!",
@@ -36,7 +38,8 @@
      ],
      "do": "Tell your friend the good news.",
      "ask": "good news: science fair?",
-     "do_ar": "أخبري صديقتك بالخبر السار."
+     "do_ar": "أخبري صديقتك بالخبر السار.",
+     "do_ar_m": "أخبر صديقك بالخبر السار."
     },
     {
      "ar": "أضعتُ هاتفي في السوق أمس!",
@@ -47,17 +50,25 @@
      ],
      "do": "Tell your friend the bad news.",
      "ask": "bad news: lost phone?",
-     "do_ar": "أخبري صديقتك بالخبر السيئ."
+     "do_ar": "أخبري صديقتك بالخبر السيئ.",
+     "do_ar_m": "أخبر صديقك بالخبر السيئ."
     },
     {
      "talk": true,
      "ar": "تقابلين صديقتك بعد الإجازة الصيفية.",
+     "ar_m": "تقابل صديقك بعد الإجازة الصيفية.",
      "q": "You meet a friend after the summer break.",
      "steps": [
       "Greet her.",
       "Ask about her summer.",
       "She says she went to AlUla. React.",
       "Tell her your news."
+     ],
+     "steps_m": [
+      "Greet him.",
+      "Ask about his summer.",
+      "He says he went to AlUla. React.",
+      "Tell him your news."
      ],
      "a": [
       [
@@ -76,40 +87,50 @@
    "cards": [
     {
      "ar": "ماذا فعلتِ نهاية الأسبوع الماضي؟",
+     "ar_m": "ماذا فعلتَ نهاية الأسبوع الماضي؟",
      "q": "What did you do last weekend?",
      "a": [
       "I visited my grandparents, and we had dinner together.",
       "I stayed at home and watched a documentary."
      ],
      "do": "Ask your friend about her weekend.",
+     "do_m": "Ask your friend about his weekend.",
      "ask": "last weekend?",
-     "do_ar": "اسألي صديقتك عن نهاية الأسبوع."
+     "do_ar": "اسألي صديقتك عن نهاية الأسبوع.",
+     "do_ar_m": "اسأل صديقك عن نهاية الأسبوع."
     },
     {
      "ar": "هل خرجتِ يوم الجمعة؟",
+     "ar_m": "هل خرجتَ يوم الجمعة؟",
      "q": "Did you go out on Friday?",
      "a": [
       "Yes, we went to a new café downtown.",
       "No, I didn't. I was too tired."
      ],
      "do": "Ask your friend if she went out.",
+     "do_m": "Ask your friend if he went out.",
      "ask": "go out on Friday?",
-     "do_ar": "اسألي صديقتك: هل خرجت؟"
+     "do_ar": "اسألي صديقتك: هل خرجت؟",
+     "do_ar_m": "اسأل صديقك: هل خرج؟"
     },
     {
      "ar": "هل أنهيتِ واجباتك في العطلة؟",
+     "ar_m": "هل أنهيتَ واجباتك في العطلة؟",
      "q": "Did you finish your homework over the weekend?",
      "a": [
       "Yes, I finished it on Saturday morning.",
       "Not all of it. I still have to do the math."
      ],
      "do": "Ask your friend if she finished her homework.",
+     "do_m": "Ask your friend if he finished his homework.",
      "ask": "homework over the weekend?",
-     "do_ar": "اسألي صديقتك: هل أنهت واجباتها؟"
+     "do_ar": "اسألي صديقتك: هل أنهت واجباتها؟",
+     "do_ar_m": "اسأل صديقك: هل أنهى واجباته؟"
     },
     {
      "talk": true,
      "ar": "أخبري معلمتك عن عطلتك.",
+     "ar_m": "أخبر معلمك عن عطلتك.",
      "q": "Tell your teacher about your weekend.",
      "steps": [
       "Say where you went.",
@@ -134,14 +155,17 @@
    "cards": [
     {
      "ar": "إلى أين ذهبتِ في آخر رحلة؟",
+     "ar_m": "إلى أين ذهبتَ في آخر رحلة؟",
      "q": "Where did you go on your last trip?",
      "a": [
       "We went to Jeddah to visit my aunt.",
       "We went to Makkah for Umrah. It was a beautiful trip."
      ],
      "do": "Ask your friend about her last trip.",
+     "do_m": "Ask your friend about his last trip.",
      "ask": "your last trip?",
-     "do_ar": "اسألي صديقتك عن آخر رحلة لها."
+     "do_ar": "اسألي صديقتك عن آخر رحلة لها.",
+     "do_ar_m": "اسأل صديقك عن آخر رحلة له."
     },
     {
      "ar": "كيف سافرتم إلى جدة؟",
@@ -151,23 +175,29 @@
       "We flew. The flight was only an hour and a half."
      ],
      "do": "Ask your friend how she traveled.",
+     "do_m": "Ask your friend how he traveled.",
      "ask": "to Jeddah: car or plane?",
-     "do_ar": "اسألي صديقتك كيف سافرت."
+     "do_ar": "اسألي صديقتك كيف سافرت.",
+     "do_ar_m": "اسأل صديقك كيف سافر."
     },
     {
      "ar": "هل زرتِ أبها من قبل؟",
+     "ar_m": "هل زرتَ أبها من قبل؟",
      "q": "Have you been to Abha?",
      "a": [
       "Yes, I have. We went there last summer.",
       "No, I haven't, but I'd love to go."
      ],
      "do": "Ask your friend if she has been there.",
+     "do_m": "Ask your friend if he has been there.",
      "ask": "been to Abha?",
-     "do_ar": "اسألي صديقتك: هل زارتها من قبل؟"
+     "do_ar": "اسألي صديقتك: هل زارتها من قبل؟",
+     "do_ar_m": "اسأل صديقك: هل زارها من قبل؟"
     },
     {
      "talk": true,
      "ar": "حدّثي صديقتك عن رحلة لا تنسينها.",
+     "ar_m": "حدّث صديقك عن رحلة لا تنساها.",
      "q": "Tell a friend about a trip you remember.",
      "steps": [
       "Say where and when you went.",
@@ -192,14 +222,21 @@
    "cards": [
     {
      "ar": "كيف تبدو صديقتك المقربة؟",
+     "ar_m": "كيف يبدو صديقك المقرب؟",
      "q": "What does your best friend look like?",
      "a": [
       "She's tall, and she has long black hair.",
       "She's not very tall. She has brown eyes and wears glasses."
      ],
+     "a_m": [
+      "He's tall, and he has short black hair.",
+      "He's not very tall. He has brown eyes and wears glasses."
+     ],
      "do": "Ask your friend what her best friend looks like.",
+     "do_m": "Ask your friend what his best friend looks like.",
      "ask": "best friend: look like?",
-     "do_ar": "اسألي صديقتك عن شكل صديقتها المقرّبة."
+     "do_ar": "اسألي صديقتك عن شكل صديقتها المقرّبة.",
+     "do_ar_m": "اسأل صديقك عن شكل صديقه المقرّب."
     },
     {
      "ar": "كيف شخصية أمك؟",
@@ -209,23 +246,33 @@
       "She's strict, but she's very funny."
      ],
      "do": "Ask your friend about her mom's personality.",
+     "do_m": "Ask your friend about his mom's personality.",
      "ask": "your mom: personality?",
-     "do_ar": "اسألي صديقتك عن شخصية أمها."
+     "do_ar": "اسألي صديقتك عن شخصية أمها.",
+     "do_ar_m": "اسأل صديقك عن شخصية أمه."
     },
     {
      "ar": "من تشبهين في أسرتك؟",
+     "ar_m": "من تشبه في أسرتك؟",
      "q": "Who do you look like in your family?",
      "a": [
       "I look like my mother. We have the same eyes.",
       "People say I look like my aunt."
      ],
+     "a_m": [
+      "I look like my father. We have the same eyes.",
+      "People say I look like my uncle."
+     ],
      "do": "Ask your friend who she looks like.",
+     "do_m": "Ask your friend who he looks like.",
      "ask": "who you look like?",
-     "do_ar": "اسألي صديقتك من تشبه في أسرتها."
+     "do_ar": "اسألي صديقتك من تشبه في أسرتها.",
+     "do_ar_m": "اسأل صديقك من يشبه في أسرته."
     },
     {
      "talk": true,
      "ar": "صِفي شخصية تعجبك.",
+     "ar_m": "صِف شخصية تعجبك.",
      "q": "Describe someone you admire.",
      "steps": [
       "Say who she is.",
@@ -233,12 +280,26 @@
       "Say what she's like.",
       "Say why you admire her."
      ],
+     "steps_m": [
+      "Say who he is.",
+      "Say what he looks like.",
+      "Say what he's like.",
+      "Say why you admire him."
+     ],
      "a": [
       [
        "My aunt is a doctor.",
        "She's tall, and she wears glasses.",
        "She's very patient and funny.",
        "I admire her because she helps a lot of people."
+      ]
+     ],
+     "a_m": [
+      [
+       "My uncle is a doctor.",
+       "He's tall, and he wears glasses.",
+       "He's very patient and funny.",
+       "I admire him because he helps a lot of people."
       ]
      ]
     }
@@ -256,19 +317,24 @@
       "It's busy and noisy, but it has everything."
      ],
      "do": "Ask your friend about her neighborhood.",
+     "do_m": "Ask your friend about his neighborhood.",
      "ask": "your neighborhood?",
-     "do_ar": "اسألي صديقتك عن حيّها."
+     "do_ar": "اسألي صديقتك عن حيّها.",
+     "do_ar_m": "اسأل صديقك عن حيّه."
     },
     {
      "ar": "ما أفضل مكان تذهبين إليه في مدينتك؟",
+     "ar_m": "ما أفضل مكان تذهب إليه في مدينتك؟",
      "q": "What's the best place to go in your city?",
      "a": [
       "I think the big park is the best. It's great for walking.",
       "The mall! There are lots of shops and cafés."
      ],
      "do": "Ask your friend about the best place in her city.",
+     "do_m": "Ask your friend about the best place in his city.",
      "ask": "best place in your city?",
-     "do_ar": "اسألي صديقتك عن أفضل مكان في مدينتها."
+     "do_ar": "اسألي صديقتك عن أفضل مكان في مدينتها.",
+     "do_ar_m": "اسأل صديقك عن أفضل مكان في مدينته."
     },
     {
      "ar": "كم تبعد مدرستك عن بيتك؟",
@@ -278,17 +344,26 @@
       "It's far. It takes about half an hour."
      ],
      "do": "Ask your friend how far her school is.",
+     "do_m": "Ask your friend how far his school is.",
      "ask": "school: how far?",
-     "do_ar": "اسألي صديقتك كم تبعد مدرستها."
+     "do_ar": "اسألي صديقتك كم تبعد مدرستها.",
+     "do_ar_m": "اسأل صديقك كم تبعد مدرسته."
     },
     {
      "talk": true,
      "ar": "أخبري زائرة عن مدينتك.",
+     "ar_m": "أخبر زائرًا عن مدينتك.",
      "q": "Tell a visitor about your city.",
      "steps": [
       "Say where you live.",
       "Say what your city is like.",
       "Say one place she should visit.",
+      "Say why."
+     ],
+     "steps_m": [
+      "Say where you live.",
+      "Say what your city is like.",
+      "Say one place he should visit.",
       "Say why."
      ],
      "a": [
@@ -321,7 +396,8 @@
      ],
      "do": "Ask your friend which is better.",
      "ask": "home or library?",
-     "do_ar": "اسألي صديقتك: أيهما أفضل؟"
+     "do_ar": "اسألي صديقتك: أيهما أفضل؟",
+     "do_ar_m": "اسأل صديقك: أيهما أفضل؟"
     },
     {
      "ar": "هل التسوق عبر الإنترنت أرخص؟",
@@ -332,22 +408,27 @@
      ],
      "do": "Ask your friend if it is cheaper.",
      "ask": "shopping online: cheaper?",
-     "do_ar": "اسألي صديقتك: هل هو أرخص؟"
+     "do_ar": "اسألي صديقتك: هل هو أرخص؟",
+     "do_ar_m": "اسأل صديقك: هل هو أرخص؟"
     },
     {
      "ar": "ما أصعب مادة بالنسبة لكِ؟",
+     "ar_m": "ما أصعب مادة بالنسبة لكَ؟",
      "q": "What's the most difficult subject for you?",
      "a": [
       "Physics is the most difficult for me.",
       "Math, but it's also the most interesting!"
      ],
      "do": "Ask your friend about her most difficult subject.",
+     "do_m": "Ask your friend about his most difficult subject.",
      "ask": "most difficult subject?",
-     "do_ar": "اسألي صديقتك عن أصعب مادة عندها."
+     "do_ar": "اسألي صديقتك عن أصعب مادة عندها.",
+     "do_ar_m": "اسأل صديقك عن أصعب مادة عنده."
     },
     {
      "talk": true,
      "ar": "قارني بين مدينتين تعرفينهما.",
+     "ar_m": "قارن بين مدينتين تعرفهما.",
      "q": "Compare two cities you know.",
      "steps": [
       "Say which city is bigger.",
@@ -378,8 +459,10 @@
       "I'm not sure yet. Maybe I'll just stay home."
      ],
      "do": "Ask your friend about her plans.",
+     "do_m": "Ask your friend about his plans.",
      "ask": "this weekend?",
-     "do_ar": "اسألي صديقتك عن خططها."
+     "do_ar": "اسألي صديقتك عن خططها.",
+     "do_ar_m": "اسأل صديقك عن خططه."
     },
     {
      "ar": "لماذا لا نذهب إلى محل الكتب الجديد يوم السبت؟",
@@ -390,7 +473,8 @@
      ],
      "do": "Suggest a place to go.",
      "ask": "suggest: the new bookstore?",
-     "do_ar": "اقترحي مكانًا تذهبان إليه."
+     "do_ar": "اقترحي مكانًا تذهبان إليه.",
+     "do_ar_m": "اقترح مكانًا تذهبان إليه."
     },
     {
      "ar": "أين نلتقي؟",
@@ -401,11 +485,13 @@
      ],
      "do": "Ask your friend where to meet.",
      "ask": "where to meet?",
-     "do_ar": "اسألي صديقتك أين تلتقيان."
+     "do_ar": "اسألي صديقتك أين تلتقيان.",
+     "do_ar_m": "اسأل صديقك أين تلتقيان."
     },
     {
      "talk": true,
      "ar": "خطّطي للمذاكرة مع صديقتك.",
+     "ar_m": "خطّط للمذاكرة مع صديقك.",
      "q": "Plan a study afternoon with a friend.",
      "steps": [
       "Suggest studying together.",
@@ -430,6 +516,7 @@
    "cards": [
     {
      "ar": "هل تودين المجيء إلى بيتنا للغداء يوم الجمعة؟",
+     "ar_m": "هل تودّ المجيء إلى بيتنا للغداء يوم الجمعة؟",
      "q": "Would you like to come over for lunch on Friday?",
      "a": [
       "Yes, I'd love to! What time?",
@@ -437,7 +524,8 @@
      ],
      "do": "Invite your friend to lunch.",
      "ask": "invite to lunch?",
-     "do_ar": "ادعي صديقتك إلى الغداء."
+     "do_ar": "ادعي صديقتك إلى الغداء.",
+     "do_ar_m": "ادعُ صديقك إلى الغداء."
     },
     {
      "ar": "حقائبك تبدو ثقيلة. هل أساعدك؟",
@@ -448,10 +536,12 @@
      ],
      "do": "Offer to help.",
      "ask": "offer help: heavy bags?",
-     "do_ar": "اعرضي المساعدة."
+     "do_ar": "اعرضي المساعدة.",
+     "do_ar_m": "اعرض المساعدة."
     },
     {
      "ar": "سأذهب إلى المقصف. هل تريدين أي شيء؟",
+     "ar_m": "سأذهب إلى المقصف. هل تريد أي شيء؟",
      "q": "I'm going to the cafeteria. Do you want anything?",
      "a": [
       "Yes, please! Could you get me an orange juice?",
@@ -459,21 +549,38 @@
      ],
      "do": "Offer to bring your friend something.",
      "ask": "offer: the cafeteria?",
-     "do_ar": "اعرضي على صديقتك أن تحضري لها شيئًا."
+     "do_ar": "اعرضي على صديقتك أن تحضري لها شيئًا.",
+     "do_ar_m": "اعرض على صديقك أن تحضر له شيئًا."
     },
     {
      "talk": true,
      "ar": "ادعي صديقتك إلى تخرّج أختك.",
+     "ar_m": "ادعُ صديقك إلى تخرّج أخيك.",
      "q": "Invite a friend to your sister's graduation.",
+     "q_m": "Invite a friend to your brother's graduation.",
      "steps": [
       "Invite her.",
       "Say the day and time.",
       "Say where it is.",
       "Offer to pick her up."
      ],
+     "steps_m": [
+      "Invite him.",
+      "Say the day and time.",
+      "Say where it is.",
+      "Offer to pick him up."
+     ],
      "a": [
       [
        "Would you like to come to my sister's graduation?",
+       "It's on Thursday at eight.",
+       "It's at our house.",
+       "We can pick you up, if you like."
+      ]
+     ],
+     "a_m": [
+      [
+       "Would you like to come to my brother's graduation?",
        "It's on Thursday at eight.",
        "It's at our house.",
        "We can pick you up, if you like."
@@ -488,6 +595,7 @@
    "cards": [
     {
      "ar": "ماذا تطلبين؟",
+     "ar_m": "ماذا تطلب؟",
      "q": "Hi! What can I get you?",
      "a": [
       "Could I have a large iced latte, please?",
@@ -495,10 +603,12 @@
      ],
      "do": "You're the barista. Take the order.",
      "ask": "take an order?",
-     "do_ar": "أنتِ البائعة. خذي الطلب."
+     "do_ar": "أنتِ البائعة. خذي الطلب.",
+     "do_ar_m": "أنتَ البائع. خذ الطلب."
     },
     {
      "ar": "تشربينه هنا أم تأخذينه معك؟",
+     "ar_m": "تشربه هنا أم تأخذه معك؟",
      "q": "For here or to go?",
      "a": [
       "To go, please.",
@@ -506,22 +616,27 @@
      ],
      "do": "Ask: here or to go?",
      "ask": "here or to go?",
-     "do_ar": "اسألي: هنا أم تأخذه معها؟"
+     "do_ar": "اسألي: هنا أم تأخذه معها؟",
+     "do_ar_m": "اسأل: هنا أم يأخذه معه؟"
     },
     {
      "ar": "هل تودين تجربته؟",
+     "ar_m": "هل تودّ تجربته؟",
      "q": "Would you like to try it on?",
      "a": [
       "Yes, please. Where are the fitting rooms?",
       "No, thanks. I'll just take it."
      ],
      "do": "Offer to let her try it on.",
+     "do_m": "Offer to let him try it on.",
      "ask": "try it on?",
-     "do_ar": "اعرضي عليها أن تجرّبه."
+     "do_ar": "اعرضي عليها أن تجرّبه.",
+     "do_ar_m": "اعرض عليه أن يجرّبه."
     },
     {
      "talk": true,
      "ar": "اشتري حذاء رياضة من المول.",
+     "ar_m": "اشترِ حذاء رياضة من المول.",
      "q": "Buy sneakers at the mall.",
      "steps": [
       "Say what you're looking for.",
@@ -533,6 +648,14 @@
       [
        "Hi, I'm looking for white sneakers.",
        "Do you have these in a size thirty-eight?",
+       "How much are they?",
+       "Can I pay by card?"
+      ]
+     ],
+     "a_m": [
+      [
+       "Hi, I'm looking for white sneakers.",
+       "Do you have these in a size forty-two?",
        "How much are they?",
        "Can I pay by card?"
       ]
@@ -553,36 +676,50 @@
      ],
      "do": "Ask the way. Say please.",
      "ask": "the way to the food court?",
-     "do_ar": "اسألي عن الطريق بأدب."
+     "do_ar": "اسألي عن الطريق بأدب.",
+     "do_ar_m": "اسأل عن الطريق بأدب."
     },
     {
      "ar": "كيف تتنقلين عادة في المدينة؟",
+     "ar_m": "كيف تتنقل عادة في المدينة؟",
      "q": "How do you usually get around the city?",
      "a": [
       "My mom usually drives me.",
       "We often take the metro. It's fast and cheap."
      ],
      "do": "Ask your friend how she gets around.",
+     "do_m": "Ask your friend how he gets around.",
      "ask": "get around the city?",
-     "do_ar": "اسألي صديقتك كيف تتنقل."
+     "do_ar": "اسألي صديقتك كيف تتنقل.",
+     "do_ar_m": "اسأل صديقك كيف يتنقل."
     },
     {
      "ar": "إلى أين تسافرين؟",
+     "ar_m": "إلى أين تسافر؟",
      "q": "Good morning. Where are you traveling to?",
      "a": [
       "Two tickets to Makkah, please.",
       "One ticket to Madinah, please. What time is the next train?"
      ],
      "do": "You sell tickets. Ask where she is traveling.",
+     "do_m": "You sell tickets. Ask where he is traveling.",
      "ask": "ticket office: where to?",
-     "do_ar": "أنتِ موظفة التذاكر. اسأليها إلى أين تسافر."
+     "do_ar": "أنتِ موظفة التذاكر. اسأليها إلى أين تسافر.",
+     "do_ar_m": "أنتَ موظف التذاكر. اسأله إلى أين يسافر."
     },
     {
      "talk": true,
      "ar": "دلّي زائرة على طريق المتحف.",
+     "ar_m": "دُلّ زائرًا على طريق المتحف.",
      "q": "A visitor asks you the way to the museum.",
      "steps": [
       "Tell her to take the metro.",
+      "Say where to get off.",
+      "Say which way to walk.",
+      "Say how long it takes."
+     ],
+     "steps_m": [
+      "Tell him to take the metro.",
       "Say where to get off.",
       "Say which way to walk.",
       "Say how long it takes."
@@ -611,18 +748,22 @@
      ],
      "do": "Greet your friend for Eid.",
      "ask": "Eid greeting?",
-     "do_ar": "هنّئي صديقتك بالعيد."
+     "do_ar": "هنّئي صديقتك بالعيد.",
+     "do_ar_m": "هنّئ صديقك بالعيد."
     },
     {
      "ar": "ماذا تفعلين عادة في رمضان؟",
+     "ar_m": "ماذا تفعل عادة في رمضان؟",
      "q": "What do you usually do in Ramadan?",
      "a": [
       "I help my mom with iftar, and I read the Quran.",
       "We usually have iftar at my grandmother's house."
      ],
      "do": "Ask your friend what she does in Ramadan.",
+     "do_m": "Ask your friend what he does in Ramadan.",
      "ask": "in Ramadan?",
-     "do_ar": "اسألي صديقتك ماذا تفعل في رمضان."
+     "do_ar": "اسألي صديقتك ماذا تفعل في رمضان.",
+     "do_ar_m": "اسأل صديقك ماذا يفعل في رمضان."
     },
     {
      "ar": "هل ستسافرون في العيد هذا العام؟",
@@ -632,12 +773,15 @@
       "No, we're going to stay home this year."
      ],
      "do": "Ask your friend about her Eid plans.",
+     "do_m": "Ask your friend about his Eid plans.",
      "ask": "travel for Eid?",
-     "do_ar": "اسألي صديقتك عن خططها في العيد."
+     "do_ar": "اسألي صديقتك عن خططها في العيد.",
+     "do_ar_m": "اسأل صديقك عن خططه في العيد."
     },
     {
      "talk": true,
      "ar": "أخبري معلمتك عن العيد الماضي.",
+     "ar_m": "أخبر معلمك عن العيد الماضي.",
      "q": "Tell your teacher about last Eid.",
      "steps": [
       "Say where you were.",
@@ -652,6 +796,14 @@
        "We visited all our aunts and uncles.",
        "The best part was the big family lunch."
       ]
+     ],
+     "a_m": [
+      [
+       "Last Eid, we were at my grandparents' house.",
+       "I wore a new white thobe.",
+       "We visited all our aunts and uncles.",
+       "The best part was the big family lunch."
+      ]
      ]
     }
    ]
@@ -662,40 +814,50 @@
    "cards": [
     {
      "ar": "ما نوع الكتب التي تحبينها؟",
+     "ar_m": "ما نوع الكتب التي تحبها؟",
      "q": "What kind of books do you like?",
      "a": [
       "I love mystery stories because they're exciting.",
       "I prefer true stories about famous people."
      ],
      "do": "Ask your friend what books she likes.",
+     "do_m": "Ask your friend what books he likes.",
      "ask": "kind of books?",
-     "do_ar": "اسألي صديقتك عن الكتب التي تحبها."
+     "do_ar": "اسألي صديقتك عن الكتب التي تحبها.",
+     "do_ar_m": "اسأل صديقك عن الكتب التي يحبها."
     },
     {
      "ar": "هل تحبين الدراسة عن بعد؟",
+     "ar_m": "هل تحب الدراسة عن بعد؟",
      "q": "Do you like online classes?",
      "a": [
       "Not really. I prefer being in class with my friends.",
       "Yes, I do, because I can study at my own pace."
      ],
      "do": "Ask your friend if she likes them.",
+     "do_m": "Ask your friend if he likes them.",
      "ask": "online classes?",
-     "do_ar": "اسألي صديقتك: هل تحبها؟"
+     "do_ar": "اسألي صديقتك: هل تحبها؟",
+     "do_ar_m": "اسأل صديقك: هل يحبها؟"
     },
     {
      "ar": "ما الشيء الذي لا تحبين فعله؟",
+     "ar_m": "ما الشيء الذي لا تحب فعله؟",
      "q": "What's something you don't like doing?",
      "a": [
       "I don't like waking up early, especially on weekends.",
       "I'm not a big fan of shopping. It's so tiring!"
      ],
      "do": "Ask your friend what she doesn't like doing.",
+     "do_m": "Ask your friend what he doesn't like doing.",
      "ask": "don't like doing?",
-     "do_ar": "اسألي صديقتك عما لا تحب فعله."
+     "do_ar": "اسألي صديقتك عما لا تحب فعله.",
+     "do_ar_m": "اسأل صديقك عما لا يحب فعله."
     },
     {
      "talk": true,
      "ar": "حدّثي صديقتك عن هواية تحبينها.",
+     "ar_m": "حدّث صديقك عن هواية تحبها.",
      "q": "Tell a friend about a hobby you love.",
      "steps": [
       "Say what you love doing.",

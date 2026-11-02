@@ -92,7 +92,8 @@
       "Let me see.",
       "I've never really thought about it, but ..."
      ],
-     "do": "Ask your friend what she thinks the most important skill for the future is."
+     "do": "Ask your friend what she thinks the most important skill for the future is.",
+     "do_m": "Ask your friend what he thinks the most important skill for the future is."
     },
     {
      "q": "Sorry, can I just say something, please?",
@@ -118,7 +119,8 @@
       "Where was I?",
       "Oh yes, I was telling you about ..."
      ],
-     "do": "You interrupted your friend's story. Say sorry and ask her what she was saying."
+     "do": "You interrupted your friend's story. Say sorry and ask her what she was saying.",
+     "do_m": "You interrupted your friend's story. Say sorry and ask him what he was saying."
     },
     {
      "talk": true,
@@ -139,6 +141,15 @@
        "So, to sum up, honesty matters more than anything else."
       ]
      ],
+     "a_m": [
+      [
+       "Hmm, that's a good question. Let me think for a second.",
+       "I'd say a good friend is someone who's honest with you, even when it's hard to hear.",
+       "Sorry, I haven't quite finished.",
+       "For example, my best friend once told me my presentation needed more work, and then he stayed after school to help me practice.",
+       "So, to sum up, honesty matters more than anything else."
+      ]
+     ],
      "useful": [
       "Let me think for a second.",
       "Sorry, I haven't quite finished.",
@@ -153,16 +164,27 @@
    "cards": [
     {
      "q": "Our teacher is never late. Why do you think she isn't here yet?",
+     "q_m": "Our teacher is never late. Why do you think he isn't here yet?",
      "a": [
       "She might be stuck in traffic. The roads are always really busy at this time of the morning.",
       "She must have been called to a meeting. She can't have forgotten about us, because she's never late!"
+     ],
+     "a_m": [
+      "He might be stuck in traffic. The roads are always really busy at this time of the morning.",
+      "He must have been called to a meeting. He can't have forgotten about us, because he's never late!"
      ],
      "useful": [
       "She might be ...",
       "She must have been ...",
       "She can't have ..."
      ],
-     "do": "Your teacher is never late, but today she isn't here. Ask your classmate why she thinks that is."
+     "useful_m": [
+      "He might be ...",
+      "He must have been ...",
+      "He can't have ..."
+     ],
+     "do": "Your teacher is never late, but today she isn't here. Ask your classmate why she thinks that is.",
+     "do_m": "Your teacher is never late, but today he isn't here. Ask your classmate why he thinks that is."
     },
     {
      "q": "What would life be like if there were no internet?",
@@ -188,7 +210,8 @@
       "If I had, I wouldn't be ... now.",
       "I'd be ... by now"
      ],
-     "do": "Ask your friend if there's anything she wishes she'd done differently this year."
+     "do": "Ask your friend if there's anything she wishes she'd done differently this year.",
+     "do_m": "Ask your friend if there's anything he wishes he'd done differently this year."
     },
     {
      "talk": true,

@@ -11,7 +11,7 @@ const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
 const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://asmaasma1111.github.io/epp-talk-cards/' }, window.EPP_CONFIG || {});
 const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
-const APP_VERSION = 'v11';   // shown in feedback rows; keep in step with sw.js
+const APP_VERSION = 'v12';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
@@ -73,14 +73,16 @@ function buildCatalog(index, files) {
         const base = { set: s.id, level: L.id, n: i + 1 };
         const a = { ...base, id: `${s.id}:${i + 1}`, kind: 'ans', talk: !!c.talk, ar: c.ar || '', q: c.q,
                     steps: Array.isArray(c.steps) ? c.steps : [], a: (Array.isArray(c.a) ? c.a : [c.a]).filter(Boolean),
-                    ex: c.ex || '', useful: Array.isArray(c.useful) ? c.useful : [], simple: c.simple || '', order: order++ };
+                    ex: c.ex || '', useful: Array.isArray(c.useful) ? c.useful : [], simple: c.simple || '', order: order++,
+                    m: boysWording(c, { q: 'q', ar: 'ar', steps: 'steps', a: 'a', ex: 'ex', useful: 'useful', simple: 'simple' }) };
         CARD[a.id] = a; set.ans.push(a.id);
         if ((c.do || c.ask) && !c.talk) {   // "Your turn to ask!": the instruction (+ a short cue) on the front, the question on the back
           // 13 Oct 2026: `do` = a clear English instruction, `ask` = an optional short cue under it, `do_ar` = the Arabic
           // instruction behind مساعدة. Older files: an English `ask` is the instruction; an Arabic `ask` is the help line.
           const legacyAr = !c.do && c.ask && ARABIC.test(c.ask);
           const k = { ...base, id: `${s.id}:k${i + 1}`, kind: 'ask', talk: false, q: c.q, order: order++,
-                      do: c.do || (!legacyAr && c.ask) || '', cue: c.do && c.ask ? c.ask : '', doAr: c.do_ar || (legacyAr ? c.ask : '') };
+                      do: c.do || (!legacyAr && c.ask) || '', cue: c.do && c.ask ? c.ask : '', doAr: c.do_ar || (legacyAr ? c.ask : ''),
+                      m: boysWording(c, { q: 'q', do: 'do', cue: 'ask', doAr: 'do_ar' }) };
           CARD[k.id] = k; set.ask.push(k.id);
         }
       });
@@ -93,6 +95,18 @@ function buildCatalog(index, files) {
   LEVELS.forEach((l, i) => { if (i <= firstMain) ALWAYS.add(l.id); });
 }
 const kindOf = c => (c.kind === 'ask' ? 'ask' : c.talk ? 'talk' : 'answer');
+// A card that addresses a girl carries its boys' wording in <field>_m (2 Nov 2026, approved by Dr. Asma card by card).
+// The catalogue keeps it beside the girls' text; forWho() swaps it in when the student chose "Boy".
+function boysWording(c, fields) {
+  const m = {};
+  Object.entries(fields).forEach(([to, from]) => {
+    const v = c[from + '_m'];
+    if (v == null || v === '') return;
+    m[to] = to === 'a' ? (Array.isArray(v) ? v : [v]).filter(Boolean) : v;
+  });
+  return Object.keys(m).length ? m : null;
+}
+const forWho = c => (c && c.m && isBoy() ? { ...c, ...c.m } : c);
 
 /* ---------- saved state: one key, epp:state ---------- */
 function defaults() {
@@ -616,7 +630,7 @@ const RecStore = {
     if (a.length > REC_KEEP) await this.run('readwrite', os => { a.slice(REC_KEEP).forEach(r => os.delete(r.id)); });
   }
 };
-function recText(c) { return c ? (c.kind === 'ask' ? c.q : c.q) : ''; }
+function recText(c) { return c ? forWho(c).q : ''; }
 async function keepRecording(cardId, blob, secs) {
   const c = CARD[cardId]; if (!c || !blob || !blob.size) return;
   try {
@@ -1048,6 +1062,7 @@ function exLine(text) {          // examples for a blank, in brackets; Arabic ex
 const speakDo = (c, lv) => !!c.do && (lv.help === 'en-help' || lv.help === 'none' || !!clipFor(c.do));
 
 function renderCard(c) {
+  c = forWho(c);                  // the boys' wording, when he chose "Boy"
   const card = $('#card'), front = $('#front'), back = $('#back');
   card.classList.add('no-anim'); card.classList.remove('flipped');
   void card.offsetWidth; card.classList.remove('no-anim');

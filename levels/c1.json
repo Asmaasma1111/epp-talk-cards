@@ -27,7 +27,8 @@
       "I dealt with it by ...ing",
       "One challenge that comes to mind is ..."
      ],
-     "do": "You're the interviewer. Ask the applicant to tell you about a challenge she has faced and how she dealt with it."
+     "do": "You're the interviewer. Ask the applicant to tell you about a challenge she has faced and how she dealt with it.",
+     "do_m": "You're the interviewer. Ask the applicant to tell you about a challenge he has faced and how he dealt with it."
     },
     {
      "q": "Why do you think you're a strong candidate for this program?",
@@ -40,7 +41,8 @@
       "A case in point is ...",
       "I'd like to think ..."
      ],
-     "do": "You're the interviewer. Ask the applicant why she thinks she's a strong candidate for the program."
+     "do": "You're the interviewer. Ask the applicant why she thinks she's a strong candidate for the program.",
+     "do_m": "You're the interviewer. Ask the applicant why he thinks he's a strong candidate for the program."
     },
     {
      "q": "What's a weakness you're working on?",
@@ -53,7 +55,8 @@
       "That said, ...",
       "it's made a real difference"
      ],
-     "do": "You're the interviewer. Ask the applicant about a weakness she's working on."
+     "do": "You're the interviewer. Ask the applicant about a weakness she's working on.",
+     "do_m": "You're the interviewer. Ask the applicant about a weakness he's working on."
     },
     {
      "talk": true,
@@ -90,6 +93,10 @@
       "That's a fair point, in that exams treat everyone the same. Even so, they only capture how a student performs on one particular day, which isn't necessarily a true picture of her ability.",
       "While it's true that exams are objective, I'm not convinced they're the only fair measure. Projects and presentations arguably reveal skills that a timed test simply can't."
      ],
+     "a_m": [
+      "That's a fair point, in that exams treat everyone the same. Even so, they only capture how a student performs on one particular day, which isn't necessarily a true picture of his ability.",
+      "While it's true that exams are objective, I'm not convinced they're the only fair measure. Projects and presentations arguably reveal skills that a timed test simply can't."
+     ],
      "useful": [
       "That's a fair point, ...",
       "Even so, ...",
@@ -108,7 +115,8 @@
       "I take your point.",
       "I'd still maintain that ..."
      ],
-     "do": "You are in a debate. Your opponent defends social media; you believe its effect on teenagers is mostly negative. Challenge her with a question."
+     "do": "You are in a debate. Your opponent defends social media; you believe its effect on teenagers is mostly negative. Challenge her with a question.",
+     "do_m": "You are in a debate. Your opponent defends social media; you believe its effect on teenagers is mostly negative. Challenge him with a question."
     },
     {
      "q": "So you agree with me, then?",
@@ -121,7 +129,8 @@
       "my main point still stands",
       "Only up to a point."
      ],
-     "do": "Your opponent has just conceded one of your points. Ask her if that means she agrees with you."
+     "do": "Your opponent has just conceded one of your points. Ask her if that means she agrees with you.",
+     "do_m": "Your opponent has just conceded one of your points. Ask him if that means he agrees with you."
     },
     {
      "talk": true,
@@ -160,6 +169,10 @@
       "Yes, if I could just come in here, I'd like to build on what Reem said. It seems to me that the real issue is time management rather than the workload itself.",
       "Just a quick point, if I may. It could be argued that we're focusing on the cost and overlooking the long-term benefits."
      ],
+     "a_m": [
+      "Yes, if I could just come in here, I'd like to build on what Fahad said. It seems to me that the real issue is time management rather than the workload itself.",
+      "Just a quick point, if I may. It could be argued that we're focusing on the cost and overlooking the long-term benefits."
+     ],
      "useful": [
       "If I could just come in here, ...",
       "I'd like to build on what ... said.",
@@ -178,7 +191,8 @@
       "I'd tend to think ...",
       "To some extent, ..."
      ],
-     "do": "Ask your classmate whether she thinks reading on screens will replace printed books."
+     "do": "Ask your classmate whether she thinks reading on screens will replace printed books.",
+     "do_m": "Ask your classmate whether he thinks reading on screens will replace printed books."
     },
     {
      "q": "Are you sure about that?",
@@ -191,7 +205,8 @@
       "I'm fairly confident about ..., but ...",
       "It's probably fair to say that ..."
      ],
-     "do": "Your classmate has just made a surprising claim. Ask her if she's sure about that."
+     "do": "Your classmate has just made a surprising claim. Ask her if she's sure about that.",
+     "do_m": "Your classmate has just made a surprising claim. Ask him if he's sure about that."
     },
     {
      "talk": true,
@@ -207,6 +222,15 @@
       [
        "Sorry, if I could just come in here for a moment.",
        "Lama mentioned that volunteering builds character, and I'd tend to agree.",
+       "However, it could be argued that grading it would turn it into just another requirement.",
+       "In my experience, students who volunteer by choice, for example packing food baskets in Ramadan, seem far more committed.",
+       "But I'd be interested to hear what others think."
+      ]
+     ],
+     "a_m": [
+      [
+       "Sorry, if I could just come in here for a moment.",
+       "Omar mentioned that volunteering builds character, and I'd tend to agree.",
        "However, it could be argued that grading it would turn it into just another requirement.",
        "In my experience, students who volunteer by choice, for example packing food baskets in Ramadan, seem far more committed.",
        "But I'd be interested to hear what others think."

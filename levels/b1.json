@@ -23,7 +23,8 @@
       "I've been really busy because we had exams all month. It's so good to see you!",
       "I've been great, thanks! We moved to a new house, so I've been unpacking boxes all week."
      ],
-     "do": "Greet a friend you haven't seen in a long time, and ask how she has been."
+     "do": "Greet a friend you haven't seen in a long time, and ask how she has been.",
+     "do_m": "Greet a friend you haven't seen in a long time, and ask how he has been."
     },
     {
      "q": "Hi! Is this your first day at the summer program?",
@@ -32,7 +33,8 @@
       "Yes, it's my first day, so I don't know anyone yet. What about you?",
       "No, it's my second year. I came back because I loved the robotics workshop last year."
      ],
-     "do": "Start a conversation with a girl at a summer program. Ask her if it's her first day."
+     "do": "Start a conversation with a girl at a summer program. Ask her if it's her first day.",
+     "do_m": "Start a conversation with a boy at a summer program. Ask him if it's his first day."
     },
     {
      "q": "Do you want to stay and have another coffee?",
@@ -41,7 +43,8 @@
       "I'd love to, but I'd better go because my mom is waiting outside. It was so nice talking to you!",
       "Sorry, I can't, because I have a test tomorrow. Let's catch up on the weekend!"
      ],
-     "do": "Ask your friend if she wants to stay and have another coffee."
+     "do": "Ask your friend if she wants to stay and have another coffee.",
+     "do_m": "Ask your friend if he wants to stay and have another coffee."
     },
     {
      "talk": true,
@@ -51,6 +54,13 @@
       "Greet her and say how long it has been.",
       "Ask how she has been.",
       "Tell her one piece of news.",
+      "Say you have to go, and give a reason.",
+      "Say goodbye and suggest meeting again."
+     ],
+     "steps_m": [
+      "Greet him and say how long it has been.",
+      "Ask how he has been.",
+      "Tell him one piece of news.",
       "Say you have to go, and give a reason.",
       "Say goodbye and suggest meeting again."
      ],
@@ -77,7 +87,8 @@
       "Yes, I have! I went there last winter with my family, and I loved it because the rocks look amazing at sunset.",
       "No, I haven't, but I'd really like to go. My cousin says it's beautiful, so maybe we'll go next winter."
      ],
-     "do": "Ask your friend if she has ever been to AlUla."
+     "do": "Ask your friend if she has ever been to AlUla.",
+     "do_m": "Ask your friend if he has ever been to AlUla."
     },
     {
      "q": "Have you ever tried a food that you didn't like?",
@@ -86,7 +97,8 @@
       "Yes, I have. I tried sushi once, but I didn't like it because the fish was raw.",
       "Not really, because I love trying new food. Last month, I had Korean food for the first time, and it was delicious!"
      ],
-     "do": "Ask your friend if she has ever tried a food that she didn't like."
+     "do": "Ask your friend if she has ever tried a food that she didn't like.",
+     "do_m": "Ask your friend if he has ever tried a food that he didn't like."
     },
     {
      "q": "What's the most exciting thing you've ever done?",
@@ -95,7 +107,8 @@
       "I once gave a speech in front of the whole school. I was nervous, but I felt so proud because everyone clapped.",
       "I've been snorkeling in the Red Sea with my family. It was amazing because I saw so many colorful fish."
      ],
-     "do": "Ask your friend about the most exciting thing she has ever done."
+     "do": "Ask your friend about the most exciting thing she has ever done.",
+     "do_m": "Ask your friend about the most exciting thing he has ever done."
     },
     {
      "talk": true,
@@ -131,7 +144,12 @@
       "I'd like to study medicine because I want to help people. My aunt is a doctor, and she's my role model.",
       "I'm hoping to study computer science. I've always loved solving problems, so I think it's perfect for me."
      ],
-     "do": "Ask your friend what she would like to study at university, and why."
+     "a_m": [
+      "I'd like to study medicine because I want to help people. My uncle is a doctor, and he's my role model.",
+      "I'm hoping to study computer science. I've always loved solving problems, so I think it's perfect for me."
+     ],
+     "do": "Ask your friend what she would like to study at university, and why.",
+     "do_m": "Ask your friend what he would like to study at university, and why."
     },
     {
      "q": "Where do you see yourself in ten years?",
@@ -140,7 +158,8 @@
       "I hope I'll be working as an engineer on a big national project. I'd love that because I want to help build my country.",
       "In ten years, I'd like to have my own business. I love design, so I might open a small studio."
      ],
-     "do": "Ask your friend where she sees herself in ten years."
+     "do": "Ask your friend where she sees herself in ten years.",
+     "do_m": "Ask your friend where he sees himself in ten years."
     },
     {
      "q": "What might stop you from reaching your goal?",
@@ -149,7 +168,8 @@
       "Medicine is a long degree, so I'll need to be patient. But I'm ready to work hard.",
       "My English isn't strong enough yet, so I'm practicing every day. I read English books because they help me a lot."
      ],
-     "do": "Ask your friend what might stop her from reaching her goal."
+     "do": "Ask your friend what might stop her from reaching her goal.",
+     "do_m": "Ask your friend what might stop him from reaching his goal."
     },
     {
      "talk": true,
@@ -183,7 +203,8 @@
       "I see what you mean, but I'm not sure about that. I learn better at school because I can ask the teacher questions face to face.",
       "I agree with you, because you save a lot of time at home. But I'd really miss my friends!"
      ],
-     "do": "You prefer online classes and you think they are better. Tell your friend and ask what she thinks."
+     "do": "You prefer online classes and you think they are better. Tell your friend and ask what she thinks.",
+     "do_m": "You prefer online classes and you think they are better. Tell your friend and ask what he thinks."
     },
     {
      "q": "Social media is a waste of time, don't you think?",
@@ -209,6 +230,13 @@
      "simple": "Your friend wants to go to the mall. You want to go to the museum. Say why, in a kind way.",
      "steps": [
       "Say something nice about her idea.",
+      "Disagree politely.",
+      "Say your idea.",
+      "Give a reason.",
+      "Suggest a way to make everyone happy."
+     ],
+     "steps_m": [
+      "Say something nice about his idea.",
       "Disagree politely.",
       "Say your idea.",
       "Give a reason.",
@@ -255,18 +283,28 @@
       "Sorry, what does \"a piece of cake\" mean? I don't get it, because we aren't talking about food!",
       "Do you mean it's going to be easy? I hope you're right, because I'm really worried!"
      ],
-     "do": "Your friend is worried about the test. You are sure it will be easy. Reassure her."
+     "do": "Your friend is worried about the test. You are sure it will be easy. Reassure her.",
+     "do_m": "Your friend is worried about the test. You are sure it will be easy. Reassure him."
     },
     {
      "talk": true,
      "q": "Your teacher explains the homework too fast. Ask her to help you understand.",
+     "q_m": "Your teacher explains the homework too fast. Ask him to help you understand.",
      "simple": "The teacher speaks too fast. Ask her to say it again and explain.",
+     "simple_m": "The teacher speaks too fast. Ask him to say it again and explain.",
      "steps": [
       "Say you didn't understand.",
       "Ask her to say it again more slowly.",
       "Ask what one word means.",
       "Check that you understand.",
       "Thank her."
+     ],
+     "steps_m": [
+      "Say you didn't understand.",
+      "Ask him to say it again more slowly.",
+      "Ask what one word means.",
+      "Check that you understand.",
+      "Thank him."
      ],
      "a": [
       [
@@ -277,8 +315,24 @@
        "That's clear now. Thank you so much!"
       ]
      ],
+     "a_m": [
+      [
+       "Sorry, Mr. ___, I didn't quite understand.",
+       "Could you say that again more slowly, please?",
+       "What do you mean by \"summarize\"?",
+       "So we have to write the main ideas in five lines?",
+       "That's clear now. Thank you so much!"
+      ]
+     ],
      "ex": [
       "Sara · Huda · Amal",
+      "",
+      "",
+      "",
+      ""
+     ],
+     "ex_m": [
+      "Ahmed · Saleh · Hassan",
       "",
       "",
       "",
@@ -298,7 +352,8 @@
       "I was checking my email when I saw the news. I got into the coding camp I applied for, so I can't stop smiling!",
       "My little sister said her first English word this morning! We were having breakfast when she suddenly said \"apple,\" so we all laughed."
      ],
-     "do": "Your friend looks very excited. Ask her what happened."
+     "do": "Your friend looks very excited. Ask her what happened.",
+     "do_m": "Your friend looks very excited. Ask him what happened."
     },
     {
      "q": "Has anything funny happened to you this week?",
@@ -307,7 +362,8 @@
       "Yes! I was making tea for my mom's guests when I put salt in it instead of sugar. Nobody said anything because they were too polite!",
       "Yes! My mom was looking for her glasses all morning, so we all helped her. Then my sister noticed they were on her head the whole time!"
      ],
-     "do": "Ask your friend if anything funny has happened to her this week."
+     "do": "Ask your friend if anything funny has happened to her this week.",
+     "do_m": "Ask your friend if anything funny has happened to him this week."
     },
     {
      "q": "How was your trip? I heard your flight was late.",
@@ -316,7 +372,8 @@
       "It was a long day! We waited at the airport for six hours, so we were exhausted when we finally arrived.",
       "It was fine in the end. The flight was late, but we met our cousins at the airport, so we didn't get bored."
      ],
-     "do": "Your friend's flight was late. Ask her how her trip was."
+     "do": "Your friend's flight was late. Ask her how her trip was.",
+     "do_m": "Your friend's flight was late. Ask him how his trip was."
     },
     {
      "talk": true,
@@ -352,7 +409,8 @@
       "It stopped working after two days. I've only used it twice, so I'd like to exchange it, please.",
       "The screen is cracked, but I didn't drop it. I think it was broken in the box, so could I get a refund?"
      ],
-     "do": "You work in a store. A customer wants to return something. Ask her what's wrong with it."
+     "do": "You work in a store. A customer wants to return something. Ask her what's wrong with it.",
+     "do_m": "You work in a store. A customer wants to return something. Ask him what's wrong with it."
     },
     {
      "q": "Is everything OK with your meal?",
@@ -361,13 +419,18 @@
       "Not really, I'm afraid. My pasta is cold, so could you heat it up, please?",
       "The food is great, thank you. But we've been waiting for our drinks for twenty minutes, so could you check on them?"
      ],
-     "do": "You are the waiter. Ask the customer if everything is OK with her meal."
+     "do": "You are the waiter. Ask the customer if everything is OK with her meal.",
+     "do_m": "You are the waiter. Ask the customer if everything is OK with his meal."
     },
     {
      "q": "Thank you for calling customer service. How can I help you?",
      "simple": "Hello, this is the store. What is the problem?",
      "a": [
       "I ordered a blue dress online, but you sent a green one. I need it for my cousin's wedding on Thursday, so could you send the right one quickly?",
+      "My order was supposed to arrive three days ago, but it still hasn't come. It's a gift for my mom, so I really need it by Saturday."
+     ],
+     "a_m": [
+      "I ordered a blue shirt online, but you sent a green one. I need it for my cousin's wedding on Thursday, so could you send the right one quickly?",
       "My order was supposed to arrive three days ago, but it still hasn't come. It's a gift for my mom, so I really need it by Saturday."
      ],
      "do": "You work in customer service. Answer the phone and ask how you can help."
@@ -424,7 +487,8 @@
       "OK, thank you. I have an important test on Wednesday, so can I still go to school?",
       "Thank you, Doctor. Should I take something for the pain? It's hard to sleep because it hurts at night."
      ],
-     "do": "You are the doctor. The patient needs a few days of rest and plenty of water. Give her your advice."
+     "do": "You are the doctor. The patient needs a few days of rest and plenty of water. Give her your advice.",
+     "do_m": "You are the doctor. The patient needs a few days of rest and plenty of water. Give him your advice."
     },
     {
      "talk": true,
@@ -514,7 +578,8 @@
       "I'm reading a mystery novel in English. It's a bit hard, but I can't stop reading because I want to know the ending!",
       "Nothing right now, because I've been so busy with exams. But I've just bought a book about space, so I'll start it this weekend."
      ],
-     "do": "Ask your friend what she is reading right now."
+     "do": "Ask your friend what she is reading right now.",
+     "do_m": "Ask your friend what he is reading right now."
     },
     {
      "q": "Have you watched any good documentaries lately?",
@@ -523,7 +588,8 @@
       "Yes! I watched one about the ocean last week. I'd really recommend it because the animals are amazing.",
       "Yes, I saw one about the history of Diriyah. I learned a lot, because I didn't know much about it before."
      ],
-     "do": "Ask your friend if she has watched any good documentaries lately."
+     "do": "Ask your friend if she has watched any good documentaries lately.",
+     "do_m": "Ask your friend if he has watched any good documentaries lately."
     },
     {
      "q": "What did you think of the ending?",
@@ -532,12 +598,14 @@
       "I loved it, because I didn't expect it at all! The writer really surprised me.",
       "Honestly, I was a bit disappointed. The story was great, but the ending was too fast, so I still have so many questions."
      ],
-     "do": "You and your friend watched the same series. Ask her what she thought of the ending."
+     "do": "You and your friend watched the same series. Ask her what she thought of the ending.",
+     "do_m": "You and your friend watched the same series. Ask him what he thought of the ending."
     },
     {
      "talk": true,
      "q": "Talk for 30 seconds: recommend a book or a series to a friend.",
      "simple": "Tell your friend about a good book or series and why she should try it.",
+     "simple_m": "Tell your friend about a good book or series and why he should try it.",
      "steps": [
       "Say the name of the book or series.",
       "Say what it is about.",
@@ -568,7 +636,8 @@
       "I'd buy my parents a new house, because they've done so much for me. Then I'd save the rest for university.",
       "If I had that much money, I'd give some to charity first. I'd also travel with my family, because I've always wanted to see Japan."
      ],
-     "do": "Ask your friend what she would do if she had a million riyals."
+     "do": "Ask your friend what she would do if she had a million riyals.",
+     "do_m": "Ask your friend what he would do if he had a million riyals."
     },
     {
      "q": "If you could have any job for one day, what would it be?",
@@ -577,7 +646,8 @@
       "I'd be an astronaut, because I'd love to see the Earth from space. Just one day would be enough for me!",
       "I think I'd be a chef in a famous restaurant. I love cooking, so it would be like a dream."
      ],
-     "do": "Ask your friend what job she would choose if she could have any job for one day."
+     "do": "Ask your friend what job she would choose if she could have any job for one day.",
+     "do_m": "Ask your friend what job he would choose if he could have any job for one day."
     },
     {
      "q": "My best friend is upset with me, and I don't know why. What would you do?",
@@ -586,7 +656,12 @@
       "If I were you, I'd just ask her what's wrong. It might be a small problem, so it's better to talk about it.",
       "I'd send her a kind message first, because she might not want to talk yet. Then I'd give her a little time."
      ],
-     "do": "Your best friend is upset with you, and you have no idea why. Explain the problem to another friend and ask for her advice."
+     "a_m": [
+      "If I were you, I'd just ask him what's wrong. It might be a small problem, so it's better to talk about it.",
+      "I'd send him a kind message first, because he might not want to talk yet. Then I'd give him a little time."
+     ],
+     "do": "Your best friend is upset with you, and you have no idea why. Explain the problem to another friend and ask for her advice.",
+     "do_m": "Your best friend is upset with you, and you have no idea why. Explain the problem to another friend and ask for his advice."
     },
     {
      "talk": true,
@@ -622,7 +697,8 @@
       "I want to join because I love helping people. Last Ramadan, I helped pack food baskets, and it felt amazing.",
       "I'm interested in this team because I want to give back to my community. It would also give me good experience for university."
      ],
-     "do": "You are the team leader. Ask a new student why she wants to join your volunteering team."
+     "do": "You are the team leader. Ask a new student why she wants to join your volunteering team.",
+     "do_m": "You are the team leader. Ask a new student why he wants to join your volunteering team."
     },
     {
      "q": "What skills can you bring to the club?",
@@ -631,7 +707,8 @@
       "I'm good at organizing things, so I could help plan events. I'm also very good with computers.",
       "I've designed posters for school events before, so I could help with the club's social media. I'm a good team player, too."
      ],
-     "do": "You are the club leader. Ask a new member what skills she can bring to the club."
+     "do": "You are the club leader. Ask a new member what skills she can bring to the club.",
+     "do_m": "You are the club leader. Ask a new member what skills he can bring to the club."
     },
     {
      "q": "Members have to come every Tuesday after school. Is that OK for you?",
@@ -640,7 +717,8 @@
       "Yes, that's fine, because I'm free on Tuesdays. Could I ask what time the meetings finish?",
       "I might miss some Tuesdays, because I have extra classes before exams. Is that a problem?"
      ],
-     "do": "You are the club leader. Meetings are every Tuesday after school, and attendance is a must. Explain this to a new member and check that it suits her."
+     "do": "You are the club leader. Meetings are every Tuesday after school, and attendance is a must. Explain this to a new member and check that it suits her.",
+     "do_m": "You are the club leader. Meetings are every Tuesday after school, and attendance is a must. Explain this to a new member and check that it suits him."
     },
     {
      "talk": true,
@@ -664,6 +742,13 @@
      ],
      "ex": [
       "Noura · Lama · Reem",
+      "",
+      "",
+      "",
+      ""
+     ],
+     "ex_m": [
+      "Fahad · Omar · Saad",
       "",
       "",
       "",

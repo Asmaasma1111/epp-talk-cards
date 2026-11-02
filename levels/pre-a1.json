@@ -18,13 +18,15 @@
    "cards": [
     {
      "ar": "ردّي على التحية.",
+     "ar_m": "ردّ على التحية.",
      "q": "Good morning!",
      "a": [
       "Good morning!",
       "Hi! Good morning!"
      ],
      "do": "Greet your teacher in the morning.",
-     "do_ar": "حيّي معلمتك في الصباح."
+     "do_ar": "حيّي معلمتك في الصباح.",
+     "do_ar_m": "حيِّ معلمك في الصباح."
     },
     {
      "ar": "كيف حالك؟",
@@ -34,25 +36,35 @@
       "I'm good. And you?"
      ],
      "do": "Ask your friend how she is.",
-     "do_ar": "اسألي صديقتك عن حالها."
+     "do_m": "Ask your friend how he is.",
+     "do_ar": "اسألي صديقتك عن حالها.",
+     "do_ar_m": "اسأل صديقك عن حاله."
     },
     {
      "ar": "ودّعي صديقتك.",
+     "ar_m": "ودّع صديقك.",
      "q": "Goodbye! See you tomorrow!",
      "a": [
       "Bye! See you!",
       "Goodbye! See you tomorrow!"
      ],
      "do": "Say goodbye to your friend.",
-     "do_ar": "ودّعي صديقتك بعد المدرسة."
+     "do_ar": "ودّعي صديقتك بعد المدرسة.",
+     "do_ar_m": "ودّع صديقك بعد المدرسة."
     },
     {
      "talk": true,
      "ar": "قابلي صديقتك في الصباح.",
+     "ar_m": "قابل صديقك في الصباح.",
      "q": "Meet your friend in the morning.",
      "steps": [
       "Say hello.",
       "Ask how she is.",
+      "Say goodbye."
+     ],
+     "steps_m": [
+      "Say hello.",
+      "Ask how he is.",
       "Say goodbye."
      ],
      "a": [
@@ -71,16 +83,20 @@
    "cards": [
     {
      "ar": "أعطتك صديقتك قلمك.",
+     "ar_m": "أعطاك صديقك قلمك.",
      "q": "Here's your pen.",
      "a": [
       "Thank you!",
       "Thanks a lot!"
      ],
      "do": "Give your friend her pen.",
-     "do_ar": "أعطي صديقتك قلمها."
+     "do_m": "Give your friend his pen.",
+     "do_ar": "أعطي صديقتك قلمها.",
+     "do_ar_m": "أعطِ صديقك قلمه."
     },
     {
      "ar": "تريدين ماءً.",
+     "ar_m": "تريد ماءً.",
      "q": "You want some water.",
      "a": [
       "Water, please.",
@@ -89,6 +105,7 @@
     },
     {
      "ar": "اصطدمتِ بزميلتك.",
+     "ar_m": "اصطدمتَ بزميلك.",
      "q": "You bump into a classmate.",
      "a": [
       "Oh, sorry!",
@@ -98,6 +115,7 @@
     {
      "talk": true,
      "ar": "أنتِ في المقصف.",
+     "ar_m": "أنتَ في المقصف.",
      "q": "You are at the school cafeteria.",
      "steps": [
       "Say excuse me.",
@@ -126,33 +144,46 @@
       "I'm ___."
      ],
      "ex": "Noura · Lama · Reem",
+     "ex_m": "Fahad · Omar · Saad",
      "do": "Ask your new classmate her name.",
-     "do_ar": "اسألي زميلتك الجديدة عن اسمها."
+     "do_m": "Ask your new classmate his name.",
+     "do_ar": "اسألي زميلتك الجديدة عن اسمها.",
+     "do_ar_m": "اسأل زميلك الجديد عن اسمه."
     },
     {
      "ar": "تهجّي اسمك.",
+     "ar_m": "تهجَّ اسمك.",
      "q": "How do you spell your name?",
      "a": [
       "It's ___."
      ],
      "ex": "N-O-U-R-A · R-E-E-M",
+     "ex_m": "F-A-H-A-D · O-M-A-R",
      "do": "Ask your classmate how she spells her name.",
-     "do_ar": "اسألي زميلتك كيف تتهجّى اسمها."
+     "do_m": "Ask your classmate how he spells his name.",
+     "do_ar": "اسألي زميلتك كيف تتهجّى اسمها.",
+     "do_ar_m": "اسأل زميلك كيف يتهجّى اسمه."
     },
     {
      "ar": "هل أنتِ نورة؟",
+     "ar_m": "هل أنتَ فهد؟",
      "q": "Are you Noura?",
+     "q_m": "Are you Fahad?",
      "a": [
       "Yes, I am.",
       "No, I'm not. I'm ___."
      ],
      "ex": "Lama · Sara",
+     "ex_m": "Omar · Saad",
      "do": "Ask your classmate: is she Noura?",
-     "do_ar": "اسألي زميلتك: هل أنتِ نورة؟"
+     "do_m": "Ask your classmate: is he Fahad?",
+     "do_ar": "اسألي زميلتك: هل أنتِ نورة؟",
+     "do_ar_m": "اسأل زميلك: هل أنتَ فهد؟"
     },
     {
      "talk": true,
      "ar": "تعرّفي على زميلة جديدة.",
+     "ar_m": "تعرّف على زميل جديد.",
      "q": "Meet a new classmate.",
      "steps": [
       "Say hi.",
@@ -169,6 +200,11 @@
      "ex": [
       "",
       "Noura · Lama · Reem",
+      ""
+     ],
+     "ex_m": [
+      "",
+      "Fahad · Omar · Saad",
       ""
      ]
     }
@@ -187,10 +223,13 @@
      ],
      "ex": "fifteen · sixteen · seventeen",
      "do": "Ask your friend how old she is.",
-     "do_ar": "اسألي صديقتك عن عمرها."
+     "do_m": "Ask your friend how old he is.",
+     "do_ar": "اسألي صديقتك عن عمرها.",
+     "do_ar_m": "اسأل صديقك عن عمره."
     },
     {
      "ar": "في أي صف أنتِ؟",
+     "ar_m": "في أي صف أنتَ؟",
      "q": "What grade are you in?",
      "a": [
       "Grade ___.",
@@ -198,21 +237,27 @@
      ],
      "ex": "ten · eleven · twelve",
      "do": "Ask your classmate what grade she is in.",
-     "do_ar": "اسألي زميلتك: في أي صف هي؟"
+     "do_m": "Ask your classmate what grade he is in.",
+     "do_ar": "اسألي زميلتك: في أي صف هي؟",
+     "do_ar_m": "اسأل زميلك: في أي صف هو؟"
     },
     {
      "ar": "كم طالبة في صفك؟",
+     "ar_m": "كم طالبًا في صفك؟",
      "q": "How many students are in your class?",
      "a": [
       "Twenty.",
       "Twenty-five."
      ],
      "do": "Ask your classmate how many students are in her class.",
-     "do_ar": "اسألي زميلتك: كم طالبة في صفها؟"
+     "do_m": "Ask your classmate how many students are in his class.",
+     "do_ar": "اسألي زميلتك: كم طالبة في صفها؟",
+     "do_ar_m": "اسأل زميلك: كم طالبًا في صفه؟"
     },
     {
      "talk": true,
      "ar": "أخبري معلمتك عن نفسك.",
+     "ar_m": "أخبر معلمك عن نفسك.",
      "q": "Tell your teacher about you.",
      "steps": [
       "Say your name.",
@@ -230,6 +275,11 @@
       "Noura · Lama",
       "fifteen · sixteen",
       "ten · eleven"
+     ],
+     "ex_m": [
+      "Fahad · Omar",
+      "fifteen · sixteen",
+      "ten · eleven"
      ]
     }
    ]
@@ -240,6 +290,7 @@
    "cards": [
     {
      "ar": "من أين أنتِ؟",
+     "ar_m": "من أين أنتَ؟",
      "q": "Where are you from?",
      "a": [
       "I'm from Saudi Arabia.",
@@ -247,10 +298,13 @@
      ],
      "ex": "Egypt · Jordan · Yemen",
      "do": "Ask your classmate where she is from.",
-     "do_ar": "اسألي زميلتك: من أين هي؟"
+     "do_m": "Ask your classmate where he is from.",
+     "do_ar": "اسألي زميلتك: من أين هي؟",
+     "do_ar_m": "اسأل زميلك: من أين هو؟"
     },
     {
      "ar": "أين تسكنين؟",
+     "ar_m": "أين تسكن؟",
      "q": "Where do you live?",
      "a": [
       "In ___.",
@@ -258,7 +312,9 @@
      ],
      "ex": "Riyadh · Jeddah · Dammam",
      "do": "Ask your friend where she lives.",
-     "do_ar": "اسألي صديقتك: أين تسكن؟"
+     "do_m": "Ask your friend where he lives.",
+     "do_ar": "اسألي صديقتك: أين تسكن؟",
+     "do_ar_m": "اسأل صديقك: أين يسكن؟"
     },
     {
      "ar": "ما جنسيتك؟",
@@ -269,11 +325,14 @@
      ],
      "ex": "Egyptian · Jordanian · Sudanese",
      "do": "Ask your classmate about her nationality.",
-     "do_ar": "اسألي زميلتك عن جنسيتها."
+     "do_m": "Ask your classmate about his nationality.",
+     "do_ar": "اسألي زميلتك عن جنسيتها.",
+     "do_ar_m": "اسأل زميلك عن جنسيته."
     },
     {
      "talk": true,
      "ar": "ضيفة تزور صفك.",
+     "ar_m": "ضيف يزور صفك.",
      "q": "A visitor comes to your class.",
      "steps": [
       "Say hello.",
@@ -291,6 +350,11 @@
       "",
       "Noura · Lama · Reem",
       ""
+     ],
+     "ex_m": [
+      "",
+      "Fahad · Omar · Saad",
+      ""
      ]
     }
    ]
@@ -301,23 +365,38 @@
    "cards": [
     {
      "ar": "هل لديكِ أخوات؟",
+     "ar_m": "هل لديكَ إخوة؟",
      "q": "Do you have any sisters?",
+     "q_m": "Do you have any brothers?",
      "a": [
       "Yes, two sisters.",
       "No, I don't."
      ],
+     "a_m": [
+      "Yes, two brothers.",
+      "No, I don't."
+     ],
      "do": "Ask your friend if she has sisters.",
-     "do_ar": "اسألي صديقتك: هل لديها أخوات؟"
+     "do_m": "Ask your friend if he has brothers.",
+     "do_ar": "اسألي صديقتك: هل لديها أخوات؟",
+     "do_ar_m": "اسأل صديقك: هل لديه إخوة؟"
     },
     {
      "ar": "صورة أمك: من هذه؟",
+     "ar_m": "صورة أبيك: من هذا؟",
      "q": "Who's this?",
      "a": [
       "My mother.",
       "This is my mom."
      ],
+     "a_m": [
+      "My father.",
+      "This is my dad."
+     ],
      "do": "Ask your friend who the woman in the photo is.",
-     "do_ar": "اسألي صديقتك عن امرأة في الصورة."
+     "do_m": "Ask your friend who the man in the photo is.",
+     "do_ar": "اسألي صديقتك عن امرأة في الصورة.",
+     "do_ar_m": "اسأل صديقك عن رجل في الصورة."
     },
     {
      "ar": "كم عدد أفراد أسرتك؟",
@@ -327,11 +406,14 @@
       "Seven people."
      ],
      "do": "Ask your friend how many people are in her family.",
-     "do_ar": "اسألي صديقتك عن عدد أفراد أسرتها."
+     "do_m": "Ask your friend how many people are in his family.",
+     "do_ar": "اسألي صديقتك عن عدد أفراد أسرتها.",
+     "do_ar_m": "اسأل صديقك عن عدد أفراد أسرته."
     },
     {
      "talk": true,
      "ar": "حدّثي صديقتك عن أسرتك.",
+     "ar_m": "حدّث صديقك عن أسرتك.",
      "q": "Tell a friend about your family.",
      "steps": [
       "Say how many people.",
@@ -354,13 +436,15 @@
    "cards": [
     {
      "ar": "صديقتك تشير إلى قلمك.",
+     "ar_m": "صديقك يشير إلى قلمك.",
      "q": "What's this?",
      "a": [
       "It's a pen.",
       "A pen."
      ],
      "do": "Hold something up. Ask what it is.",
-     "do_ar": "أمسكي شيئًا واسألي: ما هذا؟"
+     "do_ar": "أمسكي شيئًا واسألي: ما هذا؟",
+     "do_ar_m": "أمسك شيئًا واسأل: ما هذا؟"
     },
     {
      "ar": "ما لون حقيبتك؟",
@@ -370,21 +454,27 @@
       "Black."
      ],
      "do": "Ask your friend about the color of her bag.",
-     "do_ar": "اسألي صديقتك عن لون حقيبتها."
+     "do_m": "Ask your friend about the color of his bag.",
+     "do_ar": "اسألي صديقتك عن لون حقيبتها.",
+     "do_ar_m": "اسأل صديقك عن لون حقيبته."
     },
     {
      "ar": "وجدت المعلمة هاتفًا.",
+     "ar_m": "وجد المعلم هاتفًا.",
      "q": "Is this your phone?",
      "a": [
       "Yes, it is. Thank you!",
       "No, it isn't."
      ],
      "do": "You found a phone. Ask your classmate if it is hers.",
-     "do_ar": "وجدتِ هاتفًا. اسألي زميلتك: هل هو لها؟"
+     "do_m": "You found a phone. Ask your classmate if it is his.",
+     "do_ar": "وجدتِ هاتفًا. اسألي زميلتك: هل هو لها؟",
+     "do_ar_m": "وجدتَ هاتفًا. اسأل زميلك: هل هو له؟"
     },
     {
      "talk": true,
      "ar": "أريْ صديقتك حقيبتك.",
+     "ar_m": "أرِ صديقك حقيبتك.",
      "q": "Show your bag to a friend.",
      "steps": [
       "Say \"This is my bag.\"",
@@ -407,37 +497,46 @@
    "cards": [
     {
      "ar": "تعرض عليكِ قهوة.",
+     "ar_m": "يعرض عليكَ قهوة.",
      "q": "Would you like some coffee?",
      "a": [
       "Yes, please.",
       "No, thank you."
      ],
      "do": "Offer your guest coffee.",
-     "do_ar": "اعرضي على ضيفتك قهوة."
+     "do_ar": "اعرضي على ضيفتك قهوة.",
+     "do_ar_m": "اعرض على ضيفك قهوة."
     },
     {
      "ar": "ماذا تحبين أن تشربي؟",
+     "ar_m": "ماذا تحب أن تشرب؟",
      "q": "What would you like to drink?",
      "a": [
       "Water, please.",
       "Juice, please."
      ],
      "do": "Ask your guest what she wants to drink.",
-     "do_ar": "اسألي ضيفتك: ماذا تحب أن تشرب؟"
+     "do_m": "Ask your guest what he wants to drink.",
+     "do_ar": "اسألي ضيفتك: ماذا تحب أن تشرب؟",
+     "do_ar_m": "اسأل ضيفك: ماذا يحب أن يشرب؟"
     },
     {
      "ar": "هل أنتِ جائعة؟",
+     "ar_m": "هل أنتَ جائع؟",
      "q": "Are you hungry?",
      "a": [
       "Yes, I am!",
       "No, I'm OK, thanks."
      ],
      "do": "Ask your friend if she is hungry.",
-     "do_ar": "اسألي صديقتك: هل هي جائعة؟"
+     "do_m": "Ask your friend if he is hungry.",
+     "do_ar": "اسألي صديقتك: هل هي جائعة؟",
+     "do_ar_m": "اسأل صديقك: هل هو جائع؟"
     },
     {
      "talk": true,
      "ar": "ضيفة في بيتكم.",
+     "ar_m": "ضيف في بيتكم.",
      "q": "A guest is at your home.",
      "steps": [
       "Say welcome.",
@@ -466,7 +565,8 @@
       "Sunday."
      ],
      "do": "Ask your friend what day it is.",
-     "do_ar": "اسألي صديقتك عن اليوم."
+     "do_ar": "اسألي صديقتك عن اليوم.",
+     "do_ar_m": "اسأل صديقك عن اليوم."
     },
     {
      "ar": "كم الساعة؟",
@@ -476,7 +576,8 @@
       "It's half past seven."
      ],
      "do": "Ask your friend about the time.",
-     "do_ar": "اسألي صديقتك عن الساعة."
+     "do_ar": "اسألي صديقتك عن الساعة.",
+     "do_ar_m": "اسأل صديقك عن الساعة."
     },
     {
      "ar": "متى العطلة الأسبوعية؟",
@@ -486,11 +587,13 @@
       "On Friday and Saturday."
      ],
      "do": "Ask your friend when the weekend is.",
-     "do_ar": "اسألي صديقتك: متى العطلة الأسبوعية؟"
+     "do_ar": "اسألي صديقتك: متى العطلة الأسبوعية؟",
+     "do_ar_m": "اسأل صديقك: متى العطلة الأسبوعية؟"
     },
     {
      "talk": true,
      "ar": "اتفقي مع صديقتك على مكالمة.",
+     "ar_m": "اتفق مع صديقك على مكالمة.",
      "q": "Plan a video call with a friend.",
      "steps": [
       "Say the day.",
@@ -513,16 +616,20 @@
    "cards": [
     {
      "ar": "لم تفهمي كلام المعلمة.",
+     "ar_m": "لم تفهم كلام المعلم.",
      "q": "Do you understand?",
      "a": [
       "Sorry, I don't understand.",
       "Yes, I do."
      ],
      "do": "Ask your classmate if she understands.",
-     "do_ar": "اسألي زميلتك: هل فهمتِ؟"
+     "do_m": "Ask your classmate if he understands.",
+     "do_ar": "اسألي زميلتك: هل فهمتِ؟",
+     "do_ar_m": "اسأل زميلك: هل فهمتَ؟"
     },
     {
      "ar": "المعلمة تتكلم بسرعة.",
+     "ar_m": "المعلم يتكلم بسرعة.",
      "q": "Your teacher speaks very fast.",
      "a": [
       "Slowly, please.",
@@ -531,6 +638,7 @@
     },
     {
      "ar": "لا تعرفين كلمة بالإنجليزية.",
+     "ar_m": "لا تعرف كلمة بالإنجليزية.",
      "q": "You don't know a word in English.",
      "a": [
       "How do you say ___ in English?",
@@ -541,11 +649,17 @@
     {
      "talk": true,
      "ar": "سألتك المعلمة سؤالًا.",
+     "ar_m": "سألك المعلم سؤالًا.",
      "q": "Your teacher asks you a question.",
      "steps": [
       "Say sorry.",
       "Say you don't understand.",
       "Ask her to say it again."
+     ],
+     "steps_m": [
+      "Say sorry.",
+      "Say you don't understand.",
+      "Ask him to say it again."
      ],
      "a": [
       [
@@ -563,23 +677,29 @@
    "cards": [
     {
      "ar": "كيف تشعرين اليوم؟",
+     "ar_m": "كيف تشعر اليوم؟",
      "q": "How do you feel today?",
      "a": [
       "I'm happy.",
       "I'm tired."
      ],
      "do": "Ask your friend how she feels today.",
-     "do_ar": "اسألي صديقتك عن شعورها اليوم."
+     "do_m": "Ask your friend how he feels today.",
+     "do_ar": "اسألي صديقتك عن شعورها اليوم.",
+     "do_ar_m": "اسأل صديقك عن شعوره اليوم."
     },
     {
      "ar": "صديقتك تبدو متعبة.",
+     "ar_m": "صديقك يبدو متعبًا.",
      "q": "Are you OK?",
      "a": [
       "Yes, I'm OK.",
       "No, I'm tired."
      ],
      "do": "Your friend looks tired. Ask if she is OK.",
-     "do_ar": "صديقتك تبدو متعبة. اسأليها: هل هي بخير؟"
+     "do_m": "Your friend looks tired. Ask if he is OK.",
+     "do_ar": "صديقتك تبدو متعبة. اسأليها: هل هي بخير؟",
+     "do_ar_m": "صديقك يبدو متعبًا. اسأله: هل هو بخير؟"
     },
     {
      "ar": "بعد الاختبار.",
@@ -589,11 +709,13 @@
       "It was hard."
      ],
      "do": "Ask your friend about the test.",
-     "do_ar": "اسألي صديقتك عن الاختبار."
+     "do_ar": "اسألي صديقتك عن الاختبار.",
+     "do_ar_m": "اسأل صديقك عن الاختبار."
     },
     {
      "talk": true,
      "ar": "اتصلت بكِ جدتك.",
+     "ar_m": "اتصلت بكَ جدتك.",
      "q": "Your grandmother calls you.",
      "steps": [
       "Say hello.",
@@ -616,13 +738,16 @@
    "cards": [
     {
      "ar": "هل تحبين الشوكولاتة؟",
+     "ar_m": "هل تحب الشوكولاتة؟",
      "q": "Do you like chocolate?",
      "a": [
       "Yes, I do!",
       "No, I don't."
      ],
      "do": "Ask your friend if she likes chocolate.",
-     "do_ar": "اسألي صديقتك: هل تحب الشوكولاتة؟"
+     "do_m": "Ask your friend if he likes chocolate.",
+     "do_ar": "اسألي صديقتك: هل تحب الشوكولاتة؟",
+     "do_ar_m": "اسأل صديقك: هل يحب الشوكولاتة؟"
     },
     {
      "ar": "ما لونك المفضل؟",
@@ -632,22 +757,29 @@
       "My favorite color is ___."
      ],
      "ex": "pink · blue · green",
+     "ex_m": "blue · green · black",
      "do": "Ask your friend about her favorite color.",
-     "do_ar": "اسألي صديقتك عن لونها المفضل."
+     "do_m": "Ask your friend about his favorite color.",
+     "do_ar": "اسألي صديقتك عن لونها المفضل.",
+     "do_ar_m": "اسأل صديقك عن لونه المفضل."
     },
     {
      "ar": "هل تحبين الرياضيات؟",
+     "ar_m": "هل تحب الرياضيات؟",
      "q": "Do you like math?",
      "a": [
       "Yes, I love math!",
       "No, I don't like math."
      ],
      "do": "Ask your friend if she likes math.",
-     "do_ar": "اسألي صديقتك: هل تحب الرياضيات؟"
+     "do_m": "Ask your friend if he likes math.",
+     "do_ar": "اسألي صديقتك: هل تحب الرياضيات؟",
+     "do_ar_m": "اسأل صديقك: هل يحب الرياضيات؟"
     },
     {
      "talk": true,
      "ar": "أخبري صديقتك بما تحبين.",
+     "ar_m": "أخبر صديقك بما تحب.",
      "q": "Tell a friend what you like.",
      "steps": [
       "Say one food you like.",
@@ -658,6 +790,13 @@
       [
        "I like pizza.",
        "I like pink.",
+       "I don't like coffee."
+      ]
+     ],
+     "a_m": [
+      [
+       "I like pizza.",
+       "I like blue.",
        "I don't like coffee."
       ]
      ]
