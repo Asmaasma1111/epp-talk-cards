@@ -11,7 +11,7 @@ const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
 const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://asmaasma1111.github.io/epp-talk-cards/' }, window.EPP_CONFIG || {});
 const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
-const APP_VERSION = 'v14';   // shown in feedback rows; keep in step with sw.js
+const APP_VERSION = 'v15';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
@@ -112,7 +112,7 @@ const forWho = c => (c && c.m && isBoy() ? { ...c, ...c.m } : c);
 function defaults() {
   return {
     app: 'epp-talk-cards', v: 1,
-    sid: uuid(),                                  // this phone; the teacher's Sheet matches it, or the name + class
+    sid: uuid(),                                  // this device; the teacher's Sheet matches it, or the name + class
     setup: 'welcome',                             // welcome -> about -> start -> done
     me: { name: '', email: '', cls: '', solo: true, joined: false, who: '' },   // who: 'girl' | 'boy' (palette + Arabic wording)
     level: LEVELS[0] ? LEVELS[0].id : 'pre-a1',   // current level: new cards come from here
@@ -597,7 +597,7 @@ const SFX = {
 };
 function speechDelay(min = 0) { return Math.max(min, Math.max(0, SFX.busyUntil - performance.now()) + 250); }
 
-/* ---------- her recordings, kept on this phone only (IndexedDB), never sent ---------- */
+/* ---------- her recordings, kept on this device only (IndexedDB), never sent ---------- */
 // Dr. Asma, 8 Oct 2026: students can go back and hear their answers. Only the length goes to the teacher.
 const REC_KEEP = 300;            // the newest 300 recordings stay; older ones are removed automatically
 const RecStore = {
@@ -637,7 +637,7 @@ async function keepRecording(cardId, blob, secs) {
     const data = await blob.arrayBuffer();     // stored as bytes: works in every browser's storage
     await RecStore.add({ id: uuid(), ts: nowTs(), day: today(), card: cardId, level: c.level, set: c.set,
                          kind: c.kind, q: recText(c), secs: Math.round(secs * 10) / 10, mime: blob.type || 'audio/mp4', data });
-    if (!st.recNoted) { st.recNoted = true; save(); toast('Saved in My recordings, on this phone only.'); }
+    if (!st.recNoted) { st.recNoted = true; save(); toast('Saved in My recordings, on this device only.'); }
   } catch (e) {
     if (!keepRecording.warned) { keepRecording.warned = true; toast('This browser cannot keep recordings, but you can still listen right away.'); }
   }
@@ -1547,13 +1547,13 @@ async function loadClasses() {
   } catch (e) {}
   return null;
 }
-// Her whole progress for the teacher's Sheet (not this phone's id or her name: the Sheet has those already).
+// Her whole progress for the teacher's Sheet (not this device's id or her name: the Sheet has those already).
 function stateForSheet() {
   const { sid, me, setup, recNoted, tipDone, ...rest } = st;
   return JSON.stringify(rest);
 }
 const hasProgress = () => Object.keys(st.cards).length > 0 || st.stars.total > 0 || st.passed.length > 0;
-// Progress stored in the Sheet comes back onto this phone (keeping this phone's id and the name she just typed).
+// Progress stored in the Sheet comes back onto this device (keeping this device's id and the name she just typed).
 function restoreState(text) {
   let obj;
   try { obj = JSON.parse(text); } catch (e) { return false; }
@@ -1572,7 +1572,7 @@ const Sync = {
   busy: false, status: '',                // '' | ok | wait | class
   canSend() { return !!CONFIG.apiUrl && !st.me.solo && !!st.me.cls; },
   queue(ev) { if (!this.canSend()) return; const box = readOutbox(); box.push(ev); writeOutbox(box); },
-  // restore: this phone has no progress yet, so ask for the progress the Sheet keeps for her. True = it came back.
+  // restore: this device has no progress yet, so ask for the progress the Sheet keeps for her. True = it came back.
   async join(restore = false) {
     if (!this.canSend()) return false;
     let back = false;
@@ -1618,7 +1618,7 @@ function renderSync() {
   el.textContent = `${isOtherClass(st.me.cls) ? gradeLabel(st.me.cls) : st.me.cls} · Practice saved ✓`; el.classList.add('ok');
 }
 
-/* ---------- feedback: a short message to the teacher, queued on this phone until it is sent ---------- */
+/* ---------- feedback: a short message to the teacher, queued on this device until it is sent ---------- */
 let fbKind = 'other';
 function readFb() { try { const a = JSON.parse(lsGet(KEY.feedback) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } }
 function writeFb(a) { lsSet(KEY.feedback, JSON.stringify(a.slice(-50))); }
@@ -1703,7 +1703,7 @@ function renderSettings() {
         ${online ? '<select id="sClass" class="input" data-grade="sGrade"><option>Loading</option></select>' : '<p class="sub">Practicing on my own (no class list yet)</p>'}</div>
       <div class="p-row col" hidden><label for="sGrade">Your grade<span class="sub">Only your grade: the app never asks which school</span></label><select id="sGrade" class="input"></select></div>
       <div class="p-row"><span>I am a<span class="sub">The colours and the Arabic wording</span></span>${seg('who', [['girl', 'Girl'], ['boy', 'Boy']], st.me.who)}</div>
-      <div class="p-row"><span class="sub">Speak Cards counts your practice: minutes, cards and stars. Your voice stays on this phone, and recording is optional.</span>
+      <div class="p-row"><span class="sub">Speak Cards counts your practice: minutes, cards and stars. Your voice stays on this device, and recording is optional.</span>
         <button class="p-btn primary" data-act="details">Save details</button></div>
     </div>
     <div class="p-group">
@@ -1718,11 +1718,11 @@ function renderSettings() {
         <div class="step"><button class="p-btn" data-step="-1" aria-label="Fewer">−</button><output id="sNew">${s.newPerDay}</output><button class="p-btn" data-step="1" aria-label="More">+</button></div></div>
     </div>
     <div class="p-group">
-      <div class="p-row"><span>My recordings<span class="sub">Your answers, kept on this phone only (the newest ${REC_KEEP})</span></span>
+      <div class="p-row"><span>My recordings<span class="sub">Your answers, kept on this device only (the newest ${REC_KEEP})</span></span>
         <button class="p-btn" data-act="recs">Open</button></div>
     </div>
     <div class="p-group">
-      <div class="p-row"><span>Your progress<span class="sub">Your progress saves itself after every card. Keep a copy in a file, or move it to a new phone.</span></span></div>
+      <div class="p-row"><span>Your progress<span class="sub">Your progress saves itself after every card. Keep a copy in a file, or move it to a new device.</span></span></div>
       <div class="p-row"><div class="btns">
         <button class="p-btn" data-act="backup">Save progress to a file</button>
         <button class="p-btn" data-act="restore">Restore from a file</button>
@@ -1764,7 +1764,7 @@ function onSettingsClick(e) {
     case 'feedback': openFeedback(); break;
     case 'restore': $('#sFile').click(); break;
     case 'reset':
-      if (confirm('Reset all your progress? Your cards, stars and levels on this phone will be deleted.') && confirm('Are you sure? This cannot be undone.')) {
+      if (confirm('Reset all your progress? Your cards, stars and levels on this device will be deleted.') && confirm('Are you sure? This cannot be undone.')) {
         [KEY.state, KEY.outbox, KEY.classes].forEach(lsDel);
         load(); applySize(); applyWho(); toast('Progress has been reset.'); renderHome();
       }
@@ -1804,7 +1804,7 @@ async function restore(file) {
   try {
     const obj = JSON.parse(await file.text());
     if (!obj || obj.app !== 'epp-talk-cards' || !obj.state || typeof obj.state.cards !== 'object') throw new Error('bad');
-    if (!confirm('Replace the progress on this phone with this file?')) return;
+    if (!confirm('Replace the progress on this device with this file?')) return;
     st = merge(obj.state); st.setup = 'done'; save(); applySize(); applyWho();
     if (Array.isArray(obj.outbox)) {
       const have = new Set(readOutbox().map(e => e.id));
@@ -1814,7 +1814,7 @@ async function restore(file) {
   } catch (e) { toast('That file is not a Speak Cards progress file.'); }
 }
 
-/* ---------- My recordings: her own answers, newest first, kept on this phone ---------- */
+/* ---------- My recordings: her own answers, newest first, kept on this device ---------- */
 let recPlayer = null, recUrl = null;
 function stopRecPlay() {
   if (recPlayer) { try { recPlayer.pause(); } catch (e) {} recPlayer = null; }
@@ -1849,7 +1849,7 @@ async function onRecsClick(e) {
   const b = e.target.closest('button'); if (!b) return;
   if (b.dataset.go) { stopRecPlay(); return renderHome(); }
   if (b.id === 'recClear') {
-    if (confirm('Delete all your recordings on this phone?')) { stopRecPlay(); try { await RecStore.clear(); } catch (err) {} renderRecs(); }
+    if (confirm('Delete all your recordings on this device?')) { stopRecPlay(); try { await RecStore.clear(); } catch (err) {} renderRecs(); }
     return;
   }
   if (b.dataset.del) { stopRecPlay(); try { await RecStore.del(b.dataset.del); } catch (err) {} return renderRecs(); }

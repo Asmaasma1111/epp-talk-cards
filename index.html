@@ -81,7 +81,7 @@
       <input id="fName" aria-label="Name" class="input" type="text" maxlength="60" autocomplete="name" autocapitalize="words" required></label>
     <label class="field"><span>Email (optional) <span class="ar" lang="ar" dir="rtl">البريد الإلكتروني (اختياري)</span></span>
       <input id="fEmail" aria-label="Email" class="input" type="email" maxlength="80" autocomplete="email" autocapitalize="none" inputmode="email" spellcheck="false">
-      <span class="hint-line">Only to get your progress back on a new phone. <span class="ar" lang="ar" dir="rtl">فقط لاستعادة تقدّمك على هاتف جديد.</span></span></label>
+      <span class="hint-line">Only to get your progress back on a new device. <span class="ar" lang="ar" dir="rtl">فقط لاستعادة تقدّمك على جهاز جديد.</span></span></label>
     <div class="field" id="classField">
       <label for="fClass"><span>Class <span class="ar" lang="ar" dir="rtl">الصف</span></span></label>
       <select id="fClass" aria-label="Class" class="input" data-grade="fGrade"></select>
@@ -93,8 +93,8 @@
       <p class="hint-line">Only your grade: the app never asks which school you are from.</p>
     </div>
     <div class="privacy">
-      <p>Speak Cards counts your practice: minutes, cards and stars. Your voice stays on your phone, and recording is optional.</p>
-      <p class="ar" lang="ar" dir="rtl">يحسب التطبيق تدريبك: الدقائق والبطاقات والنجوم. صوتك يبقى على هاتفك، والتسجيل اختياري.</p>
+      <p>Speak Cards counts your practice: minutes, cards and stars. Your voice stays on your device, and recording is optional.</p>
+      <p class="ar" lang="ar" dir="rtl">يحسب التطبيق تدريبك: الدقائق والبطاقات والنجوم. صوتك يبقى على جهازك، والتسجيل اختياري.</p>
       <p class="privacy-link"><a href="privacy.html" target="_blank" rel="noopener">Privacy policy · <span lang="ar" dir="rtl">سياسة الخصوصية</span></a></p>
     </div>
     <p class="form-error" id="aboutError" role="alert"></p>
@@ -218,11 +218,11 @@
   </div>
 </section>
 
-<!-- My recordings (kept on this phone only) -->
+<!-- My recordings (kept on this device only) -->
 <section id="recs" class="screen scroll" hidden>
   <div class="wrap">
     <div class="head-row"><button class="icon-btn back-btn" data-go="home" aria-label="Home"><svg aria-hidden="true"><use href="#i-close"/></svg></button><h1 class="title">My recordings</h1></div>
-    <p class="p-sum">Listen to your own answers. They stay on this phone and are never sent.</p>
+    <p class="p-sum">Listen to your own answers. They stay on this device and are never sent.</p>
     <div id="recList" class="rec-list"></div>
     <button id="recClear" class="p-btn danger" hidden>Delete all recordings</button>
   </div>
