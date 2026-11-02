@@ -77,10 +77,11 @@
         <button type="button" class="who girl" data-who="girl" aria-pressed="false">Girl <span class="ar" lang="ar">بنت</span></button>
         <button type="button" class="who boy" data-who="boy" aria-pressed="false">Boy <span class="ar" lang="ar">ولد</span></button>
       </div></div>
-    <label class="field"><span>Full name <span class="ar" lang="ar" dir="rtl">الاسم الكامل</span></span>
-      <input id="fName" aria-label="Full name" class="input" type="text" maxlength="60" autocomplete="name" autocapitalize="words" required></label>
-    <label class="field"><span>Email <span class="ar" lang="ar" dir="rtl">البريد الإلكتروني</span></span>
-      <input id="fEmail" aria-label="Email" class="input" type="email" maxlength="80" autocomplete="email" autocapitalize="none" inputmode="email" spellcheck="false"></label>
+    <label class="field"><span>Name <span class="ar" lang="ar" dir="rtl">الاسم</span></span>
+      <input id="fName" aria-label="Name" class="input" type="text" maxlength="60" autocomplete="name" autocapitalize="words" required></label>
+    <label class="field"><span>Email (optional) <span class="ar" lang="ar" dir="rtl">البريد الإلكتروني (اختياري)</span></span>
+      <input id="fEmail" aria-label="Email" class="input" type="email" maxlength="80" autocomplete="email" autocapitalize="none" inputmode="email" spellcheck="false">
+      <span class="hint-line">Only to get your progress back on a new phone. <span class="ar" lang="ar" dir="rtl">فقط لاستعادة تقدّمك على هاتف جديد.</span></span></label>
     <div class="field" id="classField">
       <label for="fClass"><span>Class <span class="ar" lang="ar" dir="rtl">الصف</span></span></label>
       <select id="fClass" aria-label="Class" class="input" data-grade="fGrade"></select>
@@ -89,12 +90,11 @@
     <div class="field" id="gradeField" hidden>
       <label for="fGrade"><span>Your grade <span class="ar" lang="ar" dir="rtl">صفّك الدراسي</span></span></label>
       <select id="fGrade" aria-label="Grade" class="input"></select>
-      <p class="hint-line">Only your grade: the app never asks which school you are from. Your practice numbers go to Dr. Asma Khattala, who runs Speak Cards.</p>
+      <p class="hint-line">Only your grade: the app never asks which school you are from.</p>
     </div>
     <div class="privacy">
-      <p>Your name, email, class and practice numbers go to your teacher. Your recordings stay on your phone and are never sent.</p>
-      <p class="ar f" lang="ar" dir="rtl">يصل اسمك وبريدك وصفّك وأرقام تدريبك إلى معلمتك. تسجيلات صوتك تبقى على هاتفك ولا تُرسل أبدًا.</p>
-      <p class="ar m" lang="ar" dir="rtl">يصل اسمك وبريدك وصفّك وأرقام تدريبك إلى معلمك. تسجيلات صوتك تبقى على هاتفك ولا تُرسل أبدًا.</p>
+      <p>Speak Cards counts your practice: minutes, cards and stars. Your voice stays on your phone, and recording is optional.</p>
+      <p class="ar" lang="ar" dir="rtl">يحسب التطبيق تدريبك: الدقائق والبطاقات والنجوم. صوتك يبقى على هاتفك، والتسجيل اختياري.</p>
       <p class="privacy-link"><a href="privacy.html" target="_blank" rel="noopener">Privacy policy · <span lang="ar" dir="rtl">سياسة الخصوصية</span></a></p>
     </div>
     <p class="form-error" id="aboutError" role="alert"></p>
@@ -282,6 +282,7 @@
   <a href="https://www.linkedin.com/in/dr-asma-khattala/" target="_blank" rel="noopener"><span class="by">Designed by</span> Dr. Asma Khattala</a>
   <div class="foot-btns">
     <button class="share-btn" id="feedbackBtn" aria-label="Send feedback"><svg aria-hidden="true"><use href="#i-chat"/></svg><span class="lbl">Feedback</span></button>
+    <a class="share-btn" id="privacyBtn" href="privacy.html" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-lock"/></svg><span class="lbl">Privacy</span></a>
     <button class="share-btn" id="shareBtn" aria-label="Share Speak Cards"><svg aria-hidden="true"><use href="#i-share"/></svg><span class="lbl">Share</span></button>
   </div>
 </footer>

@@ -11,7 +11,7 @@ const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
 const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://asmaasma1111.github.io/epp-talk-cards/' }, window.EPP_CONFIG || {});
 const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
-const APP_VERSION = 'v12';   // shown in feedback rows; keep in step with sw.js
+const APP_VERSION = 'v13';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
@@ -828,11 +828,11 @@ async function showAbout() {
   if (!list || !list.length) {
     field.hidden = true; $('#aboutBtn').hidden = true;
     note.textContent = '';
-    $('#aboutError').textContent = list ? 'Your teacher has no classes open yet. You can practice on your own and add your class later in Settings.'
+    $('#aboutError').textContent = list ? 'No classes are open yet. You can practice on your own and add your class later in Settings.'
       : 'The class list could not load (no internet?). You can practice on your own now and add your class later in Settings.';
     return;
   }
-  sel.disabled = false; note.textContent = 'Ask your teacher if you cannot find your class.';
+  sel.disabled = false; note.textContent = 'Not in the list? Choose "I\'m from another school".';
   fillClassSelect(sel, st.me.cls, false);
 }
 const cleanName = v => String(v || '').replace(/\s+/g, ' ').trim().slice(0, 60);
@@ -841,10 +841,9 @@ function aboutSubmit(solo) {
   const cls = solo ? '' : chosenClass($('#fClass'));
   const err = $('#aboutError');
   if (aboutWho !== 'girl' && aboutWho !== 'boy') { err.textContent = 'Please tap Girl or Boy first.'; return; }
-  if (name.length < 2) { err.textContent = 'Please write your full name.'; $('#fName').focus(); return; }
+  if (name.length < 2) { err.textContent = 'Please write your name.'; $('#fName').focus(); return; }
   if (email && !emailOk(email)) { err.textContent = 'That email does not look right. Please check it.'; $('#fEmail').focus(); return; }
   if (!solo) {
-    if (!email) { err.textContent = 'Please write your email, so your teacher knows who you are.'; $('#fEmail').focus(); return; }
     if (!cls && $('#fClass').value === '__other') { err.textContent = 'Please choose your grade.'; $('#fGrade').focus(); return; }
     if (!cls) { err.textContent = 'Please choose your class.'; $('#fClass').focus(); return; }
   }
@@ -900,7 +899,7 @@ function renderHome() {
   if (p) {
     $('#prizeFill').style.width = Math.min(100, st.stars.total / p.target * 100) + '%';
     $('#prizeText').innerHTML = st.stars.total >= p.target
-      ? `<b>${p.target} stars!</b> Your prize: ${esc(p.prize)}. Show your teacher.`
+      ? `<b>${p.target} stars!</b> Your prize: ${esc(p.prize)}!`
       : `<b>${st.stars.total} / ${p.target}</b> stars to: ${esc(p.prize)}`;
   }
   // level ladder
@@ -1353,7 +1352,7 @@ function showCelebration(c, then) {
     badge.innerHTML = '<svg class="star" viewBox="0 0 24 24"><use href="#i-star"/></svg>';
     $('#celKicker').textContent = `${c.target} stars!`;
     $('#celTitle').textContent = c.prize;
-    $('#celSub').textContent = 'Show your teacher to get your prize.';
+    $('#celSub').textContent = 'Your prize is waiting for you!';
     btn.textContent = 'Yay!';
   }
   ov.hidden = false;
@@ -1613,10 +1612,10 @@ function renderSync() {
   const box = readOutbox(), n = box.length, answers = box.filter(e => e.t === 'r').length;
   el.className = 'sync';
   if (!CONFIG.apiUrl || st.me.solo || !st.me.cls) { el.textContent = 'Practicing on my own: nothing is sent.'; return; }
-  if (Sync.busy) { el.textContent = 'Sending to your teacher'; return; }
-  if (Sync.status === 'class') { el.textContent = 'Your class is not on your teacher\'s list. Check it in Settings.'; el.classList.add('warn'); return; }
+  if (Sync.busy) { el.textContent = 'Saving your practice'; return; }
+  if (Sync.status === 'class') { el.textContent = 'Your class is not in the list any more. Check it in Settings.'; el.classList.add('warn'); return; }
   if (n) { el.textContent = answers ? `Waiting for internet (${plural(answers, 'answer')} to send)` : 'Waiting for internet'; el.classList.add('wait'); return; }
-  el.textContent = isOtherClass(st.me.cls) ? `${gradeLabel(st.me.cls)} · Sent ✓` : `${st.me.cls} · Sent to your teacher ✓`; el.classList.add('ok');
+  el.textContent = `${isOtherClass(st.me.cls) ? gradeLabel(st.me.cls) : st.me.cls} · Practice saved ✓`; el.classList.add('ok');
 }
 
 /* ---------- feedback: a short message to the teacher, queued on this phone until it is sent ---------- */
@@ -1698,13 +1697,13 @@ function renderSettings() {
     <div class="head-row"><button class="icon-btn back-btn" data-act="close" aria-label="Home"><svg aria-hidden="true"><use href="#i-close"/></svg></button><h1 class="title">Settings</h1></div>
     <p class="p-sum">${learnedCount()} cards learned · ${dueIds().length} due today · ${plural(streak(), 'day')} in a row${DEV ? ` · dev date ${today()}` : ''}</p>
     <div class="p-group">
-      <div class="p-row col"><label for="sName">Full name</label><input id="sName" class="input" maxlength="60" value="${esc(st.me.name)}" autocomplete="name"></div>
-      <div class="p-row col"><label for="sEmail">Email</label><input id="sEmail" class="input" type="email" maxlength="80" value="${esc(st.me.email)}" autocomplete="email" autocapitalize="none" inputmode="email" spellcheck="false"></div>
+      <div class="p-row col"><label for="sName">Name</label><input id="sName" class="input" maxlength="60" value="${esc(st.me.name)}" autocomplete="name"></div>
+      <div class="p-row col"><label for="sEmail">Email (optional)</label><input id="sEmail" class="input" type="email" maxlength="80" value="${esc(st.me.email)}" autocomplete="email" autocapitalize="none" inputmode="email" spellcheck="false"></div>
       <div class="p-row col"><label for="sClass">Class</label>
         ${online ? '<select id="sClass" class="input" data-grade="sGrade"><option>Loading</option></select>' : '<p class="sub">Practicing on my own (no class list yet)</p>'}</div>
       <div class="p-row col" hidden><label for="sGrade">Your grade<span class="sub">Only your grade: the app never asks which school</span></label><select id="sGrade" class="input"></select></div>
       <div class="p-row"><span>I am a<span class="sub">The colours and the Arabic wording</span></span>${seg('who', [['girl', 'Girl'], ['boy', 'Boy']], st.me.who)}</div>
-      <div class="p-row"><span class="sub">Your name, email, class and practice numbers go to your teacher. Your recordings stay on this phone and are never sent.</span>
+      <div class="p-row"><span class="sub">Speak Cards counts your practice: minutes, cards and stars. Your voice stays on this phone, and recording is optional.</span>
         <button class="p-btn primary" data-act="details">Save details</button></div>
     </div>
     <div class="p-group">
@@ -1730,7 +1729,7 @@ function renderSettings() {
       </div></div>
     </div>
     <div class="p-group">
-      <div class="p-row"><span>Feedback<span class="sub">Tell your teacher what works and what does not</span></span>
+      <div class="p-row"><span>Feedback<span class="sub">Tell us what works and what does not</span></span>
         <button class="p-btn" data-act="feedback">Write</button></div>
       <div class="p-row"><span>Privacy policy<span class="sub">What the app keeps, and what it never sends</span></span>
         <a class="p-btn p-link" href="privacy.html" target="_blank" rel="noopener">Read</a></div>
@@ -1779,9 +1778,8 @@ function saveDetails() {
   const solo = !sel || raw === '__solo' || !raw || raw === 'Loading';
   const v = solo ? '' : chosenClass(sel);
   if (!solo && !v) return toast(raw === '__other' ? 'Please choose your grade.' : 'Please choose your class.');
-  if (name.length < 2) return toast('Please write your full name.');
+  if (name.length < 2) return toast('Please write your name.');
   if (email && !emailOk(email)) return toast('That email does not look right. Please check it.');
-  if (!solo && !email) return toast('Please write your email.');
   const changed = name !== st.me.name || email !== st.me.email || (solo ? '' : v) !== st.me.cls || solo !== st.me.solo;
   st.me = { name, email, cls: solo ? '' : v, solo, joined: changed ? false : st.me.joined, who: st.me.who };
   save();

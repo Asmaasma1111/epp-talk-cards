@@ -676,11 +676,16 @@ html[data-who="boy"] .m { display: revert; }
 html[data-who="boy"] .f { display: none; }
 
 /* the footer on narrow phones (2 Nov 2026): the Share button keeps only its icon, so "Designed by" and Feedback fit */
-.site-foot a { display: block; line-height: 56px; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.site-foot > a { display: block; line-height: 56px; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 @media (max-width: 439px) {
   #shareBtn .lbl { display: none; }
   .site-foot { padding-left: calc(var(--safe-l) + 4px); padding-right: calc(var(--safe-r) + 4px); gap: 4px; }
-  .site-foot a { padding: 0 4px; font-size: 13px; white-space: nowrap; line-height: 1.2; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; overflow: visible; }
+  .site-foot > a { padding: 0 4px; font-size: 13px; white-space: nowrap; line-height: 1.2; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; overflow: visible; }
   .site-foot .by { display: block; }
   .site-foot .share-btn { padding: 0 8px; gap: 6px; }
 }
+
+/* 2 Nov 2026: Privacy next to Feedback in the footer; the optional-email hint inside its label */
+a.share-btn { text-decoration: none; }
+.field .hint-line { font-weight: 400; }
+@media (max-width: 439px) { .site-foot .share-btn { font-size: 14px; padding: 0 6px; gap: 5px; } }
