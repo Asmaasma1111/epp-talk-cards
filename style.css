@@ -688,4 +688,5 @@ html[data-who="boy"] .f { display: none; }
 /* 2 Nov 2026: Privacy next to Feedback in the footer; the optional-email hint inside its label */
 a.share-btn { text-decoration: none; }
 .field .hint-line { font-weight: 400; }
-@media (max-width: 439px) { .site-foot .share-btn { font-size: 14px; padding: 0 6px; gap: 5px; } }
+@media (max-width: 439px) { .site-foot .share-btn { font-size: 14px; padding: 0 6px; gap: 5px; } .site-foot > a { font-size: 12px; } }
+@media (max-width: 359px) { .site-foot .lbl { display: none; } }
