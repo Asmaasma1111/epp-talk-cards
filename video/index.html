@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Speak Cards · الفيديو التعريفي</title>
+<meta name="description" content="فيديو قصير يشرح تطبيق Speak Cards للتدرّب اليومي على التحدث بالإنجليزية.">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="video.other">
+<meta property="og:title" content="Speak Cards · الفيديو التعريفي">
+<meta property="og:description" content="فيديو قصير يشرح تطبيق Speak Cards للتدرّب اليومي على التحدث بالإنجليزية (3:58).">
+<meta property="og:url" content="https://asmaasma1111.github.io/epp-talk-cards/video/">
+<meta property="og:image" content="https://asmaasma1111.github.io/epp-talk-cards/video/poster-wide.jpg">
+<meta property="og:video" content="https://asmaasma1111.github.io/epp-talk-cards/video/speak-cards-wide.mp4">
+<meta property="og:video:type" content="video/mp4">
+<meta name="theme-color" content="#F6F8FF">
+<link rel="icon" type="image/png" href="../icon-192.png">
+<style>
+  @font-face { font-family: 'Andika'; src: url('../fonts/andika-700.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+  @font-face { font-family: 'Noto Naskh Arabic'; src: url('../fonts/noto-naskh-arabic.woff2') format('woff2'); font-display: swap; }
+  :root { --ink: #2B2340; --muted: #635A7E; --paper: #F6F8FF; --line: #DCD6F7; --sun: #FFD84D; --gum: #FF6FA8; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Noto Naskh Arabic', 'Geeza Pro', serif; font-size: 18px; line-height: 1.8; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 20px 16px 48px; }
+  header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+  header img { width: 56px; height: 56px; border-radius: 16px; border: 3px solid var(--ink); box-shadow: 0 4px 0 var(--ink); }
+  h1 { margin: 0; font-family: 'Andika', sans-serif; font-size: 1.5rem; line-height: 1.2; }
+  header p { margin: 2px 0 0; color: var(--muted); font-size: 1rem; }
+  .player { background: #000; border: 3px solid var(--ink); border-radius: 22px; box-shadow: 0 6px 0 var(--ink); overflow: hidden; }
+  video { display: block; width: 100%; max-height: 82vh; background: #000; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 16px; }
+  .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 99px; border: 2.5px solid var(--ink); background: #fff; color: var(--ink); font: inherit; font-weight: 700; text-decoration: none; box-shadow: 0 3px 0 var(--ink); cursor: pointer; }
+  .btn[aria-pressed="true"] { background: var(--sun); }
+  .note { color: var(--muted); font-size: 1rem; margin: 14px 0 0; }
+  .app { margin-top: 24px; padding: 14px 16px; background: #fff; border: 2.5px solid var(--ink); border-radius: 18px; box-shadow: 0 4px 0 var(--ink); }
+  .app a { color: var(--ink); font-weight: 700; font-family: 'Andika', sans-serif; direction: ltr; unicode-bidi: embed; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="../icon-192.png" alt="">
+    <div><h1>Speak Cards</h1><p>الفيديو التعريفي للطالبات والطلاب · ٣:٥٨</p></div>
+  </header>
+  <div class="player">
+    <video id="v" controls playsinline preload="metadata" poster="poster-wide.jpg">
+      <source id="src" src="speak-cards-wide.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="row" role="group" aria-label="نسخة الفيديو">
+    <button class="btn" id="bWide" aria-pressed="true" type="button">نسخة الشاشة العريضة</button>
+    <button class="btn" id="bTall" aria-pressed="false" type="button">نسخة الهاتف</button>
+  </div>
+  <p class="note">يعمل الفيديو مباشرة في المتصفح. إن توقّف، اضغط على زر التشغيل مرة أخرى.</p>
+  <div class="app">التطبيق: <a href="https://asmaasma1111.github.io/epp-talk-cards/">asmaasma1111.github.io/epp-talk-cards</a></div>
+</div>
+<script>
+  (function () {
+    var v = document.getElementById('v'), s = document.getElementById('src'), bW = document.getElementById('bWide'), bT = document.getElementById('bTall');
+    function pick(wide) {
+      var t = v.currentTime, playing = !v.paused;
+      s.src = wide ? 'speak-cards-wide.mp4' : 'speak-cards.mp4'; v.poster = wide ? 'poster-wide.jpg' : 'poster.jpg';
+      bW.setAttribute('aria-pressed', String(wide)); bT.setAttribute('aria-pressed', String(!wide));
+      v.load(); if (t) v.currentTime = t; if (playing) v.play().catch(function () {});
+    }
+    bW.onclick = function () { pick(true); }; bT.onclick = function () { pick(false); };
+    if (window.matchMedia && matchMedia('(orientation: portrait)').matches && innerWidth < 700) pick(false);
+  })();
+</script>
+</body>
+</html>

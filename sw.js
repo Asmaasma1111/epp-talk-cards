@@ -4,7 +4,7 @@
    Level files, config.js and the voice list are refreshed in the background, so a new set reaches phones
    on the next open without a version bump. */
 const PREFIX = 'epp-talk-cards-';
-const VERSION = PREFIX + 'v15';
+const VERSION = PREFIX + 'v16';
 const LEVEL_FILES = ['pre-a1', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'].map(l => `levels/${l}.json`);
 const FILES = [
   './',
@@ -57,6 +57,7 @@ self.addEventListener('fetch', e => {
   const url = new URL(req.url);
   if (url.origin !== location.origin) return;
   if (!url.pathname.startsWith(new URL(self.registration.scope).pathname)) return;
+  if (url.pathname.indexOf('/video/') !== -1) return;   // the concept video page and its mp4s: never cached, plain network
   const put = res => { if (res.ok) { const copy = res.clone(); caches.open(VERSION).then(c => c.put(req, copy)); } return res; };
   // On a local test server, fetch fresh files first so edits show up; fall back to the cache offline.
   if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') {
