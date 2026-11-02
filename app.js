@@ -11,7 +11,7 @@ const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
 const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://asmaasma1111.github.io/epp-talk-cards/' }, window.EPP_CONFIG || {});
 const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
-const APP_VERSION = 'v13';   // shown in feedback rows; keep in step with sw.js
+const APP_VERSION = 'v14';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
@@ -748,7 +748,7 @@ function show(name) {
   if (screen !== name) { const el = $('#' + name); if (el) el.scrollTop = 0; }
   screen = name;
   document.body.dataset.screen = name;
-  if ((name === 'home' || name === 'done') && reloadForUpdate.pending) setTimeout(reloadForUpdate, 300);
+  if (reloadForUpdate.pending && name !== 'session' && name !== 'settings') setTimeout(reloadForUpdate, 300);
 }
 function toast(msg) {
   const t = $('#toast'); t.textContent = msg; t.hidden = false;
@@ -1960,7 +1960,10 @@ function wire() {
 
 function reloadForUpdate() {
   if (!reloadForUpdate.pending) return;
-  if (S || !$('#celebrate').hidden || !$('#certificate').hidden || screen === 'settings' || screen === 'about') return;
+  // Never in the middle of a session, a celebration, Settings or a half-typed form. An untouched sign-up form is fine:
+  // 2 Nov 2026, her Chrome sat on an old copy for weeks because 'about' blocked every reload.
+  if (S || !$('#celebrate').hidden || !$('#certificate').hidden || !$('#feedback').hidden || screen === 'settings') return;
+  if (screen === 'about' && (($('#fName').value || '').trim() || ($('#fEmail').value || '').trim())) return;
   location.reload();
 }
 
