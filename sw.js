@@ -1,5 +1,5 @@
 /* Offline cache for Speak Cards by Dr. Asma Khattala (adapted from Maria's Talk Cards sw.js).
-   The app lives at speak-cards.vercel.app (and, until it is switched off, the old GitHub address). Several apps shared
+   The app lives at speak-cards-app.vercel.app (and, until it is switched off, the old GitHub address). Several apps shared
    asmaasma1111.github.io, so this app's caches all start with "epp-talk-cards-" and only
    those are ever deleted. Bump VERSION when app.js, style.css or index.html change.
    Level files, config.js and the voice list are refreshed in the background, so a new set reaches phones
