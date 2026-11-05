@@ -11,7 +11,7 @@ const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
 const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://speak-cards-app.vercel.app/' }, window.EPP_CONFIG || {});
 const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
-const APP_VERSION = 'v18';   // shown in feedback rows; keep in step with sw.js
+const APP_VERSION = 'v19';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
@@ -114,7 +114,8 @@ function defaults() {
     app: 'epp-talk-cards', v: 1,
     sid: uuid(),                                  // this device; the teacher's Sheet matches it, or the name + class
     setup: 'welcome',                             // welcome -> about -> start -> done
-    me: { name: '', email: '', cls: '', solo: true, joined: false, who: '' },   // who: 'girl' | 'boy' (palette + Arabic wording)
+    me: { name: '', email: '', cls: '', solo: true, joined: false, who: '', pin: '', code: '' },   // who: 'girl' | 'boy' (palette + Arabic wording);
+                                                  // pin + code: kept only until the Sheet has them (5 Nov 2026), never sent in the progress
     level: LEVELS[0] ? LEVELS[0].id : 'pre-a1',   // current level: new cards come from here
     open: [],                                     // levels opened by finishing the one before (they stay open)
     passed: [],                                   // set ids that are done
@@ -145,6 +146,7 @@ function merge(s) {
   delete o.me.first; delete o.me.family;
   o.me.name = str(o.me.name, 60); o.me.email = str(o.me.email, 80); o.me.cls = str(o.me.cls, 60);
   o.me.solo = !!o.me.solo; o.me.joined = !!o.me.joined;
+  o.me.pin = /^\d{4}$/.test(String(o.me.pin)) ? String(o.me.pin) : ''; o.me.code = str(o.me.code, 20);
   if (o.me.who !== 'girl' && o.me.who !== 'boy') o.me.who = o.me.name ? 'girl' : '';   // students before 2 Nov 2026 were all girls
   o.stars.total = num(o.stars.total, 1e7); o.stars.today = num(o.stars.today, 1e7); o.stars.day = str(o.stars.day, 10);
   o.lastTs = num(o.lastTs, 1e14); o.bonus = str(o.bonus, 10); o.prize = str(o.prize, 160);
@@ -804,6 +806,14 @@ function chosenClass(sel) {               // the class name to send: a class of 
   if (sel.value === '__other') { const g = document.getElementById(sel.dataset.grade); return g ? g.value : ''; }
   return sel.value;
 }
+// Some classes have a join code (5 Nov 2026): a device the Sheet does not know must type it once.
+const classNeedsCode = name => !!name && (classList || cachedClasses()).some(c => c.name === name && c.needsCode);
+// The class-code field shows for a class that has one, and (in Settings) only when this device still has to prove itself.
+function syncCodeField(sel, wrap) {
+  if (!sel || !wrap) return;
+  const v = chosenClass(sel);
+  wrap.hidden = !(classNeedsCode(v) && (v !== st.me.cls || !st.me.joined));
+}
 function fillClassSelect(sel, current, withSolo) {
   sel.textContent = '';
   const add = (v, t) => { const o = document.createElement('option'); o.value = v; o.textContent = t; sel.append(o); };
@@ -829,6 +839,7 @@ async function showAbout() {
   $('#aboutError').textContent = '';
   show('about');
   const field = $('#classField'), sel = $('#fClass'), note = $('#classNote');
+  $('#fCode').value = ''; $('#fPin').value = ''; $('#codeField').hidden = true; $('#pinField').hidden = true;
   if (!CONFIG.apiUrl) { field.hidden = true; $('#aboutBtn').hidden = true; return; }
   field.hidden = false; $('#aboutBtn').hidden = false;
   sel.disabled = true; sel.textContent = ''; note.textContent = 'Loading your classes';
@@ -843,11 +854,14 @@ async function showAbout() {
   }
   sel.disabled = false; note.textContent = 'Not in the list? Choose "I\'m from another school".';
   fillClassSelect(sel, st.me.cls, false);
+  $('#pinField').hidden = false;
+  syncCodeField(sel, $('#codeField'));
 }
 const cleanName = v => String(v || '').replace(/\s+/g, ' ').trim().slice(0, 60);
 function aboutSubmit(solo) {
   const name = cleanName($('#fName').value), email = cleanEmail($('#fEmail').value);
   const cls = solo ? '' : chosenClass($('#fClass'));
+  const code = solo ? '' : $('#fCode').value.trim().slice(0, 20), pin = solo ? '' : $('#fPin').value.trim();
   const err = $('#aboutError');
   if (aboutWho !== 'girl' && aboutWho !== 'boy') { err.textContent = 'Please tap Girl or Boy first.'; return; }
   if (name.length < 2) { err.textContent = 'Please write your name.'; $('#fName').focus(); return; }
@@ -855,20 +869,24 @@ function aboutSubmit(solo) {
   if (!solo) {
     if (!cls && $('#fClass').value === '__other') { err.textContent = 'Please choose your grade.'; $('#fGrade').focus(); return; }
     if (!cls) { err.textContent = 'Please choose your class.'; $('#fClass').focus(); return; }
+    if (classNeedsCode(cls) && !code) { err.textContent = 'Please type your class code.'; $('#fCode').focus(); return; }
+    if (!/^\d{4}$/.test(pin)) { err.textContent = 'Please choose a 4-digit PIN (numbers only).'; $('#fPin').focus(); return; }
   }
-  st.me = { name, email, cls, solo, joined: false, who: aboutWho };
+  st.me = { name, email, cls, solo, joined: false, who: aboutWho, pin, code };
   st.setup = 'start'; save(); applyWho();
-  if (!solo && !hasProgress()) {
+  if (!solo) {
+    // The Sheet may refuse (wrong class code or PIN, class full): then she stays here and reads why. Offline, she goes on
+    // and the details are sent with her first practice.
     const btn = $('#aboutBtn'), was = btn.textContent;
     btn.disabled = true; btn.textContent = 'One moment';
-    Sync.join(true).then(back => {
+    Sync.join(!hasProgress()).then(res => {
       btn.disabled = false; btn.textContent = was;
-      if (back && st.setup === 'done') { toast(`Welcome back, ${firstName()}! Your progress is back.`); renderHome(); }
+      if (res.error) { st.setup = 'about'; save(); err.textContent = JOIN_MSG[res.error] || 'Your details were not accepted. Please check them.'; return; }
+      if (res.back && st.setup === 'done') { toast(`Welcome back, ${firstName()}! Your progress is back.`); renderHome(); }
       else if (screen === 'about') showSetup();
     });
     return;
   }
-  if (!solo) Sync.join();
   showSetup();
 }
 function chooseStart(id) {
@@ -1548,7 +1566,7 @@ async function loadClasses() {
   try {
     const r = await api({ action: 'classes', sid: st.sid }, 12000);
     if (r && r.ok && Array.isArray(r.classes)) {
-      const list = r.classes.map(c => ({ name: String(c.name || ''), target: Math.max(0, Number(c.target) || 0), prize: String(c.prize || '') })).filter(c => c.name);
+      const list = r.classes.map(c => ({ name: String(c.name || ''), target: Math.max(0, Number(c.target) || 0), prize: String(c.prize || ''), needsCode: !!c.needsCode })).filter(c => c.name);
       lsSet(KEY.classes, JSON.stringify({ at: Date.now(), list }));
       classList = list;
       return list;
@@ -1573,27 +1591,51 @@ function restoreState(text) {
 }
 function snapshot() {
   const lv = LEVEL[st.level], cs = currentSet(st.level);
-  return { name: st.me.name, email: st.me.email, ...nameParts(), cls: st.me.cls, level: lv.code, set: cs ? cs.title : '',
+  return { name: st.me.name, email: st.me.email, ...nameParts(), cls: st.me.cls, pin: st.me.pin, code: st.me.code, level: lv.code, set: cs ? cs.title : '',
            setsDone: setsDone(lv.id), learned: learnedCount(), stars: st.stars.total, streak: streak(),
            levelsOpen: LEVELS.filter(l => levelOpen(l.id)).map(l => l.code).join(' '), snapTs: st.lastTs };
 }
+// Why the Sheet refused her details (join or log). The screens show these words; no teacher is mentioned.
+const JOIN_MSG = {
+  bad_class: 'Your class is not in the list any more. Please choose it again.',
+  bad_code: 'That class code is not right. Check it with your class.',
+  bad_pin: 'That PIN is not right for this name. Try again, or check it on your old device.',
+  pin_locked: 'Too many PIN tries. Please wait an hour and try again.',
+  no_pin: 'This name already has progress on another device. Open Speak Cards there first and choose a PIN.',
+  class_full: 'This class is full. Check the class code with your class.',
+  busy: 'Speak Cards is busy right now. Please try again in a few minutes.',
+  bad_name: 'Please write your full name.', bad_email: 'That email does not look right. Please check it.'
+};
+const SYNC_MSG = {   // the same, as the one line under Home
+  bad_class: 'Your class is not in the list any more. Check it in Settings.',
+  bad_code: 'Your class code is needed. Add it in Settings.',
+  bad_pin: 'Your PIN was not accepted. Type it again in Settings.',
+  pin_locked: 'Too many PIN tries. Wait an hour, then type it again in Settings.',
+  no_pin: 'This name already has progress on another device. Open Speak Cards there first and choose a PIN.',
+  class_full: 'This class is full. Check your class in Settings.'
+};
+const REFUSALS = Object.keys(SYNC_MSG);   // refusals that wait for her, not for the internet
 const Sync = {
-  busy: false, status: '',                // '' | ok | wait | class
+  busy: false, status: '',                // '' | ok | wait | one of REFUSALS
   canSend() { return !!CONFIG.apiUrl && !st.me.solo && !!st.me.cls; },
   queue(ev) { if (!this.canSend()) return; const box = readOutbox(); box.push(ev); writeOutbox(box); },
-  // restore: this device has no progress yet, so ask for the progress the Sheet keeps for her. True = it came back.
+  who() { return { name: st.me.name, email: st.me.email, ...nameParts(), cls: st.me.cls, pin: st.me.pin, code: st.me.code }; },
+  // The Sheet has her details now: the PIN and class code are no longer kept on this device.
+  joined() { if (!st.me.joined || st.me.pin || st.me.code) { st.me.joined = true; st.me.pin = ''; st.me.code = ''; save(); } },
+  // restore: this device has no progress yet, so ask for the progress the Sheet keeps for her.
+  // Returns {ok, back, error}: back = her progress came back; error = why the Sheet refused (null when only offline).
   async join(restore = false) {
-    if (!this.canSend()) return false;
-    let back = false;
+    if (!this.canSend()) return { ok: false, back: false, error: null };
+    let ok = false, back = false, error = null;
     try {
-      const r = await api({ action: 'join', sid: st.sid, name: st.me.name, email: st.me.email, ...nameParts(), cls: st.me.cls, restore: !!restore });
+      const r = await api({ action: 'join', sid: st.sid, ...this.who(), restore: !!restore }, 15000);
       if (r && r.ok) {
-        st.me.joined = true; save(); if (this.status === 'class') this.status = '';
+        ok = true; this.joined(); if (REFUSALS.includes(this.status)) this.status = '';
         if (restore && r.state) back = restoreState(r.state);
-      } else if (r && r.error === 'bad_class') this.status = 'class';
+      } else if (r && r.error) { error = r.error; if (REFUSALS.includes(error)) this.status = error; }
     } catch (e) {}
     renderSync();
-    return back;
+    return { ok, back, error };
   },
   async flush() {
     if (!this.canSend() || this.busy) return renderSync();
@@ -1605,7 +1647,8 @@ const Sync = {
         if (!box.length) break;
         const batch = box.slice(0, BATCH);
         const r = await api({ action: 'log', sid: st.sid, ...snapshot(), state: stateForSheet(), events: batch });
-        if (!r || !r.ok) { this.status = r && r.error === 'bad_class' ? 'class' : 'wait'; break; }
+        if (!r || !r.ok) { this.status = r && REFUSALS.includes(r.error) ? r.error : 'wait'; break; }
+        this.joined();
         const gone = new Set([...(r.saved || []), ...(r.rejected || [])]);
         writeOutbox(readOutbox().filter(e => !gone.has(e.id)));   // removed only after the server confirms them
         this.status = 'ok';
@@ -1622,7 +1665,7 @@ function renderSync() {
   el.className = 'sync';
   if (!CONFIG.apiUrl || st.me.solo || !st.me.cls) { el.textContent = 'Practicing on my own: nothing is sent.'; return; }
   if (Sync.busy) { el.textContent = 'Saving your practice'; return; }
-  if (Sync.status === 'class') { el.textContent = 'Your class is not in the list any more. Check it in Settings.'; el.classList.add('warn'); return; }
+  if (SYNC_MSG[Sync.status]) { el.textContent = SYNC_MSG[Sync.status]; el.classList.add('warn'); return; }
   if (n) { el.textContent = answers ? `Waiting for internet (${plural(answers, 'answer')} to send)` : 'Waiting for internet'; el.classList.add('wait'); return; }
   el.textContent = `${isOtherClass(st.me.cls) ? gradeLabel(st.me.cls) : st.me.cls} · Practice saved ✓`; el.classList.add('ok');
 }
@@ -1711,6 +1754,8 @@ function renderSettings() {
       <div class="p-row col"><label for="sClass">Class</label>
         ${online ? '<select id="sClass" class="input" data-grade="sGrade"><option>Loading</option></select>' : '<p class="sub">Practicing on my own (no class list yet)</p>'}</div>
       <div class="p-row col" hidden><label for="sGrade">Your grade<span class="sub">Only your grade: the app never asks which school</span></label><select id="sGrade" class="input"></select></div>
+      <div class="p-row col" id="sCodeRow" hidden><label for="sCode">Class code<span class="sub">The code your class was given</span></label><input id="sCode" class="input" maxlength="20" autocomplete="off" autocapitalize="characters" spellcheck="false"></div>
+      ${online ? '<div class="p-row col"><label for="sPin">4-digit PIN<span class="sub">Leave empty to keep it. Type 4 digits to change it, or to type it again if it was not accepted.</span></label><input id="sPin" class="input" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="new-password"></div>' : ''}
       <div class="p-row"><span>I am a<span class="sub">The colours and the Arabic wording</span></span>${seg('who', [['girl', 'Girl'], ['boy', 'Boy']], st.me.who)}</div>
       <div class="p-row"><span class="sub">Speak Cards counts your practice: minutes, cards and stars. Your voice stays on this device, and recording is optional.</span>
         <button class="p-btn primary" data-act="details">Save details</button></div>
@@ -1750,7 +1795,7 @@ function renderSettings() {
   </div>`;
   show('settings');
   if (online) {
-    const fill = () => { const sel = $('#sClass'); if (sel) fillClassSelect(sel, st.me.cls, true); };
+    const fill = () => { const sel = $('#sClass'); if (sel) { fillClassSelect(sel, st.me.cls, true); syncCodeField(sel, $('#sCodeRow')); } };
     if (!classList) classList = cachedClasses().length ? cachedClasses() : null;
     fill();
     loadClasses().then(l => { if (l && screen === 'settings') fill(); });
@@ -1789,13 +1834,19 @@ function saveDetails() {
   if (!solo && !v) return toast(raw === '__other' ? 'Please choose your grade.' : 'Please choose your class.');
   if (name.length < 2) return toast('Please write your name.');
   if (email && !emailOk(email)) return toast('That email does not look right. Please check it.');
+  const code = ($('#sCode') ? $('#sCode').value : '').trim().slice(0, 20), pin = ($('#sPin') ? $('#sPin').value : '').trim();
+  if (!solo && pin && !/^\d{4}$/.test(pin)) return toast('A PIN is 4 digits (numbers only).');
+  if (!solo && classNeedsCode(v) && (v !== st.me.cls || !st.me.joined) && !code) return toast('Please type the class code.');
   const changed = name !== st.me.name || email !== st.me.email || (solo ? '' : v) !== st.me.cls || solo !== st.me.solo;
-  st.me = { name, email, cls: solo ? '' : v, solo, joined: changed ? false : st.me.joined, who: st.me.who };
+  const joined = changed || pin || code ? false : st.me.joined;
+  st.me = { name, email, cls: solo ? '' : v, solo, joined, who: st.me.who, pin: solo ? '' : (pin || st.me.pin), code: solo ? '' : (code || st.me.code) };
   save();
   if (!solo) {
     Sync.status = '';
-    const fresh = !hasProgress();
-    Sync.join(fresh).then(back => { if (back) { toast(`Welcome back, ${firstName()}! Your progress is back.`); renderHome(); } else Sync.flush(); });
+    Sync.join(!hasProgress()).then(res => {
+      if (res.error) { toast(JOIN_MSG[res.error] || 'Your details were not accepted. Please check them.'); renderSync(); return; }
+      if (res.back) { toast(`Welcome back, ${firstName()}! Your progress is back.`); renderHome(); } else Sync.flush();
+    });
   }
   toast(solo ? 'Saved. Practicing on your own: nothing is sent.' : `Saved. Class: ${v}`);
 }
@@ -1940,9 +1991,11 @@ function wire() {
   $('#tipClose').addEventListener('click', () => { st.tipDone = true; save(); $('#homeTip').hidden = true; });
   $('#settings').addEventListener('change', e => {
     if (e.target.id === 'sClass') syncGrade(e.target, st.me.cls);
+    if (e.target.id === 'sClass' || e.target.id === 'sGrade') syncCodeField($('#sClass'), $('#sCodeRow'));
     if (e.target.id === 'sFile' && e.target.files[0]) { restore(e.target.files[0]); e.target.value = ''; }
   });
-  $('#fClass').addEventListener('change', e => { syncGrade(e.target, st.me.cls); $('#aboutError').textContent = ''; });
+  $('#fClass').addEventListener('change', e => { syncGrade(e.target, st.me.cls); syncCodeField(e.target, $('#codeField')); $('#aboutError').textContent = ''; });
+  $('#fGrade').addEventListener('change', () => { syncCodeField($('#fClass'), $('#codeField')); $('#aboutError').textContent = ''; });
   $('#certSave').addEventListener('click', certSave);
   $('#certShare').addEventListener('click', certShare);
   $('#shareBtn').addEventListener('click', shareApp);
