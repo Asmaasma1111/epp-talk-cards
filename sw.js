@@ -1,10 +1,11 @@
 /* Offline cache for Speak Cards by Dr. Asma Khattala (adapted from Maria's Talk Cards sw.js).
-   Several apps share asmaasma1111.github.io, so this app's caches all start with "epp-talk-cards-" and only
+   The app lives at speak-cards.vercel.app (and, until it is switched off, the old GitHub address). Several apps shared
+   asmaasma1111.github.io, so this app's caches all start with "epp-talk-cards-" and only
    those are ever deleted. Bump VERSION when app.js, style.css or index.html change.
    Level files, config.js and the voice list are refreshed in the background, so a new set reaches phones
    on the next open without a version bump. */
 const PREFIX = 'epp-talk-cards-';
-const VERSION = PREFIX + 'v16';
+const VERSION = PREFIX + 'v17';
 const LEVEL_FILES = ['pre-a1', 'a1', 'a2', 'b1', 'b2', 'c1', 'c2'].map(l => `levels/${l}.json`);
 const FILES = [
   './',

@@ -9,9 +9,9 @@
 const $ = (s, r = document) => r.querySelector(s);
 const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
-const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://asmaasma1111.github.io/epp-talk-cards/' }, window.EPP_CONFIG || {});
+const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://speak-cards.vercel.app/' }, window.EPP_CONFIG || {});
 const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
-const APP_VERSION = 'v16';   // shown in feedback rows; keep in step with sw.js
+const APP_VERSION = 'v17';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
@@ -1967,8 +1967,15 @@ function reloadForUpdate() {
   location.reload();
 }
 
+function movedNotice() {              // 5 Nov 2026: the app lives on Vercel now; the old GitHub address only points there
+  if (!/github\.io$/.test(location.hostname)) return;
+  const a = document.createElement('a'); a.className = 'moved'; a.href = CONFIG.appUrl;
+  a.textContent = 'Speak Cards has a new address: speak-cards.vercel.app. Tap to open it, then sign in with the same name to get your progress back.';
+  document.body.prepend(a); document.documentElement.style.setProperty('--brand', '104px');
+}
+
 async function boot() {
-  wire();
+  wire(); movedNotice();
   try {
     const index = await (await fetch('levels/index.json')).json();
     const files = {};
