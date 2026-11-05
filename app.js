@@ -11,7 +11,7 @@ const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
 const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://speak-cards-app.vercel.app/' }, window.EPP_CONFIG || {});
 const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
-const APP_VERSION = 'v17';   // shown in feedback rows; keep in step with sw.js
+const APP_VERSION = 'v18';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
@@ -134,13 +134,22 @@ function merge(s) {
   const d = defaults();
   if (!s || typeof s !== 'object') return d;
   const obj = (v, def) => (v && typeof v === 'object' && !Array.isArray(v) ? v : def);
+  // Progress also comes back from the Sheet and from a file, so every number, text and switch is coerced to its type
+  // here, before any of it reaches the page (5 Nov 2026).
+  const num = (v, max) => { const n = Math.floor(Number(v)); return Number.isFinite(n) && n > 0 ? Math.min(n, max) : 0; };
+  const str = (v, max) => (typeof v === 'string' ? v.slice(0, max) : '');
   const o = { ...d, ...s, app: d.app, me: { ...d.me, ...obj(s.me, {}) }, settings: { ...d.settings, ...obj(s.settings, {}) },
               stars: { ...d.stars, ...obj(s.stars, {}) }, cards: obj(s.cards, {}), active: obj(s.active, {}), certs: obj(s.certs, {}) };
-  ['open', 'passed', 'days'].forEach(k => { if (!Array.isArray(o[k])) o[k] = []; });
+  ['open', 'passed', 'days'].forEach(k => { o[k] = Array.isArray(o[k]) ? o[k].filter(x => typeof x === 'string') : []; });
   if (!o.me.name && (o.me.first || o.me.family)) o.me.name = `${o.me.first || ''} ${o.me.family || ''}`.replace(/\s+/g, ' ').trim();
   delete o.me.first; delete o.me.family;
-  if (typeof o.me.email !== 'string') o.me.email = '';
+  o.me.name = str(o.me.name, 60); o.me.email = str(o.me.email, 80); o.me.cls = str(o.me.cls, 60);
+  o.me.solo = !!o.me.solo; o.me.joined = !!o.me.joined;
   if (o.me.who !== 'girl' && o.me.who !== 'boy') o.me.who = o.me.name ? 'girl' : '';   // students before 2 Nov 2026 were all girls
+  o.stars.total = num(o.stars.total, 1e7); o.stars.today = num(o.stars.today, 1e7); o.stars.day = str(o.stars.day, 10);
+  o.lastTs = num(o.lastTs, 1e14); o.bonus = str(o.bonus, 10); o.prize = str(o.prize, 160);
+  Object.keys(o.active).forEach(k => { o.active[k] = num(o.active[k], 86400); });
+  o.settings.sfx = !!o.settings.sfx;
   if (!/^[A-Za-z0-9-]{8,40}$/.test(String(o.sid))) o.sid = uuid();
   if (!LEVEL[o.level]) o.level = d.level;
   if (!['welcome', 'about', 'start', 'done'].includes(o.setup)) o.setup = 'welcome';
@@ -899,8 +908,8 @@ function renderHome() {
   if (p) {
     $('#prizeFill').style.width = Math.min(100, st.stars.total / p.target * 100) + '%';
     $('#prizeText').innerHTML = st.stars.total >= p.target
-      ? `<b>${p.target} stars!</b> Your prize: ${esc(p.prize)}!`
-      : `<b>${st.stars.total} / ${p.target}</b> stars to: ${esc(p.prize)}`;
+      ? `<b>${esc(p.target)} stars!</b> Your prize: ${esc(p.prize)}!`
+      : `<b>${esc(st.stars.total)} / ${esc(p.target)}</b> stars to: ${esc(p.prize)}`;
   }
   // level ladder
   $('#ladder').innerHTML = LEVELS.map(l => {
@@ -1710,7 +1719,7 @@ function renderSettings() {
       <div class="p-row"><span>Voice<span class="sub">${voiceNote()}</span></span></div>
       <div class="p-row"><span>Voice speed</span>${seg('speed', [['slow', 'Slow'], ['standard', 'Standard'], ['normal', 'Normal']], s.speed)}</div>
       <div class="p-row"><span></span><button class="p-btn" data-act="test">Test voice</button></div>
-      <div class="p-row"><span>Sound effects</span><button class="switch" role="switch" aria-checked="${s.sfx}" data-act="sfx" aria-label="Sound effects"></button></div>
+      <div class="p-row"><span>Sound effects</span><button class="switch" role="switch" aria-checked="${esc(s.sfx)}" data-act="sfx" aria-label="Sound effects"></button></div>
     </div>
     <div class="p-group">
       <div class="p-row"><span>Text size</span>${seg('size', [['S', 'S'], ['M', 'M'], ['L', 'L']], s.size)}</div>
