@@ -11,7 +11,7 @@ const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
 const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://speak-cards-app.vercel.app/' }, window.EPP_CONFIG || {});
 const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
-const APP_VERSION = 'v20';   // shown in feedback rows; keep in step with sw.js
+const APP_VERSION = 'v21';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
@@ -767,8 +767,12 @@ function toast(msg) {
 }
 function applySize() { document.documentElement.dataset.size = st.settings.size; }
 const isBoy = () => st.me.who === 'boy';
-function applyWho() {                       // the palette (style.css html[data-who]) and the Arabic wording (.f / .m)
-  document.documentElement.dataset.who = isBoy() ? 'boy' : 'girl';
+function applyWho() {                       // the palette (style.css html[data-who]) and the Arabic wording (.f / .m / .u)
+  // Before بنت / ولد is chosen the app is neutral (9 Nov 2026): amber palette, neutral wording, the brown app icon.
+  const who = st.me.who === 'boy' || st.me.who === 'girl' ? st.me.who : 'none';
+  document.documentElement.dataset.who = who;
+  const ic = document.querySelector('.welcome-icon');
+  if (ic) ic.src = who === 'none' ? 'img/app-icon-neutral.png' : 'icon-192.png';
   const m = document.querySelector('meta[name="theme-color"]');
   if (m) m.content = getComputedStyle(document.documentElement).getPropertyValue('--cloud').trim() || '#F6F8FF';
 }
