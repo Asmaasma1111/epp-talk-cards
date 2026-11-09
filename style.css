@@ -505,13 +505,13 @@ html[data-who="boy"] {
   --accent: #2B6FD6; --accent-soft: #DCEBFF; --soft: #E8F1FC;
   --shadow: rgba(31, 42, 68, .25);
 }
-/* Before the choice (9 Nov 2026, her request): neither pink nor blue. The school logo's green (#1B5A60) with light
-   tints and a warm sand, until بنت / ولد is tapped in About you; applyWho() sets data-who="none" while st.me.who is
-   empty. The gold "Get started" button (--sun) is shared by all three looks. */
+/* Before the choice (9 Nov 2026, her request): neither pink nor blue. The school logo's green (#1B5A60) for the
+   accents, mint-white tints to sit with the mint welcome icon she chose, and a warm sand, until بنت / ولد is tapped in
+   About you; applyWho() sets data-who="none" while st.me.who is empty. The gold "Get started" button (--sun) is shared. */
 html[data-who="none"] {
-  --gum: #1B5A60; --gum-rgb: 27, 90, 96; --lilac: #CDE7E3; --cloud: #EEF6F5; --pinky: #F3E3C3;
+  --gum: #1B5A60; --gum-rgb: 27, 90, 96; --lilac: #CDEFE0; --cloud: #F0FAF5; --pinky: #F3E3C3;
   --ink: #1F2A2B; --muted: #4F6366; --line: #1F2A2B;
-  --accent: #1B5A60; --accent-soft: #D7EAE8; --soft: #E3F1EF;
+  --accent: #1B5A60; --accent-soft: #D5F2E4; --soft: #E3F5EC;
   --shadow: rgba(31, 42, 43, .25);
 }
 body { background: var(--cloud); }
