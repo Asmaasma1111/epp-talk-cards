@@ -11,7 +11,7 @@ const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
 const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://speak-cards-app.vercel.app/' }, window.EPP_CONFIG || {});
 const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
-const APP_VERSION = 'v22';   // shown in feedback rows; keep in step with sw.js
+const APP_VERSION = 'v23';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
@@ -1623,7 +1623,7 @@ const JOIN_MSG = {
   bad_pin: 'That PIN is not right for this name. Try again, or check it on your old device.',
   pin_locked: 'Too many PIN tries. Please wait an hour and try again.',
   no_pin: 'This name already has progress on another device. Open Speak Cards there first and choose a PIN.',
-  class_full: 'This class is full. Check the class code with your class.',
+  class_full: 'This class is full. Please ask in class what to do.',
   busy: 'Speak Cards is busy right now. Please try again in a few minutes.',
   bad_name: 'Please write your full name.', bad_email: 'That email does not look right. Please check it.'
 };
