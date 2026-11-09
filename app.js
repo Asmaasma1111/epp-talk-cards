@@ -11,7 +11,7 @@ const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
 const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://speak-cards-app.vercel.app/' }, window.EPP_CONFIG || {});
 const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
-const APP_VERSION = 'v21';   // shown in feedback rows; keep in step with sw.js
+const APP_VERSION = 'v22';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
@@ -793,10 +793,15 @@ const OTHER_PREFIX = 'Another school · ';
 const isOtherClass = n => String(n || '').startsWith(OTHER_PREFIX);
 const GRADE_AR = { '10th grade': 'الأول الثانوي', '11th grade': 'الثاني الثانوي', '12th grade': 'الثالث الثانوي' };
 const gradeLabel = n => { const g = String(n).slice(OTHER_PREFIX.length); return GRADE_AR[g] ? `${g} · ${GRADE_AR[g]}` : g; };
-const otherClasses = () => (classList || []).filter(c => isOtherClass(c.name));
+// Boys and girls apart (9 Nov 2026, her decision): each class in the Sheet is for girls, for boys, or for any; a
+// student sees only the classes for her choice, and none before choosing. On the About screen the choice being made
+// (aboutWho) counts; everywhere else the saved one.
+const whoOf = sel => (sel && sel.id === 'fClass' ? aboutWho : st.me.who);
+const fitsWho = (c, who) => !c.section || c.section === 'any' || (who === 'boy' ? c.section === 'boys' : who === 'girl' && c.section === 'girls');
+const otherClasses = who => (classList || []).filter(c => isOtherClass(c.name) && fitsWho(c, who));
 function syncGrade(sel, current) {       // show the grade list under a class select when "another school" is chosen
   const g = sel.dataset.grade && document.getElementById(sel.dataset.grade); if (!g) return;
-  const wrap = g.closest('.field, .p-row'), other = otherClasses();
+  const wrap = g.closest('.field, .p-row'), other = otherClasses(whoOf(sel));
   const on = sel.value === '__other' && other.length > 0;
   if (wrap) wrap.hidden = !on;
   if (!on) return;
@@ -821,15 +826,26 @@ function syncCodeField(sel, wrap) {
 function fillClassSelect(sel, current, withSolo) {
   sel.textContent = '';
   const add = (v, t) => { const o = document.createElement('option'); o.value = v; o.textContent = t; sel.append(o); };
-  if (!withSolo) add('', 'Choose your class');
-  const mine = (classList || []).filter(c => !isOtherClass(c.name)), other = otherClasses();
+  const who = whoOf(sel);
+  if (who !== 'girl' && who !== 'boy') {   // no choice yet: the list waits for it
+    add('', 'Tap Girl or Boy first'); sel.value = ''; sel.disabled = true; syncGrade(sel, current); return;
+  }
+  sel.disabled = false;
+  const mine = (classList || []).filter(c => !isOtherClass(c.name) && fitsWho(c, who)), other = otherClasses(who);
+  const keep = !!current && (mine.some(c => c.name === current) || (isOtherClass(current) && other.length > 0));
+  if (!withSolo || (current && !keep && !st.me.solo)) add('', 'Choose your class');   // her class is not for this choice: she must pick again
   mine.forEach(c => add(c.name, c.name));
   if (other.length) add('__other', "I'm from another school");
   if (withSolo) add('__solo', 'On my own (nothing is sent)');
-  if (current && mine.some(c => c.name === current)) sel.value = current;
-  else if (current && isOtherClass(current) && other.length) sel.value = '__other';
+  if (keep && mine.some(c => c.name === current)) sel.value = current;
+  else if (keep) sel.value = '__other';
   else if (withSolo && (!current || st.me.solo)) sel.value = '__solo';
+  else sel.value = '';
   syncGrade(sel, current);
+}
+function aboutClassNote() {
+  const n = $('#classNote'); if (!n) return;
+  n.textContent = aboutWho ? 'Not in the list? Choose "I\'m from another school".' : 'Tap Girl or Boy first to see your classes.';
 }
 const firstName = () => (st.me.name || '').split(' ')[0];
 const nameParts = () => { const w = (st.me.name || '').split(' '); return { first: w[0] || '', family: w.slice(1).join(' ') || w[0] || '' }; };
@@ -856,8 +872,8 @@ async function showAbout() {
       : 'The class list could not load (no internet?). You can practice on your own now and add your class later in Settings.';
     return;
   }
-  sel.disabled = false; note.textContent = 'Not in the list? Choose "I\'m from another school".';
-  fillClassSelect(sel, st.me.cls, false);
+  sel.disabled = false;
+  fillClassSelect(sel, st.me.cls, false); aboutClassNote();
   $('#pinField').hidden = false;
   syncCodeField(sel, $('#codeField'));
 }
@@ -1570,7 +1586,8 @@ async function loadClasses() {
   try {
     const r = await api({ action: 'classes', sid: st.sid }, 12000);
     if (r && r.ok && Array.isArray(r.classes)) {
-      const list = r.classes.map(c => ({ name: String(c.name || ''), target: Math.max(0, Number(c.target) || 0), prize: String(c.prize || ''), needsCode: !!c.needsCode })).filter(c => c.name);
+      const list = r.classes.map(c => ({ name: String(c.name || ''), target: Math.max(0, Number(c.target) || 0), prize: String(c.prize || ''), needsCode: !!c.needsCode,
+                                         section: c.section === 'girls' || c.section === 'boys' ? c.section : 'any' })).filter(c => c.name);
       lsSet(KEY.classes, JSON.stringify({ at: Date.now(), list }));
       classList = list;
       return list;
@@ -1808,7 +1825,11 @@ function renderSettings() {
 function onSettingsClick(e) {
   const b = e.target.closest('button'); if (!b) return;
   const s = st.settings;
-  if (b.dataset.who) { st.me.who = b.dataset.who; save(); applyWho(); b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); return; }
+  if (b.dataset.who) {
+    st.me.who = b.dataset.who; save(); applyWho(); b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    const sel = $('#sClass'); if (sel && classList) { fillClassSelect(sel, chosenClass(sel) || st.me.cls, true); syncCodeField(sel, $('#sCodeRow')); }   // the classes for this choice
+    return;
+  }
   if (b.dataset.speed) { s.speed = b.dataset.speed; save(); b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); return; }
   if (b.dataset.size) { s.size = b.dataset.size; save(); applySize(); b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); return; }
   if (b.dataset.step) { s.newPerDay = Math.min(NEW_MAX, Math.max(1, s.newPerDay + Number(b.dataset.step))); save(); $('#sNew').textContent = s.newPerDay; return; }
@@ -1833,6 +1854,7 @@ function saveDetails() {
   const name = cleanName($('#sName').value), email = cleanEmail($('#sEmail').value);
   const sel = $('#sClass');
   const raw = sel ? sel.value : '__solo';
+  if (sel && raw === '' && sel.options.length > 1) return toast('Please choose your class.');   // her old class is not for this choice
   const solo = !sel || raw === '__solo' || !raw || raw === 'Loading';
   const v = solo ? '' : chosenClass(sel);
   if (!solo && !v) return toast(raw === '__other' ? 'Please choose your grade.' : 'Please choose your class.');
@@ -1963,6 +1985,8 @@ function wire() {
   $('#whoField').addEventListener('click', e => {     // a tap previews the palette at once
     const b = e.target.closest('[data-who]'); if (!b) return;
     aboutWho = b.dataset.who; markWho(); document.documentElement.dataset.who = aboutWho; $('#aboutError').textContent = '';
+    if (classList) { const sel = $('#fClass'); fillClassSelect(sel, chosenClass(sel) || st.me.cls, false); syncCodeField(sel, $('#codeField')); }   // the classes for this choice
+    aboutClassNote();
   });
   $('#soloBtn').addEventListener('click', () => aboutSubmit(true));
   $('#startlvl').addEventListener('click', e => { const b = e.target.closest('[data-start]'); if (b) chooseStart(b.dataset.start); });
