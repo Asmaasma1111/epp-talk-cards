@@ -10,7 +10,7 @@
   "أستطيع أن أكسب وقتًا للتفكير وأحافظ على دوري في النقاش.",
   "أستطيع أن أخمّن الأسباب والنتائج وأتحدث عن مواقف متخيَّلة."
  ],
- "more_coming": true,
+ "more_coming": false,
  "sets": [
   {
    "id": "b2-01",
@@ -234,6 +234,721 @@
       "If I could ..., I'd ...",
       "I'd probably ...",
       "might be a problem at first"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b2-04",
+   "title": "Showing interest",
+   "cards": [
+    {
+     "q": "I just got back from Umrah last night. It was an unforgettable experience!",
+     "a": [
+      "That's wonderful! You must have been thrilled. What was the best moment for you?",
+      "Welcome back! You can't have slept much, then. Was it very crowded, or was it calmer than you expected?"
+     ],
+     "useful": [
+      "You must have been thrilled.",
+      "What was the best moment for you?",
+      "You can't have ... much, then."
+     ],
+     "do": "You got back from Umrah last night, and it was an unforgettable experience. Tell your friend."
+    },
+    {
+     "q": "I didn't get a place on the summer coding program. I really wanted it, too.",
+     "a": [
+      "Oh no, I'm so sorry. I can only imagine how disappointed you must be after all that work. Will you apply again next year?",
+      "Really? They can't have looked at your projects properly! What did they say in the email?"
+     ],
+     "useful": [
+      "I can only imagine how disappointed you must be.",
+      "They can't have ..."
+     ],
+     "do": "You didn't get a place on the summer coding program you wanted. Tell your classmate how you feel."
+    },
+    {
+     "q": "Anyway, that's enough about me. I'm probably boring you.",
+     "a": [
+      "No way! Then what happened? You can't stop the story there!",
+      "Not at all, go on, I'm all ears. Starting university must be such a big change. What was that like?"
+     ],
+     "useful": [
+      "No way! Then what happened?",
+      "Go on, I'm all ears.",
+      "What was that like?"
+     ],
+     "do": "You're telling your cousin about your first week at university. Stop, and say you're probably boring her.",
+     "do_m": "You're telling your cousin about your first week at university. Stop, and say you're probably boring him."
+    },
+    {
+     "talk": true,
+     "q": "Talk for 45 seconds: your grandmother is telling you about her first day as a teacher, years ago.",
+     "q_m": "Talk for 45 seconds: your grandfather is telling you about his first day as a teacher, years ago.",
+     "steps": [
+      "React with interest.",
+      "Ask about one detail.",
+      "Say how you'd have felt.",
+      "Link it to your own experience.",
+      "Encourage her to keep going."
+     ],
+     "steps_m": [
+      "React with interest.",
+      "Ask about one detail.",
+      "Say how you'd have felt.",
+      "Link it to your own experience.",
+      "Encourage him to keep going."
+     ],
+     "a": [
+      [
+       "That's amazing, Grandma! I've never heard this story before.",
+       "How old were you, and which subject did you teach?",
+       "I can only imagine. I'd have been terrified in your place!",
+       "It reminds me of my first school presentation, when my hands were shaking the whole time.",
+       "Go on, I'm all ears. What happened next?"
+      ]
+     ],
+     "a_m": [
+      [
+       "That's amazing, Grandpa! I've never heard this story before.",
+       "How old were you, and which subject did you teach?",
+       "I can only imagine. I'd have been terrified in your place!",
+       "It reminds me of my first school presentation, when my hands were shaking the whole time.",
+       "Go on, I'm all ears. What happened next?"
+      ]
+     ],
+     "useful": [
+      "I can only imagine.",
+      "I'd have been ... in your place!",
+      "It reminds me of ..."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b2-05",
+   "title": "Agreeing with conditions",
+   "cards": [
+    {
+     "q": "Can I borrow your laptop for the whole weekend? Please?",
+     "a": [
+      "Sure, but only if you give it back by Saturday evening. I need it to finish my homework before school on Sunday.",
+      "I'd be happy to, as long as you don't change any of my settings. And please don't eat or drink anywhere near it!"
+     ],
+     "useful": [
+      "Sure, but only if ...",
+      "I'd be happy to, as long as ..."
+     ],
+     "do": "Ask your older sister if you can borrow her laptop for the whole weekend.",
+     "do_m": "Ask your older brother if you can borrow his laptop for the whole weekend."
+    },
+    {
+     "q": "Could you give the whole presentation for us? You're the best speaker in our group.",
+     "a": [
+      "I'm a little hesitant, to be honest, because I have three tests that week. I can't do it unless someone else makes all the slides.",
+      "I'd rather we shared it, so everyone gets a turn. But if nobody else feels ready, I'll do it, as long as you all help me practice."
+     ],
+     "useful": [
+      "I'm a little hesitant, to be honest.",
+      "I can't ... unless ...",
+      "I'd rather we ..."
+     ],
+     "do": "Your group needs one person to give the whole presentation. Ask your classmate to do it, because she's the best speaker.",
+     "do_m": "Your group needs one person to give the whole presentation. Ask your classmate to do it, because he's the best speaker."
+    },
+    {
+     "q": "Could you help me all day at the Eid lunch? I'll need you from nine in the morning.",
+     "a": [
+      "I'd love to help, provided that I can leave by four. My scholarship application is due the morning after, and I still have a lot to do.",
+      "Of course I'll help, but I hope you can understand that I need the afternoon for my application. Could I come early and leave after lunch?"
+     ],
+     "useful": [
+      "I'd love to help, provided that ...",
+      "I hope you can understand that ..."
+     ],
+     "do": "You're hosting the family Eid lunch. Ask your niece to help you all day, starting at nine in the morning.",
+     "do_m": "You're hosting the family Eid lunch. Ask your nephew to help you all day, starting at nine in the morning."
+    },
+    {
+     "talk": true,
+     "q": "Talk for 45 seconds: your school's Ramadan food-basket team asks you to help every evening for two weeks.",
+     "steps": [
+      "Say you'd like to help.",
+      "Give one reservation.",
+      "State your condition.",
+      "Ask them to understand your position.",
+      "Offer an alternative."
+     ],
+     "a": [
+      [
+       "I'd really love to help with the food baskets this Ramadan.",
+       "I'm a little hesitant, though, because I have exams in the second week.",
+       "I can come every evening in the first week, provided that I'm home by ten.",
+       "I hope you can understand that my exams have to come first.",
+       "If it helps, I could design the labels for the baskets at home during the second week."
+      ]
+     ],
+     "useful": [
+      "I'm a little hesitant, though, because ...",
+      "provided that ...",
+      "If it helps, I could ..."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b2-06",
+   "title": "Fixing a misunderstanding",
+   "cards": [
+    {
+     "q": "I waited for you for half an hour! You said the meeting was at three.",
+     "a": [
+      "Oh no, I'm so sorry! I think there's been a misunderstanding. I meant three thirty, but I should have been clearer.",
+      "Really? I thought I'd said three thirty, but maybe I wasn't clear. I'm so sorry you had to wait, and next time I'll send it in a message."
+     ],
+     "useful": [
+      "I think there's been a misunderstanding.",
+      "I should have been clearer.",
+      "I thought I'd said ..."
+     ],
+     "do": "Your classmate said the meeting was at three, but she came at three thirty. Tell her you waited for half an hour.",
+     "do_m": "Your classmate said the meeting was at three, but he came at three thirty. Tell him you waited for half an hour."
+    },
+    {
+     "q": "So you don't want to enter the competition? OK, I'll take your name off the list.",
+     "a": [
+      "Oh, that's not what I meant at all! I said I wasn't sure yet, because the competition is during exam week. Could you keep my name on the list for now?",
+      "Sorry, I think I gave you the wrong idea. Just to clarify, I do want to enter, but I need a few more days to choose my topic."
+     ],
+     "useful": [
+      "That's not what I meant at all!",
+      "I said I wasn't sure yet.",
+      "Just to clarify, ..."
+     ],
+     "do": "You are the teacher. You think a student doesn't want to enter the competition. Tell her you'll take her name off the list.",
+     "do_m": "You are the teacher. You think a student doesn't want to enter the competition. Tell him you'll take his name off the list."
+    },
+    {
+     "q": "Fine, do it your way then.",
+     "a": [
+      "Wait, I think you took my comment the wrong way. I only meant the poster was a little crowded, not that your design was bad.",
+      "So you thought I didn't like your design, right? I'm sorry it came across that way, because I actually love it."
+     ],
+     "useful": [
+      "I think you took my comment the wrong way.",
+      "So you thought ..., right?",
+      "I'm sorry it came across that way."
+     ],
+     "do": "Your friend commented on your poster design, and you feel hurt. Reply, and tell her to do it her way, then.",
+     "do_m": "Your friend commented on your poster design, and you feel hurt. Reply, and tell him to do it his way, then."
+    },
+    {
+     "talk": true,
+     "q": "Talk for 45 seconds: your cousin is hurt because she thinks you didn't invite her to your graduation dinner. The invitation went to her old number.",
+     "q_m": "Talk for 45 seconds: your cousin is hurt because he thinks you didn't invite him to your graduation dinner. The invitation went to his old number.",
+     "steps": [
+      "Notice she's upset, and ask why.",
+      "Check what she understood.",
+      "Explain what actually happened.",
+      "Apologize for the confusion.",
+      "Make sure things are OK between you."
+     ],
+     "steps_m": [
+      "Notice he's upset, and ask why.",
+      "Check what he understood.",
+      "Explain what actually happened.",
+      "Apologize for the confusion.",
+      "Make sure things are OK between you."
+     ],
+     "a": [
+      [
+       "You seem a bit upset. Is everything OK?",
+       "So you thought I hadn't invited you, right?",
+       "I did send you an invitation, but it went to your old number, because I didn't know you'd changed it.",
+       "I'm really sorry for the confusion. I should have called you myself.",
+       "Are we OK? It wouldn't be the same without you."
+      ]
+     ],
+     "useful": [
+      "You seem a bit upset.",
+      "I didn't know you'd changed ...",
+      "I'm really sorry for the confusion."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b2-07",
+   "title": "Reaching a compromise",
+   "cards": [
+    {
+     "q": "I really want to go to Abha for the Eid break, but Mom and Dad prefer Jeddah. What should we do?",
+     "a": [
+      "How about we meet halfway? We could spend the first few days in Abha and then fly to Jeddah for the rest of the break.",
+      "What if we went to Abha this Eid and Jeddah next time? That way, we all get a trip we're excited about."
+     ],
+     "useful": [
+      "How about we meet halfway?",
+      "We could ... and then ...",
+      "That way, we all get ..."
+     ],
+     "do": "You want to go to Abha for the Eid break, but your parents prefer Jeddah. Ask your sister what you should do.",
+     "do_m": "You want to go to Abha for the Eid break, but your parents prefer Jeddah. Ask your brother what you should do."
+    },
+    {
+     "q": "Half of us want to meet online, but the others want the library. What should we do?",
+     "a": [
+      "What if we met at the library once a week and then did the rest online? Personally, I could live with that.",
+      "Online is easier for people who live far away, whereas the library helps us focus. Why don't we try online for two weeks and then decide? Would that work for everyone?"
+     ],
+     "useful": [
+      "What if we ... and then ...?",
+      "I could live with that.",
+      "..., whereas ..."
+     ],
+     "do": "Your study group can't agree whether to meet online or at the library. Ask the group what to do."
+    },
+    {
+     "q": "I really think we should make a video for the science fair, not a model.",
+     "a": [
+      "I see why you like the video idea, while I'd prefer something people can touch. What if we built a small working model and then filmed it?",
+      "If we only made a video, the judges might not see how it works. So how about a model and a short video? That way, we both get what we want."
+     ],
+     "useful": [
+      "I see why you like ..., while I'd prefer ...",
+      "If we only made ..., ... might not ...",
+      "That way, we both get what we want."
+     ],
+     "do": "You want to make a video for the science fair, but your partner prefers a working model. Tell her what you think.",
+     "do_m": "You want to make a video for the science fair, but your partner prefers a working model. Tell him what you think."
+    },
+    {
+     "talk": true,
+     "q": "Talk for 45 seconds: you share a room with your sister. She studies late with the light on, but you need to sleep early.",
+     "q_m": "Talk for 45 seconds: you share a room with your brother. He studies late with the light on, but you need to sleep early.",
+     "steps": [
+      "Explain your side.",
+      "Show you understand hers.",
+      "Suggest a middle ground.",
+      "Say what you're willing to give up.",
+      "Check that she agrees."
+     ],
+     "steps_m": [
+      "Explain your side.",
+      "Show you understand his.",
+      "Suggest a middle ground.",
+      "Say what you're willing to give up.",
+      "Check that he agrees."
+     ],
+     "a": [
+      [
+       "I need to be asleep by ten, because I have to get up early for school.",
+       "But I know you study better at night, and your exams really matter.",
+       "How about we meet halfway? You could switch off the big light at ten and use a desk lamp instead.",
+       "I'm willing to give up my early nights on weekends, so you can study as late as you like then.",
+       "Would that work for you?"
+      ]
+     ],
+     "useful": [
+      "How about we meet halfway?",
+      "I'm willing to give up ...",
+      "Would that work for you?"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b2-08",
+   "title": "Getting a problem fixed",
+   "cards": [
+    {
+     "q": "I'm sorry, but the family suite you booked isn't available, so we've given you two standard rooms.",
+     "a": [
+      "I'm afraid that's not really acceptable. We had booked the suite months ago, and we were supposed to stay together as a family.",
+      "Given that we booked the suite months ago, I'd expect you to find us something similar. The least you could do is give us two rooms next to each other."
+     ],
+     "useful": [
+      "I'm afraid that's not really acceptable.",
+      "Given that ..., I'd expect ...",
+      "The least you could do is ..."
+     ],
+     "do": "You work at a hotel reception. The family suite a guest booked isn't available. Tell her you've given her two standard rooms instead.",
+     "do_m": "You work at a hotel reception. The family suite a guest booked isn't available. Tell him you've given him two standard rooms instead."
+    },
+    {
+     "q": "I'm sorry, but your textbook won't arrive until next week.",
+     "a": [
+      "But it was supposed to arrive two weeks ago, and my course has already started. I'd appreciate it if you could call the supplier today.",
+      "I'm afraid next week is too late, because I've already missed three lessons. I'd be willing to take a digital copy for now, but not to pay for both."
+     ],
+     "useful": [
+      "It was supposed to ...",
+      "I'd appreciate it if you could ..."
+     ],
+     "do": "You work in a bookstore. A customer's textbook is late. Tell her it won't arrive until next week.",
+     "do_m": "You work in a bookstore. A customer's textbook is late. Tell him it won't arrive until next week."
+    },
+    {
+     "q": "I'm sorry, but the repair is only guaranteed for seven days.",
+     "a": [
+      "But it's exactly the same fault, and it came back on day nine. It obviously wasn't fixed properly, so I'd expect you to repair it again for free.",
+      "It's only two days past the guarantee, and it's the same problem. I'd be willing to pay for a new part, but not for the same repair twice."
+     ],
+     "useful": [
+      "It obviously wasn't fixed properly.",
+      "I'd expect you to ...",
+      "I'd be willing to ..., but not ..."
+     ],
+     "do": "You work in a phone repair shop. A customer's phone has broken again. Tell her the repair is only guaranteed for seven days.",
+     "do_m": "You work in a phone repair shop. A customer's phone has broken again. Tell him the repair is only guaranteed for seven days."
+    },
+    {
+     "talk": true,
+     "q": "Talk for 45 seconds: you ordered an engraved Eid gift for your grandmother. It arrived with the wrong name, and the store offers ten percent off.",
+     "steps": [
+      "Say what you ordered and what went wrong.",
+      "Say why it matters.",
+      "Say what you expect.",
+      "Respond to the small discount.",
+      "State what you will and won't accept."
+     ],
+     "a": [
+      [
+       "I ordered an engraved photo frame as an Eid gift for my grandmother, but it arrived with the wrong name on it.",
+       "It was supposed to be a special surprise, and Eid is only three days away.",
+       "Given that the mistake was yours, I'd expect a new frame to be made and delivered before Eid.",
+       "I'm afraid ten percent off isn't really enough, because I can't give her a gift with the wrong name.",
+       "I'd be willing to wait until Thursday, but not until after Eid."
+      ]
+     ],
+     "useful": [
+      "It was supposed to be ...",
+      "Given that ..., I'd expect ...",
+      "I'm afraid ... isn't really enough."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b2-09",
+   "title": "Keeping group work on track",
+   "cards": [
+    {
+     "q": "Did anyone see last night's episode? I couldn't believe the ending!",
+     "a": [
+      "I know, it was amazing! But let's get back to our project, because we've only got twenty minutes left.",
+      "Let's save that for the break, OK? So, where are we so far? We've chosen the topic, but we still haven't decided on the experiment."
+     ],
+     "useful": [
+      "Let's get back to ...",
+      "Let's save that for the break.",
+      "So, where are we so far?"
+     ],
+     "do": "You're in a project meeting with your group, but you want to talk about a series. Ask if anyone saw last night's episode."
+    },
+    {
+     "q": "Great, so we all agree, right? Let's go with my idea.",
+     "a": [
+      "Hold on, we haven't heard from Reem yet. Reem, what do you think? You've been quiet for a while.",
+      "Before we decide, I'd like to hear from everyone. Joud, you haven't said much yet. Is there anything you'd like to add?"
+     ],
+     "a_m": [
+      "Hold on, we haven't heard from Nawaf yet. Nawaf, what do you think? You've been quiet for a while.",
+      "Before we decide, I'd like to hear from everyone. Turki, you haven't said much yet. Is there anything you'd like to add?"
+     ],
+     "useful": [
+      "Hold on, we haven't heard from ... yet.",
+      "Is there anything you'd like to add?"
+     ],
+     "do": "You think everyone in your group agrees with your idea. Say so, and suggest going with it."
+    },
+    {
+     "q": "We still have three ideas, and there are only fifteen minutes left!",
+     "a": [
+      "Don't panic, we've still got time. Let's give each idea two minutes and then vote. Shall we move on to the first one?",
+      "OK, we've already agreed it has to be cheap, which rules out the robot. So the next step is to choose between the other two."
+     ],
+     "useful": [
+      "Shall we move on to ...?",
+      "We've already agreed ...",
+      "So the next step is ..."
+     ],
+     "do": "Your group still has three ideas, but there are only fifteen minutes left. Tell the group you're worried."
+    },
+    {
+     "talk": true,
+     "q": "Talk for 45 seconds: you're leading the first meeting for your class's reading-week display.",
+     "steps": [
+      "Remind everyone of the goal.",
+      "Sum up what's agreed so far.",
+      "Invite a quiet member in.",
+      "Suggest what to focus on next.",
+      "Agree on who does what."
+     ],
+     "a": [
+      [
+       "OK, everyone, our goal is to finish a reading-week display by next Thursday.",
+       "So far, we've agreed on the theme, which is books that changed our lives.",
+       "We haven't heard from Lama yet. Lama, which book would you choose?",
+       "Shall we move on to the design now, since we only have one board?",
+       "So the next step is this: Noura writes the quotes, Sara finds the book covers, and I'll print everything."
+      ]
+     ],
+     "a_m": [
+      [
+       "OK, everyone, our goal is to finish a reading-week display by next Thursday.",
+       "So far, we've agreed on the theme, which is books that changed our lives.",
+       "We haven't heard from Khalid yet. Khalid, which book would you choose?",
+       "Shall we move on to the design now, since we only have one board?",
+       "So the next step is this: Nawaf writes the quotes, Turki finds the book covers, and I'll print everything."
+      ]
+     ],
+     "useful": [
+      "So far, we've agreed on ...",
+      "We haven't heard from ... yet.",
+      "So the next step is ..."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b2-10",
+   "title": "Interviewing someone",
+   "cards": [
+    {
+     "q": "Ramadan was very different when I was young.",
+     "a": [
+      "You mentioned it was different. Could you tell me more about that? For example, what did people use to do when Ramadan came in the summer, before air conditioning?",
+      "Really? In what way? I'd love to know what your family would do in the evenings after iftar."
+     ],
+     "useful": [
+      "You mentioned ... Could you tell me more about that?",
+      "What did people use to do when ...?",
+      "I'd love to know what ..."
+     ],
+     "do": "You're a grandmother, and your grandchild is interviewing you for a school project. Say Ramadan was very different when you were young.",
+     "do_m": "You're a grandfather, and your grandchild is interviewing you for a school project. Say Ramadan was very different when you were young."
+    },
+    {
+     "q": "You know, I almost chose a completely different career.",
+     "a": [
+      "Really? That's fascinating. Why do you think you changed your mind in the end?",
+      "I'd never have guessed that! Could you tell me which career it was, and what made you choose engineering instead?"
+     ],
+     "useful": [
+      "That's fascinating. Why do you think ...?",
+      "Could you tell me which ...?",
+      "I'd never have guessed that!"
+     ],
+     "do": "You're an engineer, and a student is interviewing you for the school magazine. Say you almost chose a completely different career."
+    },
+    {
+     "q": "How did I win? Honestly, it was just luck.",
+     "a": [
+      "I'm sure it wasn't only luck! Could you tell me how you prepared for the competition, and how long it took?",
+      "You're being modest! What was it like when they called your name? How did that make you feel?"
+     ],
+     "useful": [
+      "You're being modest!",
+      "Could you tell me how ...?",
+      "How did that make you feel?"
+     ],
+     "do": "A classmate is interviewing you about your national robotics prize. Give a short, modest answer about how you won."
+    },
+    {
+     "talk": true,
+     "q": "Talk for 45 seconds: interview your grandmother about school when she was your age.",
+     "q_m": "Talk for 45 seconds: interview your grandfather about school when he was your age.",
+     "steps": [
+      "Introduce the topic and thank her.",
+      "Ask your first prepared question.",
+      "Follow up on something surprising.",
+      "Ask her to compare then and now.",
+      "Close the interview."
+     ],
+     "steps_m": [
+      "Introduce the topic and thank him.",
+      "Ask your first prepared question.",
+      "Follow up on something surprising.",
+      "Ask him to compare then and now.",
+      "Close the interview."
+     ],
+     "a": [
+      [
+       "Thank you for helping me with my project, Grandma. I'd like to ask you about your school days.",
+       "What did students use to do at break time when you were my age?",
+       "You mentioned that there were only six students in your class. Could you tell me more about that?",
+       "Do you think school was harder back then than it is now? Why?",
+       "Before we finish, is there anything you'd like to say to students today?"
+      ]
+     ],
+     "a_m": [
+      [
+       "Thank you for helping me with my project, Grandpa. I'd like to ask you about your school days.",
+       "What did students use to do at break time when you were my age?",
+       "You mentioned that there were only six students in your class. Could you tell me more about that?",
+       "Do you think school was harder back then than it is now? Why?",
+       "Before we finish, is there anything you'd like to say to students today?"
+      ]
+     ],
+     "useful": [
+      "You mentioned that ... Could you tell me more about that?",
+      "What did ... use to do ...?",
+      "Before we finish, ..."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b2-11",
+   "title": "Explaining a process simply",
+   "cards": [
+    {
+     "q": "Could you show me how to book my Umrah permit on the app? I'm hopeless with these things.",
+     "a": [
+      "Of course! The whole thing takes about five minutes. First, you open the app and log in, and once you've done that, you choose Umrah and pick a time.",
+      "Sure, it's easier than it looks. Once you've chosen a date, the permit is saved in the app. Make sure you don't close it before the permit appears."
+     ],
+     "useful": [
+      "The whole thing takes about ...",
+      "Once you've done that, ...",
+      "Make sure you don't ..."
+     ],
+     "do": "You're a grandmother who wants to go for Umrah. Ask your grandchild to show you how to book the permit on the app.",
+     "do_m": "You're a grandfather who wants to go for Umrah. Ask your grandchild to show you how to book the permit on the app."
+    },
+    {
+     "q": "How did you grow those crystals for your chemistry project? They look amazing!",
+     "a": [
+      "First, you dissolve as much salt as you can in hot water. Once you've done that, you hang a string in the jar and leave it somewhere quiet for a week.",
+      "The secret is a saturated solution. What that means is the water is holding all the salt it possibly can, so as it cools, the extra salt comes out as crystals."
+     ],
+     "useful": [
+      "Once you've done that, ...",
+      "The secret is ...",
+      "What that means is ..."
+     ],
+     "do": "Your older sister grew amazing crystals for her chemistry project. Ask her how she did it.",
+     "do_m": "Your older brother grew amazing crystals for his chemistry project. Ask him how he did it."
+    },
+    {
+     "q": "I want to help with your scholarship application. How does the website work?",
+     "a": [
+      "Don't worry, it's quite simple. You create an account and fill in your details, and then each document is uploaded as a PDF. Does that make sense so far?",
+      "The main thing is the deadline. Make sure you don't leave it until the last day, because the website gets really slow. Once you've applied, you get a confirmation email."
+     ],
+     "useful": [
+      "Does that make sense so far?",
+      "The main thing is ...",
+      "Make sure you don't ..."
+     ],
+     "do": "You are a parent, and your daughter is applying for a scholarship. Ask her how the website works, because you want to help.",
+     "do_m": "You are a parent, and your son is applying for a scholarship. Ask him how the website works, because you want to help."
+    },
+    {
+     "talk": true,
+     "q": "Talk for 45 seconds: explain to your aunt how to back up her phone photos, so she never loses them.",
+     "q_m": "Talk for 45 seconds: explain to your uncle how to back up his phone photos, so he never loses them.",
+     "steps": [
+      "Say what it does and why it helps.",
+      "Give the first steps.",
+      "Explain one technical word simply.",
+      "Warn about one common mistake.",
+      "Check that she's following."
+     ],
+     "steps_m": [
+      "Say what it does and why it helps.",
+      "Give the first steps.",
+      "Explain one technical word simply.",
+      "Warn about one common mistake.",
+      "Check that he's following."
+     ],
+     "a": [
+      [
+       "A backup keeps a copy of all your photos, so you won't lose them even if your phone breaks.",
+       "First, open the settings in your photos app. Once you've done that, switch on backup.",
+       "Your photos are then stored in the cloud. What that means is they're kept safe on the internet, not just on your phone.",
+       "Make sure you don't delete photos from the cloud to save space, because they might disappear from your phone, too.",
+       "Does that make sense so far?"
+      ]
+     ],
+     "useful": [
+      "What that means is ...",
+      "Make sure you don't ...",
+      "Does that make sense so far?"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "b2-12",
+   "title": "Presenting and taking questions",
+   "cards": [
+    {
+     "q": "But can one family really make a difference to food waste?",
+     "a": [
+      "That's a great question. One family alone can't solve the problem, but if every family in the city made small changes, the difference would be huge.",
+      "Yes, I really think it can. Studies have shown that a large share of food waste happens at home, so that's exactly where change has to start."
+     ],
+     "useful": [
+      "That's a great question.",
+      "If every family ..., the difference would be ...",
+      "Studies have shown that ..."
+     ],
+     "do": "Your classmate has just given a talk on food waste. Ask her if one family can really make a difference.",
+     "do_m": "Your classmate has just given a talk on food waste. Ask him if one family can really make a difference."
+    },
+    {
+     "q": "Where does that figure come from?",
+     "a": [
+      "To answer your question, it comes from a United Nations report on food waste. I've put the link on my last slide, so you can check it yourself.",
+      "It's from a survey we did ourselves. We asked forty families in our neighborhood, so it's a small sample, but the results were still surprising."
+     ],
+     "useful": [
+      "To answer your question, ...",
+      "I've put the link on my last slide.",
+      "It's a small sample, but ..."
+     ],
+     "do": "You are the teacher. A student has just quoted a figure in her presentation. Ask her where it comes from.",
+     "do_m": "You are the teacher. A student has just quoted a figure in his presentation. Ask him where it comes from."
+    },
+    {
+     "q": "How much water does a desalination plant produce in a day?",
+     "a": [
+      "Hmm, I'm not sure, but I'll find out and get back to you. It's an important point, because those plants supply so much of our water.",
+      "I'm afraid that wasn't part of my research, and I don't want to give you the wrong number. Could I send you the answer after class?"
+     ],
+     "useful": [
+      "I'm not sure, but I'll find out and get back to you.",
+      "That wasn't part of my research.",
+      "I don't want to give you the wrong number."
+     ],
+     "do": "Your classmate has just given a talk on saving water. Ask her how much water a desalination plant produces in a day.",
+     "do_m": "Your classmate has just given a talk on saving water. Ask him how much water a desalination plant produces in a day."
+    },
+    {
+     "talk": true,
+     "q": "Talk for 45 seconds: give the opening of your class presentation on saving water at home.",
+     "steps": [
+      "Greet the class and state your topic.",
+      "Say why it matters.",
+      "Outline your main points.",
+      "Give one key point with an example.",
+      "Invite questions."
+     ],
+     "a": [
+      [
+       "Good morning, everyone. Today I'd like to talk about saving water at home.",
+       "This matters because Saudi Arabia has no permanent rivers, so much of our drinking water comes from the sea.",
+       "I've divided my talk into three parts: the kitchen, the bathroom and the garden.",
+       "Small leaks add up. For example, it's estimated that a dripping tap can waste thousands of liters a year.",
+       "If you have any questions, I'll be happy to answer them at the end."
+      ]
+     ],
+     "useful": [
+      "Today I'd like to talk about ...",
+      "I've divided my talk into ... parts.",
+      "it's estimated that ..."
      ]
     }
    ]

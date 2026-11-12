@@ -10,7 +10,7 @@
   "أستطيع أن أسلّم بنقطة ثم أدافع عن رأيي.",
   "أستطيع أن أنضم إلى نقاش بلباقة وأخفّف من حدة رأيي حين لا أكون متأكدة."
  ],
- "more_coming": true,
+ "more_coming": false,
  "sets": [
   {
    "id": "c1-01",
@@ -240,6 +240,688 @@
       "I'd tend to agree.",
       "In my experience, ...",
       "I'd be interested to hear what others think."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c1-04",
+   "title": "Mixed feelings",
+   "cards": [
+    {
+     "q": "How do you feel about your sister moving to Jeddah for university?",
+     "q_m": "How do you feel about your brother moving to Jeddah for university?",
+     "a": [
+      "I've got mixed feelings about it, to be honest. Part of me is really proud of her, but another part of me can't imagine the house without her.",
+      "It's bittersweet, really. She's been my study partner for years, so I'll miss her terribly, although I know it's exactly the right step for her."
+     ],
+     "a_m": [
+      "I've got mixed feelings about it, to be honest. Part of me is really proud of him, but another part of me can't imagine the house without him.",
+      "It's bittersweet, really. He's been my study partner for years, so I'll miss him terribly, although I know it's exactly the right step for him."
+     ],
+     "useful": [
+      "I've got mixed feelings about it.",
+      "Part of me is ..., but another part of me ...",
+      "It's bittersweet, really."
+     ],
+     "do": "Your friend's older sister is moving to Jeddah for university. Ask your friend how she feels about it.",
+     "do_m": "Your friend's older brother is moving to Jeddah for university. Ask your friend how he feels about it."
+    },
+    {
+     "q": "So, are you excited about graduating this year?",
+     "a": [
+      "It hasn't really sunk in yet, to be honest. I'm mildly terrified of the final exams, so I suspect the excitement will only hit me on graduation day.",
+      "Mostly, yes, although I'm a little sad as well. What worries me is saying goodbye to friends I've known since seventh grade, because we'll probably end up at different universities."
+     ],
+     "useful": [
+      "It hasn't really sunk in yet.",
+      "I'm mildly terrified of ...",
+      "What worries me is ..."
+     ],
+     "do": "Your niece is in her last year of school. Ask her if she's excited about graduating.",
+     "do_m": "Your nephew is in his last year of school. Ask him if he's excited about graduating."
+    },
+    {
+     "q": "What do you make of the new schedule? We start earlier, but at least we finish earlier.",
+     "a": [
+      "I'm not entirely comfortable with it, if I'm honest. Finishing early is a real bonus, but at a quarter to seven, most of us are barely awake, let alone ready for physics.",
+      "I'm somewhat torn, actually. I love having the whole afternoon for my research project, but I'm deeply skeptical that anyone learns much at seven in the morning."
+     ],
+     "useful": [
+      "I'm not entirely comfortable with ...",
+      "I'm somewhat torn.",
+      "I'm deeply skeptical that ..."
+     ],
+     "do": "Your school has a new schedule that starts earlier and finishes earlier. Ask your classmate what she makes of it.",
+     "do_m": "Your school has a new schedule that starts earlier and finishes earlier. Ask your classmate what he makes of it."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: tell a close friend how you feel about being accepted into a month-long summer program abroad.",
+     "steps": [
+      "Say what happened.",
+      "Describe what excites you.",
+      "Describe what worries you.",
+      "Say which feeling is stronger now, and why.",
+      "Say what would help you feel more settled."
+     ],
+     "a": [
+      [
+       "Guess what? I've been accepted into a month-long science program in the UK, and it still hasn't sunk in.",
+       "What excites me most is working in a real university lab alongside students from all over the world.",
+       "At the same time, I'm slightly nervous about being away from my family for a whole month.",
+       "On balance, the excitement is stronger now, because I've wanted this for years and the program seems very well organized.",
+       "I think talking to someone who went last year would help me feel much more settled."
+      ]
+     ],
+     "useful": [
+      "What excites me most is ...",
+      "On balance, ...",
+      "help me feel much more settled"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c1-05",
+   "title": "Adding emphasis",
+   "cards": [
+    {
+     "q": "Do we really need to keep the library open later during exams?",
+     "a": [
+      "I can't stress this enough: for many students, the library is the only quiet place to study. What really matters is that everyone gets a fair chance to prepare, whatever their situation at home.",
+      "Yes, we really do. It's during exam week that students need a calm place most, and an extra two hours each evening could make all the difference."
+     ],
+     "useful": [
+      "I can't stress this enough.",
+      "What really matters is ...",
+      "It's during ... that ..."
+     ],
+     "do": "At a student council meeting, you're not convinced the library needs longer hours during exams. Ask the others if it's really necessary."
+    },
+    {
+     "q": "Honestly, reading a summary of a novel is just as good as reading the whole book.",
+     "a": [
+      "I do think summaries have their uses, for example before a test. But the point I keep coming back to is that a good novel changes how you see things, and a summary simply can't do that.",
+      "The trouble with a summary is that it gives you the plot and nothing more. Not only does it skip the details, but it also takes away the experience of living with the characters."
+     ],
+     "useful": [
+      "I do think ...",
+      "Not only does it ..., but it also ...",
+      "The point I keep coming back to is ..."
+     ],
+     "do": "You believe a summary of a novel is just as good as the whole book. Tell your friend."
+    },
+    {
+     "q": "I'm skipping breakfast all week. It saves time, and it's really no big deal.",
+     "a": [
+      "It really is a big deal, though. It's your brain that needs that energy most during an exam, so skipping breakfast is the last thing you should do.",
+      "I know you're short of time, but what you eat in the morning really does affect how well you concentrate. Even a banana and a glass of milk would be far better than nothing."
+     ],
+     "useful": [
+      "It really is a big deal, though.",
+      "the last thing you should do",
+      "really does affect ..."
+     ],
+     "do": "It's exam week, and you've decided to skip breakfast to save time. Tell your cousin it's no big deal."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: persuade your principal to create a quiet study room.",
+     "steps": [
+      "State the problem.",
+      "Stress the most important reason.",
+      "Give a striking example.",
+      "Stress what will happen if nothing changes.",
+      "End by repeating your key point strongly."
+     ],
+     "a": [
+      [
+       "At the moment, there's nowhere at school where students can study in silence between classes.",
+       "What matters most is that students who can't concentrate at home have nowhere else to go.",
+       "Just last week, I found two classmates studying for a chemistry test on the stairs, because every room was full.",
+       "If nothing changes, it's those students who will fall behind, and not only will their grades suffer, but so will their confidence.",
+       "So I'll say it again: a quiet study room isn't a luxury; it's a necessity."
+      ]
+     ],
+     "useful": [
+      "not only will ..., but so will ...",
+      "So I'll say it again: ...",
+      "isn't a luxury; it's a necessity"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c1-06",
+   "title": "Talking around a missing word",
+   "cards": [
+    {
+     "q": "This is the second time your project has been late. What's going on?",
+     "a": [
+      "I'm afraid it's my own fault. The word escapes me, but it's when you keep putting something off even though you know you should start, and I've realized it's a habit I need to break.",
+      "To be honest, I've fallen into the habit of leaving everything until the last minute. There's a proper word for it, but I can't think of it right now. Either way, it won't happen again."
+     ],
+     "useful": [
+      "The word escapes me, but ...",
+      "it's when you keep ...ing",
+      "There's a proper word for it, but I can't think of it right now."
+     ],
+     "do": "You're the teacher. A student's project is late for the second time. Ask her what's going on.",
+     "do_m": "You're the teacher. A student's project is late for the second time. Ask him what's going on."
+    },
+    {
+     "q": "What kind of city would you like Riyadh to become?",
+     "a": [
+      "Ideally, a greener one. What's the word I'm looking for? I mean a city that meets our needs today without using up the water and energy our grandchildren will need.",
+      "It's on the tip of my tongue, but I'd like it to be the kind of city that doesn't waste resources. In other words, one with more shade, better public transportation and buildings that use far less energy, so it can keep going long into the future."
+     ],
+     "useful": [
+      "What's the word I'm looking for?",
+      "It's on the tip of my tongue.",
+      "In other words, ..."
+     ],
+     "do": "Ask your classmate what kind of city she would like Riyadh to become.",
+     "do_m": "Ask your classmate what kind of city he would like Riyadh to become."
+    },
+    {
+     "q": "Why are you so quiet? You've been looking at those old photos for ages.",
+     "a": [
+      "Sorry, I was miles away. It's that feeling you get when you look at old photos and miss a time you can't go back to. There's a word for it, but it's slipped my mind.",
+      "I was just thinking about our old house in ___. It's that feeling you get when you're happy and sad at the same time, because those days are gone for good. I'm fine, honestly, just a little sentimental today."
+     ],
+     "ex": "Abha · Taif · Dammam",
+     "useful": [
+      "I was miles away.",
+      "It's that feeling you get when ...",
+      "There's a word for it, but it's slipped my mind."
+     ],
+     "do": "Your friend has been looking at old family photos for ages without saying a word. Ask her why she's so quiet.",
+     "do_m": "Your friend has been looking at old family photos for ages without saying a word. Ask him why he's so quiet."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: in a university interview, describe your project on drinking water, but the word \"desalination\" escapes you.",
+     "steps": [
+      "Start explaining the project.",
+      "Notice the gap and keep going.",
+      "Describe the idea in other words.",
+      "Give an example.",
+      "Return smoothly to your main point."
+     ],
+     "a": [
+      [
+       "My project looked at how cities on the coast, like Jeddah, could produce more drinking water.",
+       "The method I focused on is called, oh, the word escapes me for a moment, but I'll explain what it means.",
+       "In other words, it's the process of taking the salt out of seawater so that it's safe to drink.",
+       "For example, much of the drinking water in Saudi Arabia comes from huge plants on the coast that do exactly that.",
+       "Anyway, the point is that I wanted to find a way to make that process use less energy."
+      ]
+     ],
+     "useful": [
+      "It's the process of ...ing",
+      "do exactly that",
+      "Anyway, the point is ..."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c1-07",
+   "title": "Giving constructive feedback",
+   "cards": [
+    {
+     "q": "Be honest. What do you think of my poster for the science fair?",
+     "a": [
+      "What works really well is your title, because it makes people want to stop and look. One thing you might want to look at is the amount of text, since the judges only spend a minute or two at each poster.",
+      "The research is clearly excellent. I wonder whether it'd be clearer if you turned some of those paragraphs into a diagram, so the key findings jump out at people."
+     ],
+     "useful": [
+      "What works really well is ...",
+      "One thing you might want to look at is ...",
+      "I wonder whether it'd be clearer if ..."
+     ],
+     "do": "Your science fair poster is finished. Ask your friend for her honest opinion of it.",
+     "do_m": "Your science fair poster is finished. Ask your friend for his honest opinion of it."
+    },
+    {
+     "q": "So, how did it sound? Do you think I'm ready?",
+     "a": [
+      "Very nearly. Your ideas came across really clearly, but I was wondering if you could slow down a little, especially in the middle. It'd be even stronger if you paused after each key point to give people time to take it in.",
+      "You're almost there. The content is strong; it's really just the pace I'd look at, because some of your best points went by too quickly for me to follow."
+     ],
+     "useful": [
+      "I was wondering if you could ...",
+      "It'd be even stronger if ...",
+      "You're almost there."
+     ],
+     "do": "You've just practiced your speech in front of a classmate. Ask her how it sounded and whether she thinks you're ready.",
+     "do_m": "You've just practiced your speech in front of a classmate. Ask him how it sounded and whether he thinks you're ready."
+    },
+    {
+     "q": "I've finished my story! What do you think of the ending?",
+     "a": [
+      "Overall, it's really coming along, and I loved the twist with the old key. The ending felt a little rushed, though, so perhaps the main character could have one more scene to react.",
+      "I really enjoyed it. The only part that didn't quite work for me was the ending, because everything happens in two lines. If you took a little more time over it, I think it would stay with readers much longer."
+     ],
+     "useful": [
+      "Overall, it's really coming along.",
+      "The only part that didn't quite work for me was ...",
+      "If you took a little more time over it, ..."
+     ],
+     "do": "You've just written a short story. Ask your older sister what she thinks of the ending.",
+     "do_m": "You've just written a short story. Ask your older brother what he thinks of the ending."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: give feedback on a group member's slides the day before your presentation.",
+     "steps": [
+      "Start with a genuine strength.",
+      "Raise your main concern tactfully.",
+      "Explain why it matters.",
+      "Suggest one concrete improvement.",
+      "End on an encouraging note."
+     ],
+     "a": [
+      [
+       "First of all, the design is excellent; the colors and images really pull the whole presentation together.",
+       "One thing I was wondering about, though, is whether a few of the slides have a bit too much text.",
+       "The reason I mention it is that people tend to read the slides instead of listening to us.",
+       "It might work better if each slide had just one key sentence and a picture, and we said the rest out loud.",
+       "Honestly, with that one change, I think your slides will be the strongest part of our presentation."
+      ]
+     ],
+     "useful": [
+      "One thing I was wondering about, though, is ...",
+      "The reason I mention it is that ...",
+      "with that one change, ..."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c1-08",
+   "title": "Big questions",
+   "cards": [
+    {
+     "q": "Do you think AI will take most people's jobs in your lifetime?",
+     "a": [
+      "I very much doubt that it'll take most jobs, although it's highly likely that it'll change almost every job in some way. People who learn to work with it will probably be in a much stronger position.",
+      "Some jobs, almost certainly. There's bound to be less demand for routine work like data entry, but new kinds of jobs will probably appear as well, as they have with every major technology."
+     ],
+     "useful": [
+      "I very much doubt that ...",
+      "It's highly likely that ...",
+      "There's bound to be ..."
+     ],
+     "do": "Ask your younger cousin whether she thinks AI will take most people's jobs in her lifetime.",
+     "do_m": "Ask your younger cousin whether he thinks AI will take most people's jobs in his lifetime."
+    },
+    {
+     "q": "Why do you think so many teenagers sleep badly these days?",
+     "a": [
+      "Phones are probably the main cause, since the light from screens can keep the brain alert late at night. Exam pressure may well play a part too, although it likely varies from person to person.",
+      "I'd say it's partly biological, because teenagers' body clocks naturally shift later. Combine that with early starts and late-night scrolling, and it's hardly surprising that so many of us are exhausted."
+     ],
+     "useful": [
+      "... are probably the main cause.",
+      "may well play a part",
+      "it's hardly surprising that ..."
+     ],
+     "do": "You're the teacher. Ask the class why they think so many teenagers sleep badly these days."
+    },
+    {
+     "q": "What do you think will happen to our cities if summers keep getting hotter?",
+     "a": [
+      "This could well lead to even more of city life moving indoors, into malls and air-conditioned spaces. If that were to happen, we'd be using more energy than ever, which would only make the problem worse.",
+      "By the time we're our parents' age, I suspect our cities will have changed a great deal. We'll probably be walking along shaded streets lined with trees that are planted for cooling, not just for decoration."
+     ],
+     "useful": [
+      "This could well lead to ...",
+      "If that were to happen, ...",
+      "will have changed a great deal"
+     ],
+     "do": "Ask your friend what she thinks will happen to our cities if summers keep getting hotter.",
+     "do_m": "Ask your friend what he thinks will happen to our cities if summers keep getting hotter."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: tell your class how you think technology will change schools over the next twenty years.",
+     "steps": [
+      "Say what is likely to change.",
+      "Speculate about one cause.",
+      "Weigh up two possible consequences.",
+      "Say how certain you are.",
+      "Conclude with your view."
+     ],
+     "a": [
+      [
+       "In twenty years, it's highly likely that students will be learning with AI tutors that adapt to their own pace.",
+       "One reason is that the technology is improving so fast that it's bound to become cheap enough for every school.",
+       "This could free teachers to spend more time on discussion and projects, but it might also mean that students do less of their own thinking.",
+       "I'm almost certain about the tutors, but I very much doubt that classrooms will disappear altogether.",
+       "So, in my view, technology will change how we learn, but good teachers will matter more than ever."
+      ]
+     ],
+     "useful": [
+      "students will be ...ing",
+      "This could ..., but it might also ...",
+      "will matter more than ever"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c1-09",
+   "title": "Summing up with your view",
+   "cards": [
+    {
+     "q": "So what did that article about screen time and sleep actually say?",
+     "a": [
+      "In a nutshell, it said that using screens late at night delays sleep. The main argument was that the light tricks the brain into thinking it's still daytime, although I'm not sure light is the whole story.",
+      "The writer argued that it isn't screen time itself that matters, but when we use our phones. It's been suggested that switching off an hour before bed helps most people, which seems sensible enough to me."
+     ],
+     "useful": [
+      "In a nutshell, ...",
+      "The main argument was that ...",
+      "It's been suggested that ..."
+     ],
+     "do": "Your friend has just read an article about screen time and sleep. Ask her what it actually said.",
+     "do_m": "Your friend has just read an article about screen time and sleep. Ask him what it actually said."
+    },
+    {
+     "q": "I missed the careers talk on engineering. What were the speaker's main points?",
+     "a": [
+      "The speaker pointed out that engineering is much broader than most people assume, from designing medical devices to planning whole cities. What I found convincing was the claim that teamwork matters as much as math.",
+      "There were really two main points: demand for engineers is expected to grow, and internships count for more than grades when you apply for jobs. I wasn't entirely persuaded by the second one, to be honest."
+     ],
+     "useful": [
+      "The speaker pointed out that ...",
+      "What I found convincing was ...",
+      "I wasn't entirely persuaded by ..."
+     ],
+     "do": "You missed the careers talk on engineering. Ask your classmate what the speaker's main points were."
+    },
+    {
+     "q": "We're almost out of time. Could someone sum up today's debate on homework?",
+     "a": [
+      "So, to recap, one side argued that homework helps us remember what we've learned, while the other claimed it simply adds stress. Most of us seemed to agree that shorter, more focused tasks would be a sensible compromise.",
+      "Reem made the point that homework builds independence, and Sara argued that it often just repeats what we did in class. Personally, I found Reem's argument more convincing, but only if the tasks are well designed."
+     ],
+     "a_m": [
+      "So, to recap, one side argued that homework helps us remember what we've learned, while the other claimed it simply adds stress. Most of us seemed to agree that shorter, more focused tasks would be a sensible compromise.",
+      "Khalid made the point that homework builds independence, and Nawaf argued that it often just repeats what we did in class. Personally, I found Khalid's argument more convincing, but only if the tasks are well designed."
+     ],
+     "useful": [
+      "So, to recap, ...",
+      "One side argued that ..., while the other claimed ...",
+      "... made the point that ..."
+     ],
+     "do": "You're the teacher. The class debate on homework is nearly over. Ask someone to sum it up."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: summarize a documentary about the Red Sea's coral reefs for your family.",
+     "steps": [
+      "Say what it was about in one sentence.",
+      "Give the two most important points.",
+      "Comment on one claim you found convincing.",
+      "Mention one point you're less sure about.",
+      "Give your overall view."
+     ],
+     "a": [
+      [
+       "Basically, it was about why some of the Red Sea's coral reefs seem to cope with heat better than reefs elsewhere.",
+       "The two main points were that warming seas are damaging reefs worldwide, and that scientists are studying Red Sea corals to learn how to protect others.",
+       "What I found really convincing was the claim that healthy reefs protect our coastlines and fishing, because the evidence was so clear.",
+       "I'm less sure about the idea that more tourism could help the reefs, as they never really explained how.",
+       "Overall, I'd say it was well worth watching, and it's made me want to see the reefs for myself."
+      ]
+     ],
+     "useful": [
+      "The two main points were that ...",
+      "I'm less sure about the idea that ...",
+      "Overall, I'd say ..."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c1-10",
+   "title": "Explaining a complex idea",
+   "cards": [
+    {
+     "q": "Everyone keeps talking about artificial intelligence. What actually is it?",
+     "a": [
+      "You know how your phone suggests the next word when you're typing? Well, that's a simple kind of AI: a program that has learned patterns from millions of examples. What makes it tricky is that it can sound very confident even when it's completely wrong.",
+      "Most of the AI you hear about is based on machine learning. The term sounds complicated, but basically, it's software that learns from examples instead of following fixed rules."
+     ],
+     "useful": [
+      "You know how ...? Well, ...",
+      "What makes it tricky is ...",
+      "The term sounds complicated, but basically, ..."
+     ],
+     "do": "You're a grandparent who keeps hearing about artificial intelligence. Ask your granddaughter what it actually is.",
+     "do_m": "You're a grandparent who keeps hearing about artificial intelligence. Ask your grandson what it actually is."
+    },
+    {
+     "q": "What's the difference between weather and climate? Isn't it the same thing?",
+     "a": [
+      "The key difference is that weather changes from day to day, whereas climate is the usual pattern over thirty years or more. So a sandstorm tomorrow is weather, but summers getting hotter decade after decade is a sign of climate change.",
+      "They're related, but not the same. In everyday terms, weather is like your mood on one particular day, while climate is more like your personality, which is why one rainy week in Riyadh doesn't mean the climate has changed."
+     ],
+     "useful": [
+      "The key difference is that ...",
+      "..., whereas ...",
+      "In everyday terms, ..."
+     ],
+     "do": "Ask your older cousin what the difference is between weather and climate."
+    },
+    {
+     "q": "So what exactly is your chemistry project about?",
+     "a": [
+      "It's about catalysts, which are substances that speed up a chemical reaction without being used up. I'm testing which one makes hydrogen peroxide, the liquid used to clean cuts, break down the fastest.",
+      "Basically, a catalyst is a kind of helper: it makes a reaction happen faster, and unlike the other chemicals, it's still there at the end. Our bodies are full of them, which is partly why I find the topic so fascinating."
+     ],
+     "useful": [
+      "..., which are ... that ...",
+      "Basically, a ... is a kind of ...",
+      "unlike ..., it's ..."
+     ],
+     "do": "Your friend keeps mentioning her chemistry project. Ask her what exactly it's about.",
+     "do_m": "Your friend keeps mentioning his chemistry project. Ask him what exactly it's about."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: explain your science project on growing plants with less water to a parent who isn't a scientist.",
+     "steps": [
+      "Link it to something they already know.",
+      "Explain the key term in plain words.",
+      "Explain how it works.",
+      "Make one important distinction clear.",
+      "Say why it matters."
+     ],
+     "a": [
+      [
+       "You know how farms have thin black pipes running along the ground under the palm trees? Well, my project builds on that idea.",
+       "The technical term is drip irrigation, but basically, it means giving each plant small amounts of water right at its roots.",
+       "The water travels slowly through the pipes and drips out through tiny holes, so very little is lost to the sun or the wind.",
+       "Unlike a sprinkler, which sprays the whole area, a drip system only waters the soil where the roots actually are.",
+       "It matters because water is scarce here, and farms use far more of it than homes do."
+      ]
+     ],
+     "useful": [
+      "The technical term is ..., but basically ...",
+      "so very little is lost to ...",
+      "It matters because ..."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c1-11",
+   "title": "Chairing a meeting",
+   "cards": [
+    {
+     "q": "Sorry, can I just add one more thing? I still think the posters are the most important part.",
+     "a": [
+      "Thanks, Joud, that's really helpful. Let's hear from someone else, though. Lama, you haven't had a chance to speak yet.",
+      "I can see how much it matters to you, and it's noted. Before we go any further, though, I'd like to make sure everyone has had a say."
+     ],
+     "a_m": [
+      "Thanks, Khalid, that's really helpful. Let's hear from someone else, though. Nawaf, you haven't had a chance to speak yet.",
+      "I can see how much it matters to you, and it's noted. Before we go any further, though, I'd like to make sure everyone has had a say."
+     ],
+     "useful": [
+      "Thanks, ... Let's hear from someone else.",
+      "it's noted",
+      "I'd like to make sure everyone has had a say."
+     ],
+     "do": "In a club meeting, you've already spoken several times. Ask if you can add one more thing, because you still think the posters matter most."
+    },
+    {
+     "q": "Honestly, last year's event was a disaster. Remember when the food arrived two hours late?",
+     "a": [
+      "That was frustrating, and there's definitely a lesson in it. Perhaps we could come back to that later, though, because the aim of today's meeting is to choose a date.",
+      "It's a fair point to raise. Could we make a note of it for when we discuss catering, and focus on the date for now? Otherwise, we'll run out of time."
+     ],
+     "useful": [
+      "Perhaps we could come back to that later.",
+      "The aim of today's meeting is to ...",
+      "Could we make a note of it ...?"
+     ],
+     "do": "In a meeting to plan this year's event, bring up how badly last year's event went. Remind everyone that the food arrived two hours late."
+    },
+    {
+     "q": "We've only got five minutes left, and we still haven't decided anything.",
+     "a": [
+      "You're right, so let's be practical. Can we try to reach a decision on the date, at least? We can sort out the smaller details in the group chat.",
+      "Good point. So, to wrap up, we've agreed that the event will be on a Thursday, and we've narrowed the venue down to two options. Let's vote on those now, and I'll confirm everything by Sunday."
+     ],
+     "useful": [
+      "Can we try to reach a decision on ...?",
+      "So, to wrap up, we've agreed that ...",
+      "we've narrowed ... down to ..."
+     ],
+     "do": "Your club meeting is almost over, and nothing has been decided. Point this out to the person chairing it."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: open and steer a meeting to plan your class's volunteering day at a home for the elderly.",
+     "steps": [
+      "Open the meeting and state its aim.",
+      "Set out the options.",
+      "Bring in a quieter member.",
+      "Redirect someone who goes off topic.",
+      "Summarize the decision and next steps."
+     ],
+     "a": [
+      [
+       "Thanks for coming, everyone. What we need to decide today is how we'll spend our volunteering day at the home.",
+       "As I see it, we have two options: we could prepare a short program for the residents, or we could simply spend the day talking and reading with them.",
+       "Noura, I'd really value your view on this. Which option would you prefer?",
+       "That's an interesting idea, Reem, but it's a little off topic, so could we park it for now?",
+       "So, we've agreed on talking and reading, Lama will contact the home, and we'll meet again next Tuesday to finalize the details."
+      ]
+     ],
+     "a_m": [
+      [
+       "Thanks for coming, everyone. What we need to decide today is how we'll spend our volunteering day at the home.",
+       "As I see it, we have two options: we could prepare a short program for the residents, or we could simply spend the day talking and reading with them.",
+       "Turki, I'd really value your view on this. Which option would you prefer?",
+       "That's an interesting idea, Nawaf, but it's a little off topic, so could we park it for now?",
+       "So, we've agreed on talking and reading, Khalid will contact the home, and we'll meet again next Tuesday to finalize the details."
+      ]
+     ],
+     "useful": [
+      "What we need to decide today is ...",
+      "As I see it, we have two options: ...",
+      "Could we park it for now?"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c1-12",
+   "title": "Helping others agree",
+   "cards": [
+    {
+     "q": "I did almost all the work on this project, and now Lama says she never got a fair chance!",
+     "q_m": "I did almost all the work on this project, and now Nawaf says he never got a fair chance!",
+     "a": [
+      "OK, let's slow down for a second. If I've understood you both correctly, you felt you had to take over, and Lama felt there was no room left for her to help.",
+      "So what matters most to you is that your hard work is recognized, which is completely fair. Lama, would you be willing to lead the presentation if we make it clear who did which part?"
+     ],
+     "a_m": [
+      "OK, let's slow down for a second. If I've understood you both correctly, you felt you had to take over, and Nawaf felt there was no room left for him to help.",
+      "So what matters most to you is that your hard work is recognized, which is completely fair. Nawaf, would you be willing to lead the presentation if we make it clear who did which part?"
+     ],
+     "useful": [
+      "If I've understood you both correctly, ...",
+      "So what matters most to you is ...",
+      "Would you be willing to ... if ...?"
+     ],
+     "do": "You did almost all the work on a group project, and now Lama says she never got a fair chance. Complain to another group member.",
+     "do_m": "You did almost all the work on a group project, and now Nawaf says he never got a fair chance. Complain to another group member."
+    },
+    {
+     "q": "It's my turn by the window! I sat in the middle the whole way last time!",
+     "a": [
+      "I can see why you feel that way. It sounds like you both want the window, so could we look at it another way? One of you sits there until we stop for prayer, and then you swap.",
+      "Let's be fair about this. Whoever sat in the middle last time gets the window now, and the other one gets it all the way home. Does that seem reasonable to you both?"
+     ],
+     "useful": [
+      "It sounds like you both want ...",
+      "Could we look at it another way?",
+      "Does that seem reasonable to you both?"
+     ],
+     "do": "You're on the long drive to Madinah with your family. You sat in the middle last time, so insist that it's your turn by the window."
+    },
+    {
+     "q": "You've heard us both. So which is better for the class trip, the museum or the desert camp?",
+     "a": [
+      "I'd rather not take sides. One of you wants something educational and the other wants something fun, so is there a way to have both? The desert camp could include a stargazing session with an astronomer, for example.",
+      "Before I answer, what matters most to each of you? If it's learning, the museum is the obvious choice, but if it's spending time together as a class, the camp is hard to beat."
+     ],
+     "useful": [
+      "I'd rather not take sides.",
+      "Is there a way to have both?",
+      "What matters most to each of you?"
+     ],
+     "do": "You and another classmate can't agree on the class trip: the museum or the desert camp. Ask a third classmate which is better."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: two of your cousins disagree about how to share the cost and the tasks for a family gathering for your grandparents. Help them agree.",
+     "steps": [
+      "Acknowledge how both of them feel.",
+      "Restate each position fairly.",
+      "Ask each of them what matters most.",
+      "Point out what they have in common.",
+      "Suggest a way forward they could both accept."
+     ],
+     "a": [
+      [
+       "I can tell you're both frustrated, and honestly, I understand why.",
+       "Joud, you feel the cost should be split equally, and Noura, you feel that whoever does more of the work should pay less.",
+       "So, what matters most to each of you: keeping the cost fair, or sharing the work fairly?",
+       "It sounds like you both want the day to be special for Grandma and Grandpa, and that's what really counts.",
+       "Would you be willing to split the cost equally if we make a list of tasks and share them out evenly?"
+      ]
+     ],
+     "a_m": [
+      [
+       "I can tell you're both frustrated, and honestly, I understand why.",
+       "Khalid, you feel the cost should be split equally, and Turki, you feel that whoever does more of the work should pay less.",
+       "So, what matters most to each of you: keeping the cost fair, or sharing the work fairly?",
+       "It sounds like you both want the day to be special for Grandma and Grandpa, and that's what really counts.",
+       "Would you be willing to split the cost equally if we make a list of tasks and share them out evenly?"
+      ]
+     ],
+     "useful": [
+      "I can tell you're both ...",
+      "..., you feel that ...",
+      "that's what really counts"
      ]
     }
    ]

@@ -10,7 +10,7 @@
   "أستطيع أن أعبّر عن الفروق الدقيقة في المعنى بتعابير اصطلاحية طبيعية.",
   "أستطيع أن أعيد صياغة كلامي بسلاسة إذا لم يكن واضحًا أو لم يعبّر عمّا أقصد."
  ],
- "more_coming": true,
+ "more_coming": false,
  "sets": [
   {
    "id": "c2-01",
@@ -238,6 +238,732 @@
       "I'm getting ahead of myself.",
       "Think of it like ...",
       "in plain terms"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c2-04",
+   "title": "Idioms in conversation",
+   "cards": [
+    {
+     "q": "So, how did the exam go? You looked pretty worried going in.",
+     "a": [
+      "It got off to a rocky start, to be honest; my mind went blank on the first question. But once I hit my stride, it went off without a hitch.",
+      "I misread the first question and had to start over, which really threw me. But it made me slow down and check everything twice, so it turned out to be a blessing in disguise."
+     ],
+     "useful": [
+      "It got off to a rocky start.",
+      "It went off without a hitch.",
+      "It turned out to be a blessing in disguise."
+     ],
+     "do": "Your friend looked worried before her exam. Ask her how it went.",
+     "do_m": "Your friend looked worried before his exam. Ask him how it went."
+    },
+    {
+     "q": "Guess what? I've signed up for three clubs, two online courses and volunteering every weekend!",
+     "a": [
+      "Wow, that's impressive, but aren't you biting off more than you can chew? You might want to start with two and add more once you know how much time they really take.",
+      "I admire your energy, I really do. But I bit off more than I could chew last year with half that much, so maybe keep at least one weekend free to catch your breath."
+     ],
+     "useful": [
+      "Aren't you biting off more than you can chew?",
+      "I bit off more than I could chew.",
+      "to catch your breath"
+     ],
+     "do": "You've signed up for three clubs, two online courses and volunteering every weekend. Tell your cousin all about it, excitedly."
+    },
+    {
+     "q": "So, have you chosen a university yet?",
+     "a": [
+      "Not yet, I'm afraid; the jury's still out. I've narrowed it down to two, but I'd like to visit both before I make up my mind.",
+      "Sort of. I have a clear first choice, but it all depends on my results, so we'll play it by ear until the summer."
+     ],
+     "useful": [
+      "The jury's still out.",
+      "I've narrowed it down to ...",
+      "We'll play it by ear."
+     ],
+     "do": "Your niece is in her last year of school. Ask her whether she's chosen a university yet.",
+     "do_m": "Your nephew is in his last year of school. Ask him whether he's chosen a university yet."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: tell a friend about a plan that went wrong but turned out for the best.",
+     "steps": [
+      "Set the scene.",
+      "Say what went wrong.",
+      "Describe the turning point.",
+      "Say how it turned out.",
+      "Sum it up with an idiom that fits the tone."
+     ],
+     "a": [
+      [
+       "Last spring, my cousins and I planned a surprise dinner for my grandfather's retirement, and we thought we had it all figured out.",
+       "Then, an hour before everyone arrived, the oven gave out, with the main dish still half-cooked.",
+       "Just as we were about to panic, my uncle suggested taking everything outside and finishing it on the grill.",
+       "We ended up eating in the courtyard under the stars, and my grandfather said it was the best evening he'd had in years.",
+       "So I guess every cloud has a silver lining, and ours came with grilled chicken."
+      ]
+     ],
+     "useful": [
+      "We thought we had it all figured out.",
+      "Just as we were about to ...",
+      "Every cloud has a silver lining."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c2-05",
+   "title": "Humor and understatement",
+   "cards": [
+    {
+     "q": "So, how's the weather in Riyadh right now?",
+     "a": [
+      "Let's just say I won't be going for a walk at noon. It's forty-eight degrees, so the air conditioner and I have become very close friends.",
+      "A touch on the warm side, you could say: it hit forty-eight today. Needless to say, nobody in my family has set foot outside since lunch."
+     ],
+     "useful": [
+      "Let's just say ...",
+      "a touch on the warm side",
+      "Needless to say, ..."
+     ],
+     "do": "It's August, and you're calling your friend in Riyadh from abroad. Ask her how the weather is.",
+     "do_m": "It's August, and you're calling your friend in Riyadh from abroad. Ask him how the weather is."
+    },
+    {
+     "q": "How did the five a.m. robotics practice go? You'd only had three hours' sleep!",
+     "a": [
+      "It wasn't exactly my finest hour. I connected the battery backward twice, and our coach very kindly suggested I take a short break.",
+      "Let's just say I wasn't at my sharpest. At one point, I spent a full minute looking for the screwdriver I was holding."
+     ],
+     "useful": [
+      "It wasn't exactly my finest hour.",
+      "Let's just say ...",
+      "I wasn't at my sharpest."
+     ],
+     "do": "Your friend had robotics practice at five this morning after only three hours of sleep. Ask her how it went.",
+     "do_m": "Your friend had robotics practice at five this morning after only three hours of sleep. Ask him how it went."
+    },
+    {
+     "q": "Your teacher wrote \"an ambitious choice of topic\" on your essay. That's a compliment, isn't it?",
+     "a": [
+      "That's one way of putting it! Coming from her, \"ambitious\" usually means I tried to cover far too much in two pages.",
+      "I suspect it's a touch more complicated than that. Teachers rarely write \"too big for an essay,\" so \"ambitious\" tends to be a polite way of saying exactly that."
+     ],
+     "a_m": [
+      "That's one way of putting it! Coming from him, \"ambitious\" usually means I tried to cover far too much in two pages.",
+      "I suspect it's a touch more complicated than that. Teachers rarely write \"too big for an essay,\" so \"ambitious\" tends to be a polite way of saying exactly that."
+     ],
+     "useful": [
+      "That's one way of putting it!",
+      "a touch more complicated than that",
+      "a polite way of saying ..."
+     ],
+     "do": "Your friend's teacher wrote \"an ambitious choice of topic\" on her essay. Ask her whether that's a compliment.",
+     "do_m": "Your friend's teacher wrote \"an ambitious choice of topic\" on his essay. Ask him whether that's a compliment."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: an exchange student didn't understand why everyone laughed when your grandmother called a day of forty-eight degrees \"a bit warm.\" Explain the joke.",
+     "q_m": "Talk for one minute: an exchange student didn't understand why everyone laughed when your grandfather called a day of forty-eight degrees \"a bit warm.\" Explain the joke.",
+     "steps": [
+      "Say what your grandmother said, and when.",
+      "Explain what the words literally mean.",
+      "Explain what she really meant.",
+      "Explain why it made everyone laugh.",
+      "Give a similar example of your own."
+     ],
+     "steps_m": [
+      "Say what your grandfather said, and when.",
+      "Explain what the words literally mean.",
+      "Explain what he really meant.",
+      "Explain why it made everyone laugh.",
+      "Give a similar example of your own."
+     ],
+     "a": [
+      [
+       "Last August, on the hottest afternoon of the year, my grandmother came in from the car and announced, \"It's a bit warm today.\"",
+       "Taken literally, that means slightly warmer than comfortable, which is a touch different from forty-eight degrees in the shade.",
+       "What she really meant, of course, was that it was unbearably hot; she was simply saying far less than she meant.",
+       "The gap between the words and the reality is what made it funny, especially since she said it with a completely straight face.",
+       "My brother does the same: after a three-hour exam, he'll say it was \"not bad,\" which, needless to say, means he aced it."
+      ]
+     ],
+     "a_m": [
+      [
+       "Last August, on the hottest afternoon of the year, my grandfather came in from the car and announced, \"It's a bit warm today.\"",
+       "Taken literally, that means slightly warmer than comfortable, which is a touch different from forty-eight degrees in the shade.",
+       "What he really meant, of course, was that it was unbearably hot; he was simply saying far less than he meant.",
+       "The gap between the words and the reality is what made it funny, especially since he said it with a completely straight face.",
+       "My brother does the same: after a three-hour exam, he'll say it was \"not bad,\" which, needless to say, means he aced it."
+      ]
+     ],
+     "useful": [
+      "a touch different from ...",
+      "with a completely straight face",
+      "Needless to say, ..."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c2-06",
+   "title": "Advising on something delicate",
+   "cards": [
+    {
+     "q": "I didn't get the scholarship. Maybe I'm just not good enough.",
+     "a": [
+      "That sounds really hard, and it's completely understandable that you feel that way right now. But if you don't mind me saying, one panel's decision says very little about what you're capable of.",
+      "I'd hate for you to read too much into one rejection. They had hundreds of strong applicants for a handful of places, so it says more about the odds than about you."
+     ],
+     "useful": [
+      "That sounds really hard, and it's completely understandable.",
+      "If you don't mind me saying, ...",
+      "I'd hate for you to ..."
+     ],
+     "do": "You've just found out you didn't get the scholarship you'd hoped for. Tell your best friend, and admit that you're starting to doubt yourself."
+    },
+    {
+     "q": "My parents really hope I'll study medicine, but architecture is what I love. What would you do in my position?",
+     "a": [
+      "Only you can decide, of course, but have you thought about showing your parents what architects actually do? They may just want a secure future for you, and there's more than one way to get there.",
+      "I'd hate for you to spend six years studying something your heart isn't in. It might be worth talking to a doctor and an architect with your parents, so you can all decide together."
+     ],
+     "useful": [
+      "Only you can decide, of course, but ...",
+      "Have you thought about ...?",
+      "It might be worth ...ing"
+     ],
+     "do": "Your parents hope you'll study medicine, but you love architecture. Tell your cousin, and ask what she would do in your position.",
+     "do_m": "Your parents hope you'll study medicine, but you love architecture. Tell your cousin, and ask what he would do in your position."
+    },
+    {
+     "q": "Lama's part of our project is really weak. Should I tell her?",
+     "q_m": "Nawaf's part of our project is really weak. Should I tell him?",
+     "a": [
+      "I think so, but how you say it matters more than whether you say it. Have you thought about starting with what works in her section, then suggesting one or two specific changes?",
+      "If you don't mind me saying, it's kinder to tell her now than to let her find out from the teacher. Just do it privately, and maybe offer to look at it together."
+     ],
+     "a_m": [
+      "I think so, but how you say it matters more than whether you say it. Have you thought about starting with what works in his section, then suggesting one or two specific changes?",
+      "If you don't mind me saying, it's kinder to tell him now than to let him find out from the teacher. Just do it privately, and maybe offer to look at it together."
+     ],
+     "useful": [
+      "Have you thought about ...?",
+      "If you don't mind me saying, ...",
+      "how you say it matters more than whether you say it"
+     ],
+     "do": "Lama's part of your group project is weak. Ask your friend whether you should tell Lama.",
+     "do_m": "Nawaf's part of your group project is weak. Ask your friend whether you should tell Nawaf."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: a younger student tells you she's so anxious about her final exams that she can't sleep.",
+     "q_m": "Talk for one minute: a younger student tells you he's so anxious about his final exams that he can't sleep.",
+     "steps": [
+      "Acknowledge her feelings without making light of them.",
+      "Share a brief experience of your own.",
+      "Offer one piece of advice, tactfully.",
+      "Gently question an unhelpful belief.",
+      "Leave the door open."
+     ],
+     "steps_m": [
+      "Acknowledge his feelings without making light of them.",
+      "Share a brief experience of your own.",
+      "Offer one piece of advice, tactfully.",
+      "Gently question an unhelpful belief.",
+      "Leave the door open."
+     ],
+     "a": [
+      [
+       "That sounds really hard, and it's completely understandable; finals feel enormous when you're in the middle of them.",
+       "I remember lying awake before my own exams in grade ten, convinced I'd forgotten everything I'd ever learned.",
+       "Have you thought about putting your notes away an hour before bed, so your mind has a chance to switch off?",
+       "And if you don't mind me saying, one bad night won't ruin your exams, even if it feels that way at two in the morning.",
+       "Whenever it gets too much, come and find me; I mean that."
+      ]
+     ],
+     "useful": [
+      "That sounds really hard, and it's completely understandable.",
+      "Have you thought about ...?",
+      "even if it feels that way"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c2-07",
+   "title": "A firm but polite stand",
+   "cards": [
+    {
+     "q": "This paragraph from the website says it perfectly. Let's just paste it into our report; nobody will notice.",
+     "a": [
+      "I'm afraid I can't go along with that. Even if nobody noticed, we'd know, and I'd rather we handed in something shorter than something that isn't ours.",
+      "I do see where you're coming from, but if it says it that well, let's quote it properly and credit the website. It takes two minutes, and it saves us a lot of trouble."
+     ],
+     "useful": [
+      "I'm afraid I can't go along with that.",
+      "I'd rather we ... than ...",
+      "I do see where you're coming from, but ..."
+     ],
+     "do": "Your group is short of time on a report. Suggest copying a paragraph from a website without citing it, since nobody will notice."
+    },
+    {
+     "q": "Could you send me your homework answers? Just this once, I promise.",
+     "a": [
+      "Much as I'd like to help, I'd really rather not, even just this once. I'm happy to go through the tricky questions with you on a call tonight, though, if that helps.",
+      "Please don't take it the wrong way, but I never share my answers; it's a rule I set myself. I hope you'll respect that, and I'm more than happy to help you work through them."
+     ],
+     "useful": [
+      "Much as I'd like to ..., ...",
+      "Please don't take it the wrong way, but ...",
+      "I hope you'll respect that."
+     ],
+     "do": "You haven't done your homework. Ask your friend to send you her answers, just this once.",
+     "do_m": "You haven't done your homework. Ask your friend to send you his answers, just this once."
+    },
+    {
+     "q": "Oh, come on, it's just a joke! Why aren't you laughing?",
+     "a": [
+      "Because it isn't funny to the person it's about, honestly. I'm not trying to lecture anyone, but I'd rather we left her out of it.",
+      "I know it was meant as a joke, but she isn't here to defend herself. For me, it's a matter of principle, so I'd rather not join in."
+     ],
+     "a_m": [
+      "Because it isn't funny to the person it's about, honestly. I'm not trying to lecture anyone, but I'd rather we left him out of it.",
+      "I know it was meant as a joke, but he isn't here to defend himself. For me, it's a matter of principle, so I'd rather not join in."
+     ],
+     "useful": [
+      "I'm not trying to lecture anyone, but ...",
+      "For me, it's a matter of principle.",
+      "I'd rather we ..."
+     ],
+     "do": "You posted a joke about a classmate in the class group chat, and your friend didn't react. Ask her why she isn't laughing.",
+     "do_m": "You posted a joke about a classmate in the class group chat, and your friend didn't react. Ask him why he isn't laughing."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: at a club meeting, someone suggests using AI to write the whole competition entry. You disagree on principle.",
+     "steps": [
+      "Acknowledge why the idea is tempting.",
+      "State your position clearly.",
+      "Explain the principle behind it.",
+      "Respond respectfully to a counter-argument.",
+      "Propose an alternative."
+     ],
+     "a": [
+      [
+       "I can see why it's tempting; we're all exhausted, and the deadline is only a week away.",
+       "But I'm afraid I can't go along with that.",
+       "For me, it's a matter of principle: the competition is meant to show what we can do, and an AI entry would show the judges nothing about us.",
+       "Everyone uses AI now, I know, and I do see where you're coming from, but checking our ideas with it is very different from letting it think for us.",
+       "I'd rather we came second with our own work than won with something that isn't really ours, so why don't we each draft one section by Sunday?"
+      ]
+     ],
+     "useful": [
+      "For me, it's a matter of principle.",
+      "I do see where you're coming from, but ...",
+      "I'd rather we ... than ..."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c2-08",
+   "title": "Handling tough questions",
+   "cards": [
+    {
+     "q": "Frankly, your sample is far too small to support that conclusion.",
+     "a": [
+      "That's a fair challenge, and here's why I'd still stand by my conclusion. I'm not claiming the result is final, only that it's consistent enough to justify a larger study.",
+      "I'm glad you raised that, because it's the first limitation I mention in my report. With a sample of forty, I describe the findings as preliminary rather than conclusive."
+     ],
+     "useful": [
+      "That's a fair challenge, and here's why I'd still ...",
+      "I'm glad you raised that, because ...",
+      "preliminary rather than conclusive"
+     ],
+     "do": "You're a judge at the science fair. Tell the student, bluntly, that her sample is far too small to support her conclusion.",
+     "do_m": "You're a judge at the science fair. Tell the student, bluntly, that his sample is far too small to support his conclusion."
+    },
+    {
+     "q": "With respect, you're contradicting what you said earlier.",
+     "a": [
+      "On the contrary, the two points fit together perfectly well. What I said earlier was that the plan is expensive; what I'm arguing now is that it's worth the cost.",
+      "If I could just finish the point, you'll see there's no contradiction. Earlier I was talking about younger children, whereas now I'm talking about teenagers, and the evidence for each is quite different."
+     ],
+     "useful": [
+      "On the contrary, ...",
+      "If I could just finish the point, ...",
+      "What I said earlier was ...; what I'm arguing now is ..."
+     ],
+     "do": "You're in a debate, and your opponent seems to have contradicted herself. Point it out, politely but firmly.",
+     "do_m": "You're in a debate, and your opponent seems to have contradicted himself. Point it out, politely but firmly."
+    },
+    {
+     "q": "Isn't it rather naive to think teenagers can make a real difference?",
+     "a": [
+      "With respect, I'd question the premise of that. Some of the most effective campaigns on food waste and recycling were started by people our age, so naive is the last word I'd use.",
+      "On the contrary, I'd say it's naive to assume we can't. We may not have money or power, but we have time, energy and a real talent for spreading ideas."
+     ],
+     "useful": [
+      "With respect, I'd question the premise of that.",
+      "... is the last word I'd use.",
+      "We may not have ..., but we have ..."
+     ],
+     "do": "You're on a panel. Ask the student, a little skeptically, whether it isn't rather naive to think teenagers can make a real difference."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: defend your plan for a reading program for children in the hospital to a skeptical committee member who keeps interrupting.",
+     "steps": [
+      "Acknowledge the challenge calmly.",
+      "Hold on to your turn.",
+      "Rebut the main objection with evidence.",
+      "Turn the criticism to your advantage.",
+      "Close firmly but politely."
+     ],
+     "a": [
+      [
+       "I'm glad you raised that, because it's exactly the question I asked myself at the start: will children who are unwell really want to read?",
+       "If I could just finish the point, I think the answer may surprise you.",
+       "When our club ran a two-week trial on a children's ward last spring, the nurses told us the children were asking for the reading volunteers by name.",
+       "In fact, your concern about tired patients is the very reason we'd keep each session to twenty minutes and let the children choose the books themselves.",
+       "So, with respect, I'd ask the committee to judge the program on its results, because I'm confident they'll speak for themselves."
+      ]
+     ],
+     "useful": [
+      "I'm glad you raised that, because ...",
+      "If I could just finish the point, ...",
+      "is the very reason ..."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c2-09",
+   "title": "Pulling it all together",
+   "cards": [
+    {
+     "q": "So, Grandpa wants the cool air in Abha, your brother wants to see AlUla, and I'd love some time by the sea in Jeddah. Can you sum that up and suggest one plan?",
+     "a": [
+      "Taken together, all three ideas come down to one wish: a change of scene and proper family time. That leaves us with Abha and Jeddah this summer, and AlUla in the winter, when it's far more pleasant.",
+      "Where they part ways is the pace: AlUla would be a busy sightseeing trip, whereas Abha and Jeddah are about slowing down. So why not keep the summer relaxed and save AlUla for a cooler weekend?"
+     ],
+     "useful": [
+      "Taken together, ...",
+      "Where they part ways is ...",
+      "That leaves us with ..."
+     ],
+     "do": "You're the parent. Grandpa wants Abha, your son wants AlUla, and you'd like Jeddah for the summer trip. Ask your oldest child to sum up the ideas and suggest one plan."
+    },
+    {
+     "q": "You've read all three articles on teaching young children to code. So, what do they add up to?",
+     "a": [
+      "Taken together, they suggest early coding helps, mainly because it teaches problem solving. Where they part ways is on the ideal age: one contends that six is best, whereas the other two would wait until ten.",
+      "What emerges from all this is that how children learn matters far more than when. All three authors acknowledge that playful, hands-on coding works; the real disagreement is about screen time, not coding itself."
+     ],
+     "useful": [
+      "What emerges from all this is ...",
+      "Where they part ways is ...",
+      "the real disagreement is about ..., not ..."
+     ],
+     "do": "You're the teacher. Your student has read three articles about teaching young children to code. Ask her what they add up to.",
+     "do_m": "You're the teacher. Your student has read three articles about teaching young children to code. Ask him what they add up to."
+    },
+    {
+     "q": "We've been going around in circles for an hour. Can you pull it all together for us?",
+     "a": [
+      "Sure. Noura wants the garden to look beautiful, and Lama wants it to be useful for science classes. Building on both of those points, why don't we plant native herbs, which would give us both?",
+      "Let me try. What emerges from all this is that nobody minds what we grow, as long as it survives the summer. That leaves us with two jobs: choosing hardy plants and drawing up a watering schedule."
+     ],
+     "a_m": [
+      "Sure. Khalid wants the garden to look good, and Turki wants it to be useful for science classes. Building on both of those points, why don't we plant native herbs, which would give us both?",
+      "Let me try. What emerges from all this is that nobody minds what we grow, as long as it survives the summer. That leaves us with two jobs: choosing hardy plants and drawing up a watering schedule."
+     ],
+     "useful": [
+      "Building on both of those points, ...",
+      "What emerges from all this is ...",
+      "That leaves us with ..."
+     ],
+     "do": "Your group has discussed the school garden for an hour without deciding anything. Ask a classmate to pull it all together."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: you interviewed a teacher, an engineer and a university student about choosing a career. Present what they told you as one picture.",
+     "steps": [
+      "Say what they all agree on.",
+      "Highlight where they differ.",
+      "Judge which view is best supported.",
+      "Link the views into one coherent picture.",
+      "Propose a conclusion."
+     ],
+     "a": [
+      [
+       "Taken together, all three agreed on one thing: you should choose a field that genuinely interests you, not just one that pays well.",
+       "Where they part ways is on timing: the engineer believes you should decide early, whereas the teacher contends that it's never too late to change course.",
+       "Of the three, I found the student's view the most convincing, since it drew on real experiences from the first year of university.",
+       "What emerges from all this is that curiosity should guide the choice, while the timing is more flexible than we tend to think.",
+       "That leaves us with a simple conclusion: follow what fascinates you, and keep your options open for as long as you can."
+      ]
+     ],
+     "useful": [
+      "Of the three, I found ... the most convincing.",
+      "What emerges from all this is ...",
+      "That leaves us with ..."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c2-10",
+   "title": "Changing register",
+   "cards": [
+    {
+     "q": "Why is the sky blue?",
+     "a": [
+      "Great question! Sunlight is all the colors mixed together, and when it hits the air, the blue bounces all over the sky. It's a bit like when you splash in a pool and drops fly everywhere.",
+      "Sunlight looks white, but it's really all the colors of the rainbow traveling together. The air bounces the blue around much more than the others, so blue reaches our eyes from every part of the sky."
+     ],
+     "useful": [
+      "Great question!",
+      "It's a bit like when ...",
+      "bounces all over the sky"
+     ],
+     "do": "Pretend you're a curious six-year-old. Ask your older cousin why the sky is blue."
+    },
+    {
+     "q": "Will we see you at the awards evening on Thursday?",
+     "a": [
+      "Thank you, that's very kind. I'm afraid I won't be able to attend, as my family will be traveling that evening. Would it be possible to receive the award at assembly the following week?",
+      "Thank you; it means a great deal. Unfortunately, I have a family commitment that evening, so I'm afraid I won't be able to be there. Would it be possible to send a recorded thank-you instead?"
+     ],
+     "useful": [
+      "I'm afraid I won't be able to ...",
+      "Would it be possible to ...?",
+      "It means a great deal."
+     ],
+     "do": "You're the principal. Ask a student whether you'll see her at the awards evening on Thursday.",
+     "do_m": "You're the principal. Ask a student whether you'll see him at the awards evening on Thursday."
+    },
+    {
+     "q": "Could you give the class a brief summary of your job-shadowing day at the hospital?",
+     "a": [
+      "Certainly. I'd like to begin by outlining the aim of the day, which was to observe a pediatric ward. The main insight I gained was that talking with families takes almost as much time as treatment.",
+      "Of course. The day was divided into two parts: the morning was spent in the emergency department and the afternoon in the pharmacy. What struck me most was the coordination required between the two."
+     ],
+     "useful": [
+      "I'd like to begin by outlining ...",
+      "The main insight I gained was that ...",
+      "What struck me most was ..."
+     ],
+     "do": "You're the teacher. Ask a student to give the class a brief summary of her job-shadowing day at the hospital.",
+     "do_m": "You're the teacher. Ask a student to give the class a brief summary of his job-shadowing day at the hospital."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: explain why sleep matters before exams, first to a seven-year-old, then to a classmate, and then to parents at a school evening.",
+     "steps": [
+      "Give the version for the child.",
+      "Give the version for your classmate.",
+      "Give the formal version for the parents.",
+      "Add one detail that only the parents would need."
+     ],
+     "a": [
+      [
+       "When you sleep, your brain tidies away everything you learned that day; it's a bit like when you put your toys back in the right boxes.",
+       "Honestly, here's the thing: pulling an all-nighter feels productive, but you'll have forgotten half of it by the morning.",
+       "I'd like to begin by outlining what the research shows: sleep plays a central role in consolidating memory, so well-rested students recall significantly more of what they've studied.",
+       "In practice, that means a consistent bedtime and no screens in the last hour of the evening, which is where your support at home makes all the difference."
+      ]
+     ],
+     "useful": [
+      "It's a bit like when ...",
+      "Honestly, here's the thing: ...",
+      "I'd like to begin by outlining ..."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c2-11",
+   "title": "Bridging two cultures",
+   "cards": [
+    {
+     "q": "Your grandmother keeps filling my cup. Would it be rude to say no?",
+     "q_m": "Your grandfather keeps filling my cup. Would it be rude to say no?",
+     "a": [
+      "Not at all, and it's an easy mistake to make. When you've had enough, just give the cup a gentle shake; until then, she'll assume you'd like more.",
+      "Not rude at all, I promise. It's not meant as pressure; it's more a sign of welcome, and a little shake of the cup tells her you're done."
+     ],
+     "a_m": [
+      "Not at all, and it's an easy mistake to make. When you've had enough, just give the cup a gentle shake; until then, he'll assume you'd like more.",
+      "Not rude at all, I promise. It's not meant as pressure; it's more a sign of welcome, and a little shake of the cup tells him you're done."
+     ],
+     "useful": [
+      "It's an easy mistake to make.",
+      "It's not meant as ...; it's more a sign of ..."
+     ],
+     "do": "You're a visiting teacher in a Saudi home, and your student's grandmother keeps refilling your coffee cup. Quietly ask your student whether it would be rude to say no.",
+     "do_m": "You're a visiting teacher in a Saudi home, and your student's grandfather keeps refilling your coffee cup. Quietly ask your student whether it would be rude to say no."
+    },
+    {
+     "q": "When I said I didn't like the dish, everyone went quiet. Did I say something wrong?",
+     "a": [
+      "Don't worry; I think something got lost in translation. Here, instead of \"I don't like it,\" people tend to say something softer, like \"It's new to me, but I can see why you love it.\"",
+      "Not really; you were just being honest. It's only that my mom spent all morning on it, so I'll let her know you meant no harm, and I'm sure she'll laugh about it by tomorrow."
+     ],
+     "a_m": [
+      "Don't worry; I think something got lost in translation. Here, instead of \"I don't like it,\" people tend to say something softer, like \"It's new to me, but I can see why you love it.\"",
+      "Not really; you were just being honest. It's only that my dad spent all morning on it, so I'll let him know you meant no harm, and I'm sure he'll laugh about it by tomorrow."
+     ],
+     "useful": [
+      "I think something got lost in translation.",
+      "people tend to say something softer",
+      "you meant no harm"
+     ],
+     "do": "You're an exchange student. At dinner, you told your host family you didn't like a dish, and the room went quiet. Ask your host whether you said something wrong."
+    },
+    {
+     "q": "Could we skip the long greetings and get straight down to business? We only have thirty minutes.",
+     "a": [
+      "Of course, and I'm sorry if it felt like wasted time. Where I'm from, people tend to ask about each other's families first. It's not meant as small talk; it's more a sign of respect.",
+      "That's fair, and we'll keep it short. In fairness, both ways make sense: you value people's time, and we value a warm start, so how about one minute of hellos and then straight to work?"
+     ],
+     "useful": [
+      "Where I'm from, people tend to ...",
+      "It's not meant as ...; it's more a sign of ...",
+      "In fairness, both ways make sense."
+     ],
+     "do": "You're on a video call with an international project team, and their greetings are taking up a lot of time. Politely suggest skipping them and getting straight to work."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: you're hosting an exchange student for Eid lunch with your family.",
+     "steps": [
+      "Brief her on one custom before you go in.",
+      "Notice a small misunderstanding at the table.",
+      "Smooth it over with your family.",
+      "Afterwards, explain what happened, without blaming anyone.",
+      "End on a positive note about both cultures."
+     ],
+     "steps_m": [
+      "Brief him on one custom before you go in.",
+      "Notice a small misunderstanding at the table.",
+      "Smooth it over with your family.",
+      "Afterwards, explain what happened, without blaming anyone.",
+      "End on a positive note about both cultures."
+     ],
+     "a": [
+      [
+       "Before we go in, one quick tip: people will keep offering you food to be generous, so when you've had enough, put your hand on your heart and say you're full.",
+       "Oh, are you waiting for someone to serve you? Here, we all just help ourselves from the big platter.",
+       "She didn't mean any offense at all; where she's from, guests wait until the host serves them.",
+       "I think something got lost in translation at lunch: you were being polite in your way, and my family was being generous in theirs.",
+       "In fairness, both ways make sense, and I think everyone at that table learned something today."
+      ]
+     ],
+     "a_m": [
+      [
+       "Before we go in, one quick tip: people will keep offering you food to be generous, so when you've had enough, put your hand on your heart and say you're full.",
+       "Oh, are you waiting for someone to serve you? Here, we all just help ourselves from the big platter.",
+       "He didn't mean any offense at all; where he's from, guests wait until the host serves them.",
+       "I think something got lost in translation at lunch: you were being polite in your way, and my family was being generous in theirs.",
+       "In fairness, both ways make sense, and I think everyone at that table learned something today."
+      ]
+     ],
+     "useful": [
+      "She didn't mean any offense at all.",
+      "I think something got lost in translation.",
+      "In fairness, both ways make sense."
+     ],
+     "useful_m": [
+      "He didn't mean any offense at all.",
+      "I think something got lost in translation.",
+      "In fairness, both ways make sense."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "c2-12",
+   "title": "Telling it memorably",
+   "cards": [
+    {
+     "q": "So, what was your Umrah like this year?",
+     "a": [
+      "I'll never forget the moment I first saw the Kaaba in the early morning light. Thousands of people were moving around it, and yet everything felt completely calm.",
+      "It was three in the morning, the marble was cool under our feet, and the courtyard was quietly filling up. To this day, I've never felt so small and so at peace at the same time."
+     ],
+     "useful": [
+      "I'll never forget the moment ...",
+      "..., and yet ...",
+      "To this day, ..."
+     ],
+     "do": "Your niece has just come back from Umrah with her family. Ask her what it was like this year.",
+     "do_m": "Your nephew has just come back from Umrah with his family. Ask him what it was like this year."
+    },
+    {
+     "q": "What was the most unforgettable moment of your desert trip?",
+     "a": [
+      "Picture this: no lights for miles, and a sky so full of stars it almost looked fake. Even my little brother, who never stops talking, was speechless for a good ten minutes.",
+      "Little did we know, as we made tea by the fire, that a sandstorm was heading our way. Minutes later, we were crammed in the car, laughing at how fast our perfect evening had fallen apart."
+     ],
+     "useful": [
+      "Picture this: ...",
+      "Little did we know ...",
+      "for a good ten minutes"
+     ],
+     "do": "Your friend has just been on a desert trip with her family. Ask her about the most unforgettable moment.",
+     "do_m": "Your friend has just been on a desert trip with his family. Ask him about the most unforgettable moment."
+    },
+    {
+     "q": "Can you describe the moment you knew what you wanted to study?",
+     "a": [
+      "It happened on my grandfather's farm, when I saw how much water was being wasted on the date palms. And that's when it hit me: I wanted to study environmental engineering.",
+      "Oddly enough, it was a small moment: helping my little sister with a math problem and watching her face light up when she got it. That look is what drew me to teaching."
+     ],
+     "a_m": [
+      "It happened on my grandfather's farm, when I saw how much water was being wasted on the date palms. And that's when it hit me: I wanted to study environmental engineering.",
+      "Oddly enough, it was a small moment: helping my little brother with a math problem and watching his face light up when he got it. That look is what drew me to teaching."
+     ],
+     "useful": [
+      "And that's when it hit me.",
+      "Oddly enough, ...",
+      "watching her face light up"
+     ],
+     "useful_m": [
+      "And that's when it hit me.",
+      "Oddly enough, ...",
+      "watching his face light up"
+     ],
+     "do": "You're the teacher. Ask a student to describe the moment she knew what she wanted to study.",
+     "do_m": "You're the teacher. Ask a student to describe the moment he knew what he wanted to study."
+    },
+    {
+     "talk": true,
+     "q": "Talk for one minute: at a family gathering, tell the story of the day your car broke down on the way to AlUla.",
+     "steps": [
+      "Open with a hook.",
+      "Set the scene with vivid detail.",
+      "Build up to the key moment.",
+      "Reveal what happened, with a twist or a reflection.",
+      "Close with a line people will remember."
+     ],
+     "a": [
+      [
+       "They say the journey matters more than the destination, and on our trip to AlUla, the journey very nearly became the destination.",
+       "Picture this: the middle of nowhere, forty-five degrees, and our car making a noise like a camel with a bad cough.",
+       "We'd been standing by the road for nearly two hours, with the water running low, when a dusty pickup truck finally pulled over.",
+       "Little did we know that the driver would not only fix our car but insist on taking us to his farm for lunch first.",
+       "To this day, my dad calls it the best breakdown we've ever had."
+      ]
+     ],
+     "useful": [
+      "Picture this: ...",
+      "Little did we know ...",
+      "To this day, ..."
      ]
     }
    ]
