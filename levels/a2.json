@@ -240,16 +240,23 @@
     },
     {
      "ar": "كيف شخصية أمك؟",
+     "ar_m": "كيف شخصية أبيك؟",
      "q": "What's your mom like?",
+     "q_m": "What's your dad like?",
      "a": [
       "She's really kind and patient.",
       "She's strict, but she's very funny."
      ],
+     "a_m": [
+      "He's really kind and patient.",
+      "He's strict, but he's very funny."
+     ],
      "do": "Ask your friend about her mom's personality.",
-     "do_m": "Ask your friend about his mom's personality.",
+     "do_m": "Ask your friend about his dad's personality.",
      "ask": "your mom: personality?",
+     "ask_m": "your dad: personality?",
      "do_ar": "اسألي صديقتك عن شخصية أمها.",
-     "do_ar_m": "اسأل صديقك عن شخصية أمه."
+     "do_ar_m": "اسأل صديقك عن شخصية أبيه."
     },
     {
      "ar": "من تشبهين في أسرتك؟",

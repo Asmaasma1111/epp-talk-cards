@@ -72,6 +72,15 @@
        "I'm sorry, but I'd better go because my sister is waiting for me.",
        "It was so nice to see you. Let's catch up soon!"
       ]
+     ],
+     "a_m": [
+      [
+       "Hi! Wow, I haven't seen you in two years!",
+       "How have you been?",
+       "I've moved to a new school this year, and I really like it.",
+       "I'm sorry, but I'd better go because my brother is waiting for me.",
+       "It was so nice to see you. Let's catch up soon!"
+      ]
      ]
     }
    ]
@@ -352,6 +361,10 @@
       "I was checking my email when I saw the news. I got into the coding camp I applied for, so I can't stop smiling!",
       "My little sister said her first English word this morning! We were having breakfast when she suddenly said \"apple,\" so we all laughed."
      ],
+     "a_m": [
+      "I was checking my email when I saw the news. I got into the coding camp I applied for, so I can't stop smiling!",
+      "My little brother said his first English word this morning! We were having breakfast when he suddenly said \"apple,\" so we all laughed."
+     ],
      "do": "Your friend looks very excited. Ask her what happened.",
      "do_m": "Your friend looks very excited. Ask him what happened."
     },
@@ -361,6 +374,10 @@
      "a": [
       "Yes! I was making tea for my mom's guests when I put salt in it instead of sugar. Nobody said anything because they were too polite!",
       "Yes! My mom was looking for her glasses all morning, so we all helped her. Then my sister noticed they were on her head the whole time!"
+     ],
+     "a_m": [
+      "Yes! I was making tea for my dad's guests when I put salt in it instead of sugar. Nobody said anything because they were too polite!",
+      "Yes! My dad was looking for his glasses all morning, so we all helped him. Then my brother noticed they were on his head the whole time!"
      ],
      "do": "Ask your friend if anything funny has happened to her this week.",
      "do_m": "Ask your friend if anything funny has happened to him this week."

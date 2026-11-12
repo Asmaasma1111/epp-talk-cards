@@ -795,6 +795,10 @@ let classList = null;      // classes from the teacher's Sheet, this visit
 // shows them as one choice, "I'm from another school", followed by the grade only. Nobody is asked which school.
 const OTHER_PREFIX = 'Another school · ';
 const isOtherClass = n => String(n || '').startsWith(OTHER_PREFIX);
+// People who are not students at all (12 Nov 2026, her request): a row named "I'm not a student" in the Classes tab.
+// It is listed last, after "I'm from another school", and shown with "(doesn't apply)".
+const NOT_STUDENT = "I'm not a student";
+const isNotStudent = n => String(n || '').startsWith(NOT_STUDENT);
 const GRADE_AR = { '10th grade': 'الأول الثانوي', '11th grade': 'الثاني الثانوي', '12th grade': 'الثالث الثانوي' };
 const gradeLabel = n => { const g = String(n).slice(OTHER_PREFIX.length); return GRADE_AR[g] ? `${g} · ${GRADE_AR[g]}` : g; };
 // Boys and girls apart (9 Nov 2026, her decision): each class in the Sheet is for girls, for boys, or for any; a
@@ -835,13 +839,15 @@ function fillClassSelect(sel, current, withSolo) {
     add('', 'Tap Girl or Boy first'); sel.value = ''; sel.disabled = true; syncGrade(sel, current); return;
   }
   sel.disabled = false;
-  const mine = (classList || []).filter(c => !isOtherClass(c.name) && fitsWho(c, who)), other = otherClasses(who);
-  const keep = !!current && (mine.some(c => c.name === current) || (isOtherClass(current) && other.length > 0));
+  const all = (classList || []).filter(c => !isOtherClass(c.name) && fitsWho(c, who)), other = otherClasses(who);
+  const mine = all.filter(c => !isNotStudent(c.name)), none = all.filter(c => isNotStudent(c.name));
+  const keep = !!current && (all.some(c => c.name === current) || (isOtherClass(current) && other.length > 0));
   if (!withSolo || (current && !keep && !st.me.solo)) add('', 'Choose your class');   // her class is not for this choice: she must pick again
   mine.forEach(c => add(c.name, c.name));
   if (other.length) add('__other', "I'm from another school");
+  none.forEach(c => add(c.name, `${c.name} (doesn't apply)`));
   if (withSolo) add('__solo', 'On my own (nothing is sent)');
-  if (keep && mine.some(c => c.name === current)) sel.value = current;
+  if (keep && all.some(c => c.name === current)) sel.value = current;
   else if (keep) sel.value = '__other';
   else if (withSolo && (!current || st.me.solo)) sel.value = '__solo';
   else sel.value = '';
@@ -849,7 +855,10 @@ function fillClassSelect(sel, current, withSolo) {
 }
 function aboutClassNote() {
   const n = $('#classNote'); if (!n) return;
-  n.textContent = aboutWho ? 'Not in the list? Choose "I\'m from another school".' : 'Tap Girl or Boy first to see your classes.';
+  const none = (classList || []).some(c => isNotStudent(c.name) && fitsWho(c, aboutWho));
+  n.textContent = !aboutWho ? 'Tap Girl or Boy first to see your classes.'
+    : none ? 'Not in the list? Choose "I\'m from another school". Not a student? Choose "I\'m not a student".'
+    : 'Not in the list? Choose "I\'m from another school".';
 }
 const firstName = () => (st.me.name || '').split(' ')[0];
 const nameParts = () => { const w = (st.me.name || '').split(' '); return { first: w[0] || '', family: w.slice(1).join(' ') || w[0] || '' }; };

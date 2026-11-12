@@ -373,6 +373,14 @@
        "I bake with my sister.",
        "I don't like watching TV."
       ]
+     ],
+     "a_m": [
+      [
+       "I like baking.",
+       "I bake every weekend.",
+       "I bake with my brother.",
+       "I don't like watching TV."
+      ]
      ]
     }
    ]
@@ -599,8 +607,9 @@
       "It's on the table."
      ],
      "do": "Ask your sister where her phone is.",
+     "do_m": "Ask your brother where his phone is.",
      "do_ar": "اسألي أختك: أين هاتفها؟",
-     "do_ar_m": "اسأل أختك: أين هاتفها؟"
+     "do_ar_m": "اسأل أخاك: أين هاتفه؟"
     },
     {
      "talk": true,
