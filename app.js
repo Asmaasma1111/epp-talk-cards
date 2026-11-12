@@ -11,11 +11,11 @@ const PARAMS = new URLSearchParams(location.search);
 const DEV = PARAMS.get('dev') === '1';
 const CONFIG = Object.assign({ apiUrl: '', appUrl: 'https://speak-cards-app.vercel.app/' }, window.EPP_CONFIG || {});
 const KEY = { state: 'epp:state', outbox: 'epp:outbox', classes: 'epp:classes', dev: 'epp:devOffset', feedback: 'epp:feedback' };
-const APP_VERSION = 'v25';   // shown in feedback rows; keep in step with sw.js
+const APP_VERSION = 'v26';   // shown in feedback rows; keep in step with sw.js
 const INTERVAL = [0, 1, 2, 4, 8, 16, 32, 64];          // days until next review, by box (Maria's ladder)
 const SPEEDS = { slow: 0.75, standard: 0.85, normal: 0.95 };
 const CLIP_SPEEDS = { slow: 0.88, standard: 1, normal: 1.12 };
-const NEW_MAX = 4;          // new cards a day (ask cards count)
+const NEW_MAX = 10;         // new cards a day (ask cards count); 4 until 12 Nov 2026, raised to 10 on her request
 const DUE_LIMIT = 30;       // no new cards on a day with this many due
 const EXTRA = 4;            // "Learn 4 more"
 const GOAL = 600;           // 10 minutes of active practice, in seconds
@@ -57,7 +57,8 @@ const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
 
 /* ---------- catalogue: levels/index.json + one file per level ---------- */
 const LEVELS = [], LEVEL = {}, SETS = [], SET = {}, CARD = {};
-const ALWAYS = new Set();      // levels that are always open: the optional starter and the first main level
+const ALWAYS = new Set();      // levels that are always open: the optional starter, the first main level, and any level
+                               // marked "start" in index.json (A2 since 12 Nov 2026, so a student can begin there)
 function buildCatalog(index, files) {
   let order = 0;
   index.levels.forEach(L => {
@@ -92,7 +93,7 @@ function buildCatalog(index, files) {
     LEVELS.push(lv); LEVEL[lv.id] = lv;
   });
   const firstMain = LEVELS.findIndex(l => !l.optional);
-  LEVELS.forEach((l, i) => { if (i <= firstMain) ALWAYS.add(l.id); });
+  LEVELS.forEach((l, i) => { if (i <= firstMain || index.levels[i].start) ALWAYS.add(l.id); });
 }
 const kindOf = c => (c.kind === 'ask' ? 'ask' : c.talk ? 'talk' : 'answer');
 // A card that addresses a girl carries its boys' wording in <field>_m (2 Nov 2026, approved by Dr. Asma card by card).
@@ -127,7 +128,7 @@ function defaults() {
     certs: {},                                    // level id -> {date, stars}
     prize: '',                                    // "target|prize" already celebrated
     lastTs: 0,                                    // time of the last card answered
-    settings: { speed: 'standard', sfx: true, size: 'M', newPerDay: NEW_MAX }
+    settings: { speed: 'standard', sfx: true, size: 'M', newPerDay: NEW_MAX, nv: 2 }
   };
 }
 let st;
@@ -155,6 +156,9 @@ function merge(s) {
   if (!/^[A-Za-z0-9-]{8,40}$/.test(String(o.sid))) o.sid = uuid();
   if (!LEVEL[o.level]) o.level = d.level;
   if (!['welcome', 'about', 'start', 'done'].includes(o.setup)) o.setup = 'welcome';
+  // 12 Nov 2026: the daily limit went from 4 to 10. A student still on the old 4 (the old default and maximum) moves to
+  // 10 once; anyone who chose 1 to 3 keeps her number. nv marks the move as done so a later choice of 4 is kept.
+  if (obj(s.settings, {}).nv !== 2) { if (Number(o.settings.newPerDay) === 4) o.settings.newPerDay = NEW_MAX; o.settings.nv = 2; }
   o.settings.newPerDay = Math.min(NEW_MAX, Math.max(1, Number(o.settings.newPerDay) || NEW_MAX));
   if (!SIZES[o.settings.size]) o.settings.size = 'M';
   if (!SPEEDS[o.settings.speed]) o.settings.speed = 'standard';
@@ -1063,9 +1067,26 @@ function progress() {
   const p = S.all.size ? S.good.size / S.all.size : 0;
   $('#progFill').style.width = (p * 100) + '%';
 }
+// Top-up (12 Nov 2026, with the 10-a-day limit): only one set of a level is open at a time, so a day's session could
+// start with just its 4 cards. When the queue runs out and a set was finished on the way, the cards that just became
+// new (the done set's "Your turn to ask!" cards, then the next set) join the same session, up to the day's limit.
+function topUp() {
+  if (S.mode !== 'normal') return;
+  const add = newOrder().filter(id => !S.all.has(id)).slice(0, newCap());
+  add.forEach(id => { S.queue.push(id); S.all.add(id); });
+  if (add.length) progress();
+}
+// Will topUp() bring cards of this newly opened set into today's session? (for the "New set!" line)
+function setComesToday(setId) {
+  if (!S || S.mode !== 'normal') return false;
+  const waiting = S.queue.filter(id => peek(id).box === 0 && !S.rated.has(id)).length;
+  const room = Math.max(0, newCap() - waiting);
+  return newOrder().filter(id => !S.all.has(id)).slice(0, room).some(id => CARD[id].set === setId);
+}
 function nextCard() {
   Speech.stop(); Rec.reset();
   if (!S) return;
+  if (!S.queue.length) topUp();
   if (!S.queue.length) return endSession(false);
   S.cur = S.queue.shift();
   S.flipped = S.seenBack = S.flipping = S.busy = false;
@@ -1384,7 +1405,7 @@ function showCelebration(c, then) {
     badge.textContent = s.idx + 1;
     $('#celKicker').textContent = 'New set!';
     $('#celTitle').textContent = s.title;
-    $('#celSub').textContent = `${LEVEL[s.level].code} · Set ${s.idx + 1} of ${LEVEL[s.level].sets.length}. Its cards start next time.`;
+    $('#celSub').textContent = `${LEVEL[s.level].code} · Set ${s.idx + 1} of ${LEVEL[s.level].sets.length}. ${setComesToday(s.id) ? 'Its cards come up next.' : 'Its cards start next time.'}`;
     btn.textContent = "Let's go!";
   } else if (c.type === 'level' || c.type === 'next') {
     const l = LEVEL[c.level];
@@ -1789,7 +1810,7 @@ function renderSettings() {
     </div>
     <div class="p-group">
       <div class="p-row"><span>Text size</span>${seg('size', [['S', 'S'], ['M', 'M'], ['L', 'L']], s.size)}</div>
-      <div class="p-row"><span>New cards a day<span class="sub">At most 4, and none on a day with 30 or more cards due</span></span>
+      <div class="p-row"><span>New cards a day<span class="sub">At most ${NEW_MAX}, and none on a day with ${DUE_LIMIT} or more cards due</span></span>
         <div class="step"><button class="p-btn" data-step="-1" aria-label="Fewer">−</button><output id="sNew">${s.newPerDay}</output><button class="p-btn" data-step="1" aria-label="More">+</button></div></div>
     </div>
     <div class="p-group">
